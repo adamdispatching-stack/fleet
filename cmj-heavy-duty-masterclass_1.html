@@ -205,39 +205,6 @@ td .m{font-family:var(--mono);font-size:12.5px}
 .alpha button{font-family:var(--mono);font-size:12.5px;font-weight:600;background:var(--card);border:1px solid var(--line);border-radius:7px;padding:5px 10px;cursor:pointer;color:var(--ink-soft)}
 .alpha button:hover,.alpha button.on{background:var(--accent);color:#fff;border-color:var(--accent)}
 
-/* ---------- QUIZ ---------- */
-.qzsetup{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:30px 34px;margin:26px 0}
-.qzsetup h4{margin-top:0}
-.qzrow{display:flex;gap:10px;flex-wrap:wrap;margin:14px 0 22px}
-.qzpick{background:var(--paper);border:1.5px solid var(--line);border-radius:9px;padding:10px 18px;font-size:14px;font-weight:600;color:var(--ink);cursor:pointer;font-family:var(--sans);transition:all .13s}
-.qzpick:hover{border-color:var(--accent)}
-.qzpick.on{background:var(--accent);border-color:var(--accent);color:#fff}
-.qzstart{background:var(--accent);color:#fff;border:none;border-radius:9px;padding:13px 30px;font-size:15px;font-weight:700;cursor:pointer;font-family:var(--sans)}
-.qzstart:hover{background:var(--accent-deep)}
-.qzbar{height:8px;background:var(--line-soft);border-radius:4px;margin:18px 0;overflow:hidden}
-.qzbar div{height:100%;background:var(--accent);border-radius:4px;transition:width .25s}
-.qzmeta{display:flex;justify-content:space-between;font-size:12.5px;color:var(--ink-mute);font-family:var(--mono)}
-.qzcard{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:30px 34px;margin:18px 0}
-.qzchap{font-size:10.5px;letter-spacing:2px;text-transform:uppercase;color:var(--accent);font-weight:700;margin-bottom:10px}
-.qzq{font-family:var(--serif);font-size:22px;font-weight:600;line-height:1.35;margin-bottom:20px}
-.qzopts{display:flex;flex-direction:column;gap:10px}
-.qzopt{background:var(--paper);border:1.5px solid var(--line);border-radius:9px;padding:13px 17px;cursor:pointer;font-size:14.5px;font-weight:500;color:var(--ink);text-align:left;font-family:var(--sans);line-height:1.5;transition:all .13s}
-.qzopt:hover{border-color:var(--accent)}
-.qzopt.correct{background:var(--green-soft);border-color:var(--green);color:var(--green);font-weight:700}
-.qzopt.wrong{background:var(--red-soft);border-color:var(--red);color:var(--red)}
-.qzopt:disabled{cursor:default}
-.qzexp{margin-top:16px;background:var(--gold-soft);border:1px solid #e6d9ab;border-radius:9px;padding:14px 18px;font-size:14px;line-height:1.6;color:var(--ink-soft);display:none}
-.qzexp.show{display:block}
-.qzexp b{color:var(--gold)}
-.qznext{margin-top:16px;background:var(--ink);color:#fff;border:none;border-radius:9px;padding:11px 26px;font-size:14px;font-weight:700;cursor:pointer;font-family:var(--sans);display:none}
-.qznext.show{display:inline-block}
-.qzscore{text-align:center;padding:10px 0 4px}
-.qzscore .big{font-family:var(--serif);font-size:64px;font-weight:600;color:var(--accent-deep);line-height:1}
-.qzscore .rank{display:inline-block;margin:14px 0 6px;background:var(--accent-soft);color:var(--accent-deep);font-weight:700;border-radius:20px;padding:7px 20px;font-size:15px}
-.qzmiss{border-left:3px solid var(--red);background:var(--card);border-radius:0 9px 9px 0;padding:12px 16px;margin:10px 0;font-size:13.5px}
-.qzmiss b{display:block}
-.qzmiss a{color:var(--accent);cursor:pointer;font-weight:600}
-
 /* ---------- HERO (start page) ---------- */
 .hero{background:linear-gradient(135deg,#181b21 0%,#232936 60%,#2d3243 100%);border-radius:18px;padding:52px 54px;color:#e8eaee;margin-bottom:44px;position:relative;overflow:hidden}
 .hero::after{content:'';position:absolute;right:-60px;top:-60px;width:320px;height:320px;border-radius:50%;border:1.5px solid rgba(217,122,46,.25)}
@@ -250,11 +217,6 @@ td .m{font-family:var(--mono);font-size:12.5px}
 .stat b{font-family:var(--serif);font-size:30px;font-weight:600;color:var(--accent-deep);display:block;line-height:1.1}
 .stat span{font-size:12px;color:var(--ink-mute);letter-spacing:.4px;line-height:1.4;display:block;margin-top:4px}
 
-.appfoot{margin-top:80px;padding:26px 4px 0;border-top:1px solid var(--line);display:flex;justify-content:space-between;align-items:center;gap:14px;flex-wrap:wrap}
-.appfoot .cpy{font-size:12.5px;color:var(--ink-mute)}
-.appfoot .cpy b{color:var(--ink)}
-.appfoot a.tg{display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:600;color:var(--steel);text-decoration:none;background:var(--steel-soft);border:1px solid #cddaea;border-radius:20px;padding:7px 16px;transition:all .15s}
-.appfoot a.tg:hover{background:var(--steel);color:#fff}
 .mob-toggle{display:none;position:fixed;top:14px;left:14px;z-index:60;background:var(--side-bg);color:#e8eaee;border:none;border-radius:9px;width:42px;height:42px;font-size:19px;cursor:pointer}
 @media(max-width:1080px){
   .sidebar{transform:translateX(-100%);transition:transform .22s}
@@ -282,7 +244,7 @@ td .m{font-family:var(--mono);font-size:12.5px}
   </div>
   <button class="searchbtn" onclick="openSearch()">🔍 Search everything… <kbd>/</kbd></button>
   <nav id="nav"></nav>
-  <div class="sidefoot"><div style="margin-bottom:8px">© 2026 CMJ Fleet · <a href="https://t.me/adam_cooper" target="_blank" rel="noopener" style="color:#d97a2e;text-decoration:none">t.me/adam_cooper</a></div>Built for working fleets. Torque specs and intervals are typical industry values — always confirm against the OEM service manual for your specific serial number.</div>
+  <div class="sidefoot">Built for working fleets. Torque specs and intervals are typical industry values — always confirm against the OEM service manual for your specific serial number.</div>
 </aside>
 <main class="main"><div class="content" id="content">
 
@@ -333,7 +295,7 @@ td .m{font-family:var(--mono);font-size:12.5px}
 
 <h3>How to use this reference</h3>
   <p><strong>Every chapter opens with a dashed "In Plain English" box</strong> — the whole idea in simple words first, so the technical depth underneath always has something to hold onto. Read the simple box, then the deep version, and the language barrier disappears.</p>
-  <p>Read chapters 2–7 in order once — they build on each other, and everything else in the truck makes sense once you understand how the engine breathes, eats, and cools. After that, this becomes a lookup tool: hit <strong>/</strong> to search anything, jump to the <strong>Troubleshooter</strong> when a truck is down, and pull the <strong>Fault Codes</strong> chapter when the dash lights up. When you want to check what stuck, take the <strong>Knowledge Quiz</strong> — ten questions with your coffee.</p>
+  <p>Read chapters 2–7 in order once — they build on each other, and everything else in the truck makes sense once you understand how the engine breathes, eats, and cools. After that, this becomes a lookup tool: hit <strong>/</strong> to search anything, jump to the <strong>Troubleshooter</strong> when a truck is down, and pull the <strong>Fault Codes</strong> chapter when the dash lights up.</p>
   <p>When you bring me a truck issue in our conversations, reference the chapter it touches. I'll fill the gaps — this page gives us a shared vocabulary so we can skip the basics and go straight to diagnosis.</p>
 
   <h3>The veteran's diagnostic method</h3>
@@ -2098,33 +2060,6 @@ td .m{font-family:var(--mono);font-size:12.5px}
   <div id="glist"></div>
 </section>
 
-
-<!-- ============ 21 QUIZ ============ -->
-<section class="page" id="quiz">
-  <div class="kicker">Chapter 21 · Shop Tools</div>
-  <h2 class="title">Knowledge Quiz</h2>
-  <p class="lede">Test yourself on everything in this reference. Instant feedback, plain-language explanations, and a mechanic rank at the end. <strong>Wrong answers teach more than right ones</strong> — every miss links you back to the chapter to re-read.</p>
-  <div class="callout plain"><span class="ct">In Plain English — the simple version</span><p>Reading builds knowledge, but <strong>answering questions builds memory</strong> — your brain keeps what it has to work for. Take the 10-question quick quiz often (coffee-break size), and the full exam once you feel strong. Don&rsquo;t fear wrong answers: each one shows the explanation AND where to re-read. Miss it twice, and you&rsquo;ll never miss it again.</p></div>
-  <div id="qzhome"></div>
-  <div id="qzplay" style="display:none">
-    <div class="qzmeta"><span id="qzcount"></span><span id="qzrun"></span></div>
-    <div class="qzbar"><div id="qzfill" style="width:0%"></div></div>
-    <div class="qzcard">
-      <div class="qzchap" id="qzchap"></div>
-      <div class="qzq" id="qzq"></div>
-      <div class="qzopts" id="qzopts"></div>
-      <div class="qzexp" id="qzexp"></div>
-      <button class="qznext" id="qznext" onclick="qzNext()">Next question →</button>
-    </div>
-    <button class="tsback" onclick="qzHome()">✕ Quit quiz</button>
-  </div>
-  <div id="qzdone" style="display:none"></div>
-</section>
-
-<footer class="appfoot">
-  <div class="cpy">© 2026 <b>CMJ Fleet</b> · The Heavy-Duty Masterclass. All rights reserved.</div>
-  <a class="tg" href="https://t.me/adam_cooper" target="_blank" rel="noopener">✈ Reach us on Telegram — @adam_cooper</a>
-</footer>
 </div></main></div>
 
 <!-- ============ SEARCH OVERLAY ============ -->
@@ -2143,7 +2078,7 @@ const NAV=[
  {g:'Platform Deep Dives',items:[['cummins','08','Cummins X15 / ISX'],['detroit','09','Detroit DD13 / DD15']]},
  {g:'Chassis & Driveline',items:[['brakes','10','Air Brakes'],['electrical','11','Electrical & Charging'],['drivetrain','12','Drivetrain'],['suspension','13','Suspension & Wheel End']]},
  {g:'The Master Layer',items:[['worn','14','Reading Worn Parts'],['procedures','15','Procedures & Specs'],['economics','16','Fleet Economics']]},
- {g:'Shop Tools',items:[['pm','17','PM Schedules & Checklists'],['troubleshoot','18','Troubleshooter'],['codes','19','Fault Code Reference'],['glossary','20','Glossary'],['quiz','21','Knowledge Quiz']]}
+ {g:'Shop Tools',items:[['pm','17','PM Schedules & Checklists'],['troubleshoot','18','Troubleshooter'],['codes','19','Fault Code Reference'],['glossary','20','Glossary']]}
 ];
 const navEl=document.getElementById('nav');
 NAV.forEach(gr=>{
@@ -2598,188 +2533,5 @@ document.addEventListener('keydown',e=>{
   if(e.key==='Escape')closeSearch();
 });
 </script>
-
-<script>
-/* ================= QUIZ ================= */
-const QCH={diesel:'Diesel Fundamentals',air:'Air & Turbo',fuel:'Fuel System',lube:'Lubrication',cooling:'Cooling',aftertreatment:'Aftertreatment',cummins:'Cummins',detroit:'Detroit',brakes:'Air Brakes',electrical:'Electrical',drivetrain:'Drivetrain',suspension:'Suspension & Wheel End',worn:'Reading Worn Parts',procedures:'Procedures',economics:'Fleet Economics',pm:'PM Program',codes:'Fault Codes'};
-/* format: [chapter, question, [CORRECT, wrong, wrong, wrong], explanation] */
-const QZ=[
-['diesel','What ignites the fuel in a diesel engine?',['Air made burning-hot by compression alone','A spark plug in each cylinder','A constantly-glowing wire','Heat from the turbocharger'],'Squeezing air ~17:1 heats it past 1,000°F — fuel sprayed into that furnace lights itself. No spark, ever.'],
-['diesel','Why is the inline-six the standard truck engine layout?',['It is naturally perfectly balanced and makes big torque at low RPM','It is the cheapest to build','It is the lightest design','It can spin at the highest RPM'],'An inline-six cancels its own shaking forces naturally and its long stroke punches hard at low RPM — exactly what pulling weight needs.'],
-['diesel','In simple words, torque is…',['How HARD the engine can twist — the strength of the push','How fast the engine spins','How much fuel it burns','The engine’s top speed'],'Torque is the hard push that moves freight; horsepower is just torque times speed. Trucks live on torque.'],
-['diesel','How does an engine brake (Jake brake) slow the truck?',['It opens exhaust valves at the top of compression, wasting the squeeze energy','It presses the wheel brakes automatically','It shuts off the fuel completely','It reverses the engine’s spin'],'The engine squeezes air, then the Jake lets it whoosh out before it can push back — the wasted effort slows the truck. That’s the bark you hear.'],
-['diesel','"Lugging" the engine means…',['Full throttle below peak-torque RPM — hammering bearings and pistons','Driving too fast downhill','Idling too long','Shifting too often'],'Below ~1,000 RPM under full load, cylinder pressure is huge while oil films move slowly — the hardest thing you can do to bearings.'],
-['diesel','Wet cylinder liners make what possible?',['In-frame overhaul — rebuilding the engine without removing it','Higher top speed','Running without coolant','Skipping oil changes'],'Replaceable liners surrounded by coolant mean you can renew liners, pistons and bearings with the block still in the truck.'],
-['air','What powers the turbocharger?',['Exhaust smoke spinning a turbine wheel','A belt from the crankshaft','An electric motor','Compressed air from the brake tanks'],'Energy that was leaving through the stack spins the turbine up to ~130,000 RPM — boost is recycled waste.'],
-['air','Why cool the boosted air in the charge-air cooler?',['Cool air is denser — more oxygen fits in each cylinder','To protect the paint','To warm the cab in winter','To make the turbo spin faster'],'Squeezing air heats it and hot air is thin. Cooling it packs ~15–20% more oxygen into the same cylinder.'],
-['air','A truck is weak with NO fault codes. The first suspect is…',['A boost / charge-air leak','Worn injectors','A slipping clutch','A bad ECM'],'Low power with no codes is a boost leak until proven otherwise. Pressure-test the charge-air system before anything expensive.'],
-['air','Why do VGT vanes close at low RPM?',['To speed up the exhaust flow so the turbo spools instantly','To block exhaust completely','To save fuel at idle','To cool the turbine'],'Same water, smaller nozzle = faster jet. Closed vanes squirt the exhaust at the wheel for instant response.'],
-['air','Black soot streaks at a hose clamp mean…',['Charge air has been leaking there','Normal aging','The engine needs oil','The DPF is full'],'Escaping boost carries a trace of soot and paints its own leak. The truck marks the spot for you.'],
-['air','Before replacing a faulted VGT actuator, you should…',['Confirm the vane mechanism moves freely — and calibrate the new actuator','Replace the turbo too, always','Disconnect the batteries for an hour','Drill the vanes clean'],'A new actuator bolted to seized, sooted vanes dies young. Free the mechanism first; calibrate after installation.'],
-['fuel','Why does injection pressure need to be so extreme (30,000+ psi)?',['It tears fuel into a fine mist — mist burns completely, drops don’t','To push fuel the length of the truck','To keep fuel from freezing','To clean the injectors'],'Fuel only burns at its surface. Finer droplets = more surface = faster, cleaner, stronger burn.'],
-['fuel','The three enemies of the fuel system are…',['Dirt, water, and air','Heat, cold, and vibration','Ethanol, gasoline, and kerosene','Rust, paint, and grease'],'Every precision fuel part dies from one of these three. The filters, the separator drain, and tight suction fittings are the three shields.'],
-['fuel','Hard start after sitting overnight but fine when warm usually means…',['Air sneaking into the suction side / fuel draining back to the tank','Worn piston rings','A dead battery','Bad coolant'],'Fuel siphons back through a tiny air leak like a straw losing suction. Usually a cheap o-ring or fitting — not injectors.'],
-['fuel','When you replace an injector, you must also…',['Program its trim/calibration code into the ECM','Replace all six always','Repaint the valve cover','Disconnect the DEF tank'],'The code tells the computer that injector’s personality. Skip it and fueling is off on that cylinder.'],
-['fuel','Near a suspected high-pressure fuel leak you must NEVER…',['Feel for the leak with your hand','Look at it with a flashlight','Read rail pressure on the laptop','Take a photo'],'At rail pressure a fuel jet injects through skin — a surgical emergency. Diagnose the high side with data, not fingers.'],
-['fuel','A driver put DEF in the fuel tank but has NOT started the engine. You should…',['Do not start it — drain and flush the entire fuel system','Start it briefly to test','Add extra diesel to dilute it','Drive it slowly to the shop'],'Unstarted, it’s a drain-and-flush. One start circulates corrosive DEF through pump, rail and injectors — a five-figure mistake.'],
-['lube','Why doesn’t the spinning crankshaft wear out its bearings in a healthy engine?',['It floats on a pressurized oil film and never actually touches them','The bearings are harder than the crank','It spins too fast to touch','Coolant keeps them apart'],'Rotation drags oil into a wedge that lifts the shaft — metal touches metal only at startup and during failure.'],
-['lube','Low oil pressure at hot idle but normal at higher RPM points to…',['Worn bearing clearances leaking the pressure away','A blown head gasket','Too much oil in the pan','A plugged air filter'],'Hot, thin oil + slow pump reveals worn clearances first. It’s the classic early whisper of bearing wear.'],
-['lube','A silicon spike in the oil analysis means…',['Dirt is getting into the engine — check the intake for leaks','The oil is too old','Coolant is leaking in','The DPF is failing'],'Silicon is dirt’s fingerprint. Find the intake breach fast — dust can eat a ring pack in 20,000 miles.'],
-['lube','The right way to take an oil sample:',['Hot engine, mid-stream of the drain, same method every time','Cold, from the bottom of the pan','From the top of the filler neck','Any way — the lab sorts it out'],'Trends only mean something if every sample is taken the same way. Cold pan-bottom samples read like horror stories and mean nothing.'],
-['lube','If the oil filter plugs completely, the engine…',['Gets unfiltered oil through a bypass valve — it never gets starved','Seizes immediately','Burns the oil','Switches to coolant'],'The bypass exists because dirty oil beats no oil. A plugged filter stops filtering, not flowing — which is why intervals matter.'],
-['cooling','What does the radiator cap actually do?',['Pressurizes the system, raising the boiling point about 3°F per psi','Keeps dirt out of the radiator','Holds the coolant level up','Nothing — it’s just a lid'],'15 psi buys ~45°F of boiling protection. A tired $15 cap lets hot spots boil and can kill a $30,000 engine.'],
-['cooling','A truck that overheats ONLY on loaded hill pulls most likely has…',['A heat-rejection problem — fan clutch or blocked radiator fins','A bad water pump','A stuck-closed thermostat','Low oil'],'Flow problems overheat everywhere, even idling. Load-only overheating means the system can’t dump heat fast enough — fan and fins first.'],
-['cooling','Mixing different coolant families (OAT + conventional) results in…',['Both protection packages degrading — effectively no coolant program','Better protection','Brighter color','Higher boiling point'],'The chemistries fight each other. Pick one family, stock one, label the trucks.'],
-['cooling','Cavitation erosion attacks…',['The outer wall of wet cylinder liners — drilling pinholes into the crankcase','The radiator cap','The fan blades','The oil pan'],'Liner vibration collapses tiny bubbles like water-hammers. Coolant chemistry (nitrites/OAT) is the only shield.'],
-['cooling','The surge tank pressurizes within seconds of a cold start. That means…',['Combustion gas is being pushed into the coolant','The cap is too tight','Normal warm-up','The coolant is too full'],'Coolant heat takes minutes; combustion pressure is instant. Think EGR cooler, head gasket, injector cup — and run a block test.'],
-['cooling','Coolant keeps disappearing with no puddle. On a modern engine, suspect first…',['The EGR cooler leaking coolant into the exhaust','The radiator drain','The water pump belt','The overflow hose'],'The EGR cooler is the #1 hidden coolant thief of the emissions era — steam out the stack, nothing on the ground. Pressure-test it first.'],
-['aftertreatment','What does the DPF actually trap?',['Soot — the black carbon dust in the exhaust','NOx gas','Fuel vapor','Engine oil'],'It’s a stone sponge: exhaust passes through porous walls, black dust stays behind.'],
-['aftertreatment','A "regen" is…',['Burning the trapped soot to ash-free gas by making the filter very hot','Replacing the filter','Adding DEF','A software update'],'Soot is carbon and carbon burns. The truck heats the DPF to ~1,100°F and the dust burns away to CO₂.'],
-['aftertreatment','DEF works by…',['Turning into ammonia that chemically destroys NOx into nitrogen and water','Filtering the exhaust','Cooling the exhaust','Lubricating the SCR'],'You can’t filter a gas — you kill it with chemistry. What exits is plain air components.'],
-['aftertreatment','What can a regen NOT remove from the DPF?',['Ash from burned engine oil — only off-truck cleaning removes it','Soot','Unburned fuel','Water vapor'],'Ash is the incombustible residue, like campfire ash. Every ~300k miles the filter comes off for professional cleaning.'],
-['aftertreatment','A DPF that plugs every three weeks means…',['Something upstream is making too much soot — fix the engine, not the filter','The DPF brand is bad','The driver brakes too hard','DEF is too strong'],'The aftertreatment is the trash can, not the trash maker. A lazy injector, boost leak, or stuck EGR is writing checks the filter has to cash.'],
-['aftertreatment','Ignore the DEF warning long enough and the truck will legally…',['Limit itself to 5 mph','Shut off the radio','Turn off the AC','Nothing happens'],'The inducement ladder is federal law: warning → 25% derate → 5 mph crawl. The countdown runs whether the driver reports it or not.'],
-['aftertreatment','EGR reduces NOx by…',['Recycling inert exhaust into the intake to lower peak flame temperature','Filtering nitrogen out of the air','Adding more oxygen','Cooling the radiator'],'NOx forms in extreme heat. Already-burned gas soaks up flame heat like a wet log in a fire — less heat, much less NOx.'],
-['cummins','The ESN (engine serial number) matters because…',['It unlocks the exact specs, parts and fault trees for that specific engine','It tells you the truck’s color','It’s needed for fuel purchases','It sets the speed limiter'],'Engines built months apart can differ. QuickServe + the ESN gives you that engine’s own medical records — never guess from the model year.'],
-['cummins','An "overhead run" on an X15 is…',['Adjusting valve and engine-brake lash — scheduled around 500k miles','Replacing the turbo','Rebuilding the top of the cab','Cleaning the DPF'],'Valve clearances drift with wear. On a platform with known cam/follower history, the on-time overhead is the cheapest insurance you can buy.'],
-['cummins','Fuel smell or sheen in the coolant tank on an ISX points to…',['Leaking injector cups/sleeves letting fuel into the head’s coolant passages','Bad diesel','An overfilled tank','A failing water pump'],'The classic ISX-era pattern. The cup seals fuel away from coolant an eighth-inch away — when its seals age, fuel weeps through.'],
-['cummins','A weak engine brake plus a rough idle on a high-mile X15 suggests…',['The overhead adjustment is overdue','The DPF is full','The batteries are weak','The fan clutch failed'],'Brake lash and valve lash are set at the same overhead run. Weak Jake + miss at idle + overdue overhead = you already know the fix.'],
-['detroit','Turbo-compounding on pre-2017 DD15s means…',['A second turbine downstream gears exhaust energy directly back to the crankshaft','Two turbos in parallel','A compound gearbox','Double the boost'],'It recovers up to ~50 free HP — brilliant, but it’s one more spinning system. Strange gear noise on an old DD15? Check here before the transmission.'],
-['detroit','Detroit’s MCM and ACM must always be…',['A software-matched pair','Replaced together','From the same year','Painted the same color'],'Engine brain + aftertreatment brain must speak the same software version. Mismatched pairs create "haunted truck" faults.'],
-['detroit','Virtual Technician / Detroit Connect does what for a fleet?',['Reports faults remotely with severity and probable cause — before the driver calls','Drives the truck automatically','Orders parts automatically','Replaces the need for a shop'],'The engine phones home. Use it to route "service now" events to a shop while the load is still moving.'],
-['detroit','The GHG17 "one-box" contains…',['DOC, DPF and SCR combined in a single housing','Just the DPF','The batteries','The transmission control unit'],'2017+ Detroits consolidated the whole cleaning machine into one box — simpler plumbing, all the sensors in one place.'],
-['brakes','If the truck loses ALL its air, the brakes…',['Apply themselves — giant springs slam them on automatically','Fail completely','Work at half power','Only work in reverse'],'Air holds the parking springs back. Losing air means the springs win — the system can only fail into "brakes ON." That’s the genius of the design.'],
-['brakes','Draining the wet tank and finding milky water means…',['The air dryer cartridge is overdue','Normal condensation — ignore it','The compressor is new','Someone added water'],'The wet tank catches what the dryer misses. Water there = saturated desiccant = frozen valves and rusted tanks coming this winter.'],
-['brakes','The #1 out-of-service violation at roadside inspections is…',['Brakes out of adjustment (pushrod stroke too long)','Broken mirrors','Worn tires','Loud exhaust'],'And it’s invisible from the driver’s seat — the pedal feels identical. That’s why stroke gets measured, not guessed.'],
-['brakes','Maximum applied stroke for a standard Type 30 chamber:',['2 inches','4 inches','1 inch','6 inches'],'Type 30 = 30 in² of diaphragm, 2 in stroke limit (2½ for long-stroke). Past the limit, the chamber runs out of push before real braking force arrives.'],
-['brakes','Static air-leak limit for a single vehicle, brakes released:',['2 psi per minute','10 psi per minute','20 psi per minute','Any leak is fine if it builds air'],'2 psi/min released, 3 applied (combination: 3 and 4). Beyond that, get the soapy water out.'],
-['brakes','The low-air warning must trigger by…',['60 psi','20 psi','100 psi','120 psi'],'The warning at 60 gives the driver time to stop under control before the springs decide for them at ~20–45 psi.'],
-['brakes','Why do relay valves exist?',['Fast response — the pedal sends a small signal, and local valves apply air from nearby tanks','To make the brakes quieter','To save air','To prevent theft'],'Pushing air the length of a combination takes too long. A signal travels fast; the muscle is stored locally at each axle.'],
-['electrical','The correct way to test cranking cables is…',['Voltage-drop testing under real cranking load — max ~0.5 V per side','Ohm-meter with the circuit dead','Looking for green crust','Replacing them on schedule'],'An ohmmeter tickles the circuit and calls corrosion "fine." Voltage drop under 600 real amps makes the bad connection confess.'],
-['electrical','Healthy J1939 datalink resistance across CAN-H/CAN-L is…',['About 60 ohms','About 120 ohms','Zero ohms','Infinite'],'Two 120-ohm end terminators in parallel = 60. Reading 120 = half the bus is disconnected; near zero = the pair is pinched together.'],
-['electrical','A fault code with FMI 3 or 4 ("voltage above/below normal") usually means…',['A wiring/circuit problem — check the wire before replacing the sensor','The measured system is truly failing','The ECM is dead','The battery is low'],'FMI 3/4 is the circuit talking, not the thing being measured. This one rule saves thousands in unneeded parts.'],
-['electrical','One battery in a 4-battery bank has a shorted cell. The result is…',['It secretly drains its three brothers day and night — replace as a matched set','Nothing — the others compensate','Faster starting','Longer battery life'],'Parallel batteries are a team carrying a couch. Test each alone; one bad teammate exhausts them all.'],
-['electrical','Green corrosion inside a wire’s insulation should be…',['Cut back until you find bright copper, then sealed properly','Sprayed with WD-40','Taped over','Left alone if the circuit works'],'Green death wicks up the strands like a candle wick. Repair to clean copper with sealed connections, or it returns.'],
-['electrical','Every electrical circuit needs…',['A complete return path — a good ground back to the battery','Only a good positive wire','A fuse on both ends','At least 12 wires'],'Electricity travels in loops. Half of all "mystery" faults are the forgotten return half: grounds, frame paint, corroded straps.'],
-['drivetrain','No free-play at the top of the clutch pedal means…',['The release bearing is constantly loaded — the clutch will slip and die early','Perfect adjustment','A broken pedal spring','Nothing important'],'That little slack proves the parts aren’t half-touching all day. No free play = wearing at highway speed, every mile.'],
-['drivetrain','An AMT starts shifting terribly right after an engine repair. Check first…',['Engine fault codes and datalink health — the TCM shifts on engine data','The transmission oil','The clutch plates','The shift lever'],'The gearbox robot decides using torque data the engine broadcasts. Garbage data in, garbage shifts out. Fix engine codes first, always.'],
-['drivetrain','Driveshaft u-joint working angles must be…',['Equal and opposite at each end, with the yokes in phase','As steep as possible','Exactly zero','Different by 10 degrees'],'Each joint speeds up and slows twice per turn; the second joint cancels the first only when geometry is right. Wrong = vibration under torque.'],
-['drivetrain','Spinning the drive wheels wildly on ice with the inter-axle lock OFF…',['Can destroy the power divider in seconds','Warms up the tires safely','Charges the batteries','Is the recommended technique'],'The little inter-axle diff spins at crazy speed with no oil film. Rule for drivers: lock it BEFORE the slick stuff, unlock on dry pavement.'],
-['drivetrain','A differential lets the truck corner without hopping because…',['It allows the left and right wheels to spin at different speeds','It disconnects one wheel','It softens the springs','It slows the engine'],'The outside wheel travels farther in every turn. The diff does that math mechanically, all day, for free.'],
-['suspension','Wrong ride height on an air-ride truck causes…',['Wrong driveline angles — which means vibration','Better fuel economy','Nothing if the bags hold air','Softer braking'],'Ride height is a spec, not a preference: it sets the u-joint working angles. A lazy $80 leveling valve can fake a $2,000 "driveline problem."'],
-['suspension','Cupped / scalloped wear spots around a tire usually mean…',['Worn shocks or wheel bearings letting the wheel bounce and hop','Too much air pressure','Perfect alignment','New tire break-in'],'The tire is a diary. Waves and cups = something above it letting it dance. Read the tire before replacing the tire.'],
-['suspension','The hand-on-hub habit at every stop catches…',['Wheel bearings failing early — a warm hub tells on itself','Low tire pressure','Bad fuel','Brake adjustment'],'One hub warmer than its brothers is a bearing starting to die. A free habit that prevents the worst failure in trucking — a wheel-off.'],
-['suspension','Wheel nut torque for hub-piloted M22 flange nuts, and the follow-up:',['450–500 lb-ft in a star pattern, re-torque after 50–100 miles','100 lb-ft, no recheck needed','As tight as the gun goes','700 lb-ft once'],'Joints settle like new shoes loosening. The re-torque is not optional — rust streaks from stud holes are the warning letter.'],
-['suspension','Correct wheel-bearing end play is…',['0.001–0.005 inch, verified with a dial indicator','A quarter inch','Whatever feels snug','Zero, as tight as possible'],'The difference between perfect and dangerous is thinner than a hair — which is exactly why it gets measured, never felt.'],
-['suspension','An air-ride truck that kneels down overnight has…',['An air leak in a bag, fitting, or the leveling valve','Normal behavior','Heavy cargo','Cold tires'],'Healthy suspensions hold height for days. Soapy water on bags, lines and the valve finds the hiss.'],
-['worn','A bearing shell worn on one edge only tells you…',['Something is crooked — bent rod, tapered journal, or distorted bore','The oil was dirty','The engine ran great','Normal wear'],'Edge loading is geometry, not lubrication. Fix the crooked part or the new bearing inherits the same death.'],
-['worn','Fine scratches with debris embedded in a bearing overlay mean…',['Dirt got into the oil — find how it entered','The bearing was defective','Too much oil pressure','Cold starts'],'The soft overlay records everything. Scratches = abrasives circulating; check the air intake, oil handling and filter history.'],
-['worn','A brake lining that is shiny and glassy…',['Overheated once and is now slippery — replace it even though thickness measures fine','Is broken in perfectly','Just needs sanding at the next stop','Works better in rain'],'Glazed friction is crystallized and weak. It passes a thickness check and fails a panic stop — reline by axle.'],
-['worn','Rust-colored powder around a u-joint cap means…',['The joint is running dry and dying — replace it','Normal road dust','Too much grease','New joint break-in'],'That powder is the joint grinding itself up. "Bleeding" rust is a u-joint writing its own death certificate.'],
-['worn','Why cut open used oil filters?',['The pleats hold the evidence — metal sparkle reveals wear before failure','To recycle the paper','To check the oil color','It’s required by law'],'A $40 cutter turns every oil change into a free engine inspection. A magnet then tells steel (crank, gears) from non-steel (bearings).'],
-['procedures','The TMC wheel-bearing method ends with the step that matters most:',['Verify 0.001–0.005 in end play with a dial indicator','Paint the hub','Grease the outside of the nut','Spin the wheel ten times'],'Seat 200 → back off → 50 → back off the fraction → lock — then MEASURE. No dial indicator, no verified wheel end.'],
-['procedures','Brake stroke is measured…',['With a full 90–100 psi application held by a helper, against marks made at rest','With the truck rolling slowly','By pedal feel','Only when a wheel smokes'],'Mark the rod released, apply at 90–100, measure the travel. Compare to the limit table for that chamber type. Numbers, not feelings.'],
-['procedures','A charge-air cooler passes its pressure test if…',['It loses less than ~5 psi in 15 seconds from ~30 psi','It holds forever','It loses half in a minute','The gauge moves at all'],'Cap it, pressurize to ~30 psi, close the valve and watch. Soap the boots and end tanks to find where any faster loss escapes.'],
-['procedures','Maximum pressure for pressurizing the fuel suction side during a leak hunt:',['5–7 psi','30 psi','100 psi','Whatever the compressor makes'],'More than that damages tanks and seals. Gentle pressure makes the weeping o-ring show itself without creating new problems.'],
-['procedures','"Confirm OEM" in a procedure means…',['Look the value up by serial number for your exact engine or axle — never guess','Ask another mechanic','Use the biggest number','Use last year’s number'],'Torque-turn sequences and specs change by build date. The lookup takes two minutes; the guess can cost an engine.'],
-['economics','A roadside breakdown charges you three times:',['The repair, the tow, and the load that didn’t arrive','Parts, labor, and tax','Fuel, tolls, and tires','Nothing extra if it’s under warranty'],'The repair costs the same in your bay or on I-81 — the tow and the dead load are the price of NOT finding it on PM.'],
-['economics','The 50% rule says…',['When one repair costs half the truck’s value, stop and run the full replace-vs-repair math','Replace half your fleet yearly','Half of repairs are unnecessary','Spend half your budget on parts'],'At that size you’re re-buying the truck. Sometimes still right — but decide it on paper, not in a panic.'],
-['economics','A healthy fleet finds what share of its repairs on PM instead of on the road?',['80% or more','About 10%','Exactly 50%','Zero — breakdowns are random'],'Found-on-PM ratio is the report card of the whole program. Falling ratio = checklists or intervals have drifted from your duty cycle.'],
-['economics','"Sunk cost" thinking means…',['Money already spent is gone — only compare costs from today forward','Always finish what you started','Old repairs increase value','Never sell a repaired truck'],'"We already put $8k in it" is not a reason to spend more. The only question: which path costs less per mile from here?'],
-['economics','A core charge is…',['A deposit refunded when you return the old rebuildable part','A battery fee','An engine registration tax','The cost of the box'],'Injectors, turbos, starters carry them. Untracked cores are donated money — return every one.'],
-['pm','Every dollar of scheduled maintenance typically saves…',['$3–$10 in avoided breakdown cost','Nothing measurable','About 50 cents','Only fuel'],'Tows, downtime and dead loads make roadside failures cost multiples of the same repair done in the bay.'],
-['pm','An A-service is mainly…',['Inspect, grease, fluids, tires, brakes, lights — the quick checkup that finds 80% of brewing problems','A full engine rebuild','Just a paperwork check','An oil change only'],'It’s simple on purpose. Most failures announce themselves to anyone who actually looks, squeezes, and listens.'],
-['pm','Oil samples should be taken…',['At every oil change, same method, and read as a trend line','Only when the engine sounds bad','Once per truck lifetime','Only in winter'],'The value is the trend, not the snapshot. A truck whose iron doubles between samples is talking to you.'],
-['pm','Why fix driver-reported (DVIR) items fast?',['Drivers keep reporting early only if reports get fixed — they’re your free sensor network','It’s the law and nothing more','To keep paperwork small','Drivers exaggerate anyway'],'A driver who sees results reports the small strange noise TODAY instead of after it becomes a tow. Cheapest early-warning system you’ll ever own.'],
-['codes','In a J1939 fault code, SPN and FMI mean…',['SPN = which parameter hurts; FMI = how it hurts','Speed and fuel mileage','Serial and model numbers','Service and parts numbers'],'"Which body part" + "what kind of pain." Reading both halves is the difference between diagnosing and guessing.'],
-['codes','FMI 9 ("abnormal update rate") on a transmission code shown by the dash usually means…',['The dash stopped HEARING the transmission — chase the wiring, not the gearbox','The transmission is destroyed','The dash needs replacement','Low transmission fluid'],'FMI 9 is a network complaint: the sender went quiet. The part it talks about is often perfectly healthy.'],
-['codes','When five codes appear at once, the professional move is…',['Find which code came FIRST — one root cause cascades into the rest','Fix them alphabetically','Replace all five parts','Clear them and hope'],'One falling domino knocks down the others. The first-in code with its freeze frame is usually the only real problem.'],
-['codes','A "freeze frame" is…',['A snapshot of engine conditions at the exact moment the fault set','A frozen sensor','A photo of the dashboard','Winter operating mode'],'Boost, temps, load and RPM at the moment it hurt — a free witness statement recorded for you.'],
-['codes','SPN 5246 means…',['Severe SCR inducement — the 5 mph crawl arrived because an emissions fault was ignored','Low washer fluid','Turbo overspeed','Cruise control fault'],'The end of the federal countdown. Fix the root emissions fault; a service tool may be needed to reset the inducement.']
-];
-/* engine */
-let qzPool=[],qzIdx=0,qzScore=0,qzMisses=[],qzScope='all',qzLen=10,qzByCh={};
-function qzHome(){
-  document.getElementById('qzplay').style.display='none';
-  document.getElementById('qzdone').style.display='none';
-  const home=document.getElementById('qzhome');home.style.display='block';
-  let chips='<button class="qzpick '+(qzScope==='all'?'on':'')+'" onclick="qzScope=\'all\';qzHome()">All chapters</button>';
-  Object.entries(QCH).forEach(([id,name])=>{chips+='<button class="qzpick '+(qzScope===id?'on':'')+'" onclick="qzScope=\''+id+'\';qzHome()">'+name+'</button>';});
-  let lens='';[['10','Quick 10'],['25','Solid 25'],['all','Full exam ('+QZ.length+')']].forEach(([v,l])=>{lens+='<button class="qzpick '+(String(qzLen)===v?'on':'')+'" onclick="qzLen=\''+v+'\';qzHome()">'+l+'</button>';});
-  home.innerHTML='<div class="qzsetup"><h4>1 · What do you want to be tested on?</h4><div class="qzrow">'+chips+'</div><h4>2 · How many questions?</h4><div class="qzrow">'+lens+'</div><button class="qzstart" onclick="qzStart()">Start the quiz →</button></div>';
-}
-function qzShuffle(a){for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]];}return a;}
-function qzStart(){
-  let pool=QZ.filter(q=>qzScope==='all'||q[0]===qzScope);
-  pool=qzShuffle(pool.slice());
-  if(qzLen!=='all')pool=pool.slice(0,Math.min(parseInt(qzLen),pool.length));
-  qzPool=pool;qzIdx=0;qzScore=0;qzMisses=[];qzByCh={};
-  document.getElementById('qzhome').style.display='none';
-  document.getElementById('qzdone').style.display='none';
-  document.getElementById('qzplay').style.display='block';
-  qzRender();
-}
-function qzRender(){
-  const q=qzPool[qzIdx];
-  document.getElementById('qzcount').textContent='Question '+(qzIdx+1)+' of '+qzPool.length;
-  document.getElementById('qzrun').textContent='Score: '+qzScore+'/'+qzIdx;
-  document.getElementById('qzfill').style.width=(qzIdx/qzPool.length*100)+'%';
-  document.getElementById('qzchap').textContent=QCH[q[0]];
-  document.getElementById('qzq').textContent=q[1];
-  const correct=q[2][0];
-  const opts=qzShuffle(q[2].slice());
-  const box=document.getElementById('qzopts');box.innerHTML='';
-  opts.forEach(o=>{
-    const b=document.createElement('button');b.className='qzopt';b.textContent=o;
-    b.onclick=()=>qzAnswer(b,o===correct,q);
-    box.appendChild(b);
-  });
-  document.getElementById('qzexp').className='qzexp';
-  document.getElementById('qznext').className='qznext';
-  document.getElementById('qznext').textContent=(qzIdx===qzPool.length-1)?'See my results →':'Next question →';
-}
-function qzAnswer(btn,right,q){
-  const correct=q[2][0];
-  document.querySelectorAll('#qzopts .qzopt').forEach(b=>{
-    b.disabled=true;
-    if(b.textContent===correct)b.classList.add('correct');
-  });
-  if(!right){btn.classList.add('wrong');qzMisses.push(q);}
-  else qzScore++;
-  qzByCh[q[0]]=qzByCh[q[0]]||{r:0,t:0};qzByCh[q[0]].t++;if(right)qzByCh[q[0]].r++;
-  const exp=document.getElementById('qzexp');
-  exp.innerHTML='<b>'+(right?'Correct. ':'Not quite. ')+'</b>'+q[3];
-  exp.className='qzexp show';
-  document.getElementById('qznext').className='qznext show';
-  document.getElementById('qzrun').textContent='Score: '+qzScore+'/'+(qzIdx+1);
-}
-function qzNext(){
-  qzIdx++;
-  if(qzIdx>=qzPool.length)return qzFinish();
-  qzRender();
-}
-function qzFinish(){
-  document.getElementById('qzplay').style.display='none';
-  const pct=Math.round(qzScore/qzPool.length*100);
-  let rank,msg;
-  if(pct>=95){rank='🏆 The 20-Year Wrench';msg='This is master territory. The reference is now a lookup tool for you, not a textbook.';}
-  else if(pct>=85){rank='🔧 Master Tech';msg='You diagnose with evidence and think in systems. Review the misses below and take the full exam.';}
-  else if(pct>=70){rank='⚙️ Journeyman';msg='Solid foundation. Your misses point exactly at the chapters to re-read this week.';}
-  else if(pct>=50){rank='🛠 Apprentice';msg='Good start — the simple stories in each chapter are your fastest path up. Re-read, then retake.';}
-  else{rank='📦 Parts Changer (for now)';msg='Everyone starts here. Read the Plain English boxes across chapters 2–7, then come back — the score will jump.';}
-  let breakdown='';
-  Object.entries(qzByCh).forEach(([id,s])=>{breakdown+='<tr><td>'+QCH[id]+'</td><td class="m">'+s.r+' / '+s.t+'</td><td>'+(s.r===s.t?'<span class="chip g">SOLID</span>':(s.r/s.t>=0.5?'<span class="chip o">REVIEW</span>':'<span class="chip r">RE-READ</span>'))+'</td></tr>';});
-  let misses='';
-  qzMisses.forEach(q=>{misses+='<div class="qzmiss"><b>'+q[1]+'</b>Answer: '+q[2][0]+' — '+q[3]+' <a onclick="go(\''+q[0]+'\')">Re-read: '+QCH[q[0]]+' →</a></div>';});
-  const done=document.getElementById('qzdone');
-  done.style.display='block';
-  done.innerHTML='<div class="qzcard qzscore"><div class="big">'+pct+'%</div><div>'+qzScore+' of '+qzPool.length+' correct</div><div class="rank">'+rank+'</div><p style="max-width:52ch;margin:10px auto 0">'+msg+'</p><div style="margin-top:22px"><button class="qzstart" onclick="qzStart()">Retake (new shuffle)</button> <button class="qzstart" style="background:var(--ink)" onclick="qzHome()">Change settings</button></div></div>'
-    +'<h3>By chapter</h3><div class="twrap"><table><tr><th>Chapter</th><th>Score</th><th>Verdict</th></tr>'+breakdown+'</table></div>'
-    +(qzMisses.length?'<h3>Review your misses ('+qzMisses.length+')</h3>'+misses:'<h3>Perfect run — nothing to review.</h3>');
-  window.scrollTo({top:0});
-}
-qzHome();
-</script>
-
 </body>
 </html>

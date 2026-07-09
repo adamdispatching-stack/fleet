@@ -31,3 +31,7 @@ npm start
 
 Repo **Settings → Pages → Deploy from branch → main / root**. The app is served at
 `https://adamdispatching-stack.github.io/fleet/` — works because `index.html` is fully self-contained.
+
+---
+
+© 2026 CMJ Fleet. All rights reserved. Contact: [t.me/adam_cooper](https://t.me/adam_cooper)
