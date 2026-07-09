@@ -295,10 +295,10 @@ td .m{font-family:var(--mono);font-size:12.5px}
   </div>
 
   <div class="statrow">
-    <div class="stat"><b>20</b><span>Chapters covering every major system on the truck — and the business around it</span></div>
+    <div class="stat"><b>21</b><span>Chapters covering every major system on the truck — and the business around it</span></div>
     <div class="stat"><b>14</b><span>Interactive diagnostic trees that walk you through real failures</span></div>
     <div class="stat"><b>73</b><span>J1939 fault codes with real-world root causes</span></div>
-    <div class="stat"><b>106</b><span>Glossary terms — talk the language of the shop floor</span></div>
+    <div class="stat"><b>109</b><span>Glossary terms — talk the language of the shop floor</span></div>
   </div>
 
   
@@ -1624,6 +1624,54 @@ td .m{font-family:var(--mono);font-size:12.5px}
   <h3>Fifth wheel & coupling</h3>
   <p>Cast-steel jaws lock around the trailer's 2" kingpin; the jaws and their wedge wear until <strong>slop</strong> appears (that clunk on throttle transitions from the back of the cab). Check lock adjustment per the maker's gauge/spec, lube the plate (grease or low-friction discs) and the locks, and inspect mounting bolts and pivot brackets — a fifth wheel walking on its mounts is a coupling failure being scheduled. The pull test (tug against locked trailer brakes) plus a visual on the jaws with a flashlight is the only coupling verification that counts.</p>
 
+  <h3>Connecting tractor to trailer — the three lines</h3>
+  <div class="callout plain"><span class="ct">In Plain English — the simple version</span><p>Behind the cab hang three coiled lines (drivers call them <strong>pigtails</strong>). They plug into the trailer&rsquo;s front wall. <strong>Red</strong> gives the trailer its air supply — it is the boss: no red, no moving, because the trailer&rsquo;s springs lock its brakes. <strong>Blue</strong> applies the trailer&rsquo;s brakes when you press the pedal — the worker. The <strong>black 7-way cord</strong> carries no air at all — only electricity for lights, signals, and the trailer&rsquo;s ABS computer — the messenger.</p></div>
+<figure class="fig"><svg viewBox="0 0 940 420" xmlns="http://www.w3.org/2000/svg" font-family="Inter,sans-serif">
+<defs><marker id="a18k" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0L10,5L0,10z" fill="#6b7078"/></marker></defs>
+<line x1="30" y1="316" x2="910" y2="316" stroke="#d8d2c6" stroke-width="2"/>
+<path d="M70,238 L70,70 Q70,62 78,62 L196,62 L196,238 Z" fill="#24405e" stroke="#1b2f46" stroke-width="1.5"/>
+<rect x="60" y="238" width="270" height="13" fill="#343a43" rx="2"/>
+<polygon points="196,238 330,238 318,224 208,224" fill="#3d4149"/>
+<circle cx="270" cy="286" r="28" fill="#1b1d22"/><circle cx="270" cy="286" r="11" fill="#f6f4ef"/>
+<rect x="600" y="40" width="300" height="200" fill="#eef0f4" stroke="#343a43" stroke-width="2"/>
+<rect x="648" y="240" width="14" height="20" fill="#343a43"/>
+<rect x="768" y="240" width="10" height="68" fill="#6b7078"/><rect x="756" y="304" width="34" height="8" fill="#6b7078"/>
+<circle cx="600" cy="104" r="13" fill="#f6f4ef" stroke="#9e2b25" stroke-width="4"/>
+<circle cx="600" cy="148" r="13" fill="#f6f4ef" stroke="#24405e" stroke-width="4"/>
+<rect x="588" y="182" width="24" height="20" rx="5" fill="#1b1d22"/>
+<path d="M196,86 C320,60 470,64 587,100" fill="none" stroke="#9e2b25" stroke-width="6"/>
+<path d="M196,122 C330,100 470,106 587,146" fill="none" stroke="#24405e" stroke-width="6"/>
+<path d="M196,158 C330,140 470,146 586,190" fill="none" stroke="#1b1d22" stroke-width="7"/>
+<g font-size="12.5" fill="#3d4149">
+<text x="66" y="34" font-weight="700" fill="#1b1d22">Back of cab</text>
+<text x="66" y="50" font-size="11" fill="#6b7078">the coiled "pigtails" hang here</text>
+<text x="740" y="30" font-weight="700" fill="#1b1d22">Trailer front wall</text>
+<text x="622" y="108" font-size="11.5" fill="#9e2b25" font-weight="600">red gladhand</text>
+<text x="622" y="152" font-size="11.5" fill="#24405e" font-weight="600">blue gladhand</text>
+<text x="622" y="196" font-size="11.5" font-weight="600">7-pin socket</text>
+<text x="352" y="284" font-size="11.5">Fifth wheel + kingpin — the mechanical handshake underneath</text>
+<line x1="348" y1="280" x2="310" y2="238" stroke="#6b7078" marker-end="url(#a18k)"/>
+</g>
+<g font-size="12.5" fill="#3d4149">
+<line x1="66" y1="345" x2="106" y2="345" stroke="#9e2b25" stroke-width="6"/>
+<text x="118" y="350"><tspan font-weight="700" fill="#9e2b25">RED — supply / emergency air.</tspan>  Fills the trailer tanks, holds its spring brakes off. Break it → the trailer stops itself.</text>
+<line x1="66" y1="373" x2="106" y2="373" stroke="#24405e" stroke-width="6"/>
+<text x="118" y="378"><tspan font-weight="700" fill="#24405e">BLUE — service air.</tspan>  Applies the trailer brakes exactly as hard as you press the pedal.</text>
+<line x1="66" y1="401" x2="106" y2="401" stroke="#1b1d22" stroke-width="7"/>
+<text x="118" y="406"><tspan font-weight="700">7-WAY — electrical only.</tspan>  Lights, signals, ABS power. Corroded pins here = half-working trailer lights.</text>
+</g></svg>
+<figcaption><b>The three lines between tractor and trailer.</b> Red = the boss (permission to move at all). Blue = the worker (brakes on command). Black = the messenger (lights and signals). The rubber seals inside the gladhands cost $3 and cause most trailer air leaks — carry spares in the door pocket.</figcaption></figure>
+
+
+  <ul>
+    <li><strong>Red gladhand (supply/emergency):</strong> charges the trailer tanks and holds off the trailer spring brakes. Pull the red valve in the cab (or break this line) and the trailer brakes slam on — that is the breakaway protection working as designed, together with the tractor protection valve from Chapter 10.</li>
+    <li><strong>Blue gladhand (service):</strong> carries the brake <em>signal</em> — pressure in this line mirrors your pedal. A leak here shows up only during brake applications, which is why applied-leak tests exist.</li>
+    <li><strong>7-way connector:</strong> seven pins — ground, tail lamps, left turn, right turn, stop lamps, ABS power, and auxiliary. Corroded or spread pins here explain most "trailer lights half working" complaints. Dielectric grease in the plug twice a year prevents almost all of it.</li>
+    <li><strong>After every coupling — the tug test:</strong> lock the trailer brakes, pull gently forward in low gear. The trailer must hold you. Then a flashlight on the fifth-wheel jaws to confirm they closed around the kingpin — not behind it. Thirty seconds; prevents the dropped trailer.</li>
+    <li><strong>Crossed lines:</strong> gladhand seats are shaped and color-coded so red goes to red, blue to blue. Crossed anyway? The trailer brakes won&rsquo;t release, or the pedal does nothing to the trailer — either way the tug test catches it before the highway does.</li>
+  </ul>
+
+
   <div class="next">
     <a onclick="go('worn')"><small>Next Chapter</small><b>Reading Worn Parts →</b></a>
   </div>
@@ -2535,6 +2583,9 @@ const GLOSS=[
 ['WIF','Fuel','Water-In-Fuel sensor at the separator bowl.'],
 ['XPI','Cummins','Cummins/Scania common-rail fuel system on ISX15 CM2250+ and X15.'],
 ['Zerk','Chassis','Grease fitting. The cheapest part on the truck, and skipping them is the most expensive habit in the shop.'],
+['Pigtails (suzy lines)','Coupling','The three coiled lines behind the cab — red air, blue air, and the 7-way electrical cord — that connect tractor to trailer.'],
+['7-way connector','Electrical','Round 7-pin plug carrying trailer lights, signals, stop lamps, and ABS power. Corroded pins here cause most trailer lighting complaints.'],
+['Tug test','Coupling','After coupling: lock the trailer brakes and pull gently forward — the trailer must hold the tractor. Proves the fifth-wheel jaws captured the kingpin.'],
 ['Brinelling','Driveline','Dents worn into u-joint cap races by a joint that stopped articulating — hammered instead of rotating; often secondary to bad working angles.'],
 ['Casing','Tires','The tire\u2019s structural body — a multi-life asset retreaded 1–2 times; protecting casings is protecting inventory.'],
 ['Comeback','Fleet','A repeat repair for the same complaint within ~30 days — the KPI that measures diagnostic quality.'],
@@ -2697,6 +2748,8 @@ const QZ=[
 ['codes','FMI 9 ("abnormal update rate") on a transmission code shown by the dash usually means…',['The dash stopped HEARING the transmission — chase the wiring, not the gearbox','The transmission is destroyed','The dash needs replacement','Low transmission fluid'],'FMI 9 is a network complaint: the sender went quiet. The part it talks about is often perfectly healthy.'],
 ['codes','When five codes appear at once, the professional move is…',['Find which code came FIRST — one root cause cascades into the rest','Fix them alphabetically','Replace all five parts','Clear them and hope'],'One falling domino knocks down the others. The first-in code with its freeze frame is usually the only real problem.'],
 ['codes','A "freeze frame" is…',['A snapshot of engine conditions at the exact moment the fault set','A frozen sensor','A photo of the dashboard','Winter operating mode'],'Boost, temps, load and RPM at the moment it hurt — a free witness statement recorded for you.'],
+['suspension','What does the RED trailer line do?',['Fills the trailer’s air tanks and holds its spring brakes released','Applies the trailer brakes when you press the pedal','Powers the trailer’s lights','Cools the trailer’s wheels'],'Red = the boss. It gives the trailer its air supply — lose it and the trailer’s springs lock the brakes automatically. Blue is the worker (brakes on command); the 7-way is the messenger (electricity only).'],
+['suspension','Trailer lights are out on one side. Where do you look first?',['The 7-way connector and its pins — corrosion and spread pins','The DEF doser','The air dryer cartridge','The fifth wheel jaws'],'The 7-way plug is the most-handled electrical connector on the truck. Green crust or a spread pin explains most half-working trailer lights. Dielectric grease twice a year prevents it.'],
 ['codes','SPN 5246 means…',['Severe SCR inducement — the 5 mph crawl arrived because an emissions fault was ignored','Low washer fluid','Turbo overspeed','Cruise control fault'],'The end of the federal countdown. Fix the root emissions fault; a service tool may be needed to reset the inducement.']
 ];
 /* engine */
