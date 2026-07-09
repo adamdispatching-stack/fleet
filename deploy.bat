@@ -5,6 +5,7 @@ cd /d "%~dp0"
 
 echo ============================================
 echo   CMJ FLEET MASTERCLASS - ONE-CLICK DEPLOY
+echo   Rule: THIS folder is the boss of the site
 echo ============================================
 echo.
 
@@ -15,22 +16,19 @@ if errorlevel 1 (
     exit /b 1
 )
 
-REM --- first-time setup ---
 if not exist ".git" (
-    echo [SETUP] First time - connecting this folder to GitHub...
+    echo [SETUP] Connecting this folder to GitHub...
     git init >nul
     git branch -M main
-    git remote add origin https://github.com/adamdispatching-stack/fleet.git
+    git remote add origin https://github.com/adamdispatching-stack/fleet.git >nul 2>nul
 )
-
-REM --- quiet the line-ending warnings, keep files exactly as they are ---
 git config core.autocrlf false >nul 2>nul
 git config core.safecrlf false >nul 2>nul
 
 set "msg=%*"
 if "!msg!"=="" set "msg=App update %date% %time:~0,8%"
 
-echo [1/3] Saving your changes...
+echo [1/2] Saving your changes...
 git add -A
 git commit -m "!msg!" >nul 2>nul
 if errorlevel 1 (
@@ -39,20 +37,11 @@ if errorlevel 1 (
     echo        Saved: "!msg!"
 )
 
-echo [2/3] Syncing with GitHub (your folder wins any conflict)...
-git fetch origin main >nul 2>nul
-git merge origin/main --allow-unrelated-histories --no-edit -X ours >nul 2>nul
-if errorlevel 1 (
-    REM merge could not run cleanly - abort any half-merge and take ours entirely
-    git merge --abort >nul 2>nul
-    git merge origin/main --allow-unrelated-histories --no-edit -s ours >nul 2>nul
-)
-
-echo [3/3] Pushing to GitHub...
-git push -u origin main
+echo [2/2] Publishing this folder to GitHub...
+git push --force -u origin main
 if errorlevel 1 (
     echo.
-    echo [FAILED] Push did not go through.
+    echo [FAILED] Could not publish.
     echo  - If a login window appeared, finish logging in and run this again.
     echo  - Check your internet connection, then run this again.
     echo  - Still stuck? Screenshot this window and send it to Claude.
@@ -60,8 +49,8 @@ if errorlevel 1 (
 ) else (
     echo.
     echo ============================================
-    echo   DEPLOYED. Railway is building it now -
-    echo   your site updates in about 1-2 minutes.
+    echo   DEPLOYED. This folder is now EXACTLY what
+    echo   is on GitHub. Railway builds in 1-2 min.
     echo ============================================
     echo.
 )
