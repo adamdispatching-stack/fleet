@@ -1,0 +1,10 @@
+{
+  "name": "cmj-fleet-masterclass",
+  "version": "1.0.0",
+  "description": "CMJ Heavy-Duty Masterclass - complete semi truck maintenance reference",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "engines": { "node": ">=18" }
+}
