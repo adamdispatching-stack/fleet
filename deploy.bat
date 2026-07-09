@@ -8,28 +8,25 @@ echo   CMJ FLEET MASTERCLASS - ONE-CLICK DEPLOY
 echo ============================================
 echo.
 
-REM --- check git is installed ---
 where git >nul 2>nul
 if errorlevel 1 (
-    echo [ERROR] Git is not installed on this computer.
-    echo Download it from: https://git-scm.com/download/win
-    echo Install with default options, then run this file again.
-    echo.
+    echo [ERROR] Git is not installed. Get it from https://git-scm.com/download/win
     pause
     exit /b 1
 )
 
-REM --- first-time setup: turn this folder into the repo ---
+REM --- first-time setup ---
 if not exist ".git" (
     echo [SETUP] First time - connecting this folder to GitHub...
     git init >nul
     git branch -M main
     git remote add origin https://github.com/adamdispatching-stack/fleet.git
-    echo [SETUP] Done. A browser window may open asking you to log in to GitHub - that is normal, log in once and Windows remembers it.
-    echo.
 )
 
-REM --- commit message: use whatever you type after deploy.bat, or a timestamp ---
+REM --- quiet the line-ending warnings, keep files exactly as they are ---
+git config core.autocrlf false >nul 2>nul
+git config core.safecrlf false >nul 2>nul
+
 set "msg=%*"
 if "!msg!"=="" set "msg=App update %date% %time:~0,8%"
 
@@ -37,13 +34,19 @@ echo [1/3] Saving your changes...
 git add -A
 git commit -m "!msg!" >nul 2>nul
 if errorlevel 1 (
-    echo        Nothing new to save - files are unchanged since last deploy.
+    echo        Nothing new to save - files unchanged since last deploy.
 ) else (
     echo        Saved: "!msg!"
 )
 
-echo [2/3] Syncing with GitHub...
-git pull --rebase origin main >nul 2>nul
+echo [2/3] Syncing with GitHub (your folder wins any conflict)...
+git fetch origin main >nul 2>nul
+git merge origin/main --allow-unrelated-histories --no-edit -X ours >nul 2>nul
+if errorlevel 1 (
+    REM merge could not run cleanly - abort any half-merge and take ours entirely
+    git merge --abort >nul 2>nul
+    git merge origin/main --allow-unrelated-histories --no-edit -s ours >nul 2>nul
+)
 
 echo [3/3] Pushing to GitHub...
 git push -u origin main
@@ -51,7 +54,8 @@ if errorlevel 1 (
     echo.
     echo [FAILED] Push did not go through.
     echo  - If a login window appeared, finish logging in and run this again.
-    echo  - Check your internet connection.
+    echo  - Check your internet connection, then run this again.
+    echo  - Still stuck? Screenshot this window and send it to Claude.
     echo.
 ) else (
     echo.
