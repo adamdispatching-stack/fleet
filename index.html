@@ -345,6 +345,59 @@ td .m{font-family:var(--mono);font-size:12.5px}
 .certactions{position:absolute;top:-52px;right:0;display:flex;gap:10px}
 .certactions button{background:#1d2129;color:#fff;border:none;border-radius:8px;padding:10px 18px;font-size:13px;font-weight:600;cursor:pointer;font-family:var(--sans)}
 @media print{body>*{display:none !important}#certoverlay{display:flex !important;position:static;background:#fff;padding:0}#certoverlay .certactions{display:none}body{background:#fff}.certpaper{border-color:#b4530a;max-width:100%}}
+/* ---- collapsible sidebar ---- */
+nav .ngroup{width:100%;background:none;border:none;display:flex;align-items:center;gap:8px;padding:16px 26px 6px;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--side-dim);font-weight:700;cursor:pointer;font-family:var(--sans);transition:color .15s}
+nav .ngroup:hover{color:#8b93a0}
+nav .ngroup.activegroup .gname{color:#c8a06a}
+nav .ngroup .gname{flex:0 1 auto}
+nav .ngroup .gcount{font-family:var(--mono);font-size:9px;color:#4a5160;margin-left:6px}
+nav .ngroup .gcaret{margin-left:auto;font-size:10px;transition:transform .2s;color:#4a5160}
+nav .ngroup.collapsed .gcaret{transform:rotate(-90deg)}
+nav .ngwrap{overflow:hidden;max-height:600px;transition:max-height .28s ease,opacity .2s}
+nav .ngwrap.collapsed{max-height:0;opacity:0}
+.nitem{transition:background .15s,border-color .15s,color .15s,padding-left .15s}
+.nitem:hover{padding-left:29px}
+.nitem .nlabel{flex:1}
+
+/* ---- motion & density ---- */
+.page.active{animation:pageIn .34s cubic-bezier(.22,.61,.36,1)}
+@keyframes pageIn{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+.card,.failbox,.symcard,.stat,.ach,.next a{transition:transform .18s cubic-bezier(.22,.61,.36,1),box-shadow .18s,border-color .18s}
+.card:hover,.failbox:hover{transform:translateY(-2px);box-shadow:0 10px 26px rgba(0,0,0,.06)}
+.connchip,.wifbtn,.qzpick,.alpha button{transition:all .15s}
+h3{margin-top:60px}
+.callout{margin:26px 0}
+.lede{margin-bottom:46px}
+.content{padding-top:60px}
+.count{display:inline-block}
+
+/* ---- HOME DASHBOARD ---- */
+#home .content-inner{max-width:1000px;margin:0 auto}
+.dhero{background:linear-gradient(135deg,#181b21 0%,#232936 55%,#2d3243 100%);border-radius:20px;padding:44px 46px;color:#e8eaee;position:relative;overflow:hidden;margin-bottom:26px}
+.dhero::after{content:'';position:absolute;right:-70px;top:-70px;width:340px;height:340px;border-radius:50%;border:1.5px solid rgba(217,122,46,.22)}
+.dhero::before{content:'';position:absolute;right:30px;top:-140px;width:340px;height:340px;border-radius:50%;border:1.5px solid rgba(217,122,46,.1)}
+.dgreet{font-size:12px;letter-spacing:2.4px;text-transform:uppercase;color:#e0954e;font-weight:700;margin-bottom:12px}
+.dhero h2{font-family:var(--serif);font-weight:500;font-size:34px;line-height:1.15;color:#f4f5f7;margin-bottom:10px;max-width:22ch}
+.dhero p{color:#b6bcc8;font-size:15.5px;max-width:52ch;margin-bottom:24px}
+.dcont{display:inline-flex;align-items:center;gap:10px;background:var(--accent);color:#fff;border:none;border-radius:11px;padding:13px 26px;font-size:15px;font-weight:700;cursor:pointer;font-family:var(--sans);transition:transform .15s,background .15s}
+.dcont:hover{background:var(--accent-deep);transform:translateY(-2px)}
+.dlevel{position:relative;z-index:1;display:inline-flex;align-items:center;gap:9px;background:rgba(224,149,78,.14);border:1px solid rgba(224,149,78,.3);border-radius:22px;padding:7px 16px;font-size:13.5px;font-weight:700;color:#f0b47f;margin-bottom:20px}
+.dstats{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:26px}
+.dstat{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:20px 22px;text-align:left}
+.dstat b{font-family:var(--serif);font-size:32px;font-weight:600;color:var(--accent-deep);display:block;line-height:1}
+.dstat span{font-size:12px;color:var(--ink-mute);display:block;margin-top:6px;letter-spacing:.3px}
+.dstat .ring{float:right;margin-top:-4px}
+.dactions{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:16px}
+.daction{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:22px;cursor:pointer;text-align:left;font-family:var(--sans);transition:transform .18s,border-color .18s,box-shadow .18s}
+.daction:hover{transform:translateY(-3px);border-color:var(--accent);box-shadow:0 12px 30px rgba(0,0,0,.08)}
+.daction .di{font-size:26px;display:block;margin-bottom:10px}
+.daction b{display:block;font-size:16px;color:var(--ink);margin-bottom:4px}
+.daction span{font-size:13px;color:var(--ink-mute);line-height:1.5}
+.dsug{background:var(--gold-soft);border:1px solid #e6d9ab;border-radius:14px;padding:18px 22px;font-size:14.5px;color:var(--ink-soft);display:flex;align-items:center;gap:14px}
+.dsug b{color:var(--gold)}
+.dsug button{margin-left:auto;background:var(--ink);color:#fff;border:none;border-radius:9px;padding:10px 18px;font-size:13.5px;font-weight:700;cursor:pointer;font-family:var(--sans);white-space:nowrap}
+@media(max-width:760px){.dstats{grid-template-columns:1fr 1fr}.dactions{grid-template-columns:1fr}.dhero{padding:32px 26px}.dhero h2{font-size:26px}}
+
 /* image lightbox */
 .fig img{cursor:zoom-in}
 .figzoom{position:absolute;top:14px;right:14px;background:rgba(20,23,29,.82);color:#fff;border-radius:20px;font-size:11.5px;font-weight:600;padding:5px 11px;pointer-events:none;letter-spacing:.3px}
@@ -411,6 +464,9 @@ td .m{font-family:var(--mono);font-size:12.5px}
   <div class="sidefoot"><div style="margin-bottom:8px">© 2026 CMJ Fleet · <a href="https://t.me/adam_cooper" target="_blank" rel="noopener" style="color:#d97a2e;text-decoration:none">t.me/adam_cooper</a></div>Built for working fleets. Torque specs and intervals are typical industry values — always confirm against the OEM service manual for your specific serial number.</div>
 </aside>
 <main class="main"><div class="content" id="content">
+
+<!-- ============ 00 HOME DASHBOARD ============ -->
+<section class="page" id="home"><div class="content-inner" id="dashinner"></div></section>
 
 <!-- ============ 01 START HERE ============ -->
 <section class="page" id="start">
@@ -2705,21 +2761,40 @@ const NAV=[
  {g:'The Capstone',c:'#9e2b25',items:[['capstone','26','How Everything Works Together']]}
 ];
 const navEl=document.getElementById('nav');
-NAV.forEach(gr=>{
-  const h=document.createElement('div');h.className='ngroup';h.innerHTML=(gr.c?'<span class="ndot" style="background:'+gr.c+'"></span>':'')+gr.g;navEl.appendChild(h);
+NAV.forEach((gr,gi)=>{
+  const head=document.createElement('button');head.className='ngroup';head.dataset.gi=gi;
+  head.innerHTML=(gr.c?'<span class="ndot" style="background:'+gr.c+'"></span>':'')+'<span class="gname">'+gr.g+'</span><span class="gcount"></span><span class="gcaret">▾</span>';
+  navEl.appendChild(head);
+  const wrap=document.createElement('div');wrap.className='ngwrap';wrap.dataset.gi=gi;
   gr.items.forEach(([id,num,label])=>{
-    const d=document.createElement('div');d.className='nitem';d.dataset.page=id;
-    d.innerHTML='<span class="nnum">'+num+'</span>'+label;
-    d.onclick=()=>go(id);navEl.appendChild(d);
+    const d=document.createElement('div');d.className='nitem';d.dataset.page=id;d.dataset.gi=gi;
+    d.innerHTML='<span class="nnum">'+num+'</span><span class="nlabel">'+label+'</span>';
+    d.onclick=()=>go(id);wrap.appendChild(d);
   });
+  navEl.appendChild(wrap);
+  head.onclick=()=>{const c=wrap.classList.toggle('collapsed');head.classList.toggle('collapsed',c);};
 });
+function navGroupCounts(){
+  const learned=(window.store?store.get('learned',{}):{});
+  document.querySelectorAll('.ngroup').forEach(head=>{
+    const gi=head.dataset.gi;const items=[...document.querySelectorAll('.nitem[data-gi="'+gi+'"]')];
+    const done=items.filter(i=>learned[i.dataset.page]).length;
+    const el=head.querySelector('.gcount');if(el)el.textContent=done+'/'+items.length;
+  });
+}
 function go(id){
   document.querySelectorAll('.page').forEach(p=>p.classList.toggle('active',p.id===id));
   document.querySelectorAll('.nitem').forEach(n=>n.classList.toggle('active',n.dataset.page===id));
+  const act=document.querySelector('.nitem.active');
+  if(act){const gi=act.dataset.gi;document.querySelectorAll('.ngwrap').forEach(w=>{const same=w.dataset.gi===gi;w.classList.toggle('collapsed',false);});
+    document.querySelectorAll('.ngroup').forEach(hd=>hd.classList.toggle('activegroup',hd.dataset.gi===gi));}
   document.querySelector('.sidebar').classList.remove('open');
+  if(window.store&&id!=='home')store.set('lastCh',id);
+  if(id==='home'&&window.renderDash)renderDash();
   window.scrollTo({top:0});
+  if(window.navGroupCounts)navGroupCounts();
 }
-go('start');
+go((window.store&&store.get('lastCh',null))?'home':'home');
 
 /* ================= CHECKLISTS ================= */
 const CKS={
@@ -3816,6 +3891,55 @@ checkAch();
     im.addEventListener('click',function(){openLB(im.currentSrc||im.src,title);});
   });
 })();
+</script>
+
+
+<script>
+/* ================= HOME DASHBOARD ================= */
+function countUp(el,to){
+  const dur=650,t0=performance.now();
+  function tick(t){const p=Math.min(1,(t-t0)/dur);el.textContent=Math.round(to*(1-Math.pow(1-p,3)));if(p<1)requestAnimationFrame(tick);}
+  requestAnimationFrame(tick);
+}
+window.renderDash=function(){
+  const box=document.getElementById('dashinner');if(!box)return;
+  const learned=store.get('learned',{}),nDone=Object.keys(learned).length;
+  const total=CHAPTERS.length, xp=xpTotal(), streak=store.get('streak',1), best=store.get('quiz_best',null);
+  const last=store.get('lastCh',null);
+  const lastName=(last&&NAMES[last])?NAMES[last]:'Start Here';
+  const hr=new Date().getHours();
+  const greet=hr<12?'Good morning':hr<18?'Good afternoon':'Good evening';
+  // next suggested chapter = first unlearned in order
+  let nextId=CHAPTERS.find(c=>!learned[c])||'quiz';
+  const nextName=NAMES[nextId]||'Knowledge Quiz';
+  const pct=Math.round(nDone/total*100);
+  box.innerHTML=
+   '<div class="dhero">'
+   +'<div class="dgreet">'+greet+' · CMJ Fleet</div>'
+   +'<div class="dlevel">'+levelName(xp)+'</div>'
+   +'<h2>'+(nDone===0?'Welcome to your Masterclass.':nDone>=total?'You\'ve learned the whole machine.':'Pick up where you left off.')+'</h2>'
+   +'<p>'+(nDone===0?'26 chapters that take you from “what are these parts?” to diagnosing a truck like a 20-year mechanic. Start anywhere — your progress saves itself.':'You\'ve completed '+nDone+' of '+total+' chapters. Keep the streak alive.')+'</p>'
+   +'<button class="dcont" onclick="go(\''+(last||'start')+'\')">▶ Continue: '+lastName+'</button>'
+   +'</div>'
+   +'<div class="dstats">'
+   +'<div class="dstat"><b class="count" data-to="'+pct+'">0</b><span>Percent complete</span></div>'
+   +'<div class="dstat"><b class="count" data-to="'+nDone+'">0</b><span>of '+total+' chapters</span></div>'
+   +'<div class="dstat"><b>🔥 <span class="count" data-to="'+streak+'">0</span></b><span>Day streak</span></div>'
+   +'<div class="dstat"><b class="count" data-to="'+xp+'">0</b><span>XP earned</span></div>'
+   +'</div>'
+   +'<div class="dactions">'
+   +'<div class="daction" onclick="go(\'troubleshoot\')"><span class="di">🔧</span><b>A truck is down</b><span>Jump straight to the Troubleshooter — pick a symptom, get a diagnosis.</span></div>'
+   +'<div class="daction" onclick="go(\'quiz\')"><span class="di">✏️</span><b>Test yourself</b><span>'+(best!=null?'Your best: '+best+'%. Beat it.':'Take a quick 10-question quiz.')+'</span></div>'
+   +'<div class="daction" onclick="go(\'start\')"><span class="di">📚</span><b>Browse the course</b><span>All 26 chapters, from diesel basics to fleet economics.</span></div>'
+   +'</div>'
+   +(nDone<total?'<div class="dsug"><span>📌</span><div><b>Suggested next:</b> '+nextName+' — the next chapter you haven\'t marked as learned.</div><button onclick="go(\''+nextId+'\')">Open →</button></div>':'<div class="dsug"><span>🎓</span><div><b>All chapters learned.</b> Pass the full exam at 85%+ to earn your certificate.</div><button onclick="go(\'quiz\')">Final exam →</button></div>');
+  box.querySelectorAll('.count').forEach(el=>countUp(el,parseInt(el.dataset.to)));
+};
+/* make the brand logo a home button */
+(function(){const brand=document.querySelector('.brand h1');if(brand){brand.style.cursor='pointer';brand.title='Home';brand.onclick=()=>go('home');}})();
+renderDash();navGroupCounts();
+/* refresh dash when returning */
+const _rp=renderProgress;renderProgress=function(){_rp();navGroupCounts();if(document.getElementById('home').classList.contains('active'))renderDash();};
 </script>
 
 </body>
