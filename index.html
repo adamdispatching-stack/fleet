@@ -38,6 +38,22 @@
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
 body{font-family:var(--sans);background:var(--paper);color:var(--ink);font-size:16px;line-height:1.7;-webkit-font-smoothing:antialiased}
+/* ---- typography refinement (warm, refined) ---- */
+html{text-rendering:optimizeLegibility;-moz-osx-font-smoothing:grayscale}
+body{font-feature-settings:"cv05" 1,"cv11" 1,"calt" 1}
+h2.title{font-optical-sizing:auto;font-weight:470;letter-spacing:-.019em;line-height:1.07;text-wrap:balance}
+h3{font-optical-sizing:auto;font-weight:600;letter-spacing:-.013em;line-height:1.16;text-wrap:balance}
+h4{letter-spacing:-.005em}
+.lede{font-size:19px;line-height:1.6;letter-spacing:-.007em;text-wrap:pretty}
+p{text-wrap:pretty}
+.content .page>p,.content .page>ul,.content .page>ol{max-width:73ch}
+.kicker{letter-spacing:.26em}
+.brand h1{letter-spacing:-.012em;font-optical-sizing:auto}
+.dhero h2,.qzscore .big,.qzq,.tsq,.dstat b,.stat b{font-optical-sizing:auto;letter-spacing:-.015em}
+/* tabular numbers where digits should align */
+.dstat b,.stat b,.spec span,.qzmeta,.progbot,.progtop,td .m,.code-sev,.nnum,.gcount,.certpaper .cscore,.dstat .count{font-variant-numeric:tabular-nums}
+/* crisper mono */
+.m,code,kbd,.nnum{font-feature-settings:"calt" 0;letter-spacing:0}
 
 /* ---------- LAYOUT ---------- */
 .app{display:flex;min-height:100vh}
