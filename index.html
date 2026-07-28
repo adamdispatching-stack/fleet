@@ -477,10 +477,10 @@ h3{margin-top:60px}
   </div>
 
   <div class="statrow">
-    <div class="stat"><b>26</b><span>Chapters covering every major system on the truck — and the business around it</span></div>
+    <div class="stat"><b>29</b><span>Chapters covering every major system on the truck — and the business around it</span></div>
     <div class="stat"><b>14</b><span>Interactive diagnostic trees that walk you through real failures</span></div>
     <div class="stat"><b>73</b><span>J1939 fault codes with real-world root causes</span></div>
-    <div class="stat"><b>121</b><span>Glossary terms — talk the language of the shop floor</span></div>
+    <div class="stat"><b>129</b><span>Glossary terms — talk the language of the shop floor</span></div>
   </div>
 
   
@@ -1973,16 +1973,66 @@ h3{margin-top:60px}
 
 
   <div class="next">
-    <a onclick="go('diagthink')"><small>Next Chapter</small><b>Diagnostic Thinking →</b></a>
+    <a onclick="go('trailer')"><small>Next Chapter</small><b>Trailer & Reefer →</b></a>
   </div>
 </section>
 
 
 
 
-<!-- ============ 15 DIAGNOSTIC THINKING ============ -->
+<!-- ============ TRAILER & REEFER ============ -->
+<section class="page" id="trailer">
+  <div class="kicker">Chapter 15 · Chassis &amp; Driveline</div>
+  <h2 class="title">Trailer &amp; Reefer Systems</h2>
+  <p class="lede">The tractor earns nothing without the box behind it. Trailers have their own brakes, lights, suspension, and — on a reefer — a whole second diesel engine. <strong>Trailer problems strand loads just as fast as engine problems</strong>, and they&rsquo;re easy to forget because the trailer isn&rsquo;t &ldquo;yours&rdquo; the way the tractor is.</p>
+  <div class="callout plain"><span class="ct">In Plain English — the simple version</span><p>A trailer is a simple machine with four things that break: its <strong>brakes</strong> (same air system as the tractor, fed through the red and blue lines), its <strong>lights</strong> (fed through the 7-way plug), its <strong>tires and wheel ends</strong> (same rules as any axle), and its <strong>landing gear</strong> (the legs that hold it up when unhooked). A <strong>reefer</strong> adds a fifth: a little diesel engine and fridge that keeps the load cold — and it has its own fuel, oil, belts, and alarms to watch.</p></div>
+
+  <h3>The trailer air &amp; brake system</h3>
+  <p>Covered from the tractor side in <a onclick="go('brakes')" style="color:var(--accent);cursor:pointer">Chapter 11</a> — here&rsquo;s the trailer&rsquo;s half. Air arrives through the <strong>red (supply)</strong> line and fills the trailer&rsquo;s own reservoir; the <strong>blue (service)</strong> line carries the brake signal. The trailer has its own <strong>spring brakes</strong> that lock automatically if it loses air — which is the whole safety design: a trailer that breaks away stops itself. Trailer <strong>ABS</strong> is required and has its own light (on the driver&rsquo;s side, visible in the mirror); it self-tests at key-on.</p>
+  <ul>
+    <li><strong>Gladhand seals</strong> — the $3 rubber grommets are the #1 trailer air leak. Carry spares.</li>
+    <li><strong>Trailer ABS light staying on</strong> — usually a wheel-speed sensor pushed away from its tone ring, or a chafed lead at the axle. Base brakes still work; fix before the next inspection.</li>
+    <li><strong>The trailer air tank drains too</strong> — water collects here just like the tractor. In winter, drain it.</li>
+  </ul>
+
+  <h3>Landing gear, kingpin &amp; the frame</h3>
+  <ul>
+    <li><strong>Landing gear (the legs):</strong> a two-speed crank raises and lowers them. Low gear for lifting a loaded nose, high gear for speed once the weight is off. Grease the crank gearbox; a seized leg strands a trailer as surely as a dead engine. Never drive off with legs partly down.</li>
+    <li><strong>Kingpin &amp; upper coupler:</strong> the 2&Prime; pin the fifth wheel locks onto, and the reinforced plate around it. Inspect for cracks, wear, and a bent pin — a worn kingpin causes coupling slop and is an out-of-service item.</li>
+    <li><strong>Sliding tandem (the bogie):</strong> many trailers slide their rear axles fore-and-aft on lock pins to balance axle weights for the scales. After every slide, confirm all four lock pins snapped fully home — a tandem that slides on the road is a disaster.</li>
+    <li><strong>Frame &amp; crossmembers:</strong> check for cracks, especially around the kingpin plate and suspension hangers; road salt and dock impacts do the damage.</li>
+  </ul>
+
+  <h3>Trailer types, briefly</h3>
+  <div class="twrap"><table>
+    <tr><th>Type</th><th>What&rsquo;s Special</th><th>Watch For</th></tr>
+    <tr><td>Dry van</td><td>Enclosed box, the everyday workhorse</td><td>Roof leaks, door seals, floor rot, wall damage from forklifts</td></tr>
+    <tr><td>Reefer</td><td>Insulated box + refrigeration unit</td><td>The whole reefer system below — plus door seals and drains</td></tr>
+    <tr><td>Flatbed</td><td>Open deck, cargo secured on top</td><td>Securement: straps, chains, binders, tarps — the load is the liability</td></tr>
+    <tr><td>Tanker</td><td>Liquid; the load moves (surge)</td><td>Baffles, surge on braking, special endorsement, spill risk</td></tr>
+  </table></div>
+
+  <h3>The reefer — a second engine to maintain</h3>
+  <p>A refrigerated trailer carries a small diesel engine (Thermo King, Carrier) driving a compressor — essentially a self-contained fridge on a fuel tank. It runs whether or not the tractor is attached, and a reefer failure means a <strong>spoiled load</strong> — often the single most expensive breakdown a fleet faces, because you lose the freight AND the claim.</p>
+  <div class="grid2">
+    <div class="card"><h5>What it needs</h5><p>Its own <strong>fuel</strong> (keep the reefer tank full — running out mid-haul thaws the load), <strong>engine oil</strong> and filters on the unit&rsquo;s own schedule, <strong>belts</strong>, <strong>coolant</strong>, and clean <strong>condenser/evaporator coils</strong> (blocked coils = poor cooling, like a plugged radiator).</p></div>
+    <div class="card"><h5>How it fails</h5><p><strong>Not holding temperature</strong> is the alarm that matters. Causes: low refrigerant, dirty coils, a bad door seal letting warm air in, a blocked evaporator drain icing up, low fuel, or a failed defrost cycle. Modern units log alarm codes — read them like J1939.</p></div>
+  </div>
+  <ul>
+    <li><strong>Pre-trip the reefer like the tractor:</strong> fuel level, oil, belts, no alarm codes, set-point correct, and pre-cool the empty box before loading.</li>
+    <li><strong>Airflow is everything:</strong> the load must be stacked so cold air can circulate — a solid wall of freight against the front bulkhead blocks the very air trying to cool it. This is a loading discipline, not a repair.</li>
+    <li><strong>Continuous vs. start/stop mode:</strong> continuous holds temperature tighter (sensitive produce); start/stop saves fuel (frozen loads that tolerate swings). Wrong mode ruins loads or wastes money.</li>
+  </ul>
+  <div class="callout vet"><span class="ct">Veteran&rsquo;s Note</span><p>A reefer download (the temperature log) is legal evidence in a spoilage claim. If a receiver rejects a load for temperature, that log proves whether the reefer did its job — so a working, calibrated unit with clean logs protects you from claims you didn&rsquo;t cause. Treat the reefer&rsquo;s maintenance file as seriously as its cargo.</p></div>
+
+  <div class="next">
+    <a onclick="go('diagthink')"><small>Next Chapter</small><b>Diagnostic Thinking →</b></a>
+  </div>
+</section>
+
+<!-- ============ 16 DIAGNOSTIC THINKING ============ -->
 <section class="page" id="diagthink">
-  <div class="kicker">Chapter 15 · The Master Layer</div>
+  <div class="kicker">Chapter 16 · The Master Layer</div>
   <h2 class="title">Diagnostic Thinking — How a Master Thinks</h2>
   <p class="lede">Tools are cheap. Parts are expensive. <strong>Thinking is what separates a mechanic from a parts changer</strong> — and thinking can be learned, because it is a method, not a talent.</p>
 
@@ -2034,7 +2084,7 @@ h3{margin-top:60px}
 
 <!-- ============ 14 COMMON FAILURES (by CMJ) ============ -->
 <section class="page" id="failures">
-  <div class="kicker">Chapter 16 · The Master Layer · Written by CMJ</div>
+  <div class="kicker">Chapter 17 · The Master Layer · Written by CMJ</div>
   <h2 class="title">Common Failures — Why Trucks Really Break</h2>
   <p class="lede">A truck almost never breaks without warning. <strong>It whispers before it screams.</strong> Strange noises, little leaks, funny smells, weak power, extra smoke, a warning light — the truck is trying to tell you something. The smartest mechanics don&rsquo;t fix the broken part first. They ask: <strong>&ldquo;What made this part die?&rdquo;</strong> Because every broken part has a parent problem.</p>
 
@@ -2072,7 +2122,7 @@ h3{margin-top:60px}
 
 <!-- ============ 15 READING WORN PARTS ============ -->
 <section class="page" id="worn">
-  <div class="kicker">Chapter 17 · The Master Layer</div>
+  <div class="kicker">Chapter 18 · The Master Layer</div>
   <h2 class="title">Reading Worn Parts</h2>
   <p class="lede">Parts don't just fail — they <strong>testify</strong>. The difference between a parts-changer and a master is that the master reads every component that comes off the truck, because the failure pattern names the cause that's still bolted to the chassis.</p>
   <div class="callout plain"><span class="ct">In Plain English — the simple version</span><p>A broken part is like a crime scene: it always leaves clues about <em>who did it</em>. A bearing worn on one edge says "something is crooked." Scratches say "there was dirt in the oil." Burnt black color says "there was no oil at all." Never throw a broken part in the bin without reading it first — because the <strong>criminal is still on the truck</strong>, waiting to kill the new part too.</p><details><summary>Read the full simple story</summary>
@@ -2241,7 +2291,7 @@ h3{margin-top:60px}
 
 <!-- ============ 15 PROCEDURES & SPECS ============ -->
 <section class="page" id="procedures">
-  <div class="kicker">Chapter 18 · The Master Layer</div>
+  <div class="kicker">Chapter 19 · The Master Layer</div>
   <h2 class="title">Procedures &amp; Specs</h2>
   <p class="lede">The bench-tested procedures behind every diagnosis in this reference, step by step — plus the map to the <strong>serial-number-exact data</strong> that no general reference can responsibly print.</p>
   <div class="callout plain"><span class="ct">In Plain English — the simple version</span><p>These are recipes — like baking a cake. Follow the steps in order, don&rsquo;t skip any, and you get the same good result every time. Where a number depends on your exact engine (like oven temperature depends on your exact oven), the step tells you to look it up — and the end of this chapter shows exactly where to look.</p><details><summary>Read the full simple story</summary>
@@ -2347,7 +2397,7 @@ h3{margin-top:60px}
 
 <!-- ============ 16 FLEET ECONOMICS ============ -->
 <section class="page" id="economics">
-  <div class="kicker">Chapter 19 · The Master Layer</div>
+  <div class="kicker">Chapter 20 · The Master Layer</div>
   <h2 class="title">Fleet Economics</h2>
   <p class="lede">The master mechanic's final skill isn't mechanical: it's knowing <strong>when a repair is a good investment and when it's throwing money at a truck that's already told you its answer</strong>. Every wrench decision is a money decision.</p>
   <div class="callout plain"><span class="ct">In Plain English — the simple version</span><p>A truck is a worker: it earns money when it drives and costs money when it doesn&rsquo;t. A new truck costs a lot in payments; an old truck costs a lot in repairs; the cheapest years are in the middle. The whole game of this chapter is one idea: <strong>fixing a truck on YOUR schedule in YOUR garage is always cheaper than the truck breaking on the road</strong> — because a breakdown charges you three times: the repair, the tow, and the load that didn&rsquo;t arrive.</p><details><summary>Read the full simple story</summary>
@@ -2431,7 +2481,7 @@ h3{margin-top:60px}
 
 <!-- ============ 20 WINTER SURVIVAL ============ -->
 <section class="page" id="winter">
-  <div class="kicker">Chapter 20 · Shop Tools</div>
+  <div class="kicker">Chapter 21 · Shop Tools</div>
   <h2 class="title">Winter Survival</h2>
   <p class="lede">Cold is where fleets lose trucks. Not on the mountain — in the parking lot at 5 a.m., when the truck that ran fine yesterday won&rsquo;t start, won&rsquo;t build air, or won&rsquo;t take fuel. <strong>Winter failures are almost all preventable</strong> — but only by the person who prepared in October.</p>
   <div class="callout plain"><span class="ct">In Plain English — the simple version</span><p>Cold does four cruel things to a truck. It turns diesel to <strong>wax</strong> (won&rsquo;t flow). It weakens <strong>batteries</strong> right when the engine is hardest to turn. It freezes the <strong>water</strong> hiding in the air system into ice that blocks the brakes. And it freezes the <strong>DEF</strong>. Every one is beaten by preparation, not repair — the driver who fuels right, plugs in, and drains tanks never meets the tow truck.</p></div>
@@ -2486,7 +2536,7 @@ h3{margin-top:60px}
 
 <!-- ============ 17 PM SCHEDULES ============ -->
 <section class="page" id="pm">
-  <div class="kicker">Chapter 21 · Shop Tools</div>
+  <div class="kicker">Chapter 22 · Shop Tools</div>
   <h2 class="title">PM Schedules &amp; Checklists</h2>
   <p class="lede">Preventive maintenance is the entire business case of a fleet shop: <strong>every dollar of scheduled work replaces three to ten dollars of breakdown</strong>, plus the tow, the late load, and the driver sitting. Here is the classic A/B/C/D structure, ready to adapt.</p>
   <div class="callout plain"><span class="ct">In Plain English — the simple version</span><p>This is the dentist plan for trucks. Small checkups often (clean, look, tighten), medium checkups sometimes (change the oil, test everything), and a big deep checkup once a year. Why? Because a small cavity is cheap and a root canal is not. Every problem found in the garage is a breakdown that never happens on the highway.</p><details><summary>Read the full simple story</summary>
@@ -2553,9 +2603,103 @@ h3{margin-top:60px}
   </div>
 </section>
 
+<!-- ============ TOOLS OF THE TRADE ============ -->
+<section class="page" id="tools">
+  <div class="kicker">Chapter 23 · Shop Tools</div>
+  <h2 class="title">Tools of the Trade</h2>
+  <p class="lede">You can&rsquo;t diagnose what you can&rsquo;t measure. The right tools turn guessing into knowing — and most of the ones that matter cost less than a single wrong part. Here&rsquo;s what to own, what each one actually tells you, and where to spend versus save.</p>
+  <div class="callout plain"><span class="ct">In Plain English — the simple version</span><p>A mechanic&rsquo;s real tools aren&rsquo;t the wrenches — those just turn bolts. The tools that make you <em>smart</em> are the ones that <strong>measure and reveal</strong>: a laptop that reads the truck&rsquo;s mind, a meter that finds the hidden broken wire, a gauge that shows the leak, a light that sees inside the cylinder. Buy the measuring tools first; they pay for themselves the first day you don&rsquo;t buy a wrong part.</p></div>
+
+  <h3>The diagnostic tools — buy these first</h3>
+  <div class="twrap"><table>
+    <tr><th>Tool</th><th>What It Reveals</th><th>Tier</th></tr>
+    <tr><td>Diagnostic laptop + software (INSITE, DDDL, or a good generic like JPRO)</td><td>The truck&rsquo;s own mind: fault codes, freeze frames, live data, cylinder cutout, forced regens, calibrations. The single most powerful tool you can own.</td><td>Invest</td></tr>
+    <tr><td>Digital multimeter</td><td>Voltage, and the voltage-DROP test that finds hidden corrosion an ohmmeter misses. Half of all faults are electrical; this finds them.</td><td>Invest</td></tr>
+    <tr><td>Charge-air / boost pressure test kit</td><td>The soot-streaked leak that steals your power. Pays for itself the first &ldquo;bad turbo&rdquo; that turns out to be a $40 boot.</td><td>Cheap · essential</td></tr>
+    <tr><td>Cooling-system pressure tester + block tester</td><td>Where coolant is escaping, and whether combustion gas is in the coolant — before you buy a head gasket.</td><td>Cheap · essential</td></tr>
+    <tr><td>Infrared thermometer</td><td>Real temperature at any point — confirms overheats, finds dragging brakes (hot hub), checks reefer performance.</td><td>Cheap</td></tr>
+    <tr><td>Refractometer</td><td>Coolant freeze point and DEF concentration in seconds. Test, don&rsquo;t guess — before winter.</td><td>Cheap</td></tr>
+    <tr><td>Borescope (cheap USB camera)</td><td>Inside the cylinder, the intake, anywhere your eye can&rsquo;t reach. Turns &ldquo;maybe&rdquo; into &ldquo;I saw it.&rdquo;</td><td>Cheap</td></tr>
+    <tr><td>Oil-filter cutter</td><td>Opens the filter so the pleats reveal metal before failure — a free engine checkup in your trash.</td><td>Cheap</td></tr>
+  </table></div>
+
+  <h3>The measuring &amp; safety tools</h3>
+  <ul>
+    <li><strong>Torque wrench (½&Prime; and ¾&Prime;)</strong> — &ldquo;tight&rdquo; is not a number. Wheel nuts, head bolts, and axle hardware all have specs for a reason. A cheap click wrench beats the best impact gun for anything that matters.</li>
+    <li><strong>Dial indicator</strong> — the only honest way to set wheel-bearing end play (0.001&ndash;0.005&Prime;). Without it, you&rsquo;re guessing at the thing that prevents wheel-offs.</li>
+    <li><strong>Brake stroke gauge (or a tape measure and a mark)</strong> — measures the #1 out-of-service violation. Free to make, prevents fines.</li>
+    <li><strong>Tire gauge and tread depth gauge</strong> — your second-biggest cost after fuel, managed with two cheap tools.</li>
+    <li><strong>Jack stands rated for the load, wheel chocks, and a fire extinguisher</strong> — a truck falling off a jack or a fuel fire ends careers. Non-negotiable.</li>
+    <li><strong>Good light and safety glasses</strong> — you can&rsquo;t fix what you can&rsquo;t see, and high-pressure fuel and air don&rsquo;t forgive unprotected eyes.</li>
+  </ul>
+
+  <h3>Where to spend vs. save</h3>
+  <div class="grid2">
+    <div class="card"><h5>Spend the money</h5><p>The <strong>diagnostic laptop and software</strong>, a <strong>quality multimeter</strong>, and a real <strong>torque wrench</strong>. These are precision instruments you bet decisions on — a cheap meter that reads wrong is worse than no meter. Buy once, buy right.</p></div>
+    <div class="card"><h5>Save the money</h5><p>Most <strong>hand tools</strong> (quality mid-tier is fine), the <strong>borescope</strong> (a $30 USB camera works), the <strong>pressure test kits</strong> (simple and cheap), and <strong>sockets and wrenches</strong> beyond the sizes you use daily. Don&rsquo;t pay pro-brand prices for something you touch twice a year.</p></div>
+  </div>
+  <div class="callout vet"><span class="ct">Veteran&rsquo;s Note</span><p>The most expensive tool in any shop is the one you don&rsquo;t own — because without it you guess, and guessing buys wrong parts. A $150 charge-air test kit that prevents one wrong $3,500 turbo has a 2,000% return the first afternoon. Tool up on the <em>measuring</em> side before the <em>turning</em> side; the wrenches don&rsquo;t make you a mechanic, the measurements do.</p></div>
+
+  <div class="next">
+    <a onclick="go('dot')"><small>Next Chapter</small><b>DOT Compliance →</b></a>
+  </div>
+</section>
+
+<!-- ============ DOT COMPLIANCE ============ -->
+<section class="page" id="dot">
+  <div class="kicker">Chapter 24 · Shop Tools</div>
+  <h2 class="title">DOT Compliance &amp; the Driver&rsquo;s Side</h2>
+  <p class="lede">The best-maintained truck in the country still gets shut down for a paperwork error or a burned-out lamp. Compliance is a system too — and like every system in this book, it fails at predictable points and rewards the person who prepared. This is the side that keeps your authority alive.</p>
+  <div class="callout plain"><span class="ct">In Plain English — the simple version</span><p>The government tracks two things: is the <strong>truck</strong> safe, and is the <strong>driver</strong> safe. The truck side is inspections and repairs (most of this book). The driver side is <strong>hours</strong> (are they too tired?), <strong>logs</strong> (can they prove it?), and <strong>qualifications</strong> (license and medical card current?). Every roadside inspection checks both. A good score keeps your insurance affordable and your trucks rolling; a bad one invites more inspections and can shut you down.</p></div>
+
+  <h3>Hours of Service — the fatigue rules</h3>
+  <p>Federal limits on how long a driver can work, enforced by the <strong>ELD</strong> (Electronic Logging Device) that plugs into the truck&rsquo;s datalink and records driving time automatically. The core property-carrier limits:</p>
+  <div class="twrap"><table>
+    <tr><th>Rule</th><th>The Limit</th><th>In Plain Words</th></tr>
+    <tr><td>11-hour driving</td><td>11 hours max</td><td>After 10 hours off, you may drive up to 11 hours</td></tr>
+    <tr><td>14-hour window</td><td>14 consecutive hours</td><td>Once you start, the clock runs — 14 hours later you can&rsquo;t drive, even if you took breaks</td></tr>
+    <tr><td>30-minute break</td><td>After 8 hours driving</td><td>A break is required before driving past 8 cumulative hours</td></tr>
+    <tr><td>60/70-hour limit</td><td>In 7/8 days</td><td>Total on-duty time is capped per week; a 34-hour reset restarts it</td></tr>
+  </table></div>
+  <p>The ELD makes these automatic and hard to fudge — which is the point. A driver who understands the clock plans loads around it; one who doesn&rsquo;t gets stranded 30 miles from delivery with no legal hours left.</p>
+
+  <h3>The roadside inspection — the six levels</h3>
+  <p>Not all inspections are equal. Knowing the levels tells you what&rsquo;s coming:</p>
+  <ul>
+    <li><strong>Level 1 — Full.</strong> The big one: driver documents AND a complete walk-around under the truck. Brakes, steering, lights, tires, coupling, the works. This is where preparation pays.</li>
+    <li><strong>Level 2 — Walk-around.</strong> Driver docs plus what the inspector can check without going under the truck.</li>
+    <li><strong>Level 3 — Driver only.</strong> License, medical card, logs/ELD, paperwork. No truck inspection.</li>
+    <li><strong>Level 4 — Special.</strong> A one-time check of a specific item, usually for a study.</li>
+    <li><strong>Level 5 — Vehicle only.</strong> The truck inspected without the driver present.</li>
+    <li><strong>Level 6 — Radioactive.</strong> Enhanced inspection for certain hazmat.</li>
+  </ul>
+  <div class="callout warn"><span class="ct">Out of Service</span><p>An inspection can place the <strong>driver</strong> out of service (no valid license/medical, hours violation, impairment) or the <strong>vehicle</strong> out of service (brakes out of adjustment, steering play, bald tires, bad lights, leaking fuel). Out-of-service means it does not move until fixed — and every violation feeds your CSA score. The annual inspection form in <a onclick="go('pm')" style="color:var(--accent);cursor:pointer">Chapter 22</a> is the same checklist the inspector uses; walk it first.</p></div>
+
+  <h3>CSA scores — your fleet&rsquo;s report card</h3>
+  <p><strong>CSA</strong> (Compliance, Safety, Accountability) is how the FMCSA scores carriers from inspection and crash data, grouped into <strong>BASICs</strong> — categories like Vehicle Maintenance, Unsafe Driving, Hours-of-Service, and Driver Fitness. Every violation adds points weighted by severity and recency. Why it matters to your wallet:</p>
+  <ul>
+    <li><strong>High scores attract inspections</strong> — a bad Vehicle Maintenance BASIC means more roadside stops, a compounding problem.</li>
+    <li><strong>Insurance reads your scores</strong> — good scores lower premiums; bad ones raise them or lose you coverage entirely.</li>
+    <li><strong>Brokers and shippers read them too</strong> — some won&rsquo;t book a carrier with poor safety scores.</li>
+    <li><strong>The fix is upstream:</strong> clean pre-trips, fast defect repair, and on-time PM keep violations from ever being written. Every maintenance habit in this book is also a CSA strategy.</li>
+  </ul>
+
+  <h3>The paperwork that keeps you legal</h3>
+  <ul>
+    <li><strong>Driver:</strong> valid CDL with the right endorsements, current <strong>medical card</strong> (DOT physical), and clean ELD/logs.</li>
+    <li><strong>Truck:</strong> current <strong>annual inspection</strong> (Chapter 22), registration/plates, IFTA and IRP where applicable, and the daily <strong>DVIR</strong> — the driver&rsquo;s defect report.</li>
+    <li><strong>Carrier:</strong> active operating authority (MC/DOT number), insurance on file, and a maintenance file per unit proving the work was done.</li>
+  </ul>
+  <div class="callout vet"><span class="ct">Veteran&rsquo;s Note</span><p>The DVIR ties the whole book together: the driver reports a defect, the shop fixes it, and the signed record proves it — which satisfies FMCSA, protects your CSA score, and builds the maintenance history that wins warranty claims and resale value. The cheapest compliance tool you own is a driver who reports problems and a shop that fixes them fast. Everything else is paperwork around that one habit.</p></div>
+
+  <div class="next">
+    <a onclick="go('troubleshoot')"><small>Next Chapter</small><b>The Troubleshooter →</b></a>
+  </div>
+</section>
+
 <!-- ============ 15 TROUBLESHOOTER ============ -->
 <section class="page" id="troubleshoot">
-  <div class="kicker">Chapter 22 · Shop Tools</div>
+  <div class="kicker">Chapter 25 · Shop Tools</div>
   <h2 class="title">The Troubleshooter</h2>
   <p class="lede">Pick the symptom, answer the questions the way a 20-year tech would ask them, and walk to a diagnosis. Every path here follows the shop discipline: <strong>cheap tests before expensive parts.</strong></p>
   <div class="callout plain"><span class="ct">In Plain English — the simple version</span><p>This works like a game of 20 Questions. Tell me what the truck is doing wrong, answer a few simple questions, and the path leads you to the answer — always trying the cheap and easy checks first, because guessing with expensive parts is how repair bills get fat.</p><details><summary>Read the full simple story</summary>
@@ -2578,7 +2722,7 @@ h3{margin-top:60px}
 
 <!-- ============ 16 FAULT CODES ============ -->
 <section class="page" id="codes">
-  <div class="kicker">Chapter 23 · Shop Tools</div>
+  <div class="kicker">Chapter 26 · Shop Tools</div>
   <h2 class="title">Fault Code Reference</h2>
   <p class="lede">The J1939 codes you'll actually meet, with the <strong>field-truth causes</strong> behind them — not just the textbook definition. SPN = what parameter; FMI = how it failed (see the FMI table in <a onclick="go('electrical')" style="color:var(--accent);cursor:pointer">Chapter 11</a>).</p>
   <div class="callout plain"><span class="ct">In Plain English — the simple version</span><p>When the truck feels sick, its computer writes little notes. Each note has two parts: <strong>SPN</strong> = <em>which body part hurts</em> (the oil? a sensor? the turbo?), and <strong>FMI</strong> = <em>how it hurts</em> (too high? too low? not answering?). One important rule: a code is a <strong>witness, not the criminal</strong>. It tells you where it hurts — finding out why is your job, and this table gives you the usual suspects.</p><details><summary>Read the full simple story</summary>
@@ -2611,7 +2755,7 @@ h3{margin-top:60px}
 
 <!-- ============ 17 GLOSSARY ============ -->
 <section class="page" id="glossary">
-  <div class="kicker">Chapter 24 · Shop Tools</div>
+  <div class="kicker">Chapter 27 · Shop Tools</div>
   <h2 class="title">Glossary</h2>
   <p class="lede">The language of the shop floor. Use the letters to jump; use <strong>/</strong> to search everything.</p>
   <div class="alpha" id="alphabar"></div>
@@ -2621,7 +2765,7 @@ h3{margin-top:60px}
 
 <!-- ============ 21 QUIZ ============ -->
 <section class="page" id="quiz">
-  <div class="kicker">Chapter 25 · Shop Tools</div>
+  <div class="kicker">Chapter 28 · Shop Tools</div>
   <h2 class="title">Knowledge Quiz</h2>
   <p class="lede">Test yourself on everything in this reference. Instant feedback, plain-language explanations, and a mechanic rank at the end. <strong>Wrong answers teach more than right ones</strong> — every miss links you back to the chapter to re-read.</p>
   <div class="callout plain"><span class="ct">In Plain English — the simple version</span><p>Reading builds knowledge, but <strong>answering questions builds memory</strong> — your brain keeps what it has to work for. Take the 10-question quick quiz often (coffee-break size), and the full exam once you feel strong. Don&rsquo;t fear wrong answers: each one shows the explanation AND where to re-read. Miss it twice, and you&rsquo;ll never miss it again.</p></div>
@@ -2648,7 +2792,7 @@ h3{margin-top:60px}
 
 <!-- ============ 25 CAPSTONE ============ -->
 <section class="page" id="capstone">
-  <div class="kicker">Chapter 26 · The Capstone · Designed by CMJ</div>
+  <div class="kicker">Chapter 29 · The Capstone · Designed by CMJ</div>
   <h2 class="title">How Everything Works Together</h2>
   <p class="lede">No new parts in this chapter. Instead: <strong>five real problems traveling through many systems at once</strong> — because that is what real trucks do. Chapters teach components. This chapter teaches the connections. Walk these five stories and you are not learning the truck anymore — you are diagnosing it.</p>
 
@@ -2755,10 +2899,10 @@ const NAV=[
  {g:'Foundations',c:'#3f6a94',items:[['start','01','Start Here'],['diesel','02','Diesel Fundamentals']]},
  {g:'Engine Systems',c:'#3f6a94',items:[['air','03','Air & Turbocharging'],['fuel','04','Fuel System'],['lube','05','Lubrication'],['cooling','06','Cooling System'],['aftertreatment','07','EGR & Aftertreatment'],['sensors','08','Sensors & the ECM']]},
  {g:'Platform Deep Dives',c:'#3f6a94',items:[['cummins','09','Cummins X15 / ISX'],['detroit','10','Detroit DD13 / DD15']]},
- {g:'Chassis & Driveline',c:'#2f6b46',items:[['brakes','11','Air Brakes'],['electrical','12','Electrical & Charging'],['drivetrain','13','Drivetrain'],['suspension','14','Suspension & Wheel End']]},
- {g:'The Master Layer',c:'#9e2b25',items:[['diagthink','15','Diagnostic Thinking'],['failures','16','Common Failures'],['worn','17','Reading Worn Parts'],['procedures','18','Procedures & Specs'],['economics','19','Fleet Economics']]},
- {g:'Shop Tools',c:'#8a6d1f',items:[['winter','20','Winter Survival'],['pm','21','PM Schedules & Checklists'],['troubleshoot','22','Troubleshooter'],['codes','23','Fault Code Reference'],['glossary','24','Glossary'],['quiz','25','Knowledge Quiz']]},
- {g:'The Capstone',c:'#9e2b25',items:[['capstone','26','How Everything Works Together']]}
+ {g:'Chassis & Driveline',c:'#2f6b46',items:[['brakes','11','Air Brakes'],['electrical','12','Electrical & Charging'],['drivetrain','13','Drivetrain'],['suspension','14','Suspension & Wheel End'],['trailer','15','Trailer & Reefer']]},
+ {g:'The Master Layer',c:'#9e2b25',items:[['diagthink','16','Diagnostic Thinking'],['failures','17','Common Failures'],['worn','18','Reading Worn Parts'],['procedures','19','Procedures & Specs'],['economics','20','Fleet Economics']]},
+ {g:'Shop Tools',c:'#8a6d1f',items:[['winter','21','Winter Survival'],['pm','22','PM Schedules & Checklists'],['tools','23','Tools of the Trade'],['dot','24','DOT Compliance'],['troubleshoot','25','Troubleshooter'],['codes','26','Fault Code Reference'],['glossary','27','Glossary'],['quiz','28','Knowledge Quiz']]},
+ {g:'The Capstone',c:'#9e2b25',items:[['capstone','29','How Everything Works Together']]}
 ];
 const navEl=document.getElementById('nav');
 NAV.forEach((gr,gi)=>{
@@ -3176,6 +3320,14 @@ const GLOSS=[
 ['Pigtails (suzy lines)','Coupling','The three coiled lines behind the cab — red air, blue air, and the 7-way electrical cord — that connect tractor to trailer.'],
 ['7-way connector','Electrical','Round 7-pin plug carrying trailer lights, signals, stop lamps, and ABS power. Corroded pins here cause most trailer lighting complaints.'],
 ['Tug test','Coupling','After coupling: lock the trailer brakes and pull gently forward — the trailer must hold the tractor. Proves the fifth-wheel jaws captured the kingpin.'],
+['Reefer','Trailer','A refrigerated trailer with its own small diesel engine and compressor. A failure spoils the load — often a fleet&rsquo;s costliest breakdown.'],
+['Landing gear','Trailer','The crank-down legs that support a trailer when it is unhooked. Two-speed: low to lift a loaded nose, high for speed.'],
+['Sliding tandem','Trailer','A trailer&rsquo;s rear axles that slide fore-and-aft on lock pins to balance axle weights for the scales.'],
+['ELD','Compliance','Electronic Logging Device — plugs into the datalink and automatically records the driver&rsquo;s hours of service.'],
+['Hours of Service','Compliance','Federal fatigue limits: 11 hours driving, a 14-hour window, a 30-minute break, and 60/70-hour weekly caps.'],
+['CSA','Compliance','Compliance, Safety, Accountability — the FMCSA score built from inspection and crash data. High scores raise insurance and attract inspections.'],
+['Out of Service','Compliance','A violation severe enough that the driver or vehicle cannot legally move until it is corrected.'],
+['DVIR','Compliance','Driver Vehicle Inspection Report — the daily defect report that ties driver, shop, and compliance together.'],
 ['Gelling','Winter','Paraffin wax in diesel crystallizing in the cold, plating the fuel filter first. Prevented by winter blend and anti-gel dosed before the cold.'],
 ['Block heater','Winter','Electric element that warms engine coolant overnight so a cold engine cranks and fires easily — the best cold-start tool.'],
 ['Winter blend','Winter','A #1/#2 diesel mix with a lower cloud point, run in cold months to resist gelling.'],
@@ -3240,7 +3392,7 @@ function closeSearch(){document.getElementById('soverlay').classList.remove('ope
 function doSearch(){
   const q=document.getElementById('sinput').value.toLowerCase().trim();
   const res=document.getElementById('sresults');
-  if(!q){res.innerHTML='<div class="sresult"><small>Type to search all 26 chapters, '+CODES.length+' fault codes, and '+GLOSS.length+' glossary terms…</small></div>';return;}
+  if(!q){res.innerHTML='<div class="sresult"><small>Type to search all 29 chapters, '+CODES.length+' fault codes, and '+GLOSS.length+' glossary terms…</small></div>';return;}
   const hits=sindex.filter(s=>s.t.toLowerCase().includes(q)||s.d.toLowerCase().includes(q)).slice(0,14);
   res.innerHTML=hits.length?hits.map((h,i)=>'<div class="sresult" onclick="searchGo('+sindex.indexOf(h)+')"><span class="sloc">'+h.loc+'</span><b>'+h.t+'</b><small>'+h.d+'</small></div>').join(''):'<div class="sresult"><small>No matches — try a different term (e.g. "boost", "DEF", "slack adjuster", an SPN number…)</small></div>';
 }
@@ -3256,7 +3408,7 @@ document.addEventListener('keydown',e=>{
 
 <script>
 /* ================= QUIZ ================= */
-const QCH={diesel:'Diesel Fundamentals',air:'Air & Turbo',fuel:'Fuel System',lube:'Lubrication',cooling:'Cooling',aftertreatment:'Aftertreatment',cummins:'Cummins',detroit:'Detroit',brakes:'Air Brakes',electrical:'Electrical',drivetrain:'Drivetrain',suspension:'Suspension & Wheel End',worn:'Reading Worn Parts',procedures:'Procedures',economics:'Fleet Economics',pm:'PM Program',codes:'Fault Codes',sensors:'Sensors & ECM',diagthink:'Diagnostic Thinking',winter:'Winter Survival'};
+const QCH={diesel:'Diesel Fundamentals',air:'Air & Turbo',fuel:'Fuel System',lube:'Lubrication',cooling:'Cooling',aftertreatment:'Aftertreatment',cummins:'Cummins',detroit:'Detroit',brakes:'Air Brakes',electrical:'Electrical',drivetrain:'Drivetrain',suspension:'Suspension & Wheel End',worn:'Reading Worn Parts',procedures:'Procedures',economics:'Fleet Economics',pm:'PM Program',codes:'Fault Codes',sensors:'Sensors & ECM',diagthink:'Diagnostic Thinking',winter:'Winter Survival',trailer:'Trailer & Reefer',tools:'Tools of the Trade',dot:'DOT Compliance'};
 /* format: [chapter, question, [CORRECT, wrong, wrong, wrong], explanation] */
 const QZ=[
 ['diesel','What ignites the fuel in a diesel engine?',['Air made burning-hot by squeezing it hard','A spark plug firing in each cylinder at the right moment','A glowing wire that stays hot inside every cylinder','Heat carried back from the turbocharger into the intake'],'Squeezing air ~17:1 heats it past 1,000°F — fuel sprayed into that furnace lights itself. No spark, ever.'],
@@ -3362,6 +3514,12 @@ const QZ=[
 ['winter','Anti-gel additive must be added…',['Before the cold snap — it cannot un-gel wax already formed','After the fuel has already gelled','Only when the check-engine light comes on','Mixed directly into the DEF tank'],'It prevents crystals forming; it cannot dissolve wax that already exists. Dose ahead of the cold, every time.'],
 ['winter','At 0F a battery delivers about ___ of its rated cranking power.',['Half','All','Double','A quarter'],'Cold halves the muscle exactly when thick oil makes the engine hardest to turn. Load-test the bank in the fall.'],
 ['winter','DEF freezes at 12F. The correct response is…',['Nothing — it is normal; built-in heaters thaw it after start','Add alcohol to lower its freeze point','Mix in extra urea','Drain the DEF tank for winter'],'The system is designed to freeze and thaw safely. Never additive-treat DEF — verify the heaters work instead.'],
+['trailer','A refrigerated trailer failure is so costly because…',['You lose the freight AND face a spoilage claim','The reefer is hard to restart','It voids the tractor warranty','It always damages the tires'],'A spoiled load is often the most expensive breakdown a fleet faces. Pre-trip the reefer, keep its fuel full, and keep clean temperature logs.'],
+['trailer','After sliding the trailer tandem, you must always…',['Confirm all four lock pins snapped fully home','Air up the tires','Grease the kingpin','Reset the ABS light'],'A tandem that slides on the road is a disaster. Verify the pins every time — the same discipline as the fifth-wheel tug test.'],
+['tools','The tool that pays for itself fastest is often the…',['Charge-air pressure test kit — it prevents wrong turbo replacements','Biggest impact gun in the shop','Chrome socket set','Pro-brand screwdriver'],'A ~$150 kit that prevents one wrong $3,500 turbo returns 2,000% the first afternoon. Buy measuring tools before turning tools.'],
+['tools','"Tight" is not a number — which tool makes it one?',['A torque wrench','An impact gun','A breaker bar','A cheater pipe'],'Wheel nuts, head bolts, and axle hardware all have specs. A cheap click-type torque wrench beats the best impact for anything that matters.'],
+['dot','The ELD in the truck automatically records the driver&rsquo;s…',['Hours of service (driving and on-duty time)','Fuel mileage','Tire pressure','Engine oil life'],'It plugs into the datalink and logs driving time — making the 11-hour and 14-hour limits hard to fudge. That is the point.'],
+['dot','A high Vehicle Maintenance CSA score causes…',['More roadside inspections and higher insurance','A one-time fine only','Automatic loss of CDL','Nothing measurable'],'Bad scores attract inspections (a compounding problem) and raise premiums. The fix is upstream: clean pre-trips and fast defect repair.'],
 ['codes','SPN 5246 means…',['Severe SCR inducement — the 5 mph crawl is active','Washer fluid critically low in the reservoir circuit','Turbocharger overspeed detected at high altitude','Cruise control locked out by a brake system fault'],'The end of the federal countdown. Fix the root emissions fault; a service tool may be needed to reset the inducement.']
 ];
 /* engine */
@@ -3420,7 +3578,10 @@ const QF=[
 ['failures','Rule number one: the truck ___ before it screams.',['whispers'],'Noises, drips, smells and lights are the whisper. Catch the clue while it is cheap.'],
 ['winter','In the cold, diesel fuel can turn to ___ that plugs the filter.',['wax','gel'],'Paraffin wax crystallizes below ~10-20°F. Winter blend and anti-gel before the snap prevent it.'],
 ['winter','Undrained ___ in the air tanks freezes into ice that blocks the brakes.',['water','moisture'],'The compressor pushes water in with every stroke. Drain tanks daily and keep a fresh dryer cartridge.'],
-['winter','Plugged in overnight, the ___ heater keeps coolant and oil warm for easy starts.',['block','engine'],'The single best cold-start tool. Verify the cord and element work in the fall.']
+['winter','Plugged in overnight, the ___ heater keeps coolant and oil warm for easy starts.',['block','engine'],'The single best cold-start tool. Verify the cord and element work in the fall.'],
+['trailer','Keep the ___ tank full so the reefer never thaws the load mid-haul.',['reefer','fuel'],'Running out of reefer fuel mid-haul spoils the load. It has its own tank, oil, belts, and coils to maintain.'],
+['tools','Buy the ___ tools before the turning tools — they make you smart.',['measuring','diagnostic'],'A laptop, a multimeter, a pressure gauge, a borescope. Wrenches turn bolts; measurements find the problem.'],
+['dot','A high CSA score attracts more ___ and raises insurance.',['inspections','roadside inspections'],'It compounds: bad scores mean more stops, more chances for violations. The fix is upstream maintenance.']
 ];
 
 let qzPool=[],qzIdx=0,qzScore=0,qzMisses=[],qzScope='all',qzLen='10',qzStyle='mixed',qzByCh={};
@@ -3544,7 +3705,7 @@ qzHome();
 <script>
 /* ================= PLATFORM: progress, dark mode, connections, what-if, symptom search ================= */
 const store={get(k,d){try{const v=localStorage.getItem('cmj_'+k);return v==null?d:JSON.parse(v)}catch(e){return d}},set(k,v){try{localStorage.setItem('cmj_'+k,JSON.stringify(v))}catch(e){}}};
-const CHAPTERS=['start','diesel','air','fuel','lube','cooling','aftertreatment','sensors','cummins','detroit','brakes','electrical','drivetrain','suspension','diagthink','failures','worn','procedures','economics','winter','pm','troubleshoot','codes','glossary','quiz','capstone'];
+const CHAPTERS=['start','diesel','air','fuel','lube','cooling','aftertreatment','sensors','cummins','detroit','brakes','electrical','drivetrain','suspension','trailer','diagthink','failures','worn','procedures','economics','winter','pm','tools','dot','troubleshoot','codes','glossary','quiz','capstone'];
 
 /* ---- theme ---- */
 function applyTheme(t){document.documentElement.dataset.theme=t;const b=document.getElementById('darkbtn');if(b)b.textContent=t==='dark'?'☀️ Light mode':'🌙 Dark mode';}
@@ -3727,7 +3888,7 @@ const ACH=[
  {id:'first',e:'🥾',n:'First Steps',d:'Mark your first chapter as learned'},
  {id:'five',e:'📚',n:'Getting Serious',d:'Learn 5 chapters'},
  {id:'half',e:'⛰️',n:'Over the Summit',d:'Learn 13 chapters — halfway'},
- {id:'all',e:'🚛',n:'The Whole Machine',d:'Learn all 26 chapters'},
+ {id:'all',e:'🚛',n:'The Whole Machine',d:'Learn all 29 chapters'},
  {id:'quiz1',e:'✏️',n:'First Test',d:'Finish any quiz'},
  {id:'perfect',e:'💯',n:'Perfect Run',d:'Score 100% on a quiz'},
  {id:'exam',e:'🎓',n:'Certified',d:'Pass a 25+ question exam at 85% or better'},
