@@ -346,6 +346,14 @@ td .m{font-family:var(--mono);font-size:12.5px}
 .certactions button{background:#1d2129;color:#fff;border:none;border-radius:8px;padding:10px 18px;font-size:13px;font-weight:600;cursor:pointer;font-family:var(--sans)}
 @media print{body>*{display:none !important}#certoverlay{display:flex !important;position:static;background:#fff;padding:0}#certoverlay .certactions{display:none}body{background:#fff}.certpaper{border-color:#b4530a;max-width:100%}}
 /* ---- collapsible sidebar ---- */
+.setrow{display:flex;gap:8px;margin:8px 20px 4px}
+.setrow .modebtn{margin:0;flex:1;min-width:0;justify-content:center;font-size:12.5px;padding:9px 6px}
+.nitem.nhome{margin:6px 0 2px;color:#c8d0dd}
+.nitem.nhome .nnum{font-size:14px}
+nav .ngroup .gicon{font-size:13px;margin-right:2px;filter:grayscale(.15)}
+nav .ngwrap{transition:max-height .26s ease,opacity .18s}
+nav .nitem{padding-top:7px;padding-bottom:7px}
+
 nav .ngroup{width:100%;background:none;border:none;display:flex;align-items:center;gap:8px;padding:16px 26px 6px;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--side-dim);font-weight:700;cursor:pointer;font-family:var(--sans);transition:color .15s}
 nav .ngroup:hover{color:#8b93a0}
 nav .ngroup.activegroup .gname{color:#c8a06a}
@@ -465,8 +473,10 @@ h3{margin-top:60px}
     <div class="progbar"><div id="progfill" style="width:0%"></div></div>
     <div class="progbot"><span id="progpct">0 / 25 chapters</span><span id="progstreak">🔥 day 1</span><span id="progxp">0 XP</span></div>
   </div>
-  <button class="modebtn" id="darkbtn" onclick="toggleTheme()">🌙 Dark mode</button>
-  <button class="modebtn" onclick="cycleZoom()" id="zoombtn">🔎 Text size: normal</button>
+  <div class="setrow">
+    <button class="modebtn" id="darkbtn" onclick="toggleTheme()">🌙 Dark</button>
+    <button class="modebtn" onclick="cycleZoom()" id="zoombtn">🔤 Aa</button>
+  </div>
   <nav id="nav"></nav>
   <div class="sidefoot"><div style="margin-bottom:8px">© 2026 CMJ Fleet · <a href="https://t.me/adam_cooper" target="_blank" rel="noopener" style="color:#d97a2e;text-decoration:none">t.me/adam_cooper</a></div>Built for working fleets. Torque specs and intervals are typical industry values — always confirm against the OEM service manual for your specific serial number.</div>
 </aside>
@@ -2912,11 +2922,15 @@ const NAV=[
  {g:'The Capstone',c:'#9e2b25',items:[['capstone','29','How Everything Works Together']]}
 ];
 const navEl=document.getElementById('nav');
+const GICON={'Foundations':'🏁','Engine Systems':'⚙️','Platform Deep Dives':'🏭','Chassis & Driveline':'🚚','The Master Layer':'🧠','Shop Tools':'🛠️','The Capstone':'🎓'};
+const homeItem=document.createElement('div');homeItem.className='nitem nhome';homeItem.dataset.page='home';
+homeItem.innerHTML='<span class="nnum">🏠</span><span class="nlabel">Home / Dashboard</span>';
+homeItem.onclick=()=>go('home');navEl.appendChild(homeItem);
 NAV.forEach((gr,gi)=>{
-  const head=document.createElement('button');head.className='ngroup';head.dataset.gi=gi;
-  head.innerHTML=(gr.c?'<span class="ndot" style="background:'+gr.c+'"></span>':'')+'<span class="gname">'+gr.g+'</span><span class="gcount"></span><span class="gcaret">▾</span>';
+  const head=document.createElement('button');head.className='ngroup collapsed';head.dataset.gi=gi;
+  head.innerHTML='<span class="gicon">'+(GICON[gr.g]||'•')+'</span>'+(gr.c?'<span class="ndot" style="background:'+gr.c+'"></span>':'')+'<span class="gname">'+gr.g+'</span><span class="gcount"></span><span class="gcaret">▾</span>';
   navEl.appendChild(head);
-  const wrap=document.createElement('div');wrap.className='ngwrap';wrap.dataset.gi=gi;
+  const wrap=document.createElement('div');wrap.className='ngwrap collapsed';wrap.dataset.gi=gi;
   gr.items.forEach(([id,num,label])=>{
     const d=document.createElement('div');d.className='nitem';d.dataset.page=id;d.dataset.gi=gi;
     d.innerHTML='<span class="nnum">'+num+'</span><span class="nlabel">'+label+'</span>';
@@ -2937,8 +2951,9 @@ function go(id){
   document.querySelectorAll('.page').forEach(p=>p.classList.toggle('active',p.id===id));
   document.querySelectorAll('.nitem').forEach(n=>n.classList.toggle('active',n.dataset.page===id));
   const act=document.querySelector('.nitem.active');
-  if(act){const gi=act.dataset.gi;document.querySelectorAll('.ngwrap').forEach(w=>{const same=w.dataset.gi===gi;w.classList.toggle('collapsed',false);});
-    document.querySelectorAll('.ngroup').forEach(hd=>hd.classList.toggle('activegroup',hd.dataset.gi===gi));}
+  if(act&&act.dataset.gi!==undefined){const gi=act.dataset.gi;
+    document.querySelectorAll('.ngwrap').forEach(w=>w.classList.toggle('collapsed',w.dataset.gi!==gi));
+    document.querySelectorAll('.ngroup').forEach(hd=>{const on=hd.dataset.gi===gi;hd.classList.toggle('collapsed',!on);hd.classList.toggle('activegroup',on);});}
   document.querySelector('.sidebar').classList.remove('open');
   if(window.store&&id!=='home')store.set('lastCh',id);
   if(id==='home'&&window.renderDash)renderDash();
@@ -3715,7 +3730,7 @@ const store={get(k,d){try{const v=localStorage.getItem('cmj_'+k);return v==null?
 const CHAPTERS=['start','diesel','air','fuel','lube','cooling','aftertreatment','sensors','cummins','detroit','brakes','electrical','drivetrain','suspension','trailer','diagthink','failures','worn','procedures','economics','winter','pm','tools','dot','troubleshoot','codes','glossary','quiz','capstone'];
 
 /* ---- theme ---- */
-function applyTheme(t){document.documentElement.dataset.theme=t;const b=document.getElementById('darkbtn');if(b)b.textContent=t==='dark'?'☀️ Light mode':'🌙 Dark mode';}
+function applyTheme(t){document.documentElement.dataset.theme=t;const b=document.getElementById('darkbtn');if(b)b.textContent=t==='dark'?'☀️ Light':'🌙 Dark';}
 function toggleTheme(){const t=(document.documentElement.dataset.theme==='dark')?'light':'dark';store.set('theme',t);applyTheme(t);}
 applyTheme(store.get('theme','light'));
 
@@ -3875,8 +3890,8 @@ SYMPTOMS.forEach(([t,d,page])=>sindex.push({page,loc:'Symptom',t,d}));
 /* ================= FREE TIER: achievements, mastery, certificate, zoom, keyboard ================= */
 
 /* ---- text size ---- */
-const ZOOMS=[['normal',1],['large',1.12],['extra large',1.25]];
-function applyZoom(){const z=store.get('zoom',0);document.querySelector('.content').style.zoom=ZOOMS[z][1];const b=document.getElementById('zoombtn');if(b)b.textContent='🔎 Text size: '+ZOOMS[z][0];}
+const ZOOMS=[['Aa',1],['Aa+',1.12],['Aa++',1.25]];
+function applyZoom(){const z=store.get('zoom',0);document.querySelector('.content').style.zoom=ZOOMS[z][1];const b=document.getElementById('zoombtn');if(b)b.textContent='🔤 '+ZOOMS[z][0];}
 function cycleZoom(){store.set('zoom',(store.get('zoom',0)+1)%ZOOMS.length);applyZoom();}
 applyZoom();
 
