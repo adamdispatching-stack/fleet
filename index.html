@@ -103,6 +103,7 @@ table{display:table}
 th{background:#1d2129;color:#e8eaee;text-align:left;padding:11px 15px;font-size:11.5px;letter-spacing:1.2px;text-transform:uppercase;font-weight:600;white-space:nowrap}
 td{padding:11px 15px;border-top:1px solid var(--line-soft);vertical-align:top;color:var(--ink-soft);line-height:1.55}
 tr:nth-child(even) td{background:#fbfaf7}
+
 td:first-child{font-weight:600;color:var(--ink)}
 td .m{font-family:var(--mono);font-size:12.5px}
 
@@ -141,6 +142,7 @@ td .m{font-family:var(--mono);font-size:12.5px}
 .fig svg{width:100%;height:auto;display:block}
 .fig figcaption{font-size:13px;color:var(--ink-mute);margin-top:14px;border-top:1px solid var(--line-soft);padding-top:12px;line-height:1.6}
 .fig figcaption b{color:var(--ink)}
+.fig img{width:100%;display:block;border-radius:9px}
 .fig svg .maplink{cursor:pointer;fill:#24405e;font-weight:600}
 .fig svg .maplink:hover{fill:#b4530a}
 
@@ -266,6 +268,85 @@ td .m{font-family:var(--mono);font-size:12.5px}
 .appfoot .cpy b{color:var(--ink)}
 .appfoot a.tg{display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:600;color:var(--steel);text-decoration:none;background:var(--steel-soft);border:1px solid #cddaea;border-radius:20px;padding:7px 16px;transition:all .15s}
 .appfoot a.tg:hover{background:var(--steel);color:#fff}
+.complaint{font-family:var(--serif);font-size:20px;font-style:italic;color:var(--steel);border-left:4px solid var(--steel);padding:12px 20px;background:var(--steel-soft);border-radius:0 10px 10px 0;margin:18px 0}
+.grule{display:flex;gap:18px;align-items:flex-start;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:18px 22px;margin-bottom:12px}
+.grule .n{font-family:var(--serif);font-size:30px;font-weight:600;color:var(--accent-deep);min-width:36px;line-height:1}
+.grule div p{margin:0;font-size:14.5px}
+.grule div b{display:block;font-size:16px;color:var(--ink);margin-bottom:3px}
+.ndot{display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:8px;vertical-align:1px}
+/* progress & platform */
+.progwrap{margin:14px 20px 4px;background:#1d222b;border:1px solid #2b3240;border-radius:10px;padding:12px 14px}
+.progtop{display:flex;justify-content:space-between;align-items:center;font-size:11px;color:#8b93a0;margin-bottom:7px}
+.progtop b{color:#e0954e;font-size:12px}
+.progbar{height:6px;background:#272d38;border-radius:3px;overflow:hidden}
+.progbar div{height:100%;background:linear-gradient(90deg,#b4530a,#e0954e);border-radius:3px;transition:width .4s}
+.progbot{display:flex;justify-content:space-between;font-size:10.5px;color:#8b93a0;margin-top:7px}
+.modebtn{margin:8px 20px 0;display:flex;align-items:center;gap:10px;background:#1d222b;border:1px solid #2b3240;border-radius:8px;padding:8px 13px;color:#a8afbc;font-size:12.5px;cursor:pointer;font-family:var(--sans);width:calc(100% - 40px)}
+.modebtn:hover{border-color:#3d4655;color:#e8eaee}
+.nitem .ndone{margin-left:auto;color:#2f8f5b;font-size:12px;display:none}
+.nitem.learned .ndone{display:inline}
+.learnbtn{display:inline-flex;align-items:center;gap:8px;background:var(--card);border:1.5px solid var(--green);color:var(--green);border-radius:9px;padding:11px 22px;font-size:14px;font-weight:700;cursor:pointer;font-family:var(--sans);margin:30px 0 0}
+.learnbtn.on{background:var(--green);color:#fff}
+.connrow{margin:34px 0 0;padding-top:18px;border-top:1px solid var(--line-soft);font-size:12.5px;color:var(--ink-mute)}
+.connrow b{display:block;font-size:10.5px;letter-spacing:2px;text-transform:uppercase;color:var(--ink-mute);margin-bottom:9px}
+.connchip{display:inline-block;background:var(--steel-soft);color:var(--steel);border:1px solid transparent;border-radius:16px;padding:5px 13px;margin:0 6px 6px 0;font-weight:600;font-size:12.5px;cursor:pointer}
+.connchip:hover{border-color:var(--steel)}
+.wifgrid{display:flex;flex-wrap:wrap;gap:8px;margin:18px 0}
+.wifbtn{background:var(--card);border:1.5px solid var(--line);border-radius:18px;padding:8px 16px;font-size:13px;font-weight:600;color:var(--ink);cursor:pointer;font-family:var(--sans)}
+.wifbtn:hover,.wifbtn.on{border-color:var(--accent);color:var(--accent-deep)}
+.wchain{margin:18px 0}
+.wchain .fbox{animation:wfin .45s both}
+@keyframes wfin{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+.wlesson{background:var(--gold-soft);border:1px solid #e6d9ab;border-radius:10px;padding:14px 18px;font-size:14px;margin-top:14px;display:none}
+.wlesson.show{display:block}
+/* achievements, cert, toasts, motion */
+.progwrap{cursor:pointer}
+.progwrap:hover{border-color:#3d4655}
+.proghint{font-size:9.5px;color:#5c6371;text-align:center;margin-top:6px;letter-spacing:1px}
+@media(min-width:1081px){.farr{animation:arrowpulse 1.8s ease-in-out infinite}}
+@keyframes arrowpulse{0%,100%{opacity:.45;transform:translateX(0)}50%{opacity:1;transform:translateX(4px)}}
+.achgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:12px;padding:20px 24px;max-height:60vh;overflow-y:auto}
+.ach{background:var(--paper);border:1px solid var(--line);border-radius:12px;padding:16px;text-align:center}
+.ach .ae{font-size:30px;display:block;margin-bottom:6px}
+.ach b{display:block;font-size:13.5px;color:var(--ink)}
+.ach small{font-size:11.5px;color:var(--ink-mute);line-height:1.4;display:block;margin-top:3px}
+.ach.locked{opacity:.35;filter:grayscale(1)}
+.achhead{padding:18px 24px 0;font-family:var(--serif);font-size:20px;font-weight:600;color:var(--ink)}
+.achhead small{display:block;font-family:var(--sans);font-size:12.5px;color:var(--ink-mute);font-weight:400;margin-top:3px}
+#toast{position:fixed;bottom:24px;right:24px;background:#1d2129;color:#f2f3f5;border-radius:12px;padding:14px 20px;font-size:14px;box-shadow:0 12px 40px rgba(0,0,0,.35);z-index:200;display:none;align-items:center;gap:12px;border:1px solid #3d4655}
+#toast .te{font-size:24px}
+#toast b{color:#e0954e}
+.masterysup{font-size:10px;font-weight:700;margin-left:5px;color:var(--green)}
+.certbtn{background:var(--gold);color:#fff;border:none;border-radius:9px;padding:13px 28px;font-size:15px;font-weight:700;cursor:pointer;font-family:var(--sans);margin-top:14px}
+#certoverlay{position:fixed;inset:0;background:rgba(15,17,22,.75);z-index:300;display:none;align-items:center;justify-content:center;padding:20px}
+#certoverlay.open{display:flex}
+.certpaper{background:#fdfcf8;color:#1b1d22;width:100%;max-width:760px;padding:56px 64px;border:3px double #b4530a;border-radius:6px;text-align:center;font-family:var(--serif);position:relative}
+.certpaper .ck{font-size:11px;letter-spacing:3px;text-transform:uppercase;color:#8a3d05;font-family:var(--sans);font-weight:700}
+.certpaper h1{font-size:34px;font-weight:600;margin:14px 0 6px;color:#1b1d22}
+.certpaper .cname{font-size:30px;font-style:italic;color:#24405e;margin:22px 0 8px;border-bottom:1.5px solid #d9c98e;display:inline-block;padding:0 30px 6px}
+.certpaper p{font-family:var(--sans);font-size:14px;color:#3d4149;margin:8px 0}
+.certpaper .cscore{font-size:20px;font-weight:700;color:#8a3d05;font-family:var(--sans)}
+.certrow{display:flex;justify-content:space-between;margin-top:44px;font-family:var(--sans);font-size:12px;color:#6b7078}
+.certrow div{border-top:1px solid #c9c2b4;padding-top:8px;width:40%}
+.certactions{position:absolute;top:-52px;right:0;display:flex;gap:10px}
+.certactions button{background:#1d2129;color:#fff;border:none;border-radius:8px;padding:10px 18px;font-size:13px;font-weight:600;cursor:pointer;font-family:var(--sans)}
+@media print{body>*{display:none !important}#certoverlay{display:flex !important;position:static;background:#fff;padding:0}#certoverlay .certactions{display:none}body{background:#fff}.certpaper{border-color:#b4530a;max-width:100%}}
+/* dark mode */
+[data-theme="dark"]{--ink:#e8eaee;--ink-soft:#c3c8d1;--ink-mute:#8b93a0;--paper:#14171d;--card:#1c2027;--line:#2b313c;--line-soft:#242a34;--accent:#d97a2e;--accent-deep:#e0954e;--accent-soft:#33281c;--steel:#8fb3d9;--steel-soft:#1d2735;--green:#7fc79a;--green-soft:#1c2b22;--red:#e08a84;--red-soft:#33211f;--gold:#d9bc6a;--gold-soft:#2e2817}
+[data-theme="dark"] .callout.plain{background:#232014;border-color:#4a3f1e}
+[data-theme="dark"] .callout.plain details{border-color:#4a3f1e}
+[data-theme="dark"] .callout.plain .one{background:#2e2817;color:#d9bc6a}
+[data-theme="dark"] tr:nth-child(even) td{background:#20252d}
+[data-theme="dark"] .check:hover{background:#20252d}
+[data-theme="dark"] ::selection{background:#4a3418}
+[data-theme="dark"] .fbox.hot{border-color:#5c4322}
+[data-theme="dark"] .fbox.cold{border-color:#2b3f56}
+[data-theme="dark"] .wlesson{border-color:#4a3f1e}
+[data-theme="dark"] .qzexp{border-color:#4a3f1e}
+[data-theme="dark"] .callout.vet{border-color:#4a3f1e}
+[data-theme="dark"] .callout.why{border-color:#2b3f56}
+[data-theme="dark"] .callout.warn{border-color:#4a2b28}
+[data-theme="dark"] .callout.tip{border-color:#28402f}
 .mob-toggle{display:none;position:fixed;top:14px;left:14px;z-index:60;background:var(--side-bg);color:#e8eaee;border:none;border-radius:9px;width:42px;height:42px;font-size:19px;cursor:pointer}
 @media(max-width:1080px){
   .sidebar{transform:translateX(-100%);transition:transform .22s}
@@ -292,6 +373,13 @@ td .m{font-family:var(--mono);font-size:12.5px}
     <p>CMJ Fleet Reference</p>
   </div>
   <button class="searchbtn" onclick="openSearch()">🔍 Search everything… <kbd>/</kbd></button>
+  <div class="progwrap" id="progwrap">
+    <div class="progtop"><span>YOUR PROGRESS</span><b id="proglevel">Parts Changer</b></div>
+    <div class="progbar"><div id="progfill" style="width:0%"></div></div>
+    <div class="progbot"><span id="progpct">0 / 25 chapters</span><span id="progstreak">🔥 day 1</span><span id="progxp">0 XP</span></div>
+  </div>
+  <button class="modebtn" id="darkbtn" onclick="toggleTheme()">🌙 Dark mode</button>
+  <button class="modebtn" onclick="cycleZoom()" id="zoombtn">🔎 Text size: normal</button>
   <nav id="nav"></nav>
   <div class="sidefoot"><div style="margin-bottom:8px">© 2026 CMJ Fleet · <a href="https://t.me/adam_cooper" target="_blank" rel="noopener" style="color:#d97a2e;text-decoration:none">t.me/adam_cooper</a></div>Built for working fleets. Torque specs and intervals are typical industry values — always confirm against the OEM service manual for your specific serial number.</div>
 </aside>
@@ -306,10 +394,10 @@ td .m{font-family:var(--mono);font-size:12.5px}
   </div>
 
   <div class="statrow">
-    <div class="stat"><b>21</b><span>Chapters covering every major system on the truck — and the business around it</span></div>
+    <div class="stat"><b>25</b><span>Chapters covering every major system on the truck — and the business around it</span></div>
     <div class="stat"><b>14</b><span>Interactive diagnostic trees that walk you through real failures</span></div>
     <div class="stat"><b>73</b><span>J1939 fault codes with real-world root causes</span></div>
-    <div class="stat"><b>109</b><span>Glossary terms — talk the language of the shop floor</span></div>
+    <div class="stat"><b>117</b><span>Glossary terms — talk the language of the shop floor</span></div>
   </div>
 
   
@@ -476,6 +564,8 @@ td .m{font-family:var(--mono);font-size:12.5px}
 </g>
 </g></svg>
 <figcaption><b>The four-stroke cycle.</b> Green valve = intake open (boosted air in). Red valve = exhaust open (spent gas out to the turbo). The orange wedge is the injector — note it fires into air already heated past 1,000°F by compression alone. Two full crank revolutions per power stroke.</figcaption></figure>
+<figure class="fig"><img src="img/01-diesel.webp" alt="How a diesel engine works — cartoon poster: breathe in, squeeze, punch, breathe out; six pistons like six kids on one bicycle; torque vs horsepower; the Jake brake" loading="lazy">
+<figcaption><b>The poster version — same lesson, shop-wall style.</b> Made from this chapter&rsquo;s own story: the four breaths, six kids on one bicycle, torque as the hard push on a door, and the Jake brake&rsquo;s escaping-air BRAP. Print it and hang it in the shop — the whole diesel cycle at a glance.</figcaption></figure>
 
 <div class="callout why"><span class="ct">Why the Inline-Six Rules Trucking</span><p>In an inline-six, the six pistons naturally <strong>cancel each other's shaking</strong> — the engine balances itself, no extra parts needed. It is also simple: one head, one exhaust pipe, one turbo. And its long piston stroke makes huge twisting force at low speed. Torque is what moves freight; horsepower is just torque × speed. A DD15 or X15 earns its living between 1,000 and 1,500 RPM — exactly where this engine is happiest.</p></div>
 
@@ -493,6 +583,11 @@ td .m{font-family:var(--mono);font-size:12.5px}
     <li><strong>Camshaft & overhead</strong> — an overhead cam (Detroit: dual; Cummins X15: single overhead cam) drives intake valves, exhaust valves, and on many designs the <strong>engine brake</strong> rocker. Valve lash — the tiny cold clearance between rocker and valve — is a wear item, which is why an <strong>overhead run (valve adjustment)</strong> is scheduled maintenance, not a repair.</li>
     <li><strong>Head gasket</strong> — a multi-layer steel fire ring sealing 2,500+ psi of combustion away from coolant passages an eighth of an inch away. When it fails, combustion gas pushes into coolant long before coolant enters the cylinder — which is why the first sign is usually a <strong>pressurized, puking coolant tank</strong>, not white smoke.</li>
   </ul>
+
+  
+  <h3>Timing — the dance that must never slip</h3>
+  <div class="callout plain"><span class="ct">In Plain English — the simple version</span><p>The valves are <strong>doors</strong>, and the pistons are visitors arriving thousands of times a minute. The doors must open at the <em>exact</em> moment each piston arrives — not before, not after. The crankshaft (which moves pistons) and the camshaft (which opens doors) are locked together by <strong>timing gears</strong> with alignment marks, so they can never drift apart. Assemble them <strong>one tooth off</strong>, and every door in the engine opens at the wrong moment: weak, smoky running at best — pistons smashing into open valves at worst. This is why timing marks exist, and why they are checked and double-checked at every rebuild.</p></div>
+  <p>Heavy diesels use <strong>gears, not belts</strong>, to tie crank to cam — million-mile steel that never stretches or snaps like a car&rsquo;s timing belt. The overhead run (valve adjustment) protects the other half of the door system: <strong>lash</strong> is how far each door opens and how long it stays open. Too tight and a valve never fully closes — it burns. Too loose and the door opens late and small — weak cylinder, noisy top end. The dance has two requirements: right <em>moment</em> (timing gears) and right <em>movement</em> (lash). Scheduled maintenance guards both.</p>
 
   <h3>Torque, horsepower, and why diesels are geared the way they are</h3>
   <p>Torque is twisting force; horsepower is how fast you can apply it (<span class="chip b">HP = torque × RPM ÷ 5,252</span>). A typical fleet spec — say 455 HP / 1,650 lb-ft — makes peak torque around <strong>1,000–1,100 RPM</strong> and holds it flat across a wide plateau. The whole drivetrain is designed to keep the engine in that plateau: this is the "sweet spot" and it's where fuel economy lives. Lugging below roughly 950 RPM under load hammers the bearings and overheats pistons; revving past 1,600 just burns fuel to make noise.</p>
@@ -591,6 +686,8 @@ td .m{font-family:var(--mono);font-size:12.5px}
 <text x="356" y="136">Journal bearings — the oil film IS the bearing</text>
 </g></svg>
 <figcaption><b>Turbocharger cutaway.</b> Exhaust energy (orange side) spins the turbine; a shared shaft drives the compressor (blue side), packing air into the engine. The VGT vanes around the turbine squeeze the exhaust stream to spool fast at low RPM and open wide up top. The whole thing lives or dies by the oil feed through the center housing.</figcaption></figure>
+<figure class="fig"><img src="img/02-turbo.webp" alt="Turbo and air system poster: follow the air through filter, turbo, charge-air cooler into the engine; VGT blinds; why a boost leak makes the truck weak" loading="lazy">
+<figcaption><b>The poster version — the air system at a glance.</b> Follow the marble: nose → windmill → chiller → engine → back through the windmill. Bottom row is the money panel: when the truck feels weak, the leak has usually painted itself with soot — check clamps and hoses before anything expensive.</figcaption></figure>
 
 
   <div class="callout why"><span class="ct">Why It Works</span><p>Power is simply fuel burned per second — and fuel can only burn if there is enough air: about 14.5 parts of air for every 1 part of diesel. Pack twice the air into the cylinder, and you can burn nearly twice the fuel in the same engine. Boost is like getting a bigger engine for free, paid for with smoke energy that was leaving anyway. The charge-air cooler finishes the trick: squeezing air makes it hot, and hot air is thin — cooling it back down packs <strong>~15–20% more oxygen</strong> into the same space. A cooler burn also makes less NOx and is easier on the pistons.</p></div>
@@ -701,6 +798,8 @@ td .m{font-family:var(--mono);font-size:12.5px}
 <line x1="656" y1="46" x2="646" y2="56" stroke="#6b7078" marker-end="url(#a4k)"/>
 </svg>
 <figcaption><b>The fuel circuit — low side and high side.</b> Everything left of the HP pump runs at gentle pressure and is where dirt, water, and air get in. Everything right of it is precision hardware at extreme pressure. Diagnose the low side with gauges and eyes; diagnose the high side with scan data — never fingers.</figcaption></figure>
+<figure class="fig"><img src="img/03-fuel.webp" alt="Fuel system poster: the fuel journey from tank through filters, pumps, rail and injectors; the three enemies dirt, water and air; the DEF golden rule" loading="lazy">
+<figcaption><b>The poster version — the fuel&rsquo;s journey and its three enemies.</b> Tank → filters → pumps → rail → injectors → back to the tank. The weekly water drain saves thousands, the morning hard-start is usually a cheap o-ring, and the golden rule stands: DEF never touches the fuel tank. Teach every driver. Twice.</figcaption></figure>
 
 
   <div class="callout warn"><span class="ct">Watch Out</span><p>Never crack a high-pressure line on a running engine and never put your hand near a suspected rail leak. At these pressures a fuel jet <strong>injects through skin</strong> — a fuel injection injury is a surgical emergency. Diagnose the high side with sensors and scan data, not fingers.</p></div>
@@ -809,6 +908,8 @@ td .m{font-family:var(--mono);font-size:12.5px}
 <text x="60" y="318" font-size="12" fill="#6b7078">Clearance exaggerated ~100× for clarity — real clearance is about the thickness of a sheet of paper.</text>
 </svg>
 <figcaption><b>Hydrodynamic lubrication — why the oil IS the bearing.</b> The spinning journal drags oil into a converging wedge, and the pressure generated lifts the crank so it never touches the shell. This is why hot-idle oil pressure is the truth-teller for bearing wear: worn clearances leak the wedge away fastest when oil is thin and flow is low.</figcaption></figure>
+<figure class="fig"><img src="img/04-oil.webp" alt="Engine oil poster: the four jobs of oil — cushion, cleaner, cooler, messenger; reading the pressure gauge; why oil changes matter; the safe zone" loading="lazy">
+<figcaption><b>The poster version — oil&rsquo;s four jobs at a glance.</b> The cushion is the job that matters most, black oil is oil working, hot-idle pressure is the engine whispering about its bearings, and a $30 spoonful at every drain is the cheapest engine insurance ever invented.</figcaption></figure>
 
 <div class="callout why"><span class="ct">Why Pressure Behaves the Way It Does</span><p>The pump pushes the same amount of oil with every turn. Pressure is simply how hard that oil must fight to squeeze through the engine's tiny gaps. As bearings wear, the gaps grow — oil escapes through them easily, and pressure falls. That's why <strong>hot idle is the moment of truth</strong>: the oil is thin and the pump is turning slowly, so worn gaps show themselves first. Low pressure at hot idle but normal at speed = bearings wearing. Low pressure everywhere = pump, relief valve, suction problem, or fuel-thinned oil. And never trust the dash gauge on a low-pressure complaint — screw a real mechanical gauge into the port and <em>know</em>.</p></div>
 
@@ -913,6 +1014,8 @@ td .m{font-family:var(--mono);font-size:12.5px}
 <text x="330" y="292" font-size="11" fill="#6b7078">bypass — stat closed: coolant loops, engine warms fast</text>
 </svg>
 <figcaption><b>The cooling circuit.</b> Hot flow in orange, cooled return in blue. The thermostat splits the flow between bypass (warm-up) and radiator (heat rejection). Note the EGR and oil coolers riding on the same system — on a modern engine they add a furnace's worth of extra load, which is why marginal cooling shows up first on EGR-era trucks.</figcaption></figure>
+<figure class="fig"><img src="img/05-coolant.webp" alt="Coolant system poster: the bucket brigade — pump, thermostat doorkeeper, radiator, pressure-cooker cap, fan; the four hiding places of disappearing coolant" loading="lazy">
+<figcaption><b>The poster version — the bucket brigade and the detective story.</b> Pump carries the heat, the doorkeeper keeps the engine just-right warm, the humble $15 cap keeps it all from boiling — and when coolant vanishes with no puddle, it used one of exactly four doors. Find the door, find the broken part.</figcaption></figure>
 
 <div class="callout why"><span class="ct">Why It's Pressurized</span><p>Water boils at 212°F — but squeeze it, and it can stay liquid while hotter: every psi of pressure adds about 3°F to the boiling point. A 15-psi cap plus antifreeze pushes boiling past 265°F. Why does that matter? The hottest spots inside the engine run hotter than the gauge ever shows — and if coolant boils there, the steam bubbles block the cooling exactly where it is needed most, and the metal cooks. This is why <strong>a bad $15 cap can kill a $30,000 engine</strong> while the dash gauge still reads "normal."</p></div>
 
@@ -1029,6 +1132,8 @@ td .m{font-family:var(--mono);font-size:12.5px}
 <text x="856" y="170" font-size="11">stack</text>
 </g></svg>
 <figcaption><b>The aftertreatment box, unrolled.</b> Follow the gas left to right: DOC makes heat and NO₂, DPF strains the soot, the doser feeds ammonia into the mixer, SCR destroys the NOx. The sensors on top (two NOx, multiple EGTs, ΔP) are where most actual repairs happen — the ceramic bricks themselves usually outlive the truck when the upstream engine is healthy.</figcaption></figure>
+<figure class="fig"><img src="img/06-aftertreatment.webp" alt="Aftertreatment poster: the smoke-cleaning machine — DOC heater, DPF soot sponge with regen, SCR and DEF gas killer; the two rules that save fleets; ash" loading="lazy">
+<figcaption><b>The poster version — the smoke-cleaning machine, start to finish.</b> Heat it, catch the dust and burn it, spray the blue liquid to kill the invisible gas. And the two rules that save fleets: the machine is the trash can, not the trash maker — and when the DEF light comes on, the legal countdown is already running.</figcaption></figure>
 
 <h4>DPF and regeneration</h4>
   <p>The DPF is a stone honeycomb where every other channel is plugged — so the exhaust is forced to pass <em>through</em> the porous walls, and the soot stays behind, trapped. Soot is carbon, and carbon burns. <strong>Regeneration</strong> is just that: burning the trapped soot away.</p>
@@ -1057,14 +1162,71 @@ td .m{font-family:var(--mono);font-size:12.5px}
   <div class="callout vet"><span class="ct">Veteran's Note</span><p><strong>The aftertreatment system is the engine's report card, not its problem child.</strong> A DPF that plugs every three weeks isn't a DPF problem — it's a lazy injector, a weeping turbo seal, a stuck EGR valve, or a duty cycle with no highway time. Fix the writer, not the paper. Before any DPF cleaning, always ask: <em>why was there this much soot?</em></p></div>
 
   <div class="next">
-    <a onclick="go('cummins')"><small>Next Chapter</small><b>Cummins Deep Dive →</b></a>
+    <a onclick="go('sensors')"><small>Next Chapter</small><b>Sensors &amp; the ECM →</b></a>
     <a onclick="go('codes')"><small>Reference</small><b>Aftertreatment Fault Codes</b></a>
+  </div>
+</section>
+
+
+<!-- ============ 08 SENSORS & ECM ============ -->
+<section class="page" id="sensors">
+  <div class="kicker">Chapter 08 · Engine Systems</div>
+  <h2 class="title">Sensors &amp; the ECM — the Nervous System</h2>
+  <p class="lede">The iron makes the power, but a computer runs the show. The <strong>ECM</strong> reads dozens of sensors many times every second, decides, and commands. Understand the nervous system and half the dashboard&rsquo;s mysteries disappear.</p>
+
+  <div class="callout plain"><span class="ct">In Plain English — the simple version</span><p>The truck works like your body. <strong>Sensors are the eyes and nose</strong> — they watch and smell everything. <strong>The ECM is the brain</strong> — it reads the reports and decides. <strong>Injectors, turbo, fan, DEF doser are the muscles</strong> — they do what the brain says. Kid → eyes → brain → muscles. Truck → sensors → ECM → injectors. And here is the rule that saves money: every sensor is a tiny reporter asking <strong>one question</strong> all day. When a report sounds crazy, the problem is usually the <em>wire carrying the report</em>, not the reporter itself.</p></div>
+
+  <h3>The brain: what the ECM actually controls</h3>
+  <div class="flow">
+    <div class="fbox cold">SENSORS<small>eyes &amp; nose — dozens of them, read every few milliseconds</small></div><div class="farr">→</div>
+    <div class="fbox">ECM<small>the brain — compares, calculates, decides (Detroit calls it the MCM)</small></div><div class="farr">→</div>
+    <div class="fbox hot">THE MUSCLES<small>injectors · VGT vanes · EGR valve · DEF doser · fan clutch · grid heater</small></div>
+  </div>
+  <p>There are no mechanical linkages left. The <strong>pedal is a sensor</strong> — pressing it is a <em>request</em>, and the ECM decides how much fuel that request deserves given everything else it knows: boost, temperatures, exhaust state, altitude. Every squirt of every injector — its size, its timing, its pilot and post shots — is a fresh decision. So is the turbo&rsquo;s vane angle, the EGR valve&rsquo;s opening, the DEF dose, and when the fan roars. <strong>When the truck behaves strangely, ask first: what is the brain being told?</strong> Bad information produces bad decisions from a perfectly healthy brain.</p>
+
+  <h3>Every sensor is one question</h3>
+  <div class="twrap"><table>
+    <tr><th>Sensor Type</th><th>Its One Question</th><th>Where It Lives</th><th>How It Usually Fails</th></tr>
+    <tr><td>Temperature</td><td>&ldquo;How hot am I?&rdquo;</td><td>Coolant, oil, intake air (IAT), fuel, ambient, EGTs through the aftertreatment</td><td>Drifts with age, or circuit faults (FMI 3/4 = check the wire). The cold-soak compare finds liars: parked overnight, every temp sensor must read the same ambient number.</td></tr>
+    <tr><td>Pressure</td><td>&ldquo;How hard am I being pushed?&rdquo;</td><td>Oil, boost (MAP), fuel rail, DPF ΔP, barometric, crankcase</td><td>Soot plugs the little sensing tubes; readings freeze or go erratic. Inspect tubes before condemning sensors.</td></tr>
+    <tr><td>Position</td><td>&ldquo;Where am I right now?&rdquo;</td><td>Pedal, EGR valve, VGT vanes/actuator</td><td>Carbon jams the thing being measured — the sensor reports the truth about a stuck part and gets blamed for it.</td></tr>
+    <tr><td>Speed</td><td>&ldquo;How fast am I spinning?&rdquo;</td><td>Crankshaft, camshaft, turbo, wheels, transmission shafts</td><td>Air gap wrong after repairs, metal fuzz on the magnetic tip, chafed leads at the axle. Intermittent signals = random stalls and ghosts.</td></tr>
+    <tr><td>Level</td><td>&ldquo;How much do I have?&rdquo;</td><td>Coolant, DEF, fuel, oil (some engines)</td><td>Floats stick; DEF header units fail as one assembly (level + temp + quality together).</td></tr>
+    <tr><td>Chemistry</td><td>&ldquo;What is in my exhaust?&rdquo;</td><td>NOx sensors in and out of the SCR, DEF quality</td><td>The most-replaced smart sensors on the truck — but they have their own little computers, so verify power and ground before buying one.</td></tr>
+  </table></div>
+
+  <h3>The air path&rsquo;s eyes and nose</h3>
+  <p>The engine cannot see air — it can only trust its reporters. <strong>MAP/boost</strong> says how hard the turbo pushes. <strong>IAT</strong> says how thick the air is (hot = thin). A <strong>MAF</strong>, where fitted, counts the air actually entering. <strong>Exhaust back-pressure</strong> says whether the exit is choking. The <strong>EGT chain</strong> tracks heat through the aftertreatment, and the <strong>NOx pair</strong> smells the exhaust before and after the SCR to prove the cleanup happened. The ECM constantly <strong>cross-checks these witnesses against each other</strong> — boost that doesn&rsquo;t match vane position, or an EGT that disagrees with its neighbors, raises a rationality fault. That is why one lying sensor can light codes across three systems: the witnesses stopped agreeing.</p>
+
+  <h3>When sensors lie — the three-step rule</h3>
+  <ol>
+    <li><strong>Wire first.</strong> FMI 3/4 (voltage out of range) is the circuit talking, not the part. Wiggle-test, check the connector, voltage-drop the wiring.</li>
+    <li><strong>Rationality second.</strong> Compare the reading against reality (IR gun vs. coolant sensor) and against its siblings (all EGTs equal at cold soak).</li>
+    <li><strong>Sensor last.</strong> Only after the wire and the cross-checks pass does the sensor itself earn replacement.</li>
+  </ol>
+  <div class="callout warn"><span class="ct">The 5-Volt Trap</span><p>Many sensors share a common <strong>5-volt reference supply</strong> from the ECM. One chafed sensor wire shorting that supply drags down <em>every sensor on the circuit</em> — a dozen codes at once, dash lit like a holiday. (SPN 3509/3510 in the code table.) Don&rsquo;t replace twelve sensors: unplug them one at a time until the supply comes back — the last one unplugged is your culprit.</p></div>
+
+  <h3>The starting system — the wake-up sequence</h3>
+  <div class="flow">
+    <div class="fbox">KEY ON<small>ECM boots, takes sensor roll-call, dash self-tests. Cold day? Grid heater first — the WAIT lamp</small></div><div class="farr">→</div>
+    <div class="fbox">CRANK REQUEST<small>ECM checks interlocks: neutral, clutch — then allows the starter relay</small></div><div class="farr">→</div>
+    <div class="fbox hot">STARTER<small>Solenoid engages the flywheel ring gear; motor spins the engine ~150–250 RPM</small></div><div class="farr">→</div>
+    <div class="fbox hot">FIRST FIRES<small>Crank &amp; cam signals sync, rail pressure reaches threshold — ECM begins injecting</small></div><div class="farr">→</div>
+    <div class="fbox cold">RUN<small>Starter releases; alternator takes over and refills the batteries</small></div>
+  </div>
+  <p>Read failures against this sequence and the diagnosis names itself: <strong>silence</strong> = key/interlock/relay side. <strong>Click but no spin</strong> = power delivery or starter. <strong>Slow spin</strong> = batteries and cables (Chapter 12). <strong>Strong spin but no fire</strong> = the electrical side is done — it&rsquo;s fuel, air, or the crank/cam signals now (Chapter 4, and the Hard Start tree).</p>
+
+  <div class="callout vet"><span class="ct">Veteran&rsquo;s Note</span><p>The most profitable sentence in this chapter: <strong>the ECM makes bad decisions from bad information long before it breaks itself.</strong> Genuine ECM failures are rare; lied-to ECMs are everyday. Feed the brain the truth — clean connectors, healthy grounds, honest sensors — and it will run the iron beautifully for a million miles.</p></div>
+
+  <div class="next">
+    <a onclick="go('cummins')"><small>Next Chapter</small><b>Cummins Deep Dive →</b></a>
+    <a onclick="go('codes')"><small>Reference</small><b>Sensor Fault Codes</b></a>
   </div>
 </section>
 
 <!-- ============ 08 CUMMINS ============ -->
 <section class="page" id="cummins">
-  <div class="kicker">Chapter 08 · Platform Deep Dive</div>
+  <div class="kicker">Chapter 09 · Platform Deep Dive</div>
   <h2 class="title">Cummins X15 / ISX15</h2>
   <p class="lede">The most common engine in North American trucking. The ISX (through 2016) and its successor the X15 (2017+) share DNA: single overhead cam, wet liners, Holset VGT — and a very well-documented set of personalities.</p>
   <div class="callout plain"><span class="ct">In Plain English — the simple version</span><p>Cummins is the most common big truck engine in America — like the most popular phone brand, everyone has one and everyone knows its habits. This chapter is its "personality file": the parts it is famous for breaking (camshaft pieces, fuel leaking where coolant lives, the turbo&rsquo;s little control motor), and the checkups that catch these problems while they are still small and cheap.</p><details><summary>Read the full simple story</summary>
@@ -1173,7 +1335,7 @@ td .m{font-family:var(--mono);font-size:12.5px}
 
 <!-- ============ 09 DETROIT ============ -->
 <section class="page" id="detroit">
-  <div class="kicker">Chapter 09 · Platform Deep Dive</div>
+  <div class="kicker">Chapter 10 · Platform Deep Dive</div>
   <h2 class="title">Detroit DD13 / DD15</h2>
   <p class="lede">Daimler's workhorse — standard in Freightliner Cascadias, which means it hauls more U.S. freight than any other single engine family. Engineered around fuel economy, integration, and telematics that watch the engine for you.</p>
   <div class="callout plain"><span class="ct">In Plain English — the simple version</span><p>Detroit is the engine inside most Freightliner trucks. Older ones (before 2017) have a clever extra windmill that recycles even more exhaust power back to the engine. Newer ones put the whole smoke-cleaning machine in one big box. Its special trick: the engine <strong>phones home</strong> — when something goes wrong, it sends a message about what hurts and how urgent it is, before the driver even calls you.</p><details><summary>Read the full simple story</summary>
@@ -1262,7 +1424,7 @@ td .m{font-family:var(--mono);font-size:12.5px}
 
 <!-- ============ 10 AIR BRAKES ============ -->
 <section class="page" id="brakes">
-  <div class="kicker">Chapter 10 · Chassis & Driveline</div>
+  <div class="kicker">Chapter 11 · Chassis & Driveline</div>
   <h2 class="title">Air Brakes</h2>
   <p class="lede">The most safety-critical system on the truck, and the most elegant: air brakes are designed so that <strong>every failure mode ends with the brakes applied</strong>. Understand that single design principle and the whole system explains itself.</p>
   <div class="callout plain"><span class="ct">In Plain English — the simple version</span><p>Truck brakes run on squeezed air, like a bicycle pump system. Press the pedal → air pushes → pads squeeze the wheels. But here is the genius part: giant springs are always trying to slam the brakes ON, and the air is what holds them back. So if the air ever leaks out... the springs win and the truck <strong>stops itself</strong>. A broken air brake system doesn&rsquo;t mean no brakes — it means brakes locked on. It fails in the safe direction, on purpose.</p><details><summary>Read the full simple story</summary>
@@ -1292,6 +1454,16 @@ td .m{font-family:var(--mono);font-size:12.5px}
   </div>
   <div class="callout why"><span class="ct">Why the Dryer Matters More Than It Looks</span><p>Compressing air concentrates its humidity into liquid water, and the compressor passes a little oil. Water + oil in the system rusts tanks, freezes valves solid in winter, and turns o-rings to mush. The dryer's desiccant bed catches it all, then uses a burst of dry stored air to purge itself each governor cut-out. <strong>Milky water at the wet tank drain = dryer cartridge overdue.</strong> A $60 cartridge yearly prevents the classic February no-release because a valve froze.</p></div>
   <div class="callout warn"><span class="ct">Audit Inherited Plumbing</span><p>On any truck that&rsquo;s new to your fleet, trace the air system end to end before you trust it. Previous owners tee in extra tanks, wet kits, and air-bag accessories &mdash; and the cheap installs tap <strong>upstream of or around the air dryer</strong>, feeding wet air into everything downstream. The tell: a tank that drains water endlessly while the wet tank stays dry, or dryer service that never seems to help. Every added air device must feed from a port <em>after</em> the dryer, protected by a pressure-protection valve so an accessory failure can&rsquo;t bleed the brake system. A rogue tank full of water isn&rsquo;t a quirk &mdash; it&rsquo;s a corrosion and freeze-up machine plumbed into your brakes.</p></div>
+
+  <h3>Air runs the whole truck — not just the brakes</h3>
+  <div class="callout plain"><span class="ct">In Plain English — the simple version</span><p>The compressor feeds a whole family: brakes, the air-ride suspension, the driver&rsquo;s bouncing seat, the transmission&rsquo;s range shifter, the air horn, and the trailer. But the family has one strict dinner rule: <strong>the brakes eat first.</strong> Special guard valves cut off the accessories whenever pressure drops, so a leaking seat or horn can never starve the brakes.</p></div>
+  <ul>
+    <li><strong>The consumers:</strong> service &amp; parking brakes, air suspension bags, cab and seat air, the range-shift assist inside the transmission, the air horn, and the trailer supply line.</li>
+    <li><strong>Pressure-protection valves</strong> — the dinner-rule enforcers: each accessory circuit taps air through a valve that closes below a set pressure, reserving everything left for braking.</li>
+    <li><strong>One-way check valves</strong> between tanks — a failure in one circuit cannot siphon its neighbor. This is why isolating tanks during a leak hunt tells you so much.</li>
+    <li><strong>The safety pop-off valve</strong> on the wet tank (~150 psi) — if the governor ever fails to cut out, this valve screams and vents before something bursts. A truck popping its safety valve has a governor problem, not a valve problem.</li>
+  </ul>
+
 
 
   <h3>The control side</h3>
@@ -1353,6 +1525,8 @@ td .m{font-family:var(--mono);font-size:12.5px}
 <text x="486" y="240" font-size="11" fill="#6b7078" transform="rotate(-30 486 240)">same camshaft</text>
 </g></svg>
 <figcaption><b>From air to friction: the S-cam foundation brake.</b> Air fills the chamber → diaphragm pushes the rod → slack adjuster levers the S-cam → the cam's S-profile forces both shoes into the drum. The parking spring on the left is the fail-safe: lose air anywhere and it wins, applying the brakes mechanically. Every inch of pushrod stroke you can measure is force you're losing at the drum.</figcaption></figure>
+<figure class="fig"><img src="img/10-air-brakes.webp" alt="Air brakes poster: squeezed air and giant springs — making, drying, and using air; fail-safe by design; the boxer explaining adjustment" loading="lazy">
+<figcaption><b>The poster version — squeezed air, giant springs, built to stop safely.</b> The springs always want to slam the brakes ON and air holds them back — lose air, the truck stops itself; lose adjustment, it quietly stops stopping. The pedal can&rsquo;t feel the difference. The tape measure can.</figcaption></figure>
 
 <div class="callout why"><span class="ct">Why Adjustment Is Everything</span><p>A chamber has perhaps 2.5 inches of usable stroke, and force falls off as the diaphragm nears the end of it. As shoes wear, the pushrod must travel farther before the shoes touch the drum — an out-of-adjustment brake spends its stroke on travel and arrives at the drum with almost nothing left. This is the #1 out-of-service violation in roadside inspections, and it's invisible from the driver's seat because the pedal feels identical. <strong>Automatic slack adjusters</strong> ratchet themselves tighter as shoes wear, but they fail, and a seized auto-slack is worse than a manual one because everyone assumed it was working.</p></div>
 
@@ -1387,7 +1561,7 @@ td .m{font-family:var(--mono);font-size:12.5px}
 
 <!-- ============ 11 ELECTRICAL ============ -->
 <section class="page" id="electrical">
-  <div class="kicker">Chapter 11 · Chassis & Driveline</div>
+  <div class="kicker">Chapter 12 · Chassis & Driveline</div>
   <h2 class="title">Electrical &amp; Charging</h2>
   <p class="lede">Half of all "mystery" faults on a modern truck are electrical, and half of those are a <strong>bad connection pretending to be a bad component</strong>. Learn voltage-drop testing and you will out-diagnose most of the industry.</p>
   <div class="callout plain"><span class="ct">In Plain English — the simple version</span><p>Two things live here. First, the muscle wires: batteries push power to the starter like water through a hose — and rust in a connection is a kink in that hose; the power just can&rsquo;t get through. Second, the group chat: all the truck&rsquo;s computers talk to each other on one shared wire (called <strong>J1939</strong>). When that wire gets pinched, the computers stop hearing each other, and the dashboard lights up like a Christmas tree even though the parts themselves are fine.</p><details><summary>Read the full simple story</summary>
@@ -1436,6 +1610,8 @@ td .m{font-family:var(--mono);font-size:12.5px}
 <text x="270" y="211" font-size="11" fill="#8a3d05">More than that = corrosion or a bad crimp doing the damage</text>
 </svg>
 <figcaption><b>Voltage-drop testing, the professional's electrical tool.</b> Put the meter across a section of the circuit and crank: the meter reads only the voltage that section is stealing under real load. An ohmmeter at microamps calls corroded cable "fine" — a voltage-drop test at 600 cranking amps makes it confess. Test the ground side too; that's where most trucks fail.</figcaption></figure>
+<figure class="fig"><img src="img/07-electrical.webp" alt="Electrical system poster: the muscles (batteries, cables, voltage-drop kink test) and the group chat (J1939, end caps, 60/120/0 ohm readings)" loading="lazy">
+<figcaption><b>The poster version — muscles and the group chat.</b> Test connections while the power is actually flowing, keep the battery team matched, and remember the computers share one wire — hurt it and everyone goes quiet while the dashboard panics. And before buying any sensor: check its wire.</figcaption></figure>
 
 
 
@@ -1471,7 +1647,7 @@ td .m{font-family:var(--mono);font-size:12.5px}
 
 <!-- ============ 12 DRIVETRAIN ============ -->
 <section class="page" id="drivetrain">
-  <div class="kicker">Chapter 12 · Chassis & Driveline</div>
+  <div class="kicker">Chapter 13 · Chassis & Driveline</div>
   <h2 class="title">Drivetrain</h2>
   <p class="lede">Between the flywheel and the pavement, torque gets multiplied roughly <strong>15–20×</strong> in first gear. Every component in that chain is a lever — and every one has a known way of dying.</p>
   <div class="callout plain"><span class="ct">In Plain English — the simple version</span><p>This is the path the engine&rsquo;s spin takes to reach the road. The <strong>clutch</strong> is a handshake between engine and gearbox — grab and release. The <strong>transmission</strong> is a set of bicycle gears: low gears for hard pulling, high gears for fast cruising. The <strong>driveshaft</strong> is a spinning pole carrying power to the back. And the <strong>differential</strong> lets the left and right wheels spin at different speeds so the truck can turn corners without hopping.</p><details><summary>Read the full simple story</summary>
@@ -1539,6 +1715,8 @@ td .m{font-family:var(--mono);font-size:12.5px}
 <text x="50" y="278" font-size="12" fill="#6b7078">Each u-joint speeds up and slows down twice per rev at any angle.</text><text x="50" y="296" font-size="12" fill="#6b7078">The second joint cancels the first ONLY if angles are equal-and-opposite and the yokes are in phase.</text>
 </svg>
 <figcaption><b>Driveline geometry — the vibration you can bolt in.</b> Ride height sets these angles on an air-ride truck, which is why a lazy leveling valve or a suspension repair can create a "driveshaft problem." Torque-sensitive shudder that loads on pull and vanishes coasting is this diagram out of spec.</figcaption></figure>
+<figure class="fig"><img src="img/08-drivetrain.webp" alt="Drivetrain poster: the path of power — clutch handshake, transmission bicycle gears, driveshaft spinning pole, differential corner mathematician" loading="lazy">
+<figcaption><b>The poster version — the path of power, engine to road.</b> Handshake, bicycle gears, spinning pole, corner math. The panel worth its weight in parts: when the shifting robot acts dumb, suspect the engine&rsquo;s data before the gearbox — always.</figcaption></figure>
 
 
   <ul>
@@ -1548,6 +1726,16 @@ td .m{font-family:var(--mono);font-size:12.5px}
 
   <h3>Drive axles</h3>
   <p>A tandem's forward-rear axle contains the <strong>power divider (inter-axle differential)</strong> — a third differential splitting torque between the two axles, with a driver-controlled <strong>lockout (IAD lock)</strong> for slick conditions. Each axle's own differential turns torque 90°, multiplies it by the ratio (fleet linehaul typically 2.6–3.6:1), and lets the wheels differentiate in turns; optional <strong>driver-controlled wheel diff locks</strong> fully lock a wheel pair.</p>
+
+  <div class="twrap"><table>
+    <tr><th>Axle</th><th>What It Is</th><th>Worth Knowing</th></tr>
+    <tr><td>Steer axle</td><td>Front, unpowered, does the steering</td><td>Carries ~12k lb legally; kingpins and bearings live here</td></tr>
+    <tr><td>Drive axle(s)</td><td>Powered; two together = a tandem</td><td>The forward-rear of a tandem houses the power divider</td></tr>
+    <tr><td>Tag / pusher axle</td><td>Extra unpowered axle behind (tag) or ahead (pusher) of the drives</td><td>Spreads weight for legal loads; often liftable to save tires when empty</td></tr>
+    <tr><td>Axle shafts</td><td>The rods carrying twist from diff to hub</td><td><strong>Full-floating</strong> design: the shaft carries only twist — the hub and its bearings carry the truck&rsquo;s weight. That&rsquo;s why a broken shaft can be pulled out with the wheels still holding the truck up.</td></tr>
+    <tr><td>Planetary hubs</td><td>A final gear reduction inside each hub (heavy vocational trucks)</td><td>Multiplies torque at the very last step; has its own little oil supply to check</td></tr>
+  </table></div>
+
   <ul>
     <li><strong>The power divider is the tandem's weak point:</strong> spinning the wheels on ice with the lock <em>off</em> makes its little internal gears whirl at crazy speed with no oil film between them — thirty seconds of wheelspin can ruin them for good. Rule for drivers: lock it <em>before</em> the slippery spot, unlock on dry pavement.</li>
     <li><strong>Lube discipline:</strong> level at the fill plug, synthetic 75W-90 typical, change/inspect per schedule, and always check for water (gray milkshake) after deep-water exposure — breathers clog and axles inhale water as they cool.</li>
@@ -1561,7 +1749,7 @@ td .m{font-family:var(--mono);font-size:12.5px}
 
 <!-- ============ 13 SUSPENSION / STEERING / WHEEL END ============ -->
 <section class="page" id="suspension">
-  <div class="kicker">Chapter 13 · Chassis & Driveline</div>
+  <div class="kicker">Chapter 14 · Chassis & Driveline</div>
   <h2 class="title">Suspension, Steering &amp; Wheel End</h2>
   <p class="lede">Where the truck meets the road — and where DOT inspectors, tire budgets, and driver complaints all converge. Almost everything here is diagnosed with your hands, a pry bar, and a pattern-reading eye.</p>
   <div class="callout plain"><span class="ct">In Plain English — the simple version</span><p>Think of the truck as a body: the springs and air bags are its <strong>knees</strong>, the steering parts are its <strong>arms</strong>, and the wheel bearings are its <strong>ankles</strong>. And here is the trick of this chapter: <strong>tires are a diary</strong>. The way a tire wears down — one edge, both edges, wavy spots — tells you exactly what is broken above it, like footprints tell you who walked by.</p><details><summary>Read the full simple story</summary>
@@ -1630,6 +1818,8 @@ td .m{font-family:var(--mono);font-size:12.5px}
 <line x1="418" y1="316" x2="419" y2="302" stroke="#6b7078" marker-end="url(#a13k)"/>
 </g></svg>
 <figcaption><b>Wheel end cutaway.</b> Two opposed tapered bearings carry the truck on the spindle; the seal keeps the oil in and the water out; the nuts set the tiny end play everything depends on. Every wheel-off in the news started as one of these details skipped.</figcaption></figure>
+<figure class="fig"><img src="img/09-trucks-body.webp" alt="Suspension and wheel end poster: air-ride knees, steering arms, wheel-bearing ankles, the tire wear diary, and wheel nut discipline" loading="lazy">
+<figcaption><b>The poster version — knees, arms, ankles, and the tire diary.</b> Everything on this page is checked with hands, eyes, and a pry bar. The hand-on-hub habit prevents the worst accident in trucking, and the tires record the story of everything above them — read the diary before replacing it.</figcaption></figure>
 
 
   <ul>
@@ -1694,19 +1884,112 @@ td .m{font-family:var(--mono);font-size:12.5px}
     <li><strong>Blue gladhand (service):</strong> carries the brake <em>signal</em> — pressure in this line mirrors your pedal. A leak here shows up only during brake applications, which is why applied-leak tests exist.</li>
     <li><strong>7-way connector:</strong> seven pins — ground, tail lamps, left turn, right turn, stop lamps, ABS power, and auxiliary. Corroded or spread pins here explain most "trailer lights half working" complaints. Dielectric grease in the plug twice a year prevents almost all of it.</li>
     <li><strong>After every coupling — the tug test:</strong> lock the trailer brakes, pull gently forward in low gear. The trailer must hold you. Then a flashlight on the fifth-wheel jaws to confirm they closed around the kingpin — not behind it. Thirty seconds; prevents the dropped trailer.</li>
+    <li><strong>The release handle &amp; the air slide:</strong> the handle pulls the jaws open for uncoupling — only with the trailer legs down and supported. Many fifth wheels also <strong>slide</strong> fore-and-aft on air-released lock pins: moving it shifts weight between steer and drive axles to pass the scales. After every slide, confirm the lock pins snapped fully home — a fifth wheel sliding at highway speed is a coupling failure in progress.</li>
     <li><strong>Crossed lines:</strong> gladhand seats are shaped and color-coded so red goes to red, blue to blue. Crossed anyway? The trailer brakes won&rsquo;t release, or the pedal does nothing to the trailer — either way the tug test catches it before the highway does.</li>
   </ul>
 
+
+  <div class="next">
+    <a onclick="go('diagthink')"><small>Next Chapter</small><b>Diagnostic Thinking →</b></a>
+  </div>
+</section>
+
+
+
+
+<!-- ============ 15 DIAGNOSTIC THINKING ============ -->
+<section class="page" id="diagthink">
+  <div class="kicker">Chapter 15 · The Master Layer</div>
+  <h2 class="title">Diagnostic Thinking — How a Master Thinks</h2>
+  <p class="lede">Tools are cheap. Parts are expensive. <strong>Thinking is what separates a mechanic from a parts changer</strong> — and thinking can be learned, because it is a method, not a talent.</p>
+
+  <div class="callout plain"><span class="ct">In Plain English — the simple version</span><p>When a truck has a problem, the wrong question is <em>&ldquo;which part should I replace?&rdquo;</em> The right question is <em>&ldquo;what does the engine need that it is not getting?&rdquo;</em> An engine only needs a few things — air, clean fuel, squeeze, correct timing, a free exhaust, and honest sensors. One of them is missing. Your job is a detective mystery: find the missing one with cheap tests, and only then spend money.</p></div>
+
+  <h3>A diesel only needs six things</h3>
+  <div class="grid3">
+    <div class="card"><span class="cnum">NEED 1</span><h5>Air</h5><p>Enough of it, cool, and not escaping through a leak. <b>Cheap tests:</b> filter minder (30 seconds), boost datalog, charge-air pressure test.</p></div>
+    <div class="card"><span class="cnum">NEED 2</span><h5>Fuel</h5><p>Clean, at pressure, on time. <b>Cheap tests:</b> filter history, supply pressure gauge, commanded-vs-actual rail pressure.</p></div>
+    <div class="card"><span class="cnum">NEED 3</span><h5>Compression</h5><p>The squeeze that makes the heat. <b>Cheap tests:</b> cylinder cutout, relative compression, blow-by check.</p></div>
+    <div class="card"><span class="cnum">NEED 4</span><h5>Timing</h5><p>Everything happening at the right moment. <b>Cheap tests:</b> cam/crank sync codes, overhead adjustment history.</p></div>
+    <div class="card"><span class="cnum">NEED 5</span><h5>A free exhaust</h5><p>The breath must get OUT. <b>Cheap tests:</b> DPF ΔP data, back-pressure reading, regen history.</p></div>
+    <div class="card"><span class="cnum">NEED 6</span><h5>Honest sensors</h5><p>The brain needs the truth. <b>Cheap tests:</b> freeze frames, rationality compares, the wiggle test.</p></div>
+  </div>
+  <p>Every runability complaint — low power, hard start, rough running, smoke, derate — is one of these six missing. Walk the list with the cheap tests, and the problem has nowhere to hide.</p>
+
+  <h3>The no-power walk — a worked example</h3>
+  <p>Truck is weak. The parts-changer orders a turbo. The master walks the ladder, <strong>cheapest first</strong>:</p>
+  <ol>
+    <li><strong>Codes + freeze frames</strong> (5 minutes, free) — an active derate feels exactly like a mechanical problem. Chase software before iron.</li>
+    <li><strong>Filter minder</strong> (30 seconds, free) — a choked filter starves everything downstream.</li>
+    <li><strong>Boost datalog on a loaded pull</strong> (free) — commanded vs. actual tells you which half of the air system to suspect.</li>
+    <li><strong>Charge-air pressure test</strong> ($0 in parts) — the soot-streak-painted leak is found here, not at the parts counter.</li>
+    <li><strong>Fuel filters and supply pressure</strong> (cheap) — the classic fine-at-cruise, dies-on-hills pattern.</li>
+    <li><strong>Cylinder balance/cutout</strong> (free with the laptop) — finds the weak hole fuel-side or compression-side.</li>
+    <li><strong>Exhaust back-pressure</strong> (free, from ΔP data) — a loaded DPF chokes the turbo quietly.</li>
+    <li><strong>Now</strong> — and only now — does anyone say the word &ldquo;turbo.&rdquo;</li>
+  </ol>
+  <div class="callout vet"><span class="ct">Veteran&rsquo;s Note</span><p>The turbo is the most-blamed, least-guilty part on the truck. It sits in the middle of the air system, so every upstream and downstream problem wears its symptoms. Ninety percent of &ldquo;bad turbos&rdquo; that come across a counter were healthy victims of a $30 leak or a loaded filter.</p></div>
+
+  <h3>The four master habits</h3>
+  <div class="grid2">
+    <div class="card"><span class="cnum">HABIT 1</span><h5>Split the system in half</h5><p>Don&rsquo;t test every inch — cut the system in the middle and test there. Fuel starving? Check pressure at the secondary filter: good there = problem is downstream; bad there = upstream. Each test cuts the search area in half. Five smart cuts beat fifty blind checks.</p></div>
+    <div class="card"><span class="cnum">HABIT 2</span><h5>Compare against known-good</h5><p>Fleet twins are the best spec book ever printed. Same truck, same duty, no complaint? Datalog both and lay the numbers side by side. The difference IS the diagnosis — no manual required.</p></div>
+    <div class="card"><span class="cnum">HABIT 3</span><h5>Change one thing, then retest</h5><p>Change two things and the truck gets fixed without telling you which one worked — so you learn nothing, and next time costs double. One change, one road test, one conclusion. Slow is smooth; smooth is fast.</p></div>
+    <div class="card"><span class="cnum">HABIT 4</span><h5>Suspect the last hand that touched it</h5><p>A new problem right after a repair is not a coincidence until proven otherwise. Unplugged connectors, pinched harnesses, boots not seated, wrong routing — ask &ldquo;what changed just before this started?&rdquo; first, every time.</p></div>
+  </div>
+
+  <h3>The evidence board</h3>
+  <p>Before touching a wrench, answer three questions like a detective pinning photos to a wall. <strong>When does it do it?</strong> Cold only, hot only, loaded only, or always — each pattern excludes half the suspects (a cold-only problem is never a heat-soaked sensor; a loaded-only problem is never idle hardware). <strong>What changed recently?</strong> Repairs, fuel stops, new driver, new route, weather. <strong>What does the freeze frame say?</strong> The computer photographed the crime scene — boost, temps, load, RPM at the exact moment. Read the photo before interviewing witnesses. And a rule for the ghosts: <strong>an intermittent fault is a wiring problem until proven otherwise</strong> — solid parts fail solidly; connections fail when the road shakes them.</p>
+
+  <div class="callout plain"><span class="ct">In One Sentence</span><p class="one">Ask what the engine is missing — air, fuel, squeeze, timing, breath, or truth — test from cheap to expensive, change one thing at a time, and let evidence spend your money instead of guesses.</p></div>
+
+  <div class="next">
+    <a onclick="go('failures')"><small>Next Chapter</small><b>Common Failures — by CMJ →</b></a>
+    <a onclick="go('troubleshoot')"><small>Practice Gym</small><b>The Troubleshooter</b></a>
+  </div>
+</section>
+
+<!-- ============ 14 COMMON FAILURES (by CMJ) ============ -->
+<section class="page" id="failures">
+  <div class="kicker">Chapter 16 · The Master Layer · Written by CMJ</div>
+  <h2 class="title">Common Failures — Why Trucks Really Break</h2>
+  <p class="lede">A truck almost never breaks without warning. <strong>It whispers before it screams.</strong> Strange noises, little leaks, funny smells, weak power, extra smoke, a warning light — the truck is trying to tell you something. The smartest mechanics don&rsquo;t fix the broken part first. They ask: <strong>&ldquo;What made this part die?&rdquo;</strong> Because every broken part has a parent problem.</p>
+
+  <div class="callout plain"><span class="ct">In Plain English — the simple version</span><p>Most expensive repairs happen because a small problem was ignored. A $20 leak becomes a $20,000 engine. A loose clamp becomes a destroyed turbo. A weak battery becomes a truck that won&rsquo;t start on Monday morning. <strong>The earlier you catch the clue, the cheaper the repair.</strong></p></div>
+
+  <h3>The 8 most common truck failures</h3>
+  <div class="grid2">
+    <div class="failbox"><h5>1 · The turbo dies</h5><div class="fsym">Clues: whistling, no power, oil in the pipes, black smoke</div><p>The turbo spins over 130,000 RPM, floating on a tiny film of engine oil. If the oil is dirty, if the oil is low, if someone shuts a hot engine off immediately — the bearings cook. Soon the turbo wobbles. Then the blades hit the housing. Game over. <strong>Stop it:</strong> clean oil on time, and let a worked engine idle 2–3 minutes before shutdown.</p></div>
+    <div class="failbox"><h5>2 · The injectors wear out</h5><div class="fsym">Clues: hard starting, rough idle, white smoke, poor fuel mileage</div><p>Injectors are tiny spray bottles. Dirty fuel slowly sands the tiny holes larger. Water rusts them. Eventually they stop spraying mist — instead they squirt. The engine becomes loud, smoky, and weak. <strong>Stop it:</strong> clean fuel, filters on schedule, and drain the water separator every week.</p></div>
+    <div class="failbox"><h5>3 · Coolant disappears</h5><div class="fsym">Clues: topping off weekly, no puddle anywhere</div><p>Coolant never simply disappears. It has exactly four escape doors: out the overflow, into the engine oil, into the cylinders, or into the heater core. Find the door — you find the problem. <strong>Stop it:</strong> pressure-test the system, and on modern engines check the EGR cooler first.</p></div>
+    <div class="failbox"><h5>4 · Batteries keep dying</h5><div class="fsym">Clues: dead mornings, slow cranking, new batteries dying again</div><p>Usually the batteries aren&rsquo;t the problem. Something is stealing power. Or the alternator isn&rsquo;t charging. Or a rusty cable is blocking electricity. <strong>Never replace batteries before testing the system.</strong> Test each battery alone, verify 13.8–14.4&nbsp;V charging, and measure the key-off draw.</p></div>
+    <div class="failbox"><h5>5 · Air leaks</h5><div class="fsym">Clues: PSSSSSS… slow build times, compressor always pumping</div><p>The truck lives on compressed air. Every little leak makes the compressor work harder. Small leak today — worn compressor tomorrow. Listen: the truck is telling you exactly where the money is escaping. <strong>Stop it:</strong> the soap-bottle hunt — gladhand seals, fittings, valve exhaust ports.</p></div>
+    <div class="failbox"><h5>6 · Brake problems</h5><div class="fsym">Clues: none the driver will feel — that is exactly the danger</div><p>Brake shoes slowly wear. Slack adjusters go out of adjustment. The driver never notices — the pedal feels the same while stopping distance quietly grows longer. That is why push-rod travel is <strong>measured, not guessed</strong>. <strong>Stop it:</strong> stroke check at every A-service, and function-test the automatic adjusters.</p></div>
+    <div class="failbox"><h5>7 · Overheating</h5><div class="fsym">Clues: temp creeping on pulls, coolant boiling over</div><p>Most overheated engines aren&rsquo;t caused by &ldquo;bad engines.&rdquo; Usually it is low coolant, a plugged radiator, a weak fan, a bad thermostat, or a failed water pump. <strong>The engine is usually innocent</strong> — something stopped carrying the heat away. <strong>Stop it:</strong> fins, fan, thermostat, and coolant level before ever blaming the engine.</p></div>
+    <div class="failbox"><h5>8 · Electrical problems</h5><div class="fsym">Clues: ghosts — faults that come and go, dashboards full of codes</div><p>Nine out of ten electrical failures aren&rsquo;t computers. They&rsquo;re wires. Broken wire. Loose ground. Green corrosion. Pinched harness. Electricity can&rsquo;t jump across broken connections. <strong>Stop it:</strong> wiggle-test the harness and voltage-drop the circuit before replacing expensive parts.</p></div>
+  </div>
+
+  <div class="callout vet"><span class="ct">The Golden Rule</span><p>Replace the broken part without fixing what killed it — and you&rsquo;ll buy the same repair twice. <strong>Great mechanics don&rsquo;t replace parts. They remove the reason the part failed.</strong></p></div>
+
+  <h3>The detective habit</h3>
+  <p>Whenever something breaks, ask three questions:</p>
+  <div class="grid3">
+    <div class="card"><span class="cnum">QUESTION 1</span><h5>What failed?</h5><p>Name the exact part and the exact way it died — not &ldquo;the brakes are bad&rdquo; but &ldquo;the left drive axle chamber is over-stroke.&rdquo;</p></div>
+    <div class="card"><span class="cnum">QUESTION 2</span><h5>Why did it fail?</h5><p>Find the parent problem — the dirt, the heat, the leak, the neglect that killed it. The clues chapter and the worn-parts chapter are your tools.</p></div>
+    <div class="card"><span class="cnum">QUESTION 3</span><h5>How do I stop it happening again?</h5><p>Change the practice, the interval, or the part quality — so this failure&rsquo;s brothers never get born on the rest of the fleet.</p></div>
+  </div>
+  <p>Those three questions turn a parts changer into a mechanic.</p>
+
+  <div class="callout plain"><span class="ct">In One Sentence</span><p class="one">Every breakdown starts as a tiny clue — find the cause before replacing the part, and you&rsquo;ll fix the truck once instead of twice.</p></div>
 
   <div class="next">
     <a onclick="go('worn')"><small>Next Chapter</small><b>Reading Worn Parts →</b></a>
   </div>
 </section>
 
-
-<!-- ============ 14 READING WORN PARTS ============ -->
+<!-- ============ 15 READING WORN PARTS ============ -->
 <section class="page" id="worn">
-  <div class="kicker">Chapter 14 · The Master Layer</div>
+  <div class="kicker">Chapter 17 · The Master Layer</div>
   <h2 class="title">Reading Worn Parts</h2>
   <p class="lede">Parts don't just fail — they <strong>testify</strong>. The difference between a parts-changer and a master is that the master reads every component that comes off the truck, because the failure pattern names the cause that's still bolted to the chassis.</p>
   <div class="callout plain"><span class="ct">In Plain English — the simple version</span><p>A broken part is like a crime scene: it always leaves clues about <em>who did it</em>. A bearing worn on one edge says "something is crooked." Scratches say "there was dirt in the oil." Burnt black color says "there was no oil at all." Never throw a broken part in the bin without reading it first — because the <strong>criminal is still on the truck</strong>, waiting to kill the new part too.</p><details><summary>Read the full simple story</summary>
@@ -1853,6 +2136,8 @@ td .m{font-family:var(--mono);font-size:12.5px}
 <text x="20" y="24" font-size="12" fill="#6b7078">Left two panels: drum friction surface. Right two: lining faces.</text>
 </svg>
 <figcaption><b>Reading drums and linings.</b> A wheel comes apart maybe twice in its service life — read everything while you're in there. Each of these patterns points upstream: heat says adjustment or duty, blue says drag, glaze says overheat event, oil says wheel seal. The parts are witnesses; the cause is still on the truck.</figcaption></figure>
+<figure class="fig"><img src="img/11-read-the-clues.webp" alt="Reading worn parts poster: bearing patterns, injector tips, drum conditions, oil filter autopsy, the museum shelf, and context clues" loading="lazy">
+<figcaption><b>The poster version — every dead part names its killer.</b> Read the clues, find the cause, fix the cause, THEN install the new part. And the golden habit that builds a master: a picture, a note, and a guess about the cause — every single time.</figcaption></figure>
 
 
   <h3>The rest of the truck speaks the same language</h3>
@@ -1873,7 +2158,7 @@ td .m{font-family:var(--mono);font-size:12.5px}
 
 <!-- ============ 15 PROCEDURES & SPECS ============ -->
 <section class="page" id="procedures">
-  <div class="kicker">Chapter 15 · The Master Layer</div>
+  <div class="kicker">Chapter 18 · The Master Layer</div>
   <h2 class="title">Procedures &amp; Specs</h2>
   <p class="lede">The bench-tested procedures behind every diagnosis in this reference, step by step — plus the map to the <strong>serial-number-exact data</strong> that no general reference can responsibly print.</p>
   <div class="callout plain"><span class="ct">In Plain English — the simple version</span><p>These are recipes — like baking a cake. Follow the steps in order, don&rsquo;t skip any, and you get the same good result every time. Where a number depends on your exact engine (like oven temperature depends on your exact oven), the step tells you to look it up — and the end of this chapter shows exactly where to look.</p><details><summary>Read the full simple story</summary>
@@ -1979,7 +2264,7 @@ td .m{font-family:var(--mono);font-size:12.5px}
 
 <!-- ============ 16 FLEET ECONOMICS ============ -->
 <section class="page" id="economics">
-  <div class="kicker">Chapter 16 · The Master Layer</div>
+  <div class="kicker">Chapter 19 · The Master Layer</div>
   <h2 class="title">Fleet Economics</h2>
   <p class="lede">The master mechanic's final skill isn't mechanical: it's knowing <strong>when a repair is a good investment and when it's throwing money at a truck that's already told you its answer</strong>. Every wrench decision is a money decision.</p>
   <div class="callout plain"><span class="ct">In Plain English — the simple version</span><p>A truck is a worker: it earns money when it drives and costs money when it doesn&rsquo;t. A new truck costs a lot in payments; an old truck costs a lot in repairs; the cheapest years are in the middle. The whole game of this chapter is one idea: <strong>fixing a truck on YOUR schedule in YOUR garage is always cheaper than the truck breaking on the road</strong> — because a breakdown charges you three times: the repair, the tow, and the load that didn&rsquo;t arrive.</p><details><summary>Read the full simple story</summary>
@@ -2020,6 +2305,8 @@ td .m{font-family:var(--mono);font-size:12.5px}
 </g>
 </svg>
 <figcaption><b>The lifecycle cost curve — the one chart that runs a fleet.</b> Conceptual shape, not plotted data: your own numbers come from tracking CPM per unit. New trucks are expensive because of ownership cost; old trucks are expensive because of maintenance and downtime. The fleet game is keeping every unit near the bottom of its total curve — and making the overhaul/trade/demote decision inside the window, on your schedule, not on the side of I-95.</figcaption></figure>
+<figure class="fig"><img src="img/12-fleet-economics.webp" alt="Fleet economics poster: the truck life curve, the 50 percent rule, sunk cost, the triple cost of breakdowns, catch rate and comeback rate" loading="lazy">
+<figcaption><b>The poster version — the owner&rsquo;s chapter.</b> Live in the green zone of the life curve, decide big repairs on paper before the old-truck chapter decides for you, never chase money that&rsquo;s already gone — and keep the two scores that measure whether your program actually works.</figcaption></figure>
 
   <p>Track maintenance CPM <strong>per unit, monthly</strong>: total maintenance spend ÷ miles run. The absolute number varies by duty; the <em>trend</em> is the diagnosis. A unit whose maintenance CPM breaks away from its fleet siblings is raising its hand — either it has a chronic unfixed problem, or it has crossed into the wear-out phase of the curve.</p>
 
@@ -2060,7 +2347,7 @@ td .m{font-family:var(--mono);font-size:12.5px}
 
 <!-- ============ 17 PM SCHEDULES ============ -->
 <section class="page" id="pm">
-  <div class="kicker">Chapter 17 · Shop Tools</div>
+  <div class="kicker">Chapter 20 · Shop Tools</div>
   <h2 class="title">PM Schedules &amp; Checklists</h2>
   <p class="lede">Preventive maintenance is the entire business case of a fleet shop: <strong>every dollar of scheduled work replaces three to ten dollars of breakdown</strong>, plus the tow, the late load, and the driver sitting. Here is the classic A/B/C/D structure, ready to adapt.</p>
   <div class="callout plain"><span class="ct">In Plain English — the simple version</span><p>This is the dentist plan for trucks. Small checkups often (clean, look, tighten), medium checkups sometimes (change the oil, test everything), and a big deep checkup once a year. Why? Because a small cavity is cheap and a root canal is not. Every problem found in the garage is a breakdown that never happens on the highway.</p><details><summary>Read the full simple story</summary>
@@ -2129,13 +2416,19 @@ td .m{font-family:var(--mono);font-size:12.5px}
 
 <!-- ============ 15 TROUBLESHOOTER ============ -->
 <section class="page" id="troubleshoot">
-  <div class="kicker">Chapter 18 · Shop Tools</div>
+  <div class="kicker">Chapter 21 · Shop Tools</div>
   <h2 class="title">The Troubleshooter</h2>
   <p class="lede">Pick the symptom, answer the questions the way a 20-year tech would ask them, and walk to a diagnosis. Every path here follows the shop discipline: <strong>cheap tests before expensive parts.</strong></p>
   <div class="callout plain"><span class="ct">In Plain English — the simple version</span><p>This works like a game of 20 Questions. Tell me what the truck is doing wrong, answer a few simple questions, and the path leads you to the answer — always trying the cheap and easy checks first, because guessing with expensive parts is how repair bills get fat.</p><details><summary>Read the full simple story</summary>
 <p><strong>How to use it:</strong> pick the card that sounds like your truck, then just answer honestly what you see and hear. Each question tells you exactly HOW to check — no guessing. The path always tries the cheap, fast tests first, because a $40 test that says "no" is a $4,000 part you didn&rsquo;t buy.</p>
 <p><strong>One habit to build:</strong> before starting any tree, make the truck show YOU the problem. A story from a driver is a clue; a symptom you reproduced yourself is a fact. Trees work on facts.</p>
 <p class="one">In one sentence: pick the symptom, answer what you actually observe, and let the cheap tests eliminate the expensive guesses.</p></details></div>
+  <h3 style="margin-top:8px">What happens if…?</h3>
+  <p>Pick a small problem and watch the consequences travel through the truck — this is why little things become big bills.</p>
+  <div class="wifgrid" id="wifgrid"></div>
+  <div class="wchain flow" id="wchain" style="display:none"></div>
+  <div class="wlesson" id="wlesson"></div>
+  <h3>Pick your symptom</h3>
   <div class="symgrid" id="symgrid"></div>
   <div class="tspanel" id="tspanel">
     <div class="crumbs" id="tscrumbs"></div>
@@ -2146,7 +2439,7 @@ td .m{font-family:var(--mono);font-size:12.5px}
 
 <!-- ============ 16 FAULT CODES ============ -->
 <section class="page" id="codes">
-  <div class="kicker">Chapter 19 · Shop Tools</div>
+  <div class="kicker">Chapter 22 · Shop Tools</div>
   <h2 class="title">Fault Code Reference</h2>
   <p class="lede">The J1939 codes you'll actually meet, with the <strong>field-truth causes</strong> behind them — not just the textbook definition. SPN = what parameter; FMI = how it failed (see the FMI table in <a onclick="go('electrical')" style="color:var(--accent);cursor:pointer">Chapter 11</a>).</p>
   <div class="callout plain"><span class="ct">In Plain English — the simple version</span><p>When the truck feels sick, its computer writes little notes. Each note has two parts: <strong>SPN</strong> = <em>which body part hurts</em> (the oil? a sensor? the turbo?), and <strong>FMI</strong> = <em>how it hurts</em> (too high? too low? not answering?). One important rule: a code is a <strong>witness, not the criminal</strong>. It tells you where it hurts — finding out why is your job, and this table gives you the usual suspects.</p><details><summary>Read the full simple story</summary>
@@ -2179,7 +2472,7 @@ td .m{font-family:var(--mono);font-size:12.5px}
 
 <!-- ============ 17 GLOSSARY ============ -->
 <section class="page" id="glossary">
-  <div class="kicker">Chapter 20 · Shop Tools</div>
+  <div class="kicker">Chapter 23 · Shop Tools</div>
   <h2 class="title">Glossary</h2>
   <p class="lede">The language of the shop floor. Use the letters to jump; use <strong>/</strong> to search everything.</p>
   <div class="alpha" id="alphabar"></div>
@@ -2189,7 +2482,7 @@ td .m{font-family:var(--mono);font-size:12.5px}
 
 <!-- ============ 21 QUIZ ============ -->
 <section class="page" id="quiz">
-  <div class="kicker">Chapter 21 · Shop Tools</div>
+  <div class="kicker">Chapter 24 · Shop Tools</div>
   <h2 class="title">Knowledge Quiz</h2>
   <p class="lede">Test yourself on everything in this reference. Instant feedback, plain-language explanations, and a mechanic rank at the end. <strong>Wrong answers teach more than right ones</strong> — every miss links you back to the chapter to re-read.</p>
   <div class="callout plain"><span class="ct">In Plain English — the simple version</span><p>Reading builds knowledge, but <strong>answering questions builds memory</strong> — your brain keeps what it has to work for. Take the 10-question quick quiz often (coffee-break size), and the full exam once you feel strong. Don&rsquo;t fear wrong answers: each one shows the explanation AND where to re-read. Miss it twice, and you&rsquo;ll never miss it again.</p></div>
@@ -2213,6 +2506,100 @@ td .m{font-family:var(--mono);font-size:12.5px}
   <div class="cpy">© 2026 <b>CMJ Fleet</b> · The Heavy-Duty Masterclass. All rights reserved.</div>
   <a class="tg" href="https://t.me/adam_cooper" target="_blank" rel="noopener">✈ Reach us on Telegram — @adam_cooper</a>
 </footer>
+
+<!-- ============ 25 CAPSTONE ============ -->
+<section class="page" id="capstone">
+  <div class="kicker">Chapter 25 · The Capstone · Designed by CMJ</div>
+  <h2 class="title">How Everything Works Together</h2>
+  <p class="lede">No new parts in this chapter. Instead: <strong>five real problems traveling through many systems at once</strong> — because that is what real trucks do. Chapters teach components. This chapter teaches the connections. Walk these five stories and you are not learning the truck anymore — you are diagnosing it.</p>
+
+  <h3>Story 1 — &ldquo;My truck won&rsquo;t pull hills&rdquo;</h3>
+  <div class="complaint">&ldquo;It&rsquo;s got no power. I think the turbo&rsquo;s gone.&rdquo;</div>
+  <p>The driver has already diagnosed it, and he is almost certainly wrong. The master walks the ladder instead — cheapest first, one system at a time:</p>
+  <ol>
+    <li><strong>Air filter plugged?</strong> — filter minder, 30 seconds. <em>Clean.</em></li>
+    <li><strong>Boost leaking out?</strong> — walk the boots and clamps. <em>There: a soot-streaked CAC boot, painting its own confession.</em></li>
+    <li><strong>Turbo making boost?</strong> — would have been the datalog next.</li>
+    <li><strong>Fuel pressure right?</strong> — supply gauge, rail data.</li>
+    <li><strong>Injectors healthy?</strong> — cylinder balance test.</li>
+    <li><strong>Exhaust plugged? DPF restricted?</strong> — ΔP data.</li>
+    <li><strong>ECM limiting power on purpose?</strong> — codes and derates, checked first in real life.</li>
+    <li><strong>A sensor lying?</strong> — rationality checks.</li>
+    <li><strong>Mechanical engine problem?</strong> — compression, last because it&rsquo;s dearest.</li>
+  </ol>
+  <p><strong>The lesson: never start by replacing the turbo.</strong> This story ended at step 2, with a $40 boot — while the parts counter was ready to sell a $3,500 turbocharger for the exact same symptom.</p>
+
+  <h3>Story 2 — &ldquo;It&rsquo;s running hot&rdquo;</h3>
+  <div class="complaint">&ldquo;Temp needle climbs on every hill. Probably needs a head gasket, right?&rdquo;</div>
+  <p>Most people jump straight to the most expensive possibility. The order that saves money climbs the other way:</p>
+  <div class="flow">
+    <div class="fbox">COOLANT LEVEL<small>and concentration — free</small></div><div class="farr">→</div>
+    <div class="fbox">LEAKS<small>pressure test, cap test</small></div><div class="farr">→</div>
+    <div class="fbox">THERMOSTAT<small>cheap, replace on suspicion</small></div><div class="farr">→</div>
+    <div class="fbox">FAN<small>does it lock and roar?</small></div><div class="farr">→</div>
+    <div class="fbox">WATER PUMP<small>weep hole, flow</small></div><div class="farr">→</div>
+    <div class="fbox">RADIATOR<small>fins, airflow, scaling</small></div><div class="farr">→</div>
+    <div class="fbox hot">HEAD GASKET<small>block test — LAST</small></div>
+  </div>
+  <p>This story ended at the fan clutch — it slipped quietly all winter and confessed on the first loaded July grade. <strong>The lesson: the engine is usually innocent.</strong> Something stopped carrying the heat away, and that something is almost never the head gasket you were about to buy.</p>
+
+  <h3>Story 3 — &ldquo;It won&rsquo;t start&rdquo;</h3>
+  <div class="complaint">&ldquo;Dead this morning. Put a starter in it?&rdquo;</div>
+  <p>The wake-up sequence from Chapter 8 IS the diagnostic ladder — failures happen in order:</p>
+  <ol>
+    <li><strong>Batteries</strong> — rested voltage, each tested alone.</li>
+    <li><strong>Connections</strong> — voltage-drop both sides while cranking. <em>There: 1.8 volts lost across a green-crusted ground cable.</em></li>
+    <li><strong>Starter</strong> — only condemned with full voltage at its terminals.</li>
+    <li><strong>Fuel</strong> — supply, filters, air intrusion.</li>
+    <li><strong>Rail pressure</strong> — building to firing threshold?</li>
+    <li><strong>Crank/cam sensors</strong> — the ECM can&rsquo;t inject blind.</li>
+    <li><strong>ECM</strong> — powers and grounds before ever blaming the box.</li>
+    <li><strong>Compression</strong> — the expensive answer, asked last.</li>
+  </ol>
+  <p><strong>The lesson: the sound tells you where to start.</strong> Silence, click, slow spin, or spin-without-fire each enter this ladder at a different step — and this story&rsquo;s $12 cable was two steps before the $600 starter the driver ordered by phone.</p>
+
+  <h3>Story 4 — &ldquo;Three warning lights at once&rdquo;</h3>
+  <div class="complaint">&ldquo;ABS, check engine, AND transmission lights all just came on. It&rsquo;s a disaster.&rdquo;</div>
+  <p>The beginner sees three broken systems and starts pricing three repairs. The master remembers Chapter 12: all those computers talk on <strong>one shared wire</strong> — and when the group chat goes down, every member looks broken at once.</p>
+  <p>One measurement settles it: resistance across the J1939 pair. <strong>60 ohms</strong> = healthy chat, look elsewhere. <strong>120</strong> = half the network unplugged. <strong>Near zero</strong> = the pair is pinched together somewhere. This story read 0.3 ohms — a harness rubbed through at a crossmember, one winter of vibration deep. One wire repaired; three &ldquo;failed systems&rdquo; resurrected simultaneously.</p>
+  <p><strong>The lesson: many alarms at once usually means one messenger down — not many emergencies.</strong></p>
+
+  <h3>Story 5 — &ldquo;White smoke&rdquo;</h3>
+  <div class="complaint">&ldquo;She&rsquo;s smoking white. That&rsquo;s a head gasket... or injectors... somebody said turbo?&rdquo;</div>
+  <p>White smoke has four possible authors, and each signs its work differently. Investigate — never guess:</p>
+  <div class="twrap"><table>
+    <tr><th>Suspect</th><th>Its Signature</th><th>The Test That Convicts</th></tr>
+    <tr><td>Coolant in the cylinder</td><td>Sweet smell, coolant loss, worse after hot shutdown</td><td>Block test; EGR cooler pressure test first on modern engines</td></tr>
+    <tr><td>Unburned fuel</td><td>Stings the eyes, fuel smell, often one cylinder</td><td>Cylinder cutout &amp; balance — find the dribbler</td></tr>
+    <tr><td>Low compression</td><td>Worse cold, clears partly warm, hard starting too</td><td>Relative compression, blow-by check</td></tr>
+    <tr><td>Timing off</td><td>Smoke plus weak, noisy running across all cylinders</td><td>Cam/crank sync codes, overhead history</td></tr>
+    <tr><td><em>…or nothing at all</em></td><td>Thin white cloud on a cold morning that clears in minutes</td><td>That&rsquo;s condensation — normal. Log how long it takes to clear.</td></tr>
+  </table></div>
+  <p><strong>The lesson: one symptom, four systems, four different tests.</strong> The mechanic who &ldquo;knows&rdquo; what white smoke means without testing is guessing with your money.</p>
+
+  <hr class="sep">
+
+  <h3>The Mechanic&rsquo;s Golden Rules</h3>
+  <p>Ten rules. Everything else in this Masterclass is detail hanging on these:</p>
+  <div class="grule"><span class="n">1</span><div><b>The truck whispers before it screams.</b><p>Noises, drips, smells, and lights are early invitations. Accept the cheap invitation or attend the expensive breakdown.</p></div></div>
+  <div class="grule"><span class="n">2</span><div><b>Symptoms are not causes.</b><p>Smoke, heat, and weakness are messengers. Every broken part has a parent problem — find the parent.</p></div></div>
+  <div class="grule"><span class="n">3</span><div><b>Check the basics first: air, fuel, compression, timing, exhaust.</b><p>The engine only needs six things. One is missing. Cheap tests find which.</p></div></div>
+  <div class="grule"><span class="n">4</span><div><b>The cheapest repair is the one done before the breakdown.</b><p>A breakdown charges three times: the repair, the tow, and the load that didn&rsquo;t arrive.</p></div></div>
+  <div class="grule"><span class="n">5</span><div><b>Read every failed part before throwing it away.</b><p>Every dead part names its killer. Bin it unread and buy the same funeral twice.</p></div></div>
+  <div class="grule"><span class="n">6</span><div><b>Test before replacing.</b><p>A $40 test that says &ldquo;no&rdquo; is a $4,000 part you didn&rsquo;t buy. Let evidence spend your money.</p></div></div>
+  <div class="grule"><span class="n">7</span><div><b>Wires fail more often than computers.</b><p>Nine of ten &ldquo;electronic&rdquo; failures are connections. Wiggle, voltage-drop, and inspect before condemning any box.</p></div></div>
+  <div class="grule"><span class="n">8</span><div><b>One change at a time.</b><p>Change two things and the truck gets fixed without teaching you anything. Slow is smooth; smooth is fast.</p></div></div>
+  <div class="grule"><span class="n">9</span><div><b>Compare to a known-good truck.</b><p>Fleet twins are the best spec book ever printed. The difference between their numbers IS the diagnosis.</p></div></div>
+  <div class="grule"><span class="n">10</span><div><b>The last person who touched it is part of the diagnosis.</b><p>A new problem after a repair is no coincidence until proven otherwise. Ask what changed first, every time.</p></div></div>
+
+  <div class="callout plain"><span class="ct">The End — and the Beginning</span><p class="one">You started this course asking &ldquo;what are these parts?&rdquo; You are finishing it able to diagnose a truck logically. That is the whole distance — and from here, every mile your fleet runs makes you better at it.</p></div>
+
+  <div class="next">
+    <a onclick="go('quiz')"><small>Prove It</small><b>Take the Full Exam →</b></a>
+    <a onclick="go('start')"><small>Or</small><b>Back to the Beginning</b></a>
+  </div>
+</section>
+
 </div></main></div>
 
 <!-- ============ SEARCH OVERLAY ============ -->
@@ -2226,16 +2613,17 @@ td .m{font-family:var(--mono);font-size:12.5px}
 <script>
 /* ================= NAVIGATION ================= */
 const NAV=[
- {g:'Foundations',items:[['start','01','Start Here'],['diesel','02','Diesel Fundamentals']]},
- {g:'Engine Systems',items:[['air','03','Air & Turbocharging'],['fuel','04','Fuel System'],['lube','05','Lubrication'],['cooling','06','Cooling System'],['aftertreatment','07','EGR & Aftertreatment']]},
- {g:'Platform Deep Dives',items:[['cummins','08','Cummins X15 / ISX'],['detroit','09','Detroit DD13 / DD15']]},
- {g:'Chassis & Driveline',items:[['brakes','10','Air Brakes'],['electrical','11','Electrical & Charging'],['drivetrain','12','Drivetrain'],['suspension','13','Suspension & Wheel End']]},
- {g:'The Master Layer',items:[['worn','14','Reading Worn Parts'],['procedures','15','Procedures & Specs'],['economics','16','Fleet Economics']]},
- {g:'Shop Tools',items:[['pm','17','PM Schedules & Checklists'],['troubleshoot','18','Troubleshooter'],['codes','19','Fault Code Reference'],['glossary','20','Glossary'],['quiz','21','Knowledge Quiz']]}
+ {g:'Foundations',c:'#3f6a94',items:[['start','01','Start Here'],['diesel','02','Diesel Fundamentals']]},
+ {g:'Engine Systems',c:'#3f6a94',items:[['air','03','Air & Turbocharging'],['fuel','04','Fuel System'],['lube','05','Lubrication'],['cooling','06','Cooling System'],['aftertreatment','07','EGR & Aftertreatment'],['sensors','08','Sensors & the ECM']]},
+ {g:'Platform Deep Dives',c:'#3f6a94',items:[['cummins','09','Cummins X15 / ISX'],['detroit','10','Detroit DD13 / DD15']]},
+ {g:'Chassis & Driveline',c:'#2f6b46',items:[['brakes','11','Air Brakes'],['electrical','12','Electrical & Charging'],['drivetrain','13','Drivetrain'],['suspension','14','Suspension & Wheel End']]},
+ {g:'The Master Layer',c:'#9e2b25',items:[['diagthink','15','Diagnostic Thinking'],['failures','16','Common Failures'],['worn','17','Reading Worn Parts'],['procedures','18','Procedures & Specs'],['economics','19','Fleet Economics']]},
+ {g:'Shop Tools',c:'#8a6d1f',items:[['pm','20','PM Schedules & Checklists'],['troubleshoot','21','Troubleshooter'],['codes','22','Fault Code Reference'],['glossary','23','Glossary'],['quiz','24','Knowledge Quiz']]},
+ {g:'The Capstone',c:'#9e2b25',items:[['capstone','25','How Everything Works Together']]}
 ];
 const navEl=document.getElementById('nav');
 NAV.forEach(gr=>{
-  const h=document.createElement('div');h.className='ngroup';h.textContent=gr.g;navEl.appendChild(h);
+  const h=document.createElement('div');h.className='ngroup';h.innerHTML=(gr.c?'<span class="ndot" style="background:'+gr.c+'"></span>':'')+gr.g;navEl.appendChild(h);
   gr.items.forEach(([id,num,label])=>{
     const d=document.createElement('div');d.className='nitem';d.dataset.page=id;
     d.innerHTML='<span class="nnum">'+num+'</span>'+label;
@@ -2629,6 +3017,14 @@ const GLOSS=[
 ['Pigtails (suzy lines)','Coupling','The three coiled lines behind the cab — red air, blue air, and the 7-way electrical cord — that connect tractor to trailer.'],
 ['7-way connector','Electrical','Round 7-pin plug carrying trailer lights, signals, stop lamps, and ABS power. Corroded pins here cause most trailer lighting complaints.'],
 ['Tug test','Coupling','After coupling: lock the trailer brakes and pull gently forward — the trailer must hold the tractor. Proves the fifth-wheel jaws captured the kingpin.'],
+['ECM / MCM (brain)','Sensors','The engine computer: reads every sensor many times a second and commands injectors, turbo, EGR, DEF and fan. Rarely fails itself — usually it is lied to.'],
+['MAP sensor','Sensors','Manifold Absolute Pressure — the boost reporter: how hard the turbo is pushing air into the engine.'],
+['IAT','Sensors','Intake Air Temperature sensor — reports how hot (thin) or cool (dense) the incoming air is.'],
+['5-volt reference','Sensors','A shared supply feeding many sensors. One shorted wire drags them all down at once — a dozen codes, one culprit.'],
+['Rationality check','Diagnosis','Comparing a sensor against reality or its siblings (all EGTs equal at cold soak) to catch a liar the circuit tests miss.'],
+['Split-half method','Diagnosis','Test the middle of a system first: each result cuts the search area in half. Five smart cuts beat fifty blind checks.'],
+['Full-floating axle','Drivetrain','Design where the shaft carries only twist while the hub bearings carry the weight — a broken shaft can be pulled with the wheels still supporting the truck.'],
+['Pressure-protection valve','Brakes','Guard valve that closes an accessory air circuit when pressure drops — enforcing the rule that the brakes eat first.'],
 ['Brinelling','Driveline','Dents worn into u-joint cap races by a joint that stopped articulating — hammered instead of rotating; often secondary to bad working angles.'],
 ['Casing','Tires','The tire\u2019s structural body — a multi-life asset retreaded 1–2 times; protecting casings is protecting inventory.'],
 ['Comeback','Fleet','A repeat repair for the same complaint within ~30 days — the KPI that measures diagnostic quality.'],
@@ -2681,7 +3077,7 @@ function closeSearch(){document.getElementById('soverlay').classList.remove('ope
 function doSearch(){
   const q=document.getElementById('sinput').value.toLowerCase().trim();
   const res=document.getElementById('sresults');
-  if(!q){res.innerHTML='<div class="sresult"><small>Type to search all 20 chapters, '+CODES.length+' fault codes, and '+GLOSS.length+' glossary terms…</small></div>';return;}
+  if(!q){res.innerHTML='<div class="sresult"><small>Type to search all 25 chapters, '+CODES.length+' fault codes, and '+GLOSS.length+' glossary terms…</small></div>';return;}
   const hits=sindex.filter(s=>s.t.toLowerCase().includes(q)||s.d.toLowerCase().includes(q)).slice(0,14);
   res.innerHTML=hits.length?hits.map((h,i)=>'<div class="sresult" onclick="searchGo('+sindex.indexOf(h)+')"><span class="sloc">'+h.loc+'</span><b>'+h.t+'</b><small>'+h.d+'</small></div>').join(''):'<div class="sresult"><small>No matches — try a different term (e.g. "boost", "DEF", "slack adjuster", an SPN number…)</small></div>';
 }
@@ -2697,7 +3093,7 @@ document.addEventListener('keydown',e=>{
 
 <script>
 /* ================= QUIZ ================= */
-const QCH={diesel:'Diesel Fundamentals',air:'Air & Turbo',fuel:'Fuel System',lube:'Lubrication',cooling:'Cooling',aftertreatment:'Aftertreatment',cummins:'Cummins',detroit:'Detroit',brakes:'Air Brakes',electrical:'Electrical',drivetrain:'Drivetrain',suspension:'Suspension & Wheel End',worn:'Reading Worn Parts',procedures:'Procedures',economics:'Fleet Economics',pm:'PM Program',codes:'Fault Codes'};
+const QCH={diesel:'Diesel Fundamentals',air:'Air & Turbo',fuel:'Fuel System',lube:'Lubrication',cooling:'Cooling',aftertreatment:'Aftertreatment',cummins:'Cummins',detroit:'Detroit',brakes:'Air Brakes',electrical:'Electrical',drivetrain:'Drivetrain',suspension:'Suspension & Wheel End',worn:'Reading Worn Parts',procedures:'Procedures',economics:'Fleet Economics',pm:'PM Program',codes:'Fault Codes',sensors:'Sensors & ECM',diagthink:'Diagnostic Thinking'};
 /* format: [chapter, question, [CORRECT, wrong, wrong, wrong], explanation] */
 const QZ=[
 ['diesel','What ignites the fuel in a diesel engine?',['Air made burning-hot by squeezing it hard','A spark plug firing in each cylinder at the right moment','A glowing wire that stays hot inside every cylinder','Heat carried back from the turbocharger into the intake'],'Squeezing air ~17:1 heats it past 1,000°F — fuel sprayed into that furnace lights itself. No spark, ever.'],
@@ -2793,6 +3189,12 @@ const QZ=[
 ['codes','A "freeze frame" is…',['A snapshot of engine conditions at the exact moment the fault set','A sensor reading corrupted by actual freezing weather','A photo the dash camera stores when a fault trips','The winter operating mode for northern climates'],'Boost, temps, load and RPM at the moment it hurt — a free witness statement recorded for you.'],
 ['suspension','What does the RED trailer line do?',['Fills the trailer’s tanks and holds its spring brakes off','Applies the trailer brakes when you press the pedal','Powers the trailer’s lights and its ABS computer','Balances pressure between tractor and trailer tanks'],'Red = the boss. It gives the trailer its air supply — lose it and the trailer’s springs lock the brakes automatically. Blue is the worker (brakes on command); the 7-way is the messenger (electricity only).'],
 ['suspension','Trailer lights are out on one side. Where do you look first?',['The 7-way connector and its pins — corrosion and spread pins','The trailer’s battery pack running down overnight','The tractor’s alternator dropping one output phase','The ABS module cutting power to that side after a fault'],'The 7-way plug is the most-handled electrical connector on the truck. Green crust or a spread pin explains most half-working trailer lights. Dielectric grease twice a year prevents it.'],
+['sensors','The ECM decides how much fuel each squirt gets based on…',['What its sensors report, every few milliseconds','A fixed schedule programmed at the factory','The mechanical position of the pedal cable','How much fuel remains in the tanks'],'Sensors → brain → muscles. The pedal is just a request; the ECM grants it based on everything else it knows.'],
+['sensors','Parked overnight, all the temperature sensors should read…',['Roughly the same — the outside temperature','Their normal hot operating values','Exactly zero until the key turns on','Whatever they held at shutdown'],'The cold-soak compare: everything cooled to ambient overnight, so every temp sensor must agree. The one reading differently is the liar.'],
+['sensors','A dozen sensor codes appear at the same moment. The likely cause is…',['One shorted wire dragging down the shared 5-volt supply','Twelve sensors failing together from age','A dead ECM that needs replacement','A software update gone wrong'],'The 5-volt trap: many sensors share one reference supply. Unplug sensors one at a time until it recovers — the last one unplugged is the culprit.'],
+['sensors','The correct wake-up order when starting is…',['Key → ECM boots → starter spins flywheel → engine fires → alternator takes over','Starter → alternator → ECM boots → key checks in','Alternator charges → engine fires → starter engages last','ECM boots → alternator spins → flywheel charges the key'],'Read no-start complaints against this sequence and the failure names its own chapter: silence, click, slow spin, or spin-no-fire each point somewhere different.'],
+['diagthink','A diesel runs badly. Before any parts, the master asks which of six things is missing:',['Air, fuel, compression, timing, a free exhaust, honest sensors','Horsepower, torque, boost, speed, load, heat','Oil, coolant, DEF, grease, filters, belts','Warranty, manuals, codes, tools, time, money'],'Every runability problem is one of the six missing. Walk them with cheap tests and the problem has nowhere to hide.'],
+['diagthink','"Suspect the last hand that touched it" means…',['A new problem right after a repair points first at that repair','Always blame the previous shop in writing','Only one mechanic should touch each truck','Check who signed the last work order'],'Unplugged connectors, pinched harnesses, unseated boots — ask what changed just before the problem started, every time.'],
 ['codes','SPN 5246 means…',['Severe SCR inducement — the 5 mph crawl is active','Washer fluid critically low in the reservoir circuit','Turbocharger overspeed detected at high altitude','Cruise control locked out by a brake system fault'],'The end of the federal countdown. Fix the root emissions fault; a service tool may be needed to reset the inducement.']
 ];
 /* engine */
@@ -2844,7 +3246,11 @@ const QF=[
 ['economics','Money already spent is ___ cost — compare only from today forward.',['sunk'],'"We already put $8k in it" is not a reason to spend more. Which path costs less per mile from here?'],
 ['pm','A healthy fleet finds at least ___% of its repairs in the shop, not on the road.',['80','eighty'],'The found-on-PM ratio is the report card of the whole maintenance program.'],
 ['codes','SPN says which parameter hurts; ___ says how it hurts.',['fmi'],'Failure Mode Identifier — too high, too low, circuit fault, not responding. The half people skip.'],
-['codes','The computer&rsquo;s snapshot of conditions at the moment a fault set is the freeze ___.',['frame'],'Boost, temps, load and RPM at the moment it hurt — a free witness statement.']
+['codes','The computer&rsquo;s snapshot of conditions at the moment a fault set is the freeze ___.',['frame'],'Boost, temps, load and RPM at the moment it hurt — a free witness statement.'],
+['sensors','Sensors are the eyes, the muscles do the work, and the ECM is the ___.',['brain','computer'],'Kid → eyes → brain → muscles. Truck → sensors → ECM → injectors, turbo, fan.'],
+['sensors','Every sensor spends its whole life asking exactly one ___.',['question'],'Coolant sensor: how hot am I? Boost sensor: how hard am I pushed? DEF sensor: how much do I have?'],
+['diagthink','Change only ___ thing at a time, then retest.',['one','1'],'Change two and the truck gets fixed without telling you which one worked — so the next repair costs double.'],
+['failures','Rule number one: the truck ___ before it screams.',['whispers'],'Noises, drips, smells and lights are the whisper. Catch the clue while it is cheap.']
 ];
 
 let qzPool=[],qzIdx=0,qzScore=0,qzMisses=[],qzScope='all',qzLen='10',qzStyle='mixed',qzByCh={};
@@ -2964,5 +3370,315 @@ function qzFinish(){
 qzHome();
 </script>
 
+
+<script>
+/* ================= PLATFORM: progress, dark mode, connections, what-if, symptom search ================= */
+const store={get(k,d){try{const v=localStorage.getItem('cmj_'+k);return v==null?d:JSON.parse(v)}catch(e){return d}},set(k,v){try{localStorage.setItem('cmj_'+k,JSON.stringify(v))}catch(e){}}};
+const CHAPTERS=['start','diesel','air','fuel','lube','cooling','aftertreatment','sensors','cummins','detroit','brakes','electrical','drivetrain','suspension','diagthink','failures','worn','procedures','economics','pm','troubleshoot','codes','glossary','quiz','capstone'];
+
+/* ---- theme ---- */
+function applyTheme(t){document.documentElement.dataset.theme=t;const b=document.getElementById('darkbtn');if(b)b.textContent=t==='dark'?'☀️ Light mode':'🌙 Dark mode';}
+function toggleTheme(){const t=(document.documentElement.dataset.theme==='dark')?'light':'dark';store.set('theme',t);applyTheme(t);}
+applyTheme(store.get('theme','light'));
+
+/* ---- streak ---- */
+(function(){
+  const today=new Date().toISOString().slice(0,10);
+  const last=store.get('lastday',null);let streak=store.get('streak',1);
+  if(last!==today){
+    const y=new Date(Date.now()-864e5).toISOString().slice(0,10);
+    streak=(last===y)?streak+1:1;
+    store.set('streak',streak);store.set('lastday',today);
+  }
+})();
+
+/* ---- XP & levels ---- */
+function xpTotal(){return store.get('xp_ch',0)+store.get('xp_quiz',0);}
+function levelName(xp){return xp>=1400?'🏆 20-Year Wrench':xp>=800?'🔧 Master Tech':xp>=400?'⚙️ Journeyman':xp>=150?'🛠 Apprentice':'📦 Parts Changer';}
+function renderProgress(){
+  const learned=store.get('learned',{});
+  const n=Object.keys(learned).length;
+  const xp=xpTotal();
+  document.getElementById('progfill').style.width=(n/CHAPTERS.length*100)+'%';
+  document.getElementById('progpct').textContent=n+' / '+CHAPTERS.length+' chapters';
+  document.getElementById('progstreak').textContent='🔥 day '+store.get('streak',1);
+  document.getElementById('progxp').textContent=xp+' XP';
+  document.getElementById('proglevel').textContent=levelName(xp);
+  document.querySelectorAll('.nitem').forEach(el=>el.classList.toggle('learned',!!learned[el.dataset.page]));
+}
+/* nav checkmarks */
+document.querySelectorAll('.nitem').forEach(el=>{el.insertAdjacentHTML('beforeend','<span class="ndone">✓</span>');});
+
+/* mark-as-learned buttons in every chapter */
+CHAPTERS.forEach(id=>{
+  const sec=document.getElementById(id);if(!sec)return;
+  const btn=document.createElement('button');btn.className='learnbtn';btn.dataset.ch=id;
+  btn.onclick=()=>{
+    const learned=store.get('learned',{});
+    if(learned[id]){delete learned[id];store.set('xp_ch',Math.max(0,store.get('xp_ch',0)-25));}
+    else{learned[id]=1;store.set('xp_ch',store.get('xp_ch',0)+25);}
+    store.set('learned',learned);renderLearnBtns();renderProgress();
+  };
+  const nxt=sec.querySelector('.next');
+  if(nxt)nxt.parentNode.insertBefore(btn,nxt);else sec.appendChild(btn);
+});
+function renderLearnBtns(){
+  const learned=store.get('learned',{});
+  document.querySelectorAll('.learnbtn').forEach(b=>{
+    const on=!!learned[b.dataset.ch];
+    b.classList.toggle('on',on);
+    b.innerHTML=on?'✓ Learned — well done (+25 XP)':'Mark this chapter as learned';
+  });
+}
+renderLearnBtns();renderProgress();
+
+/* quiz XP + best score persistence */
+const _qzFinishItem=qzFinishItem;
+qzFinishItem=function(right,q){_qzFinishItem(right,q);if(right)store.set('xp_quiz',store.get('xp_quiz',0)+2);renderProgress();};
+const _qzFinish=qzFinish;
+qzFinish=function(){
+  const pct=Math.round(qzScore/qzPool.length*100);
+  const best=store.get('quiz_best',0);
+  if(pct>best)store.set('quiz_best',pct);
+  store.set('quiz_runs',store.get('quiz_runs',0)+1);
+  _qzFinish();
+};
+const _qzHome=qzHome;
+qzHome=function(){
+  _qzHome();
+  const best=store.get('quiz_best',null),runs=store.get('quiz_runs',0);
+  if(best!=null&&runs>0){
+    const s=document.querySelector('#qzhome .qzsetup');
+    if(s)s.insertAdjacentHTML('afterbegin','<div style="font-size:13px;color:var(--ink-mute);margin-bottom:14px">Personal best: <b style="color:var(--accent-deep)">'+best+'%</b> · '+runs+' quiz'+(runs>1?'zes':'')+' taken · every correct answer = +2 XP</div>');
+  }
+};
+qzHome();
+
+/* ---- connected systems ---- */
+const CONNECT={
+ diesel:['air','fuel','lube','cooling','sensors'],
+ air:['diesel','aftertreatment','sensors','fuel'],
+ fuel:['diesel','air','lube','sensors'],
+ lube:['diesel','cooling','worn','sensors'],
+ cooling:['diesel','aftertreatment','lube','sensors'],
+ aftertreatment:['air','cooling','fuel','sensors','codes'],
+ sensors:['electrical','codes','diagthink','aftertreatment'],
+ cummins:['diesel','fuel','aftertreatment','codes'],
+ detroit:['diesel','aftertreatment','sensors','codes'],
+ brakes:['suspension','electrical','pm','procedures'],
+ electrical:['sensors','codes','brakes','diagthink'],
+ drivetrain:['diesel','suspension','electrical','sensors'],
+ suspension:['drivetrain','brakes','worn','procedures'],
+ diagthink:['failures','troubleshoot','codes','sensors'],
+ failures:['diagthink','worn','troubleshoot','pm'],
+ worn:['failures','lube','brakes','procedures'],
+ procedures:['pm','suspension','brakes','fuel'],
+ economics:['pm','failures','worn','capstone'],
+ pm:['procedures','economics','failures','brakes'],
+ codes:['sensors','electrical','aftertreatment','troubleshoot'],
+ capstone:['diagthink','failures','troubleshoot','quiz']};
+const NAMES={};NAV.forEach(g=>g.items.forEach(([id,n,l])=>NAMES[id]=l));
+Object.entries(CONNECT).forEach(([id,links])=>{
+  const sec=document.getElementById(id);if(!sec)return;
+  const div=document.createElement('div');div.className='connrow';
+  div.innerHTML='<b>Connected systems — the truck is one machine</b>'+links.map(l=>'<span class="connchip" onclick="go(\''+l+'\')">'+(NAMES[l]||l)+'</span>').join('');
+  const btn=sec.querySelector('.learnbtn');
+  if(btn)btn.parentNode.insertBefore(div,btn);else sec.appendChild(div);
+});
+
+/* ---- what-if explorer ---- */
+const WHATIF=[
+{t:'A turbo hose leaks',chain:[['Boost escapes',''],['ECM fuels for air that never arrives',''],['Black smoke + high exhaust heat','hot'],['Low power on every hill','hot'],['Extra soot loads the DPF → regens multiply','hot']],l:'A $40 boot, ignored, becomes a DPF cleaning and a fuel-economy tax. Chapter 3 & 7.'},
+{t:'The DEF light is ignored',chain:[['Amber warning — countdown starts',''],['25% power derate','hot'],['5 mph crawl — federal law','hot'],['Tow + missed delivery','hot']],l:'The countdown runs whether the driver reports it or not. Same-week shop rule. Chapter 7.'},
+{t:'Oil change goes 15k over',chain:[['Soap additives used up',''],['Soot & acid circulate uncaptured',''],['Bearings wear in dirty oil','hot'],['Hot-idle pressure starts whispering','hot'],['In-frame overhaul arrives early','hot']],l:'The oil looked fine. The sponge was full. Chapters 5 & 17.'},
+{t:'A small air leak hisses',chain:[['Compressor pumps far more often',''],['Dryer overwhelmed → water in tanks',''],['Compressor wears out early','hot'],['Slow build, morning no-release in winter','hot']],l:'Your own fleet lived this one — the RO that started it all. Chapter 11.'},
+{t:'EGR valve sticks open',chain:[['Exhaust dilutes idle air',''],['Rough idle, low power',''],['Extra soot into the DPF','hot'],['Regens multiply → fuel burns','hot']],l:'One sticky valve taxes three systems. Chapters 7 & 3.'},
+{t:'One battery shorts a cell',chain:[['It drains its 3 brothers all night',''],['Cold morning: slow crank',''],['Starter works overtime → dies early','hot'],['"Bad starter" bought — problem returns','hot']],l:'Test each battery alone; replace as a matched set. Chapter 12.'},
+{t:'A brake drifts out of adjustment',chain:[['Pushrod stroke grows quietly',''],['Pedal feels EXACTLY the same',''],['Stopping distance stretches','hot'],['Roadside inspection: OUT OF SERVICE','hot']],l:'The #1 violation in trucking — invisible without a tape measure. Chapter 11.'},
+{t:'Water sits in the fuel',chain:[['Rust forms in precision parts',''],['At the hot tip: water flashes to steam',''],['Injector tip pops like popcorn','hot'],['White smoke, rough running, injector bill','hot']],l:'The 30-second weekly drain against a five-figure repair. Chapter 4.'}];
+const wg=document.getElementById('wifgrid');
+WHATIF.forEach((w,i)=>{
+  const b=document.createElement('button');b.className='wifbtn';b.textContent=w.t+'…';
+  b.onclick=()=>{
+    document.querySelectorAll('.wifbtn').forEach(x=>x.classList.remove('on'));b.classList.add('on');
+    const c=document.getElementById('wchain');c.style.display='flex';c.innerHTML='';
+    w.chain.forEach(([txt,hot],j)=>{
+      if(j>0)c.insertAdjacentHTML('beforeend','<div class="farr">→</div>');
+      const d=document.createElement('div');d.className='fbox'+(hot?' hot':'');d.textContent=txt;
+      d.style.animationDelay=(j*0.35)+'s';c.appendChild(d);
+    });
+    const L=document.getElementById('wlesson');
+    L.innerHTML='<b>The lesson:</b> '+w.l;L.className='wlesson show';
+  };
+  wg.appendChild(b);
+});
+
+/* ---- symptom-first search ---- */
+const SYMPTOMS=[
+['Black smoke','Too much fuel or too little air: boost leak, plugged filter, lazy VGT, rich injector. Start at the air system.','air'],
+['White smoke','Four authors: coolant, unburned fuel, low compression, timing. Each signs differently — see the capstone table.','capstone'],
+['Blue smoke','Engine oil burning: turbo seals, valve guides, rings, plugged breather. Run the smoke tree.','troubleshoot'],
+['No power / weak','Walk the six needs: air, fuel, squeeze, timing, breath, truth. Never start with the turbo.','diagthink'],
+['Hard start','Cold-only = air sneaking into fuel suction. Every-start = supply or hardware. Run the tree.','troubleshoot'],
+['Wont start / no crank','Batteries → connections → starter, in order. Voltage-drop while cranking.','electrical'],
+['Overheating','Load-only = heat rejection (fan, fins). Always = flow (stat, pump). Engine is usually innocent.','cooling'],
+['Coolant loss','Four hiding places: overflow, oil, cylinder, heater. EGR cooler = #1 secret thief.','cooling'],
+['Oil consumption','Leaks → turbo → blow-by → guides. Measure the rate first, then the ladder.','lube'],
+['DEF light / derate','Legal countdown running: lamp → 25% → 5 mph. Same-week shop rule, every time.','aftertreatment'],
+['Many warning lights at once','Usually ONE broken wire — the J1939 group chat. Measure 60 ohms across the pair.','electrical'],
+['Slow air build','Leak test first, then dryer, then compressor. Milky wet-tank water = dryer overdue.','brakes'],
+['Vibration','Road-speed = tires/driveline. RPM = engine. Torque-only = u-joint angles. The fingerprint tells.','troubleshoot'],
+['Trailer lights out','The 7-way connector and its pins — corrosion and spread pins. Check before wiring hunts.','suspension']];
+SYMPTOMS.forEach(([t,d,page])=>sindex.push({page,loc:'Symptom',t,d}));
+</script>
+
+
+<script>
+/* ================= FREE TIER: achievements, mastery, certificate, zoom, keyboard ================= */
+
+/* ---- text size ---- */
+const ZOOMS=[['normal',1],['large',1.12],['extra large',1.25]];
+function applyZoom(){const z=store.get('zoom',0);document.querySelector('.content').style.zoom=ZOOMS[z][1];const b=document.getElementById('zoombtn');if(b)b.textContent='🔎 Text size: '+ZOOMS[z][0];}
+function cycleZoom(){store.set('zoom',(store.get('zoom',0)+1)%ZOOMS.length);applyZoom();}
+applyZoom();
+
+/* ---- keyboard prev/next ---- */
+document.addEventListener('keydown',e=>{
+  if(['INPUT','TEXTAREA'].includes(document.activeElement.tagName))return;
+  if(e.key!=='ArrowLeft'&&e.key!=='ArrowRight')return;
+  const cur=document.querySelector('.page.active');if(!cur)return;
+  const i=CHAPTERS.indexOf(cur.id);if(i<0)return;
+  const j=e.key==='ArrowRight'?Math.min(CHAPTERS.length-1,i+1):Math.max(0,i-1);
+  if(j!==i)go(CHAPTERS[j]);
+});
+
+/* ---- achievements ---- */
+const ACH=[
+ {id:'first',e:'🥾',n:'First Steps',d:'Mark your first chapter as learned'},
+ {id:'five',e:'📚',n:'Getting Serious',d:'Learn 5 chapters'},
+ {id:'half',e:'⛰️',n:'Over the Summit',d:'Learn 13 chapters — halfway'},
+ {id:'all',e:'🚛',n:'The Whole Machine',d:'Learn all 25 chapters'},
+ {id:'quiz1',e:'✏️',n:'First Test',d:'Finish any quiz'},
+ {id:'perfect',e:'💯',n:'Perfect Run',d:'Score 100% on a quiz'},
+ {id:'exam',e:'🎓',n:'Certified',d:'Pass a 25+ question exam at 85% or better'},
+ {id:'streak3',e:'🔥',n:'Habit Forming',d:'A 3-day learning streak'},
+ {id:'streak7',e:'⚙️',n:'Week of Iron',d:'A 7-day learning streak'},
+ {id:'xp500',e:'💪',n:'Heavy Lifter',d:'Earn 500 XP'},
+ {id:'night',e:'🌙',n:'Night Shift',d:'Study in dark mode'},
+ {id:'detective',e:'🔍',n:'Detective',d:'Reach a diagnosis in the Troubleshooter'},
+ {id:'chain',e:'⛓️',n:'Chain Reaction',d:'Explore 4 “what happens if…” scenarios'}
+];
+function achState(){
+  const learned=Object.keys(store.get('learned',{})).length;
+  return {
+    first:learned>=1, five:learned>=5, half:learned>=13, all:learned>=25,
+    quiz1:store.get('quiz_runs',0)>=1, perfect:store.get('quiz_best',0)>=100,
+    exam:!!store.get('cert',null),
+    streak3:store.get('streak',1)>=3, streak7:store.get('streak',1)>=7,
+    xp500:xpTotal()>=500, night:!!store.get('used_dark',false),
+    detective:!!store.get('ach_detective',false), chain:(store.get('wif_seen',[]).length)>=4
+  };
+}
+let toastTimer=null;
+function toast(t,d,e){
+  const el=document.getElementById('toast');
+  document.getElementById('toastt').textContent=t;
+  document.getElementById('toastd').textContent=d;
+  el.querySelector('.te').textContent=e||'🏆';
+  el.style.display='flex';
+  clearTimeout(toastTimer);toastTimer=setTimeout(()=>el.style.display='none',3500);
+}
+function checkAch(){
+  const st=achState(), un=store.get('ach',{});let changed=false;
+  ACH.forEach(a=>{if(st[a.id]&&!un[a.id]){un[a.id]=Date.now();changed=true;toast('Achievement: '+a.n,a.d,a.e);}});
+  if(changed)store.set('ach',un);
+}
+function openAch(){
+  const un=store.get('ach',{});
+  const box=document.createElement('div');box.className='overlay open';box.id='achoverlay';
+  box.onclick=e=>{if(e.target===box)box.remove();};
+  const got=Object.keys(un).length;
+  box.innerHTML='<div class="searchbox"><div class="achhead">Achievements <small>'+got+' of '+ACH.length+' unlocked · '+xpTotal()+' XP · '+levelName(xpTotal())+'</small></div><div class="achgrid">'+
+    ACH.map(a=>'<div class="ach'+(un[a.id]?'':' locked')+'"><span class="ae">'+a.e+'</span><b>'+a.n+'</b><small>'+a.d+'</small></div>').join('')+'</div></div>';
+  document.body.appendChild(box);
+}
+document.getElementById('progwrap').onclick=openAch;
+document.getElementById('progwrap').insertAdjacentHTML('beforeend','<div class="proghint">TAP FOR ACHIEVEMENTS</div>');
+
+/* hook events into achievements */
+const _renderProgress=renderProgress;
+renderProgress=function(){_renderProgress();checkAch();};
+const _toggleTheme=toggleTheme;
+toggleTheme=function(){_toggleTheme();if(document.documentElement.dataset.theme==='dark'){store.set('used_dark',true);checkAch();}};
+const _tsRender=tsRender;
+tsRender=function(){_tsRender();if(curTree&&curTree.nodes[curPath[curPath.length-1]].diag){store.set('ach_detective',true);checkAch();}};
+document.querySelectorAll('.wifbtn').forEach((b,i)=>{
+  b.addEventListener('click',()=>{const s=store.get('wif_seen',[]);if(!s.includes(i)){s.push(i);store.set('wif_seen',s);checkAch();}});
+});
+
+/* ---- per-chapter mastery ---- */
+const _qzFI2=qzFinishItem;
+qzFinishItem=function(right,q){
+  _qzFI2(right,q);
+  const m=store.get('mastery',{});const e=m[q[0]]||{r:0,t:0};e.t++;if(right)e.r++;m[q[0]]=e;store.set('mastery',m);
+};
+const _qzHome2=qzHome;
+qzHome=function(){
+  _qzHome2();
+  const m=store.get('mastery',{});
+  const byName={};Object.entries(QCH).forEach(([id,n])=>byName[n]=id);
+  document.querySelectorAll('#qzhome .qzpick').forEach(b=>{
+    const id=byName[b.textContent.trim()];
+    if(id&&m[id]&&m[id].t>=3){
+      const pct=Math.round(m[id].r/m[id].t*100);
+      b.insertAdjacentHTML('beforeend','<span class="masterysup" style="color:'+(pct>=80?'var(--green)':pct>=50?'var(--gold)':'var(--red)')+'">'+pct+'%</span>');
+    }
+  });
+};
+qzHome();
+
+/* ---- certificate ---- */
+const _qzF2=qzFinish;
+qzFinish=function(){
+  const pct=Math.round(qzScore/qzPool.length*100);
+  const qualifies=qzPool.length>=25&&pct>=85;
+  if(qualifies)store.set('cert',{pct,date:new Date().toLocaleDateString(),n:qzPool.length});
+  _qzF2();
+  checkAch();
+  const cert=store.get('cert',null);
+  if(cert){
+    const sc=document.querySelector('#qzdone .qzscore');
+    if(sc)sc.insertAdjacentHTML('beforeend','<div><button class="certbtn" onclick="showCert()">🎓 Get your certificate</button></div>');
+  }
+};
+function showCert(){
+  const cert=store.get('cert',null);if(!cert)return;
+  let name=store.get('certname','');
+  if(!name){name=prompt('Your name, as it should appear on the certificate:','CMJ')||'CMJ';store.set('certname',name);}
+  document.getElementById('certname').textContent=name;
+  document.getElementById('certscore').textContent=cert.pct+'% — '+cert.n+' questions';
+  document.getElementById('certlevel').textContent=levelName(xpTotal());
+  document.getElementById('certdate').textContent=cert.date;
+  document.getElementById('certoverlay').classList.add('open');
+}
+checkAch();
+</script>
+
+<div id="toast"><span class="te">🏆</span><div><b id="toastt"></b><div id="toastd" style="font-size:12px;color:#a8afbc"></div></div></div>
+<div id="certoverlay" onclick="if(event.target===this)this.classList.remove('open')">
+  <div style="position:relative">
+    <div class="certactions"><button onclick="window.print()">🖨 Print / Save as PDF</button><button onclick="document.getElementById('certoverlay').classList.remove('open')">✕ Close</button></div>
+    <div class="certpaper">
+      <div class="ck">CMJ Fleet · The Heavy-Duty Masterclass</div>
+      <h1>Certificate of Completion</h1>
+      <p>This certifies that</p>
+      <div class="cname" id="certname">—</div>
+      <p>has completed the full examination of the Heavy-Duty Masterclass —<br>25 chapters covering every major system of the Class 8 truck —<br>with a score of</p>
+      <div class="cscore" id="certscore">—</div>
+      <p id="certlevel" style="font-weight:600"></p>
+      <div class="certrow"><div>Date<br><b id="certdate" style="color:#1b1d22"></b></div><div>Issued by<br><b style="color:#1b1d22">The Heavy-Duty Masterclass · CMJ Fleet</b></div></div>
+    </div>
+  </div>
+</div>
 </body>
 </html>
