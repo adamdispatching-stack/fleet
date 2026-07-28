@@ -331,6 +331,19 @@ td .m{font-family:var(--mono);font-size:12.5px}
 .certactions{position:absolute;top:-52px;right:0;display:flex;gap:10px}
 .certactions button{background:#1d2129;color:#fff;border:none;border-radius:8px;padding:10px 18px;font-size:13px;font-weight:600;cursor:pointer;font-family:var(--sans)}
 @media print{body>*{display:none !important}#certoverlay{display:flex !important;position:static;background:#fff;padding:0}#certoverlay .certactions{display:none}body{background:#fff}.certpaper{border-color:#b4530a;max-width:100%}}
+/* image lightbox */
+.fig img{cursor:zoom-in}
+.figzoom{position:absolute;top:14px;right:14px;background:rgba(20,23,29,.82);color:#fff;border-radius:20px;font-size:11.5px;font-weight:600;padding:5px 11px;pointer-events:none;letter-spacing:.3px}
+.fig{position:relative}
+.lbov{position:fixed;inset:0;background:rgba(8,10,14,.96);z-index:400;display:none;flex-direction:column}
+.lbov.open{display:flex}
+.lbbar{display:flex;align-items:center;gap:8px;padding:10px 14px;flex-shrink:0}
+.lbbar .lbtitle{color:#a8afbc;font-size:12.5px;margin-right:auto;font-family:var(--sans)}
+.lbbar button{background:#1d2129;color:#fff;border:1px solid #3d4655;border-radius:9px;min-width:46px;height:46px;font-size:20px;font-weight:700;cursor:pointer;font-family:var(--sans)}
+.lbbar button:hover{border-color:#5c6371}
+.lbscroll{flex:1;overflow:auto;-webkit-overflow-scrolling:touch;display:flex;align-items:flex-start;justify-content:center;padding:0 0 20px}
+.lbimg{display:block;margin:auto;transition:width .18s ease}
+.lbhint{position:fixed;bottom:14px;left:0;right:0;text-align:center;color:#8b93a0;font-size:12px;pointer-events:none;font-family:var(--sans)}
 /* dark mode */
 [data-theme="dark"]{--ink:#e8eaee;--ink-soft:#c3c8d1;--ink-mute:#8b93a0;--paper:#14171d;--card:#1c2027;--line:#2b313c;--line-soft:#242a34;--accent:#d97a2e;--accent-deep:#e0954e;--accent-soft:#33281c;--steel:#8fb3d9;--steel-soft:#1d2735;--green:#7fc79a;--green-soft:#1c2b22;--red:#e08a84;--red-soft:#33211f;--gold:#d9bc6a;--gold-soft:#2e2817}
 [data-theme="dark"] .callout.plain{background:#232014;border-color:#4a3f1e}
@@ -3664,6 +3677,17 @@ function showCert(){
 checkAch();
 </script>
 
+<div class="lbov" id="lbov">
+  <div class="lbbar">
+    <span class="lbtitle" id="lbtitle">Poster</span>
+    <button onclick="lbZoomOut()" title="Zoom out">−</button>
+    <button onclick="lbZoomIn()" title="Zoom in">+</button>
+    <button onclick="lbFit()" title="Fit to screen">⤢</button>
+    <button onclick="closeLB()" title="Close">✕</button>
+  </div>
+  <div class="lbscroll" id="lbscroll"><img class="lbimg" id="lbimg" alt=""></div>
+  <div class="lbhint" id="lbhint">Tap the image to zoom · drag to move around · Esc to close</div>
+</div>
 <div id="toast"><span class="te">🏆</span><div><b id="toastt"></b><div id="toastd" style="font-size:12px;color:#a8afbc"></div></div></div>
 <div id="certoverlay" onclick="if(event.target===this)this.classList.remove('open')">
   <div style="position:relative">
@@ -3680,5 +3704,37 @@ checkAch();
     </div>
   </div>
 </div>
+
+<script>
+/* ================= IMAGE LIGHTBOX ================= */
+(function(){
+  const levels=[1,1.8,2.8,4];let z=0;
+  const ov=document.getElementById('lbov'),img=document.getElementById('lbimg'),sc=document.getElementById('lbscroll');
+  function apply(){
+    if(z===0){img.style.width='auto';img.style.maxWidth='100%';img.style.maxHeight='calc(100vh - 90px)';img.style.cursor='zoom-in';}
+    else{img.style.maxWidth='none';img.style.maxHeight='none';img.style.width=(levels[z]*100)+'vw';img.style.cursor=z>=levels.length-1?'zoom-out':'zoom-in';}
+  }
+  window.openLB=function(src,title){img.src=src;document.getElementById('lbtitle').textContent=title||'Poster';z=0;apply();ov.classList.add('open');sc.scrollTop=0;};
+  window.closeLB=function(){ov.classList.remove('open');};
+  window.lbZoomIn=function(){z=Math.min(levels.length-1,z+1);apply();};
+  window.lbZoomOut=function(){z=Math.max(0,z-1);apply();};
+  window.lbFit=function(){z=0;apply();};
+  img.addEventListener('click',function(e){
+    // zoom toward the tapped point
+    const before=levels[z];
+    z=(z>=levels.length-1)?0:z+1;apply();
+    if(z>0){const r=sc.getBoundingClientRect();const fx=(sc.scrollLeft+e.clientX-r.left)/before*levels[z];const fy=(sc.scrollTop+e.clientY-r.top)/before*levels[z];sc.scrollLeft=fx-(e.clientX-r.left);sc.scrollTop=fy-(e.clientY-r.top);}
+  });
+  ov.addEventListener('click',function(e){if(e.target===ov||e.target===sc)closeLB();});
+  document.addEventListener('keydown',function(e){if(!ov.classList.contains('open'))return;if(e.key==='Escape')closeLB();if(e.key==='+'||e.key==='=')lbZoomIn();if(e.key==='-')lbZoomOut();});
+  document.querySelectorAll('.fig img').forEach(function(im){
+    const cap=im.closest('.fig').querySelector('figcaption');
+    const title=cap?cap.textContent.split('.')[0]:'Poster';
+    im.closest('.fig').insertAdjacentHTML('afterbegin','<span class="figzoom">🔍 Tap to enlarge</span>');
+    im.addEventListener('click',function(){openLB(im.currentSrc||im.src,title);});
+  });
+})();
+</script>
+
 </body>
 </html>
