@@ -2975,7 +2975,7 @@ homeItem.innerHTML='<span class="nnum">🏠</span><span class="nlabel">Home / Da
 homeItem.onclick=()=>go('home');navEl.appendChild(homeItem);
 NAV.forEach((gr,gi)=>{
   const head=document.createElement('button');head.className='ngroup collapsed';head.dataset.gi=gi;
-  head.innerHTML='<span class="gicon">'+(GICON[gr.g]||'•')+'</span>'+(gr.c?'<span class="ndot" style="background:'+gr.c+'"></span>':'')+'<span class="gname">'+gr.g+'</span><span class="gcount"></span><span class="gcaret">▾</span>';
+  head.innerHTML='<span class="gicon">'+(GICON[gr.g]||'•')+'</span><span class="gname">'+gr.g+'</span><span class="gcount"></span><span class="gcaret">▾</span>';
   navEl.appendChild(head);
   const wrap=document.createElement('div');wrap.className='ngwrap collapsed';wrap.dataset.gi=gi;
   gr.items.forEach(([id,num,label])=>{
