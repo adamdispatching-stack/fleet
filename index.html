@@ -442,6 +442,16 @@ h3{margin-top:60px}
 .dsug button{margin-left:auto;background:var(--ink);color:#fff;border:none;border-radius:9px;padding:10px 18px;font-size:13.5px;font-weight:700;cursor:pointer;font-family:var(--sans);white-space:nowrap}
 @media(max-width:760px){.dstats{grid-template-columns:1fr 1fr}.dactions{grid-template-columns:1fr}.dhero{padding:32px 26px}.dhero h2{font-size:26px}}
 
+/* system map hero */
+.sysmap{margin:0 0 26px}
+.sysmap .smwrap{position:relative;line-height:0;border-radius:14px;overflow:hidden;border:1px solid var(--line)}
+.sysmap img{width:100%;display:block;cursor:default}
+.smhot{position:absolute;background:transparent;border:1.5px solid transparent;border-radius:8px;cursor:pointer;padding:0;transition:background .12s,border-color .12s;-webkit-tap-highlight-color:transparent}
+.smhot:hover,.smhot:focus{background:rgba(224,149,78,.22);border-color:rgba(224,149,78,.8);outline:none}
+.smzoom{position:absolute;top:10px;right:10px;background:rgba(20,23,29,.72);color:#fff;border:none;border-radius:8px;width:38px;height:38px;font-size:17px;cursor:pointer;line-height:0;display:flex;align-items:center;justify-content:center}
+.smzoom:hover{background:rgba(20,23,29,.92)}
+.sysmap figcaption{font-size:13px;color:var(--ink-mute);margin-top:11px;line-height:1.55}
+.sysmap figcaption b{color:var(--ink)}
 /* image lightbox */
 .fig img{cursor:zoom-in}
 .figzoom{position:absolute;top:14px;right:14px;background:rgba(20,23,29,.82);color:#fff;border-radius:20px;font-size:11.5px;font-weight:600;padding:5px 11px;pointer-events:none;letter-spacing:.3px}
@@ -530,7 +540,17 @@ h3{margin-top:60px}
 <main class="main"><div class="content" id="content">
 
 <!-- ============ 00 HOME DASHBOARD ============ -->
-<section class="page" id="home"><div class="content-inner" id="dashinner"></div></section>
+<section class="page" id="home"><div class="content-inner">
+<figure class="sysmap">
+  <div class="smwrap">
+    <img src="img/00-system-map.webp" alt="Class 8 tractor complete system map — tap any part to open its chapter">
+    <button class="smhot" style="left:1.5%;top:33%;width:23%;height:6%" onclick="go('diesel')" title="1 · Engine → Diesel Fundamentals"></button><button class="smhot" style="left:1.5%;top:40%;width:23%;height:6%" onclick="go('cooling')" title="2 · Radiator & CAC → Cooling System"></button><button class="smhot" style="left:1.5%;top:47%;width:23%;height:6%" onclick="go('air')" title="3 · Air Intake → Air & Turbocharging"></button><button class="smhot" style="left:1.5%;top:54%;width:23%;height:6%" onclick="go('electrical')" title="4 · Battery Box → Electrical"></button><button class="smhot" style="left:1.5%;top:62.5%;width:23%;height:6%" onclick="go('suspension')" title="5 · Steer Axle & Steering → Suspension"></button><button class="smhot" style="left:1.5%;top:70%;width:23%;height:6%" onclick="go('drivetrain')" title="6 · Transmission → Drivetrain"></button><button class="smhot" style="left:83.5%;top:19%;width:16.5%;height:6.5%" onclick="go('aftertreatment')" title="7 · Exhaust Stack → Aftertreatment"></button><button class="smhot" style="left:83.5%;top:27.5%;width:16.5%;height:6.5%" onclick="go('suspension')" title="8 · Fifth Wheel → Suspension"></button><button class="smhot" style="left:83.5%;top:35.5%;width:16.5%;height:6.5%" onclick="go('drivetrain')" title="9 · Drive Tandem → Drivetrain"></button><button class="smhot" style="left:83.5%;top:43%;width:16.5%;height:6.5%" onclick="go('suspension')" title="10 · Hubs & Bearings → Suspension"></button><button class="smhot" style="left:83.5%;top:50.5%;width:16.5%;height:6.5%" onclick="go('brakes')" title="11 · Brakes → Air Brakes"></button><button class="smhot" style="left:83.5%;top:58%;width:16.5%;height:6.5%" onclick="go('aftertreatment')" title="12 · Aftertreatment One-Box"></button><button class="smhot" style="left:83.5%;top:64.5%;width:16.5%;height:6.5%" onclick="go('brakes')" title="13 · Air Tanks → Air Brakes"></button><button class="smhot" style="left:83.5%;top:71.5%;width:16.5%;height:6.5%" onclick="go('fuel')" title="14 · Fuel Tank → Fuel System"></button><button class="smhot" style="left:51.3%;top:3.5%;width:5.8%;height:11%" onclick="go('diesel')" title="Engine · Ch 1–6"></button><button class="smhot" style="left:57.2%;top:3.5%;width:5.8%;height:11%" onclick="go('fuel')" title="Fuel · Ch 3–4"></button><button class="smhot" style="left:63.0%;top:3.5%;width:5.8%;height:11%" onclick="go('air')" title="Air System · Ch 10–11"></button><button class="smhot" style="left:68.7%;top:3.5%;width:5.8%;height:11%" onclick="go('cooling')" title="Cooling · Ch 5"></button><button class="smhot" style="left:74.3%;top:3.5%;width:5.8%;height:11%" onclick="go('electrical')" title="Electrical · Ch 8–9"></button><button class="smhot" style="left:80.0%;top:3.5%;width:5.8%;height:11%" onclick="go('brakes')" title="Brakes · Ch 11"></button><button class="smhot" style="left:85.6%;top:3.5%;width:5.8%;height:11%" onclick="go('drivetrain')" title="Drivetrain · Ch 12–14"></button><button class="smhot" style="left:91.2%;top:3.5%;width:5.8%;height:11%" onclick="go('suspension')" title="Safety & Misc · Ch 15+"></button>
+    <button class="smzoom" onclick="openLB('img/00-system-map.webp','Class 8 System Map')" title="Enlarge to read details">⤢</button>
+  </div>
+  <figcaption>🖐 <b>Your complete system map — tap any numbered part to jump to its chapter.</b> Hover to see the hotspots; press ⤢ (or pinch on mobile) to zoom in and read the fine print.</figcaption>
+</figure>
+<div id="dashinner"></div>
+</div></section>
 
 <!-- ============ 01 START HERE ============ -->
 <section class="page" id="start">
