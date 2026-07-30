@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CMJ Driver Onboarding &amp; Dispatch SOP — Company Drivers</title>
+<meta name="description" content="CMJ company-driver onboarding standard operating procedure: pre-screening, MVR & flight-booking gates, equipment pickup and activation — a sequential compliance checklist.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#1b1d22; --ink-soft:#3d4149; --ink-mute:#6b7078;
+  --paper:#f6f4ef; --card:#ffffff; --line:#e3ded4; --line-soft:#ece8df;
+  --accent:#b4530a; --accent-deep:#8a3d05; --accent-soft:#fdf0e3;
+  --steel:#24405e; --steel-soft:#e8eef5;
+  --green:#2f6b46; --green-soft:#e7f2ea;
+  --red:#9e2b25; --red-soft:#faeae8;
+  --gold:#8a6d1f; --gold-soft:#f7f0da;
+  --side-bg:#14171d; --side-ink:#a8afbc; --side-dim:#5c6371;
+  --mono:'JetBrains Mono',ui-monospace,monospace;
+  --serif:'Fraunces',Georgia,serif;
+  --sans:'Inter',-apple-system,'Segoe UI',sans-serif;
+}
+[data-theme="dark"]{--ink:#e8eaee;--ink-soft:#c3c8d1;--ink-mute:#8b93a0;--paper:#14171d;--card:#1c2027;--line:#2b313c;--line-soft:#242a34;--accent:#d97a2e;--accent-deep:#e0954e;--accent-soft:#33281c;--steel:#8fb3d9;--steel-soft:#1d2735;--green:#7fc79a;--green-soft:#1c2b22;--red:#e08a84;--red-soft:#33211f;--gold:#d9bc6a;--gold-soft:#2e2817}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:16px;line-height:1.62;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+h1,h2,h3,h4{font-family:var(--serif);color:var(--ink);line-height:1.15;font-optical-sizing:auto;margin:0}
+a{color:var(--accent);text-decoration:none}
+a:hover{text-decoration:underline}
+
+.shell{display:flex;min-height:100vh}
+.side{width:270px;flex:0 0 270px;background:var(--side-bg);color:var(--side-ink);position:sticky;top:0;height:100vh;overflow-y:auto;padding:22px 0 40px}
+.brand{padding:0 22px 18px;border-bottom:1px solid #23262f;margin-bottom:14px}
+.brand .logo{font-family:var(--serif);font-weight:600;font-size:20px;color:#fff;letter-spacing:-.01em}
+.brand .logo b{color:var(--accent)}
+.brand .sub{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--side-dim);margin-top:5px}
+.nav a{display:block;color:var(--side-ink);padding:8px 22px;font-size:13.5px;border-left:3px solid transparent;transition:.15s}
+.nav a:hover{color:#fff;background:#1b1f27;text-decoration:none}
+.nav a.on{color:#fff;border-left-color:var(--accent);background:#1b1f27;font-weight:600}
+.nav .grp{font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--side-dim);padding:16px 22px 5px;font-weight:600}
+.nav a .n{display:inline-block;width:30px;color:var(--side-dim);font-variant-numeric:tabular-nums;font-family:var(--mono);font-size:11px}
+.nav a.on .n{color:var(--accent)}
+.back{display:block;margin:16px 22px 0;padding:9px 12px;background:#1b1f27;border:1px solid #2a2f3a;border-radius:9px;color:var(--side-ink);font-size:12.5px;text-align:center}
+.back:hover{color:#fff;text-decoration:none;border-color:var(--accent)}
+.sideprog{margin:16px 22px 0;padding:12px 14px;background:#1b1f27;border:1px solid #2a2f3a;border-radius:10px}
+.sideprog .pct{font-family:var(--serif);font-size:24px;font-weight:600;color:#fff}
+.sideprog .bar{height:6px;background:#2a2f3a;border-radius:4px;margin-top:7px;overflow:hidden}
+.sideprog .bar i{display:block;height:100%;background:var(--accent);width:0;transition:.3s}
+.sideprog .lab{font-size:11px;color:var(--side-dim);margin-top:6px}
+
+.main{flex:1;min-width:0}
+.topbar{position:sticky;top:0;z-index:30;display:flex;align-items:center;gap:14px;padding:11px 34px;background:color-mix(in srgb,var(--paper) 88%,transparent);backdrop-filter:blur(9px);border-bottom:1px solid var(--line)}
+.topbar .ttl{font-family:var(--serif);font-weight:600;font-size:15px}
+.topbar .spacer{flex:1}
+.topbar .prog{font-size:12px;color:var(--ink-mute);font-variant-numeric:tabular-nums}
+.btn{border:1px solid var(--line);background:var(--card);color:var(--ink-soft);border-radius:9px;padding:7px 12px;font-size:12.5px;font-family:var(--sans);cursor:pointer;display:inline-flex;align-items:center;gap:6px}
+.btn:hover{border-color:var(--accent);color:var(--accent)}
+.menu-btn{display:none}
+
+.wrap{max-width:860px;margin:0 auto;padding:14px 34px 120px}
+
+/* doc header */
+.dochdr{background:linear-gradient(135deg,#16233a,#24405e);color:#fff;border-radius:16px;padding:26px 28px;margin:16px 0 8px;border-bottom:4px solid var(--accent)}
+.dochdr h1{color:#fff;font-size:30px;font-weight:600;letter-spacing:-.01em}
+.dochdr .subttl{color:#b9c8dc;font-size:14.5px;margin-top:7px}
+.dochdr .meta{display:grid;grid-template-columns:1fr 1fr;gap:8px 26px;margin-top:18px;padding-top:16px;border-top:1px solid rgba(255,255,255,.16)}
+.dochdr .meta div{font-size:12.5px;color:#c9d5e5}
+.dochdr .meta b{color:#fff;font-weight:600;display:inline-block;min-width:118px}
+
+.kick{font-size:11.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);font-weight:600;margin:8px 0 8px}
+.part{font-size:26px;font-weight:600;letter-spacing:-.01em;margin:38px 0 4px;padding-bottom:8px;border-bottom:2px solid var(--line)}
+.lede{color:var(--ink-mute);font-size:16px;max-width:64ch;margin:6px 0 8px}
+
+.callout{border-radius:12px;padding:15px 18px;margin:16px 0;border-left:4px solid var(--steel);background:var(--steel-soft)}
+.callout .ct{display:block;font-size:11px;letter-spacing:.13em;text-transform:uppercase;font-weight:700;color:var(--steel);margin-bottom:5px}
+.callout p{margin:0}
+.callout.warn{border-left-color:var(--red);background:var(--red-soft)}
+.callout.warn .ct{color:var(--red)}
+.callout.why{border-left-color:var(--green);background:var(--green-soft)}
+.callout.why .ct{color:var(--green)}
+
+/* phase block */
+.phase{margin:22px 0}
+.phase>.hd{background:var(--card);border:1px solid var(--line);border-left:4px solid var(--gold);border-radius:12px 12px 0 0;padding:14px 18px}
+.phase.g2>.hd{border-left-color:var(--steel)}
+.phase.g3>.hd{border-left-color:var(--green)}
+.phase>.hd .tag{display:inline-block;font-size:10.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--gold);background:var(--gold-soft);padding:2px 9px;border-radius:5px;margin-bottom:7px}
+.phase.g2>.hd .tag{color:var(--steel);background:var(--steel-soft)}
+.phase.g3>.hd .tag{color:var(--green);background:var(--green-soft)}
+.phase>.hd h3{font-size:19px;font-weight:600}
+.phase>.hd .note{font-size:12.5px;color:var(--ink-mute);margin-top:4px}
+.items{border:1px solid var(--line);border-top:0;border-radius:0 0 12px 12px;overflow:hidden}
+
+.chk{display:flex;gap:13px;align-items:flex-start;padding:13px 16px;border-top:1px solid var(--line-soft);cursor:pointer;user-select:none;background:var(--card)}
+.chk:first-child{border-top:0}
+.chk:hover{background:color-mix(in srgb,var(--paper) 45%,var(--card))}
+.chk input{appearance:none;flex:0 0 20px;width:20px;height:20px;margin-top:2px;border:1.5px solid var(--ink-mute);border-radius:6px;cursor:pointer;position:relative}
+.chk input:checked{background:var(--green);border-color:var(--green)}
+.chk input:checked:after{content:"✓";color:#fff;font-size:13px;position:absolute;top:0;left:4px}
+.chk .lb{flex:1;min-width:0}
+.chk .it-top{display:flex;gap:9px;align-items:center;flex-wrap:wrap}
+.chk .it-top b{font-size:14.5px;color:var(--ink)}
+.chk .it-det{font-size:13px;color:var(--ink-soft);margin-top:4px;line-height:1.5}
+.chk input:checked ~ .lb .it-top b{color:var(--ink-mute);text-decoration:line-through}
+.chk input:checked ~ .lb{opacity:.72}
+
+.badge{font-size:10px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;padding:3px 8px;border-radius:5px;white-space:nowrap}
+.badge.stop{background:var(--red-soft);color:var(--red)}
+.badge.req{background:var(--gold-soft);color:var(--gold)}
+.badge.doc{background:var(--steel-soft);color:var(--steel)}
+.badge.ok{background:var(--green-soft);color:var(--green)}
+
+.legend{display:flex;gap:10px;flex-wrap:wrap;margin:10px 0 4px}
+.foot{border-top:1px solid var(--line);margin-top:50px;padding:26px 0;color:var(--ink-mute);font-size:13px;text-align:center}
+.foot a{color:var(--accent)}
+.scrim{display:none}
+
+@media(max-width:860px){
+  .side{position:fixed;left:0;top:0;z-index:60;transform:translateX(-100%);transition:.25s;box-shadow:0 0 40px rgba(0,0,0,.4)}
+  .side.open{transform:none}
+  .menu-btn{display:inline-flex}
+  .wrap{padding:14px 16px 90px}
+  .topbar{padding:11px 16px}
+  .dochdr .meta{grid-template-columns:1fr}
+  .part{font-size:22px}
+  .dochdr h1{font-size:23px}
+  .scrim{position:fixed;inset:0;background:rgba(0,0,0,.45);z-index:55}
+  .scrim.on{display:block}
+}
+@media print{
+  .side,.topbar,.foot,.legend .btn{display:none}
+  .main{width:100%}
+  .wrap{max-width:100%;padding:0}
+  .chk{break-inside:avoid}
+  .dochdr{background:#16233a !important;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+}
+</style>
+</head>
+<body>
+<div class="shell">
+  <aside class="side" id="side">
+    <div class="brand">
+      <div class="logo">CMJ <b>Onboarding</b></div>
+      <div class="sub">Company Driver SOP · SOP-FLT-0042</div>
+    </div>
+    <nav class="nav" id="nav"></nav>
+    <div class="sideprog"><div class="pct" id="pctBig">0%</div><div class="bar"><i id="barFill"></i></div><div class="lab" id="pctLab">0 of 0 steps signed off</div></div>
+    <a class="back" href="/recruiting">← Recruiter Playbook</a>
+    <a class="back" href="/" style="margin-top:8px">← Heavy-Duty Masterclass</a>
+  </aside>
+  <div class="scrim" id="scrim"></div>
+
+  <div class="main">
+    <div class="topbar">
+      <button class="btn menu-btn" id="menuBtn" aria-label="Menu">☰</button>
+      <span class="ttl">Driver Onboarding SOP</span>
+      <span class="spacer"></span>
+      <span class="prog" id="prog"></span>
+      <button class="btn" id="printBtn">🖨 Print</button>
+      <button class="btn" id="darkBtn" aria-label="Toggle theme">🌙 Dark</button>
+    </div>
+    <div class="wrap" id="content">
+
+      <div class="dochdr">
+        <h1>Driver Onboarding &amp; Dispatch SOP</h1>
+        <div class="subttl">Comprehensive operational checklist: pre-screening, verification, logistics &amp; equipment readiness — company drivers.</div>
+        <div class="meta">
+          <div><b>Document ID:</b> SOP-FLT-0042</div>
+          <div><b>Effective date:</b> July 2026</div>
+          <div><b>Department:</b> Safety, Compliance &amp; Fleet Ops</div>
+          <div><b>Target audience:</b> Recruiters, Safety Officers, Dispatchers</div>
+        </div>
+      </div>
+
+      <section class="blk" id="overview" data-title="Overview &amp; Mandate" data-grp="Start">
+        <div class="callout warn"><span class="ct">Operational compliance mandate</span><p>All steps in this standard operating procedure must be completed <b>sequentially</b>. No driver is permitted to receive travel booking, handle equipment, or dispatch on a load without full sign-off on required pre-screening, equipment readiness, and compliance checks.</p></div>
+        <p class="lede">Tick each item as it's signed off — your progress saves automatically on this device. The badges mark how blocking each step is.</p>
+        <div class="legend">
+          <span class="badge stop">Hard gate / stopper</span>
+          <span class="badge req">Required / audit</span>
+          <span class="badge doc">Documentation / access</span>
+          <span class="badge ok">Ready / go</span>
+          <button class="btn" id="resetBtn" style="margin-left:auto">↺ Reset all</button>
+        </div>
+      </section>
+
+      <div class="part">Part I · Pre-Onboarding Checklist</div>
+
+      <section class="blk phase" id="phase-11" data-title="Phase 1.1 — Screening &amp; Fraud" data-grp="Part I · Pre-Onboarding">
+        <div class="hd"><span class="tag">Phase 1.1</span><h3>Initial Screening &amp; Fraud Prevention</h3><div class="note">Prior to running MVR — before spending resources on background checks.</div></div>
+        <div class="items">
+          <label class="chk"><input type="checkbox"><div class="lb"><div class="it-top"><b>Spam / Blacklist Check</b> <span class="badge stop">Critical stopper</span></div><div class="it-det">Cross-check the applicant against internal spam databases, known fraud lists, and double-brokering / identity-theft alert networks before spending resources on background checks.</div></div></label>
+          <label class="chk"><input type="checkbox"><div class="lb"><div class="it-top"><b>Amazon Portal Ready Check</b> <span class="badge req">Required</span></div><div class="it-det">Verify Amazon Relay / Carrier account status. Confirm the driver is good to add and request an active portal screenshot proving readiness.</div></div></label>
+          <label class="chk"><input type="checkbox"><div class="lb"><div class="it-top"><b>Pay &amp; Escrow Terms Agreement</b> <span class="badge stop">Mandatory agree</span></div><div class="it-det">Present pay rate, escrow terms, settlement schedule, and deductions. Driver <b>must explicitly agree</b> to the payment rate and escrow agreement prior to moving forward with onboarding.</div></div></label>
+          <label class="chk"><input type="checkbox"><div class="lb"><div class="it-top"><b>Driver License Collection</b> <span class="badge doc">Documentation</span></div><div class="it-det">Collect legibly scanned front and back copies of the current Commercial Driver License (CDL) and any previous CDLs held in the last 3 years.</div></div></label>
+          <label class="chk"><input type="checkbox"><div class="lb"><div class="it-top"><b>Medical Card Validity</b> <span class="badge req">Compliance mandate</span></div><div class="it-det">Inspect the DOT Medical Examiner's Certificate. Verify it is non-expired, valid, and fully registered with the state licensing agency (SDLA).</div></div></label>
+          <label class="chk"><input type="checkbox"><div class="lb"><div class="it-top"><b>Medical Card Expiry / Age Audit</b> <span class="badge req">Audit required</span></div><div class="it-det">Confirm the medical card is not too old / near expiration (must have at least 30–60 days remaining validity before requiring re-examination).</div></div></label>
+          <label class="chk"><input type="checkbox"><div class="lb"><div class="it-top"><b>Violations &amp; Accident Audit</b> <span class="badge req">Risk evaluation</span></div><div class="it-det">Inquire explicitly regarding prior 3-year traffic violations or preventable accidents. If the driver reports any, obtain a detailed written statement of events.</div></div></label>
+          <label class="chk"><input type="checkbox"><div class="lb"><div class="it-top"><b>Prior Carrier Verification</b> <span class="badge doc">Background check</span></div><div class="it-det">Collect USDOT and MC numbers of the driver's previous employers for safety-performance history and FMCSA Drug &amp; Alcohol Clearinghouse inquiries.</div></div></label>
+        </div>
+      </section>
+
+      <section class="blk phase g2" id="phase-12" data-title="Phase 1.2 — Pre-Travel Gates" data-grp="Part I · Pre-Onboarding">
+        <div class="hd"><span class="tag">Phase 1.2</span><h3>Pre-Travel &amp; Flight-Booking Gatekeeper</h3><div class="note">Before booking any flight / transportation. Each hard gate must clear first.</div></div>
+        <div class="items">
+          <label class="chk"><input type="checkbox"><div class="lb"><div class="it-top"><b>1. MVR Official Completion</b> <span class="badge stop">Hard gate</span></div><div class="it-det">Official Motor Vehicle Record (MVR) pulled, analyzed, and approved by Safety. Clean record or within acceptable company insurance threshold.</div></div></label>
+          <label class="chk"><input type="checkbox"><div class="lb"><div class="it-top"><b>2. Amazon Account Status</b> <span class="badge stop">Hard gate</span></div><div class="it-det">Re-confirm Amazon portal status remains active, good, and cleared for immediate driver assignment without restrictions.</div></div></label>
+          <label class="chk"><input type="checkbox"><div class="lb"><div class="it-top"><b>3. Payment &amp; Escrow Confirmation</b> <span class="badge req">Confirmed</span></div><div class="it-det">Re-confirm payment structure, escrow terms, and direct-deposit details have been fully explained and signed off by the driver.</div></div></label>
+          <label class="chk"><input type="checkbox"><div class="lb"><div class="it-top"><b>4. Active Medical Certificate</b> <span class="badge stop">Hard gate</span></div><div class="it-det">Final confirmation that the driver's DOT Medical Card is active, valid, and not expired on the day of travel.</div></div></label>
+          <label class="chk"><input type="checkbox"><div class="lb"><div class="it-top"><b>5. Intermodal Credentials</b> <span class="badge doc">Access enabled</span></div><div class="it-det">Verify the driver is successfully added to the UIIA portal and account access is opened on ShipCSX / Rail portals for intermodal loads.</div></div></label>
+          <label class="chk"><input type="checkbox"><div class="lb"><div class="it-top"><b>6. Truck Preparation &amp; Photos Audit</b> <span class="badge stop">Hard gate</span></div><div class="it-det"><b>Before booking flight tickets or assigning a truck:</b> obtain and review full truck pictures. Ensure the vehicle is thoroughly cleaned / detailed if required, company stickers are applied, and the ELD tablet &amp; hardware are fully ready and functional.</div></div></label>
+          <label class="chk"><input type="checkbox"><div class="lb"><div class="it-top"><b>7. Onboarding Links Sent</b> <span class="badge ok">Dispatch ready</span></div><div class="it-det">Dispatch travel tickets, orientation links, app login credentials, and digital paperwork packets directly to the driver's smartphone.</div></div></label>
+        </div>
+      </section>
+
+      <div class="part">Part II · Before First Load</div>
+      <p class="lede">Equipment pickup &amp; activation — completed once the driver physically picks up the truck.</p>
+
+      <section class="blk phase g3" id="phase-21" data-title="Phase 2.1 — Truck Handover" data-grp="Part II · Before First Load">
+        <div class="hd"><span class="tag">Phase 2.1</span><h3>Truck Handover &amp; Fleet Setup</h3><div class="note">Once the driver picks up the truck. Responsible unit shown per step.</div></div>
+        <div class="items">
+          <label class="chk"><input type="checkbox"><div class="lb"><div class="it-top"><b>Official Safety Hire Execution</b> <span class="badge stop">Safety Dept</span></div><div class="it-det">Notify the Safety Department immediately upon physical truck inspection / pickup to officially activate driver status in the FMCSA portal &amp; internal HR.</div></div></label>
+          <label class="chk"><input type="checkbox"><div class="lb"><div class="it-top"><b>Fuel Card Activation</b> <span class="badge doc">Fleet Ops</span></div><div class="it-det">Issue and activate the driver fuel card (EFS / Comdata). Set appropriate daily limits, PIN, and unit-number assignments.</div></div></label>
+          <label class="chk"><input type="checkbox"><div class="lb"><div class="it-top"><b>ELD Group Onboarding</b> <span class="badge req">Dispatch / Safety</span></div><div class="it-det">Add the driver to the ELD software system (Samsara / Motive). Assign vehicle unit, login IDs, and add the driver to the primary ELD communications group.</div></div></label>
+          <label class="chk"><input type="checkbox"><div class="lb"><div class="it-top"><b>Accounting Group Integration</b> <span class="badge doc">Accounting</span></div><div class="it-det">Add the driver to the dedicated Accounting &amp; Settlement group channel. Verify payroll details and contact permissions.</div></div></label>
+          <label class="chk"><input type="checkbox"><div class="lb"><div class="it-top"><b>Group Ownership Handover</b> <span class="badge doc">System Admin</span></div><div class="it-det">Transfer ownership / management privileges of communication channels (ELD &amp; Accounting) to the designated ops and payroll managers.</div></div></label>
+        </div>
+      </section>
+
+      <div class="callout why"><span class="ct">Driver rolling</span><p>Once every box above is signed off, the driver is fully hired, equipped, credentialed, and cleared for first dispatch. Keep the completed checklist on file for the driver's compliance record.</p></div>
+
+    </div>
+    <div class="foot">
+      © 2026 <b>CMJ Fleet</b> · Fleet Operations Safety &amp; Compliance Standard Operating Procedure · SOP-FLT-0042
+      &nbsp;·&nbsp; <a href="https://t.me/adam_cooper" target="_blank" rel="noopener">✈ @adam_cooper</a>
+    </div>
+  </div>
+</div>
+<script>
+(function(){
+  var LS={get:function(k,d){try{var v=localStorage.getItem(k);return v==null?d:JSON.parse(v);}catch(e){return d;}},set:function(k,v){try{localStorage.setItem(k,JSON.stringify(v));}catch(e){}}};
+
+  /* nav */
+  var secs=[].slice.call(document.querySelectorAll('section.blk'));
+  var nav=document.getElementById('nav'),cur='';
+  secs.forEach(function(s){
+    var g=s.getAttribute('data-grp')||'';
+    if(g!==cur){var d=document.createElement('div');d.className='grp';d.textContent=g;nav.appendChild(d);cur=g;}
+    var a=document.createElement('a');a.href='#'+s.id;a.textContent=s.getAttribute('data-title')||s.id;a.setAttribute('data-for',s.id);nav.appendChild(a);
+  });
+  var links=[].slice.call(nav.querySelectorAll('a'));
+  function spy(){var y=window.scrollY+140,c=secs[0];secs.forEach(function(s){if(s.offsetTop<=y)c=s;});links.forEach(function(a){a.classList.toggle('on',a.getAttribute('data-for')===c.id);});}
+  window.addEventListener('scroll',spy,{passive:true});spy();
+
+  /* menu */
+  var side=document.getElementById('side'),scrim=document.getElementById('scrim');
+  function closeSide(){side.classList.remove('open');scrim.classList.remove('on');}
+  document.getElementById('menuBtn').onclick=function(){side.classList.toggle('open');scrim.classList.toggle('on');};
+  scrim.onclick=closeSide; links.forEach(function(a){a.addEventListener('click',closeSide);});
+
+  /* theme */
+  var darkBtn=document.getElementById('darkBtn');
+  function applyTheme(t){document.documentElement.setAttribute('data-theme',t);darkBtn.textContent=t==='dark'?'☀️ Light':'🌙 Dark';LS.set('sop_theme',t);}
+  applyTheme(LS.get('sop_theme','light'));
+  darkBtn.onclick=function(){applyTheme(document.documentElement.getAttribute('data-theme')==='dark'?'light':'dark');};
+
+  /* print */
+  document.getElementById('printBtn').onclick=function(){window.print();};
+
+  /* checklist + progress */
+  var boxes=[].slice.call(document.querySelectorAll('.chk input[type=checkbox]'));
+  var saved=LS.get('sop_chk',{});
+  boxes.forEach(function(b,i){b.checked=!!saved[i];});
+  var prog=document.getElementById('prog'),pctBig=document.getElementById('pctBig'),barFill=document.getElementById('barFill'),pctLab=document.getElementById('pctLab');
+  function upd(){
+    var done=boxes.filter(function(b){return b.checked;}).length,tot=boxes.length;
+    var pct=tot?Math.round(done/tot*100):0;
+    prog.textContent=done+' / '+tot+' done';
+    pctBig.textContent=pct+'%';
+    barFill.style.width=pct+'%';
+    pctLab.textContent=done+' of '+tot+' steps signed off';
+  }
+  boxes.forEach(function(b,i){b.addEventListener('change',function(){var s=LS.get('sop_chk',{});s[i]=b.checked;LS.set('sop_chk',s);upd();});});
+  upd();
+  document.getElementById('resetBtn').onclick=function(){if(!confirm('Clear all sign-offs on this device?'))return;boxes.forEach(function(b){b.checked=false;});LS.set('sop_chk',{});upd();};
+})();
+</script>
+</body>
+</html>
