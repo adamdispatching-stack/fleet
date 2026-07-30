@@ -187,6 +187,19 @@ ul.dash li:before{content:"—";position:absolute;left:0;color:var(--accent)}
 .form input,.form select,.form textarea{width:100%;padding:9px 11px;border:1px solid var(--line);border-radius:9px;background:var(--card);color:var(--ink);font-family:var(--sans);font-size:14px}
 .form textarea{min-height:64px;resize:vertical}
 .form .out{white-space:pre-wrap;font-family:var(--mono);font-size:12.5px;background:var(--paper);border:1px dashed var(--line);border-radius:10px;padding:14px;margin-top:12px;min-height:40px}
+.leasewrap{display:grid;grid-template-columns:1fr 1fr;gap:18px;align-items:start}
+.form h4{margin:18px 0 4px}
+.unit{display:grid;grid-template-columns:80px 1fr 1.5fr auto;gap:8px;align-items:end;margin-bottom:8px}
+.unit .rm{border:1px solid var(--line);background:var(--card);color:var(--red);border-radius:8px;padding:9px 11px;cursor:pointer;font-size:13px;align-self:end}
+.leasedoc{background:#fff;color:#141414;border:1px solid var(--line);border-radius:10px;padding:30px 34px;font-family:'Fraunces',Georgia,serif;font-size:12.5px;line-height:1.5;box-shadow:0 2px 12px rgba(0,0,0,.07);max-height:560px;overflow:auto}
+[data-theme="dark"] .leasedoc{background:#f3f0e9;color:#141414}
+.leasedoc h4{font-family:inherit;text-align:center;font-weight:600;margin:0;color:#141414}
+.leasedoc .ttl{text-align:center;text-decoration:underline;font-weight:600;margin:15px 0;letter-spacing:.02em}
+.leasedoc p{margin:8px 0}
+.leasedoc .sig{display:flex;justify-content:space-between;margin-top:34px;gap:24px}
+.leasedoc .sig .col{flex:1;min-width:0}
+.leasedoc .sigline{border-top:1px solid #141414;margin-top:34px;padding-top:4px;font-size:10.5px}
+@media(max-width:760px){.leasewrap{grid-template-columns:1fr}.unit{grid-template-columns:1fr 1fr}}
 
 .glos .code{margin-bottom:4px;display:inline-block}
 .foot{border-top:1px solid var(--line);margin-top:50px;padding:26px 0;color:var(--ink-mute);font-size:13px;text-align:center}
@@ -738,6 +751,54 @@ ul.dash li:before{content:"—";position:absolute;left:0;color:var(--accent)}
   </div>
 </section>
 
+<section class="blk" id="lease" data-title="Lease Agreement" data-grp="Documents">
+  <div class="kick">Document generator</div>
+  <h2 class="title">Lease Agreement</h2>
+  <p class="lede">Fill in the equipment-owner and truck details, check the live preview on the right, then download a ready-to-sign PDF. The carrier letterhead is pre-filled and editable.</p>
+  <div class="leasewrap">
+    <div class="card form">
+      <h4 style="margin-top:0">Owner / contractor</h4>
+      <div class="grid g2">
+        <div><label>Equipment owner — full name</label><input id="l_owner" placeholder="e.g. SAMPSON TYMEN R"></div>
+        <div><label>Agreement date</label><input id="l_date" type="date"></div>
+      </div>
+      <label>Owner address</label><input id="l_addr" placeholder="e.g. 1255 MAGIE AVE STE 255 UNION, NJ 07083">
+
+      <h4>Equipment units</h4>
+      <div id="l_units"></div>
+      <button class="btn" id="l_add" type="button">+ Add another unit</button>
+
+      <h4>Terms &amp; signature</h4>
+      <div class="grid g2">
+        <div><label>Agreement term</label><input id="l_term" value="five years"></div>
+        <div><label>Notice to terminate</label><input id="l_notice" value="fifteen days"></div>
+      </div>
+      <label>Carrier's authorized agent (signs for carrier)</label><input id="l_agent" value="DAMION WHITE">
+
+      <details style="margin-top:14px"><summary style="cursor:pointer;font-size:12.5px;font-weight:600;color:var(--ink-soft)">Carrier letterhead (pre-filled — tap to edit)</summary>
+        <div class="grid g2" style="margin-top:10px">
+          <div><label>Carrier name</label><input id="l_carrier" value="AMEYA INVESTMENTS LLC"></div>
+          <div><label>Carrier street</label><input id="l_caddr" value="1098 OAKLAND DR"></div>
+          <div><label>City, State ZIP</label><input id="l_ccity" value="ATLANTA, GA 30310"></div>
+          <div><label>MC #</label><input id="l_mc" value="1587938"></div>
+          <div><label>DOT #</label><input id="l_dot" value="4141377"></div>
+        </div>
+      </details>
+
+      <div style="margin-top:16px;display:flex;gap:10px;flex-wrap:wrap">
+        <button class="btn" id="l_gen" style="background:var(--accent);color:#fff;border-color:var(--accent)">⬇ Generate PDF</button>
+        <button class="btn" id="l_clear" type="button">Clear</button>
+      </div>
+      <div id="l_msg" style="font-size:12px;color:var(--green);margin-top:9px;min-height:16px"></div>
+    </div>
+
+    <div>
+      <h4 style="margin:0 0 8px;font-size:13px;text-transform:uppercase;letter-spacing:.06em;color:var(--ink-soft)">Live preview</h4>
+      <div class="leasedoc" id="l_prev"></div>
+    </div>
+  </div>
+</section>
+
 <section class="blk" id="simulator" data-title="Objection Simulator" data-grp="Training">
   <div class="kick">Training</div>
   <h2 class="title">Objection Simulator</h2>
@@ -901,6 +962,7 @@ ul.dash li:before{content:"—";position:absolute;left:0;color:var(--accent)}
     </div>
   </div>
 </div>
+<script src="jspdf.umd.min.js"></script>
 <script>
 (function(){
   var LS = {
@@ -1117,6 +1179,106 @@ ul.dash li:before{content:"—";position:absolute;left:0;color:var(--accent)}
       });
     });
   }
+})();
+</script>
+<script>
+/* ---- Lease Agreement generator ---- */
+(function(){
+  var $=function(id){return document.getElementById(id);};
+  if(!$('l_units')) return;
+  (function(){var d=new Date();var p=function(n){return (n<10?'0':'')+n;};$('l_date').value=d.getFullYear()+'-'+p(d.getMonth()+1)+'-'+p(d.getDate());})();
+  var units=$('l_units');
+  function addUnit(y,m,v){
+    var row=document.createElement('div');row.className='unit';
+    row.innerHTML='<div><label>Year</label><input class="u-year" placeholder="2015"></div>'+
+      '<div><label>Make / model</label><input class="u-make" placeholder="Freightliner"></div>'+
+      '<div><label>VIN #</label><input class="u-vin" placeholder="3AKJGEDVXFDGR2069"></div>'+
+      '<button class="rm" type="button" title="Remove unit">✕</button>';
+    units.appendChild(row);
+    if(y)row.querySelector('.u-year').value=y; if(m)row.querySelector('.u-make').value=m; if(v)row.querySelector('.u-vin').value=v;
+    row.querySelector('.rm').onclick=function(){row.remove();render();};
+    row.querySelectorAll('input').forEach(function(i){i.addEventListener('input',render);});
+    render();
+  }
+  $('l_add').onclick=function(){addUnit();};
+  addUnit();
+  function val(id){var e=$(id);return e?e.value.trim():'';}
+  function fmtDate(iso){if(!iso)return '__/__/____';var p=iso.split('-');return p[1]+'/'+p[2]+'/'+p[0];}
+  function data(){
+    var us=[];[].slice.call(units.querySelectorAll('.unit')).forEach(function(r){
+      var y=r.querySelector('.u-year').value.trim(),m=r.querySelector('.u-make').value.trim(),v=r.querySelector('.u-vin').value.trim();
+      if(y||m||v)us.push({y:y,m:m,v:v});
+    });
+    return {owner:val('l_owner')||'____________________',date:fmtDate(val('l_date')),addr:val('l_addr')||'____________________',
+      term:val('l_term')||'five years',notice:val('l_notice')||'fifteen days',agent:val('l_agent')||'____________________',
+      carrier:val('l_carrier')||'CARRIER',caddr:val('l_caddr'),ccity:val('l_ccity'),mc:val('l_mc'),dot:val('l_dot'),units:us};
+  }
+  function paras(d){var C=d.carrier;return [
+    'This agreement is made on '+d.date+' by and between '+C+' (CARRIER) and '+d.owner+' (EQUIPMENT OWNER) located at '+d.addr+'.',
+    d.owner+' agrees to lease its units to '+C+' for the purpose of transporting loads for '+C+'.',
+    C+' will perform the services required by this agreement at any place or location within the continental United States. Once a shipping order is given and accepted by '+C+', it is legally and financially liable to complete; said contract is completed.',
+    C+' will be solely scheduling its hours of operation and controlling the means by which the work is accomplished, provided it meets DOT guidelines and regulations.',
+    C+' agrees to furnish '+d.owner+' with Primary Liability and Motor Truck Cargo on the vehicles covered by this agreement during the term of the Agreement in the amount of not less than $1,000,000.',
+    d.owner+' agrees to carry active Non-Trucking Liability. '+C+' will be liable for, and shall pay, all cargo claims including but not limited to delay, shortages, undelivered, and claims relating to lost or contaminated loads arising out of or in connection with the loads carried by '+d.owner+"'s drivers, employees, and agents."
+  ];}
+  function esc(s){return (s+'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');}
+  function render(){
+    var d=data(),h='<h4>'+esc(d.carrier)+'</h4>';
+    if(d.caddr)h+='<h4>'+esc(d.caddr)+'</h4>';
+    if(d.ccity)h+='<h4>'+esc(d.ccity)+'</h4>';
+    h+='<div class="ttl">LEASE AGREEMENT</div>';
+    if(d.mc)h+='<p><b>MC#:</b> '+esc(d.mc)+'</p>';
+    if(d.dot)h+='<p><b>DOT#:</b> '+esc(d.dot)+'</p>';
+    paras(d).forEach(function(p){h+='<p>'+esc(p)+'</p>';});
+    h+='<p><b>EQUIPMENT INFORMATION:</b></p>';
+    if(d.units.length)d.units.forEach(function(u,i){h+='<p>'+(i+1)+'. '+esc((u.y+' '+u.m).trim())+' &nbsp;VIN# '+esc(u.v)+'</p>';});
+    else h+='<p>1. ____________________ &nbsp;VIN# ____________________</p>';
+    h+='<p>This agreement is valid for the period of '+esc(d.term)+' and can be terminated by either party after '+esc(d.notice)+' of written notice.</p>';
+    h+='<div class="sig"><div class="col"><div>'+esc(d.carrier)+'</div><div>'+esc(d.agent)+'</div><div class="sigline">Signature of Carrier’s authorized agent</div></div>'+
+       '<div class="col"><div>'+esc(d.owner)+'</div><div>&nbsp;</div><div class="sigline">Signature of Independent contractor</div></div></div>';
+    $('l_prev').innerHTML=h;
+  }
+  ['l_owner','l_date','l_addr','l_term','l_notice','l_agent','l_carrier','l_caddr','l_ccity','l_mc','l_dot'].forEach(function(id){var e=$(id);if(e)e.addEventListener('input',render);});
+  render();
+
+  $('l_gen').onclick=function(){
+    if(!window.jspdf||!window.jspdf.jsPDF){$('l_msg').style.color='var(--red)';$('l_msg').textContent='PDF engine still loading — give it a second and try again.';return;}
+    var d=data();
+    var doc=new window.jspdf.jsPDF({unit:'pt',format:'letter'});
+    var Wp=612,M=64,TW=Wp-2*M,cx=Wp/2,y=72;
+    function br(g){y+=(g||14);if(y>752){doc.addPage();y=72;}}
+    function center(t,sz,bold,ul){doc.setFont('times',bold?'bold':'normal');doc.setFontSize(sz);doc.text(t,cx,y,{align:'center'});if(ul){var w=doc.getTextWidth(t);doc.setLineWidth(.7);doc.line(cx-w/2,y+2.5,cx+w/2,y+2.5);}br(sz+3);}
+    function left(t,sz,bold){doc.setFont('times',bold?'bold':'normal');doc.setFontSize(sz||11);doc.text(t,M,y);br((sz||11)+3);}
+    function para(t){doc.setFont('times','normal');doc.setFontSize(11);var ls=doc.splitTextToSize(t,TW);ls.forEach(function(l){if(y>752){doc.addPage();y=72;}doc.text(l,M,y);y+=15;});br(7);}
+    center(d.carrier,13.5,true); if(d.caddr)center(d.caddr,11.5,false); if(d.ccity)center(d.ccity,11.5,false);
+    br(12); center('LEASE AGREEMENT',13,true,true); br(14);
+    if(d.mc){left('MC#: '+d.mc,11,false);br(2);} if(d.dot){left('DOT#: '+d.dot,11,false);} br(12);
+    paras(d).forEach(function(p){para(p);});
+    br(4); left('EQUIPMENT INFORMATION:',11,true); br(3);
+    if(d.units.length)d.units.forEach(function(u,i){left((i+1)+'. '+((u.y+' '+u.m).trim())+'  VIN# '+u.v,11,false);});
+    else left('1. ____________________  VIN# ____________________',11,false);
+    br(10);
+    para('This agreement is valid for the period of '+d.term+' and can be terminated by either party after '+d.notice+' of written notice.');
+    br(38);
+    if(y>620){doc.addPage();y=110;}
+    var lx=M,rx=cx+18,sy=y;
+    doc.setFont('times','normal');doc.setFontSize(11);
+    doc.text(d.carrier,lx,sy); doc.text(d.owner,rx,sy);
+    doc.text(d.agent,lx,sy+15);
+    var ly=sy+66;
+    doc.setLineWidth(.7); doc.line(lx,ly,lx+205,ly); doc.line(rx,ly,rx+205,ly);
+    doc.setFontSize(9);
+    doc.text('Signature of Carrier’s authorized agent',lx,ly+14);
+    doc.text('Signature of Independent contractor',rx,ly+14);
+    var name=(d.owner||'Owner').replace(/[^A-Za-z0-9 ]/g,'').trim()||'Owner';
+    doc.save('Lease Agreement - '+name+'.pdf');
+    $('l_msg').style.color='var(--green)';$('l_msg').textContent='Generated "Lease Agreement - '+name+'.pdf".';
+  };
+  $('l_clear').onclick=function(){
+    ['l_owner','l_addr'].forEach(function(id){$(id).value='';});
+    [].slice.call(units.querySelectorAll('.unit')).forEach(function(r,i){if(i>0)r.remove();else r.querySelectorAll('input').forEach(function(x){x.value='';});});
+    $('l_msg').textContent=''; render();
+  };
 })();
 </script>
 </body>

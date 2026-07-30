@@ -4,7 +4,7 @@ const fs = require('fs');
 const path = require('path');
 const PORT = process.env.PORT || 3000;
 
-const MIME = { '.html':'text/html; charset=utf-8', '.svg':'image/svg+xml', '.png':'image/png', '.webp':'image/webp', '.ico':'image/x-icon', '.txt':'text/plain', '.json':'application/json', '.webmanifest':'application/manifest+json' };
+const MIME = { '.html':'text/html; charset=utf-8', '.js':'text/javascript; charset=utf-8', '.svg':'image/svg+xml', '.png':'image/png', '.webp':'image/webp', '.ico':'image/x-icon', '.txt':'text/plain', '.json':'application/json', '.webmanifest':'application/manifest+json' };
 
 http.createServer((req, res) => {
   let urlPath = decodeURIComponent(req.url.split('?')[0]);
