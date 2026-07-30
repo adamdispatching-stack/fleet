@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CMJ Shops &amp; Service Directory — Repairs, Installs &amp; Vendors</title>
+<meta name="description" content="CMJ fleet's directory of most-visited repair shops, Samsara/ELD install locations, tire shops, DOT inspection and service vendors — searchable, with directions and visit tallies.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#1b1d22; --ink-soft:#3d4149; --ink-mute:#6b7078;
+  --paper:#f6f4ef; --card:#ffffff; --line:#e3ded4; --line-soft:#ece8df;
+  --accent:#b4530a; --accent-deep:#8a3d05; --accent-soft:#fdf0e3;
+  --steel:#24405e; --steel-soft:#e8eef5;
+  --green:#2f6b46; --green-soft:#e7f2ea;
+  --red:#9e2b25; --red-soft:#faeae8;
+  --gold:#8a6d1f; --gold-soft:#f7f0da;
+  --mono:'JetBrains Mono',ui-monospace,monospace;
+  --serif:'Fraunces',Georgia,serif;
+  --sans:'Inter',-apple-system,'Segoe UI',sans-serif;
+}
+[data-theme="dark"]{--ink:#e8eaee;--ink-soft:#c3c8d1;--ink-mute:#8b93a0;--paper:#14171d;--card:#1c2027;--line:#2b313c;--line-soft:#242a34;--accent:#d97a2e;--accent-deep:#e0954e;--accent-soft:#33281c;--steel:#8fb3d9;--steel-soft:#1d2735;--green:#7fc79a;--green-soft:#1c2b22;--red:#e08a84;--red-soft:#33211f;--gold:#d9bc6a;--gold-soft:#2e2817}
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased}
+h1,h2,h3,h4{font-family:var(--serif);margin:0;line-height:1.15;font-optical-sizing:auto}
+a{color:var(--accent);text-decoration:none}a:hover{text-decoration:underline}
+
+.topbar{position:sticky;top:0;z-index:30;display:flex;align-items:center;gap:12px;padding:11px 26px;background:color-mix(in srgb,var(--paper) 90%,transparent);backdrop-filter:blur(9px);border-bottom:1px solid var(--line)}
+.topbar .logo{font-family:var(--serif);font-weight:600;font-size:17px}
+.topbar .logo b{color:var(--accent)}
+.topbar .spacer{flex:1}
+.btn{border:1px solid var(--line);background:var(--card);color:var(--ink-soft);border-radius:9px;padding:8px 13px;font-size:13px;font-family:var(--sans);cursor:pointer;display:inline-flex;align-items:center;gap:6px}
+.btn:hover{border-color:var(--accent);color:var(--accent)}
+.btn.pri{background:var(--accent);color:#fff;border-color:var(--accent)}
+.btn.pri:hover{color:#fff;filter:brightness(1.05)}
+.btn.sm{padding:5px 9px;font-size:12px}
+
+.wrap{max-width:1020px;margin:0 auto;padding:22px 26px 100px}
+.head h1{font-size:30px;font-weight:600;letter-spacing:-.02em}
+.head .sub{color:var(--ink-mute);font-size:15px;margin-top:6px;max-width:64ch}
+
+.stats{display:flex;gap:10px;flex-wrap:wrap;margin:16px 0 4px}
+.stat{background:var(--card);border:1px solid var(--line);border-radius:11px;padding:9px 15px}
+.stat b{font-family:var(--serif);font-size:19px;font-weight:600;display:block}
+.stat span{font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-mute)}
+
+.toolbar{position:sticky;top:56px;z-index:20;display:flex;gap:10px;flex-wrap:wrap;align-items:center;background:var(--paper);padding:14px 0;margin-top:6px;border-bottom:1px solid var(--line-soft)}
+.toolbar input.search{flex:1;min-width:180px;padding:9px 12px;border:1px solid var(--line);border-radius:10px;background:var(--card);color:var(--ink);font-size:14px;font-family:var(--sans)}
+.toolbar select{padding:9px 12px;border:1px solid var(--line);border-radius:10px;background:var(--card);color:var(--ink);font-size:13px;font-family:var(--sans)}
+
+.chips{display:flex;gap:7px;flex-wrap:wrap;margin:14px 0 4px}
+.chip{border:1px solid var(--line);background:var(--card);color:var(--ink-soft);border-radius:20px;padding:5px 13px;font-size:12.5px;cursor:pointer;user-select:none}
+.chip:hover{border-color:var(--accent)}
+.chip.on{background:var(--steel);color:#fff;border-color:var(--steel)}
+
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:14px;margin-top:16px}
+.shop{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:15px 16px;display:flex;flex-direction:column;gap:8px}
+.shop .r1{display:flex;align-items:center;gap:8px}
+.badge{font-size:10px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;padding:3px 8px;border-radius:6px;white-space:nowrap}
+.b-steel{background:var(--steel-soft);color:var(--steel)}
+.b-accent{background:var(--accent-soft);color:var(--accent-deep)}
+.b-gold{background:var(--gold-soft);color:var(--gold)}
+.b-green{background:var(--green-soft);color:var(--green)}
+.b-red{background:var(--red-soft);color:var(--red)}
+.b-mute{background:var(--line-soft);color:var(--ink-mute)}
+.shop .visits{margin-left:auto;display:inline-flex;align-items:center;gap:6px;font-size:12px;color:var(--ink-mute);font-variant-numeric:tabular-nums}
+.shop .visits b{font-family:var(--mono);color:var(--ink)}
+.shop .plus{border:1px solid var(--line);background:var(--card);color:var(--green);border-radius:7px;width:24px;height:24px;cursor:pointer;font-size:14px;line-height:1;display:inline-flex;align-items:center;justify-content:center}
+.shop .plus:hover{border-color:var(--green);background:var(--green-soft)}
+.shop h3{font-size:17px;font-weight:600}
+.shop .addr{font-size:13.5px;color:var(--ink-soft);display:flex;gap:6px}
+.shop .addr .pin{color:var(--accent)}
+.shop .ph{font-size:13px;color:var(--ink-soft)}
+.shop .notes{font-size:13px;color:var(--ink-mute);background:var(--paper);border-radius:8px;padding:8px 10px}
+.shop .acts{display:flex;gap:7px;flex-wrap:wrap;margin-top:2px;padding-top:9px;border-top:1px solid var(--line-soft)}
+.shop .acts .btn{padding:5px 10px;font-size:12px}
+.shop .acts .del:hover{border-color:var(--red);color:var(--red)}
+
+.empty{text-align:center;color:var(--ink-mute);padding:50px 20px;border:1px dashed var(--line);border-radius:14px;margin-top:16px}
+
+/* form panel */
+.panel{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px 18px;margin-top:16px;display:none}
+.panel.open{display:block;animation:pin .25s ease}
+@keyframes pin{from{opacity:0;transform:translateY(-8px)}to{opacity:1;transform:none}}
+.panel h3{font-size:18px;margin-bottom:6px}
+.panel label{display:block;font-size:11.5px;font-weight:600;color:var(--ink-mute);margin:11px 0 4px}
+.panel input,.panel select,.panel textarea{width:100%;padding:8px 11px;border:1px solid var(--line);border-radius:9px;background:var(--card);color:var(--ink);font-size:14px;font-family:var(--sans)}
+.panel textarea{min-height:56px;resize:vertical}
+.panel .g2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.panel .actions{display:flex;gap:10px;margin-top:16px;flex-wrap:wrap}
+.toast{position:fixed;bottom:22px;left:50%;transform:translateX(-50%);background:var(--steel);color:#fff;padding:10px 18px;border-radius:10px;font-size:13.5px;opacity:0;pointer-events:none;transition:.25s;z-index:60}
+.toast.show{opacity:1}
+.foot{border-top:1px solid var(--line);margin-top:40px;padding:22px 0;color:var(--ink-mute);font-size:13px;text-align:center}
+@media(max-width:560px){.panel .g2{grid-template-columns:1fr}.wrap{padding:18px 16px 90px}}
+</style>
+</head>
+<body>
+<div class="topbar">
+  <span class="logo">CMJ <b>Shops</b></span>
+  <span class="spacer"></span>
+  <a class="btn" href="/">← Masterclass</a>
+  <button class="btn" id="darkBtn">🌙 Dark</button>
+</div>
+
+<div class="wrap">
+  <div class="head">
+    <h1>Shops &amp; Service Directory</h1>
+    <div class="sub">The places we send trucks — repairs, Samsara / ELD installs, tires, DOT inspections and more. Search, get directions, and tap <b>+1</b> each time you use a shop to keep the most-visited ones on top.</div>
+  </div>
+
+  <div class="stats" id="stats"></div>
+
+  <div class="toolbar">
+    <input class="search" id="search" placeholder="🔍 Search name, address, or notes…">
+    <select id="sort">
+      <option value="visits">Sort: Most visited</option>
+      <option value="name">Sort: Name A–Z</option>
+      <option value="new">Sort: Recently added</option>
+    </select>
+    <button class="btn pri" id="addBtn">＋ Add shop</button>
+  </div>
+
+  <div class="chips" id="chips"></div>
+
+  <div class="panel" id="panel">
+    <h3 id="panelTitle">Add a shop</h3>
+    <div class="g2">
+      <div><label>Shop / vendor name</label><input id="f_name" placeholder="e.g. Samsara Install Shop"></div>
+      <div><label>Service type</label><select id="f_cat"></select></div>
+    </div>
+    <label>Address</label><input id="f_addr" placeholder="e.g. 527 Grier Ave, Elizabeth, NJ 07202, United States">
+    <div class="g2">
+      <div><label>Phone (optional)</label><input id="f_phone" placeholder="(xxx) xxx-xxxx"></div>
+      <div><label>Times visited</label><input id="f_visits" type="number" min="0" value="0"></div>
+    </div>
+    <label>Notes (optional)</label><textarea id="f_notes" placeholder="e.g. We send trucks here to install Samsara devices."></textarea>
+    <div class="actions">
+      <button class="btn pri" id="saveBtn">Save shop</button>
+      <button class="btn" id="cancelBtn">Cancel</button>
+      <span class="spacer" style="flex:1"></span>
+      <button class="btn sm" id="exportBtn">⬇ Export list</button>
+      <button class="btn sm" id="importBtn">⬆ Import</button>
+      <input type="file" id="importFile" accept="application/json" style="display:none">
+      <button class="btn sm" id="resetBtn">↺ Reset to defaults</button>
+    </div>
+  </div>
+
+  <div class="grid" id="grid"></div>
+  <div class="empty" id="empty" style="display:none">No shops match — try a different search or category, or add one.</div>
+
+  <div class="foot">© 2026 <b>CMJ Fleet</b> · Shops &amp; Service Directory · your additions are saved on this device.</div>
+</div>
+<div class="toast" id="toast"></div>
+
+<script>
+(function(){
+  var $=function(s){return document.querySelector(s);};
+  var LS={get:function(k,d){try{var v=localStorage.getItem(k);return v==null?d:JSON.parse(v);}catch(e){return d;}},set:function(k,v){try{localStorage.setItem(k,JSON.stringify(v));}catch(e){}}};
+  var KEY='cmj_shops_v1', THEME='cmj_shops_theme';
+
+  var CATS=[
+    {name:'ELD / Samsara Install',cls:'b-steel'},
+    {name:'Repairs / Mechanical',cls:'b-accent'},
+    {name:'Tires',cls:'b-gold'},
+    {name:'DOT Inspection',cls:'b-green'},
+    {name:'Body / Collision',cls:'b-red'},
+    {name:'Towing',cls:'b-mute'},
+    {name:'Parts',cls:'b-gold'},
+    {name:'PM / Oil Change',cls:'b-green'},
+    {name:'Other',cls:'b-mute'}
+  ];
+  function catCls(name){for(var i=0;i<CATS.length;i++)if(CATS[i].name===name)return CATS[i].cls;return 'b-mute';}
+
+  /* code-maintained starter shops — always merged in if the address isn't already saved */
+  var SEED=[
+    {name:'Samsara Install Shop',cat:'ELD / Samsara Install',addr:'527 Grier Ave, Elizabeth, NJ 07202, United States',phone:'',notes:'We send trucks here to install Samsara devices.',visits:0}
+  ];
+
+  var shops=LS.get(KEY,null);
+  if(!shops){ shops=SEED.map(seed); LS.set(KEY,shops); }
+  else { // merge any new seed entries by address
+    var addrs={}; shops.forEach(function(s){addrs[norm(s.addr)]=1;});
+    SEED.forEach(function(s){ if(!addrs[norm(s.addr)]) shops.push(seed(s)); });
+    LS.set(KEY,shops);
+  }
+  function seed(s){return {id:'s'+Math.floor(Math.random()*1e9)+Date.now(),name:s.name||'',cat:s.cat||'Other',addr:s.addr||'',phone:s.phone||'',notes:s.notes||'',visits:s.visits||0,ts:Date.now()};}
+  function norm(a){return (a||'').toLowerCase().replace(/[\s,.\-]/g,'');}
+  function save(){LS.set(KEY,shops);}
+
+  /* theme */
+  var darkBtn=$('#darkBtn');
+  function theme(t){document.documentElement.setAttribute('data-theme',t);darkBtn.textContent=t==='dark'?'☀️ Light':'🌙 Dark';LS.set(THEME,t);}
+  theme(LS.get(THEME,'light'));
+  darkBtn.onclick=function(){theme(document.documentElement.getAttribute('data-theme')==='dark'?'light':'dark');};
+
+  /* toast */
+  var toastEl=$('#toast'),tT;
+  function toast(m){toastEl.textContent=m;toastEl.classList.add('show');clearTimeout(tT);tT=setTimeout(function(){toastEl.classList.remove('show');},1900);}
+
+  /* category select + chips */
+  var catSel=$('#f_cat');
+  CATS.forEach(function(c){var o=document.createElement('option');o.value=c.name;o.textContent=c.name;catSel.appendChild(o);});
+  var activeCat='All';
+  function renderChips(){
+    var chips=$('#chips'); chips.innerHTML='';
+    var counts={}; shops.forEach(function(s){counts[s.cat]=(counts[s.cat]||0)+1;});
+    var list=['All'].concat(CATS.map(function(c){return c.name;}).filter(function(n){return counts[n];}));
+    list.forEach(function(n){
+      var c=document.createElement('div');c.className='chip'+(n===activeCat?' on':'');
+      c.textContent=n==='All'?('All ('+shops.length+')'):(n+' ('+counts[n]+')');
+      c.onclick=function(){activeCat=n;renderChips();render();};
+      chips.appendChild(c);
+    });
+  }
+
+  function mapLink(addr){return 'https://www.google.com/maps/search/?api=1&query='+encodeURIComponent(addr);}
+
+  function render(){
+    var q=($('#search').value||'').toLowerCase().trim();
+    var sort=$('#sort').value;
+    var rows=shops.filter(function(s){
+      if(activeCat!=='All'&&s.cat!==activeCat)return false;
+      if(!q)return true;
+      return ((s.name+' '+s.addr+' '+s.notes+' '+s.cat).toLowerCase().indexOf(q)>-1);
+    });
+    rows.sort(function(a,b){
+      if(sort==='name')return (a.name||a.cat).localeCompare(b.name||b.cat);
+      if(sort==='new')return b.ts-a.ts;
+      return (b.visits-a.visits)|| (a.name||'').localeCompare(b.name||'');
+    });
+    var g=$('#grid'); g.innerHTML='';
+    rows.forEach(function(s){
+      var el=document.createElement('div');el.className='shop';
+      el.innerHTML=
+        '<div class="r1"><span class="badge '+catCls(s.cat)+'">'+esc(s.cat)+'</span>'+
+        '<span class="visits"><button class="plus" title="Add a visit">+</button> <b>'+s.visits+'</b> visit'+(s.visits===1?'':'s')+'</span></div>'+
+        '<h3>'+esc(s.name||s.cat)+'</h3>'+
+        '<div class="addr"><span class="pin">📍</span><span>'+esc(s.addr)+'</span></div>'+
+        (s.phone?'<div class="ph">📞 <a href="tel:'+esc(s.phone.replace(/[^0-9+]/g,''))+'">'+esc(s.phone)+'</a></div>':'')+
+        (s.notes?'<div class="notes">'+esc(s.notes)+'</div>':'')+
+        '<div class="acts">'+
+          '<a class="btn" target="_blank" rel="noopener" href="'+mapLink(s.addr)+'">🧭 Directions</a>'+
+          '<button class="btn copy">📋 Copy</button>'+
+          '<button class="btn edit">✏️ Edit</button>'+
+          '<button class="btn del">🗑 Delete</button>'+
+        '</div>';
+      el.querySelector('.plus').onclick=function(){s.visits++;save();render();};
+      el.querySelector('.copy').onclick=function(){copy(s.addr);};
+      el.querySelector('.edit').onclick=function(){openPanel(s);};
+      el.querySelector('.del').onclick=function(){if(confirm('Delete "'+(s.name||s.cat)+'"?')){shops=shops.filter(function(x){return x.id!==s.id;});save();renderChips();render();updateStats();toast('Shop deleted');}};
+      g.appendChild(el);
+    });
+    $('#empty').style.display=rows.length?'none':'block';
+    updateStats();
+  }
+  function esc(s){return (s+'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');}
+  function copy(t){ if(navigator.clipboard)navigator.clipboard.writeText(t); toast('Address copied'); }
+
+  function updateStats(){
+    var totalVisits=shops.reduce(function(a,s){return a+(s.visits||0);},0);
+    var cats={}; shops.forEach(function(s){cats[s.cat]=1;});
+    var top=shops.slice().sort(function(a,b){return b.visits-a.visits;})[0];
+    $('#stats').innerHTML=
+      '<div class="stat"><b>'+shops.length+'</b><span>Shops on file</span></div>'+
+      '<div class="stat"><b>'+Object.keys(cats).length+'</b><span>Service types</span></div>'+
+      '<div class="stat"><b>'+totalVisits+'</b><span>Total visits</span></div>'+
+      (top&&top.visits>0?'<div class="stat"><b>'+esc((top.name||top.cat).slice(0,22))+'</b><span>Most visited</span></div>':'');
+  }
+
+  /* panel add/edit */
+  var editing=null;
+  function openPanel(s){
+    editing=s||null;
+    $('#panelTitle').textContent=s?'Edit shop':'Add a shop';
+    $('#f_name').value=s?s.name:''; $('#f_cat').value=s?s.cat:'Repairs / Mechanical';
+    $('#f_addr').value=s?s.addr:''; $('#f_phone').value=s?s.phone:''; $('#f_visits').value=s?s.visits:0; $('#f_notes').value=s?s.notes:'';
+    $('#panel').classList.add('open');
+    $('#panel').scrollIntoView({behavior:'smooth',block:'center'});
+    $('#f_name').focus();
+  }
+  function closePanel(){$('#panel').classList.remove('open');editing=null;}
+  $('#addBtn').onclick=function(){openPanel(null);};
+  $('#cancelBtn').onclick=closePanel;
+  $('#saveBtn').onclick=function(){
+    var addr=$('#f_addr').value.trim();
+    if(!addr){toast('Address is required');$('#f_addr').focus();return;}
+    var rec={name:$('#f_name').value.trim(),cat:$('#f_cat').value,addr:addr,phone:$('#f_phone').value.trim(),notes:$('#f_notes').value.trim(),visits:Math.max(0,parseInt($('#f_visits').value,10)||0)};
+    if(editing){ editing.name=rec.name;editing.cat=rec.cat;editing.addr=rec.addr;editing.phone=rec.phone;editing.notes=rec.notes;editing.visits=rec.visits; toast('Shop updated'); }
+    else { var n=seed(rec); shops.push(n); toast('Shop added'); }
+    save();closePanel();renderChips();render();
+  };
+
+  /* export / import / reset */
+  $('#exportBtn').onclick=function(){
+    var blob=new Blob([JSON.stringify(shops,null,2)],{type:'application/json'});
+    var a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='cmj-shops.json';a.click();toast('Exported cmj-shops.json');
+  };
+  $('#importBtn').onclick=function(){$('#importFile').click();};
+  $('#importFile').onchange=function(e){
+    var f=e.target.files[0];if(!f)return;var r=new FileReader();
+    r.onload=function(){try{var arr=JSON.parse(r.result);if(!Array.isArray(arr))throw 0;
+      var seen={};shops.forEach(function(s){seen[norm(s.addr)]=1;});var added=0;
+      arr.forEach(function(s){if(s.addr&&!seen[norm(s.addr)]){shops.push(seed(s));seen[norm(s.addr)]=1;added++;}});
+      save();renderChips();render();toast('Imported '+added+' new shop'+(added===1?'':'s'));
+    }catch(_){toast('Could not read that file');}};
+    r.readAsText(f);e.target.value='';
+  };
+  $('#resetBtn').onclick=function(){if(!confirm('Reset the list to the built-in defaults? Your added shops on this device will be removed.'))return;shops=SEED.map(seed);save();activeCat='All';renderChips();render();closePanel();toast('Reset to defaults');};
+
+  $('#search').addEventListener('input',render);
+  $('#sort').addEventListener('change',render);
+
+  renderChips(); render();
+})();
+</script>
+</body>
+</html>
