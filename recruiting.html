@@ -1,0 +1,1083 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CMJ Recruiter Playbook — Lead Like Dispatch, Not a Recruiter</title>
+<meta name="description" content="The CMJ driver-recruiting playbook: scripts, pay math, objection handling, red flags, and a live-call toolkit — built to sound like dispatch, not a pitch.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#1b1d22; --ink-soft:#3d4149; --ink-mute:#6b7078;
+  --paper:#f6f4ef; --card:#ffffff; --line:#e3ded4; --line-soft:#ece8df;
+  --accent:#b4530a; --accent-deep:#8a3d05; --accent-soft:#fdf0e3;
+  --steel:#24405e; --steel-soft:#e8eef5;
+  --green:#2f6b46; --green-soft:#e7f2ea;
+  --red:#9e2b25; --red-soft:#faeae8;
+  --gold:#8a6d1f; --gold-soft:#f7f0da;
+  --side-bg:#14171d; --side-ink:#a8afbc; --side-dim:#5c6371;
+  --mono:'JetBrains Mono',ui-monospace,monospace;
+  --serif:'Fraunces',Georgia,serif;
+  --sans:'Inter',-apple-system,'Segoe UI',sans-serif;
+}
+[data-theme="dark"]{--ink:#e8eaee;--ink-soft:#c3c8d1;--ink-mute:#8b93a0;--paper:#14171d;--card:#1c2027;--line:#2b313c;--line-soft:#242a34;--accent:#d97a2e;--accent-deep:#e0954e;--accent-soft:#33281c;--steel:#8fb3d9;--steel-soft:#1d2735;--green:#7fc79a;--green-soft:#1c2b22;--red:#e08a84;--red-soft:#33211f;--gold:#d9bc6a;--gold-soft:#2e2817}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:16px;line-height:1.62;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+h1,h2,h3,h4{font-family:var(--serif);color:var(--ink);line-height:1.15;font-optical-sizing:auto;margin:0}
+a{color:var(--accent);text-decoration:none}
+a:hover{text-decoration:underline}
+
+/* layout */
+.shell{display:flex;min-height:100vh}
+.side{width:264px;flex:0 0 264px;background:var(--side-bg);color:var(--side-ink);position:sticky;top:0;height:100vh;overflow-y:auto;padding:22px 0 40px}
+.brand{padding:0 22px 18px;border-bottom:1px solid #23262f;margin-bottom:14px}
+.brand .logo{font-family:var(--serif);font-weight:600;font-size:20px;color:#fff;letter-spacing:-.01em}
+.brand .logo b{color:var(--accent)}
+.brand .sub{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--side-dim);margin-top:5px}
+.nav a{display:block;color:var(--side-ink);padding:7px 22px 7px 22px;font-size:13.5px;border-left:3px solid transparent;transition:.15s}
+.nav a:hover{color:#fff;background:#1b1f27;text-decoration:none}
+.nav a.on{color:#fff;border-left-color:var(--accent);background:#1b1f27;font-weight:600}
+.nav .grp{font-size:10.5px;letter-spacing:.15em;text-transform:uppercase;color:var(--side-dim);padding:16px 22px 5px;font-weight:600}
+.nav a .n{display:inline-block;width:22px;color:var(--side-dim);font-variant-numeric:tabular-nums;font-family:var(--mono);font-size:11px}
+.nav a.on .n{color:var(--accent)}
+.back{display:block;margin:18px 22px 0;padding:9px 12px;background:#1b1f27;border:1px solid #2a2f3a;border-radius:9px;color:var(--side-ink);font-size:12.5px;text-align:center}
+.back:hover{color:#fff;text-decoration:none;border-color:var(--accent)}
+
+.main{flex:1;min-width:0}
+.topbar{position:sticky;top:0;z-index:30;display:flex;align-items:center;gap:14px;padding:11px 34px;background:color-mix(in srgb,var(--paper) 88%,transparent);backdrop-filter:blur(9px);border-bottom:1px solid var(--line)}
+.topbar .ttl{font-family:var(--serif);font-weight:600;font-size:15px}
+.topbar .spacer{flex:1}
+.topbar .prog{font-size:12px;color:var(--ink-mute);font-variant-numeric:tabular-nums}
+.btn{border:1px solid var(--line);background:var(--card);color:var(--ink-soft);border-radius:9px;padding:7px 12px;font-size:12.5px;font-family:var(--sans);cursor:pointer;display:inline-flex;align-items:center;gap:6px}
+.btn:hover{border-color:var(--accent);color:var(--accent)}
+.menu-btn{display:none}
+
+.wrap{max-width:820px;margin:0 auto;padding:14px 34px 120px}
+section.blk{padding:40px 0 8px;border-top:1px solid var(--line-soft)}
+section.blk:first-of-type{border-top:0}
+.kick{font-size:11.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);font-weight:600;margin-bottom:9px}
+h2.title{font-size:33px;font-weight:600;letter-spacing:-.02em;margin-bottom:12px;text-wrap:balance}
+.lede{color:var(--ink-mute);font-size:17px;max-width:60ch;margin-bottom:8px}
+h3{font-size:21px;font-weight:600;margin:30px 0 12px;letter-spacing:-.01em}
+h4{font-size:15px;font-weight:600;margin:20px 0 8px;text-transform:uppercase;letter-spacing:.04em;color:var(--ink-soft)}
+p{margin:12px 0}
+strong,b{color:var(--ink);font-weight:600}
+em{font-style:italic}
+
+/* callouts */
+.callout{border-radius:12px;padding:15px 18px;margin:16px 0;border-left:4px solid var(--gold);background:var(--gold-soft)}
+.callout .ct{display:block;font-size:11px;letter-spacing:.13em;text-transform:uppercase;font-weight:700;color:var(--gold);margin-bottom:5px}
+.callout p{margin:0}
+.callout.why{border-left-color:var(--green);background:var(--green-soft)}
+.callout.why .ct{color:var(--green)}
+.callout.dont{border-left-color:var(--red);background:var(--red-soft)}
+.callout.dont .ct{color:var(--red)}
+.callout.steel{border-left-color:var(--steel);background:var(--steel-soft)}
+.callout.steel .ct{color:var(--steel)}
+
+/* quote / script */
+.quote{border-left:4px solid var(--accent);padding:6px 4px 6px 18px;margin:16px 0;font-family:var(--serif);font-style:italic;font-size:17px;color:var(--ink-soft);line-height:1.55}
+.quote .lbl{display:block;font-family:var(--sans);font-style:normal;font-size:11px;letter-spacing:.13em;text-transform:uppercase;font-weight:700;color:var(--gold);margin-bottom:7px}
+
+/* cards */
+.card{background:var(--card);border:1px solid var(--line);border-radius:13px;padding:16px 18px;margin:12px 0;box-shadow:0 1px 2px rgba(0,0,0,.03)}
+.grid{display:grid;gap:14px}
+.g2{grid-template-columns:1fr 1fr}
+.g3{grid-template-columns:repeat(3,1fr)}
+.card h5{font-family:var(--serif);font-size:16px;font-weight:600;margin:0 0 4px}
+.card .sub{font-size:12px;color:var(--ink-mute);margin-bottom:6px}
+
+/* numbered step */
+.step{display:flex;gap:14px;align-items:flex-start;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:13px 16px;margin:10px 0}
+.step .num{flex:0 0 30px;width:30px;height:30px;border-radius:50%;background:var(--steel);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:14px;font-variant-numeric:tabular-nums}
+.step .bd{flex:1}
+.step .bd b{color:var(--ink)}
+
+/* stat tiles */
+.stat{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px 18px}
+.stat .big{font-family:var(--serif);font-size:26px;font-weight:600;letter-spacing:-.02em;color:var(--ink)}
+.stat .cap{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-mute);margin-top:3px}
+
+/* keyword pill */
+.kw{display:inline-block;background:var(--gold-soft);color:var(--gold);border:1px solid color-mix(in srgb,var(--gold) 32%,transparent);font-weight:600;font-size:.92em;padding:1px 8px;border-radius:6px;font-style:normal}
+.code{font-family:var(--mono);font-size:12.5px;background:var(--gold-soft);color:var(--accent-deep);border-radius:5px;padding:2px 7px;font-weight:600}
+[data-theme="dark"] .code{color:var(--gold)}
+
+/* tables */
+.twrap{overflow-x:auto;margin:14px 0;border:1px solid var(--line);border-radius:12px}
+table{width:100%;border-collapse:collapse;font-size:14px;min-width:520px}
+thead th{background:var(--steel);color:#fff;text-align:left;padding:11px 14px;font-weight:600;font-size:12px;letter-spacing:.03em}
+tbody td{padding:11px 14px;border-top:1px solid var(--line-soft);vertical-align:top}
+tbody tr:nth-child(even){background:color-mix(in srgb,var(--paper) 55%,transparent)}
+.tag{display:inline-block;font-size:11px;font-weight:600;padding:2px 9px;border-radius:20px}
+.tag.std{background:var(--gold-soft);color:var(--gold)}
+.tag.avail{background:var(--green-soft);color:var(--green)}
+.tag.opt{background:var(--steel-soft);color:var(--steel)}
+.loadtbl td{font-size:13px}
+.loadtbl .grp td{background:var(--steel);color:#fff;font-family:var(--mono);font-size:11.5px;letter-spacing:.08em;padding:6px 14px}
+[data-theme="dark"] .loadtbl .grp td{background:#243247}
+.loadtbl .mono{font-family:var(--mono);font-size:12px;color:var(--ink-soft)}
+.loadtbl .cx{text-decoration:line-through;color:var(--ink-mute);font-style:italic}
+.mi{text-align:right;font-variant-numeric:tabular-nums}
+
+ul.clean{margin:12px 0;padding-left:20px}
+ul.clean li{margin:6px 0}
+ul.dash{list-style:none;padding-left:4px}
+ul.dash li{margin:7px 0;padding-left:16px;position:relative}
+ul.dash li:before{content:"—";position:absolute;left:0;color:var(--accent)}
+
+/* checklist */
+.chk-grp{margin:14px 0;border:1px solid var(--line);border-radius:12px;overflow:hidden}
+.chk-grp>.hd{background:var(--gold-soft);color:var(--gold);font-weight:700;font-size:12px;letter-spacing:.08em;text-transform:uppercase;padding:10px 16px}
+.chk{display:flex;gap:12px;align-items:flex-start;padding:11px 16px;border-top:1px solid var(--line-soft);cursor:pointer;user-select:none}
+.chk:first-of-type{border-top:0}
+.chk input{appearance:none;flex:0 0 18px;width:18px;height:18px;margin-top:2px;border:1.5px solid var(--ink-mute);border-radius:5px;cursor:pointer;position:relative}
+.chk input:checked{background:var(--green);border-color:var(--green)}
+.chk input:checked:after{content:"✓";color:#fff;font-size:12px;position:absolute;top:-1px;left:3px}
+.chk .lb{flex:1;font-size:14.5px}
+.chk input:checked ~ .lb{color:var(--ink-mute)}
+
+/* accordion */
+.acc{border:1px solid var(--line);border-radius:12px;margin:10px 0;overflow:hidden;background:var(--card)}
+.acc>.q{display:flex;gap:10px;align-items:center;padding:14px 18px;cursor:pointer;font-family:var(--serif);font-weight:600;font-size:16.5px}
+.acc>.q .cv{color:var(--accent);transition:.2s;font-family:var(--sans);font-size:13px}
+.acc.open>.q .cv{transform:rotate(180deg)}
+.acc>.bd{display:none;padding:2px 18px 18px;border-top:1px solid var(--line-soft)}
+.acc.open>.bd{display:block}
+
+/* simulator */
+.sim{border:1px solid var(--line);border-radius:13px;padding:16px 18px;margin:14px 0;background:var(--card)}
+.sim .scn{font-family:var(--serif);font-style:italic;font-size:16px;background:var(--steel);color:#eef3f8;border-radius:10px;padding:13px 16px;margin-bottom:12px}
+.opt{border:1.5px solid var(--line);border-radius:10px;padding:11px 14px;margin:8px 0;cursor:pointer;font-size:14px;transition:.15s}
+.opt:hover{border-color:var(--accent)}
+.opt.reveal{cursor:default}
+.opt.good.reveal{border-color:var(--green);background:var(--green-soft)}
+.opt.bad.reveal{border-color:var(--red);background:var(--red-soft)}
+.opt .verdict{display:none;margin-top:7px;font-size:12.5px;color:var(--ink-soft)}
+.opt.reveal .verdict{display:block}
+.opt .vb{font-weight:700}
+.opt.good .vb{color:var(--green)}
+.opt.bad .vb{color:var(--red)}
+
+/* transcript */
+.tx{border:1px solid var(--line);border-radius:12px;overflow:hidden;margin:14px 0}
+.tx .row{display:flex;gap:0;border-top:1px solid var(--line-soft)}
+.tx .row:first-child{border-top:0}
+.tx .row.r{background:var(--gold-soft)}
+.tx .who{flex:0 0 96px;padding:13px 12px;font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;font-weight:700;color:var(--gold)}
+.tx .row.d .who{color:var(--ink-mute)}
+.tx .say{flex:1;padding:13px 16px;font-family:var(--serif);font-style:italic;font-size:15.5px;color:var(--ink-soft);line-height:1.5}
+.tx .note{margin-top:8px;font-family:var(--sans);font-style:normal;font-size:12px;color:var(--steel);border-left:3px solid var(--steel);background:color-mix(in srgb,var(--steel-soft) 60%,transparent);padding:6px 10px;border-radius:0 6px 6px 0}
+[data-theme="dark"] .tx .note{color:var(--steel)}
+
+/* form */
+.form label{display:block;font-size:12.5px;font-weight:600;color:var(--ink-soft);margin:12px 0 5px}
+.form input,.form select,.form textarea{width:100%;padding:9px 11px;border:1px solid var(--line);border-radius:9px;background:var(--card);color:var(--ink);font-family:var(--sans);font-size:14px}
+.form textarea{min-height:64px;resize:vertical}
+.form .out{white-space:pre-wrap;font-family:var(--mono);font-size:12.5px;background:var(--paper);border:1px dashed var(--line);border-radius:10px;padding:14px;margin-top:12px;min-height:40px}
+
+.glos .code{margin-bottom:4px;display:inline-block}
+.foot{border-top:1px solid var(--line);margin-top:50px;padding:26px 0;color:var(--ink-mute);font-size:13px;text-align:center}
+.foot a{color:var(--accent)}
+
+@media(max-width:860px){
+  .side{position:fixed;left:0;top:0;z-index:60;transform:translateX(-100%);transition:.25s;box-shadow:0 0 40px rgba(0,0,0,.4)}
+  .side.open{transform:none}
+  .menu-btn{display:inline-flex}
+  .wrap{padding:14px 18px 90px}
+  .topbar{padding:11px 16px}
+  .g2,.g3{grid-template-columns:1fr}
+  h2.title{font-size:27px}
+  .scrim{display:none;position:fixed;inset:0;background:rgba(0,0,0,.45);z-index:55}
+  .scrim.on{display:block}
+}
+</style>
+</head>
+<body>
+<div class="shell">
+  <aside class="side" id="side">
+    <div class="brand">
+      <div class="logo">CMJ <b>Recruiter</b></div>
+      <div class="sub">Driver Recruiting Playbook</div>
+    </div>
+    <nav class="nav" id="nav"></nav>
+    <a class="back" href="/">← Heavy-Duty Masterclass</a>
+  </aside>
+  <div class="scrim" id="scrim"></div>
+
+  <div class="main">
+    <div class="topbar">
+      <button class="btn menu-btn" id="menuBtn" aria-label="Menu">☰</button>
+      <span class="ttl">CMJ Recruiter Playbook</span>
+      <span class="spacer"></span>
+      <span class="prog" id="prog"></span>
+      <button class="btn" id="darkBtn" aria-label="Toggle theme">🌙 Dark</button>
+    </div>
+    <div class="wrap" id="content">
+<section class="blk" id="principles" data-title="Overview &amp; Principles" data-grp="Foundations" data-n="01">
+  <div class="kick">Section 01</div>
+  <h2 class="title">Overview &amp; Principles</h2>
+  <p class="lede">Everything in this playbook is built on four ideas. If you only remember these, you'll already sound different from 90% of the recruiters this driver has talked to.</p>
+  <div class="callout"><span class="ct">Principle 1</span><p><b>Lead like dispatch, not a recruiter.</b> The word "recruiter" makes drivers tense up. The word "dispatch" sounds like work, like a peer, like someone who actually understands the job.</p></div>
+  <div class="callout"><span class="ct">Principle 2</span><p><b>Be honest about the annoying parts.</b> Live loads, regional triangle, percentage pay — tell them how it really is. Drivers have been lied to too many times to fall for a perfect picture.</p></div>
+  <div class="callout"><span class="ct">Principle 3</span><p><b>Help him even if you can't hire him.</b> If he's not a fit, find out what he wants and refer him out. You earn on the placement, he remembers you forever, and his buddies will call you.</p></div>
+  <div class="callout"><span class="ct">Principle 4</span><p><b>Use exact numbers, not adjectives.</b> "Good pay" disappears in five minutes. "$0.75 per mile equivalent on regional, $1,000 a day, $7,000-plus a week" sticks.</p></div>
+  <div class="callout why"><span class="ct">Why it matters</span><p>A driver who doesn't sign with you today will be looking again in three to twelve months. The recruiter he remembers is the one who told the truth and tried to help — not the one who tried to close him.</p></div>
+</section>
+
+<section class="blk" id="opening" data-title="Opening the Call" data-grp="Foundations" data-n="02">
+  <div class="kick">Section 02</div>
+  <h2 class="title">Opening the Call</h2>
+  <p class="lede">The first thirty seconds set the tone for everything. The goal is to sound calm, useful, and like a peer — not like someone reading off a script.</p>
+  <h3>If he calls you (inbound)</h3>
+  <div class="quote"><span class="lbl">Inbound greeting</span>"This is dispatch — how can I help you?"</div>
+  <h3>If you call him (outbound)</h3>
+  <div class="quote"><span class="lbl">Outbound opener</span>"Hey, this is dispatch. I work at dispatch and I'm following up on the application we got. I just need one small confirmation — we mainly work regional Amazon intermodal. Is that something you'd be up to?"</div>
+  <h3>Branch the call based on his answer</h3>
+  <div class="step"><div class="num">1</div><div class="bd"><b>If he says yes —</b> "Great. If you've got a few minutes, I'd like to walk you through how we actually work so you have a clear picture of what you're applying for." Then move into <a href="#operation">The Operation</a>.</div></div>
+  <div class="step"><div class="num">2</div><div class="bd"><b>If he says no —</b> "No problem at all. Tell me what you <em>are</em> looking for — what kind of lanes, what kind of pay, what kind of home time. I might know somebody with trucks available that matches what you want." Then place him with a partner company and earn on the referral.</div></div>
+  <div class="callout why"><span class="ct">Why this opener works</span><p>You don't lead with company name or your own name. You lead with a job function. That signals you're not going to pitch — you're going to talk. The driver's defenses drop and the real conversation can start.</p></div>
+</section>
+
+<section class="blk" id="operation" data-title="The Operation" data-grp="The Pitch" data-n="03">
+  <div class="kick">Section 03</div>
+  <h2 class="title">The Operation</h2>
+  <p class="lede">Once he says yes, this is the picture you paint. Keep it specific. Drivers can tell when a recruiter is repeating something they don't understand.</p>
+  <h3>What we run</h3>
+  <ul class="clean">
+    <li><b>Rail yards, not ports.</b> We don't run ports. We drop and pick containers from rail yards.</li>
+    <li><b>Amazon intermodal.</b> Next stop after the rail yard is an Amazon facility or an Amazon third-party partner.</li>
+    <li><b>Mostly power-only hook and drop.</b> Some live loads, but Amazon is palletized so live loads max out around two hours — they push you out the door fast.</li>
+    <li><b>Regional, not dedicated.</b> Same general triangle every week, different loads inside it.</li>
+    <li><b>Three to four loads a day.</b> Lighter weights, faster turns, some short runs (50 miles) can still pay well.</li>
+  </ul>
+  <h3>Where we run</h3>
+  <div class="twrap"><table>
+    <thead><tr><th>Lane type</th><th>Locations</th><th>Driver choice?</th></tr></thead>
+    <tbody>
+      <tr><td>Core regional</td><td>Maryland, Baltimore area, Pennsylvania, New Jersey, Virginia</td><td><span class="tag std">Standard</span></td></tr>
+      <tr><td>Extended south</td><td>North Carolina, Atlanta GA</td><td><span class="tag avail">Available</span></td></tr>
+      <tr><td>Extended north</td><td>Connecticut, Massachusetts</td><td><span class="tag opt">Optional</span></td></tr>
+    </tbody>
+  </table></div>
+  <div class="callout why"><span class="ct">Selling point</span><p>CT and MA are optional. Some drivers don't like the traffic up there, and that's fine — we don't force dispatch into those lanes. The driver picks what he runs. This is rare in trucking. Say it out loud.</p></div>
+
+  <h3>How the loads stack — example day</h3>
+  <div class="step"><div class="num">1</div><div class="bd"><b>SSR Harrisburg, PA</b> posts a load going down to Baltimore, MD. Under 100 miles.</div></div>
+  <div class="step"><div class="num">2</div><div class="bd">From Baltimore, reposition an <b>empty container</b> to a loading facility — Carlisle, PA or Hagerstown, MD.</div></div>
+  <div class="step"><div class="num">3</div><div class="bd">From Carlisle, hop the short run to <b>Chambersburg, PA</b> (about 20 miles).</div></div>
+  <div class="step"><div class="num">4</div><div class="bd">From Chambersburg, pick up a rail-yard load back into PA or further out.</div></div>
+
+  <h3>A real week — actual loads (May 10–16, 2026)</h3>
+  <p>This is what an actual week of dispatch looked like. Real load board, real lanes, real mileage. When a driver wants proof instead of pitch language, show him this.</p>
+  <div class="grid g2">
+    <div class="stat"><div class="big">19</div><div class="cap">Active loads in 6 days</div></div>
+    <div class="stat"><div class="big">~3.2 / day</div><div class="cap">Average volume</div></div>
+    <div class="stat"><div class="big">78–194 mi</div><div class="cap">Mileage range per load</div></div>
+    <div class="stat"><div class="big">DE · MD · PA · VA</div><div class="cap">Lanes covered</div></div>
+  </div>
+  <div class="twrap"><table class="loadtbl">
+    <thead><tr><th>Load #</th><th>From</th><th>To</th><th class="mi">Mi</th></tr></thead>
+    <tbody>
+      <tr class="grp"><td colspan="4">SUN · MAY 10</td></tr>
+      <tr><td class="mono">T-1151MG4K7</td><td>MTN1 — Wilmington, DE</td><td>DCA1 — Sparrows Point, MD</td><td class="mi">194</td></tr>
+      <tr class="grp"><td colspan="4">MON · MAY 11</td></tr>
+      <tr><td class="mono">114CHZY9Y</td><td>KBWI — Baltimore, MD</td><td>HDC3 — Bethel, PA</td><td class="mi">132</td></tr>
+      <tr><td class="mono">114TGHL16</td><td>HEA2 — Breinigsville, PA</td><td>CSXT — Chambersburg, PA</td><td class="mi">128</td></tr>
+      <tr class="grp"><td colspan="4">TUE · MAY 12 — 5 LOADS, BIGGEST DAY</td></tr>
+      <tr><td class="mono">1152KG6XT</td><td>XLX1 — Hagerstown, MD</td><td>NSRR — Harrisburg, PA</td><td class="mi">78</td></tr>
+      <tr><td class="mono">T-115PF782M</td><td>DBA7 — Williamsport, MD</td><td>HSE1 — Hagerstown, MD</td><td class="mi">96</td></tr>
+      <tr><td class="mono">1114SS5DCX</td><td>XLX1 — Hagerstown, MD</td><td>NSRR — Harrisburg, PA</td><td class="mi">78</td></tr>
+      <tr><td class="mono">1153X57Z6</td><td>NSRR-SW — Harrisburg, PA</td><td>AVP1 — Hazleton, PA</td><td class="mi">82</td></tr>
+      <tr><td class="mono">1129R5Q1R</td><td>XPH8 — White Haven, PA</td><td>NSRR — Rutherford, PA</td><td class="mi">94</td></tr>
+      <tr class="grp"><td colspan="4">WED · MAY 13</td></tr>
+      <tr><td class="mono">1144SKQ6B</td><td>NSRR — Harrisburg, PA</td><td>DCA1 — Sparrows Point, MD</td><td class="mi">93</td></tr>
+      <tr><td class="cx">1141DQDYQ</td><td class="cx">KRB5 — North East, MD</td><td class="cx">AVP8 — Pittston, PA</td><td class="mi cx">—</td></tr>
+      <tr><td class="mono">1121Q2TBK</td><td>MTN6 — Sparrows Point, MD</td><td>ABE2 — Breinigsville, PA</td><td class="mi">146</td></tr>
+      <tr><td class="mono">112PKYKD4</td><td>KBWI — Baltimore, MD</td><td>HEA2 — Breinigsville, PA</td><td class="mi">144</td></tr>
+      <tr><td class="mono">T-1144K84FL</td><td>TEN1 — Reading, PA</td><td>CSXT — Chambersburg, PA</td><td class="mi">155</td></tr>
+      <tr class="grp"><td colspan="4">THU · MAY 14</td></tr>
+      <tr><td class="mono">T-1164YVYD4</td><td>—</td><td>—</td><td class="mi">93</td></tr>
+      <tr><td class="cx">T-113D89SZ1</td><td class="cx">—</td><td class="cx">—</td><td class="mi cx">—</td></tr>
+      <tr><td class="mono">1116DM2JR</td><td>CSXT — Chambersburg, PA</td><td>RMN3 — Fredericksburg, VA</td><td class="mi">136</td></tr>
+      <tr><td class="mono">1149SZ49T</td><td>RMN3 — Fredericksburg, VA</td><td>HGR5 — Shippensburg, PA</td><td class="mi">146</td></tr>
+      <tr class="grp"><td colspan="4">FRI · MAY 15</td></tr>
+      <tr><td class="mono">111MV7JF4</td><td>CSXT-MC — Chambersburg, PA</td><td>WBW2 — Olyphant, PA</td><td class="mi">181</td></tr>
+      <tr><td class="mono">T-112F97LZL</td><td>—</td><td>—</td><td class="mi">172</td></tr>
+    </tbody>
+  </table></div>
+  <h4>What this week tells you</h4>
+  <ul class="clean">
+    <li><b>Volume holds up.</b> 19 active loads in 6 days — right on the 3-to-4-a-day pitch.</li>
+    <li><b>Distance is honest regional.</b> 78 to 194 miles per load. No 800-mile hauls, no overnight epics. Drivers stay within their home region.</li>
+    <li><b>Same triangle repeats.</b> Chambersburg appears 4 times this week. Harrisburg/NSRR appears 5 times. Sparrows Point/Baltimore appears 3 times. The recruiter's "tight regional triangle" pitch is literally what shows up on the load board.</li>
+    <li><b>Cancellations happen — and it's OK to say so.</b> 2 loads cancelled this week (about 10%). Be honest with drivers — when they hear "no cancellations ever" from another recruiter, they know they're being lied to.</li>
+    <li><b>Tuesday and Wednesday are heavy days.</b> 5 loads each — these are the days that hit the $1,000+/day target hardest.</li>
+  </ul>
+
+  <h3>Locations &amp; codes drivers will hear</h3>
+  <p>When a driver mentions a facility code mid-call, new recruiters should know what it is. These are the most common ones on the load board.</p>
+  <div class="card"><h4 style="margin-top:0">Rail yards (where we pick up)</h4>
+    <p><span class="code">NSRR</span> Norfolk Southern Railroad &nbsp; <span class="code">CSXT</span> CSX Transportation &nbsp; <span class="code">XLX1</span> Intermodal yard, Hagerstown MD &nbsp; <span class="code">XPH8</span> Intermodal yard, White Haven PA</p>
+  </div>
+  <div class="card"><h4 style="margin-top:0">Amazon facilities (where we deliver)</h4>
+    <p><span class="code">DCA1</span> Sparrows Point, MD (Baltimore) &nbsp; <span class="code">HEA2</span> Breinigsville, PA &nbsp; <span class="code">ABE2</span> Breinigsville, PA &nbsp; <span class="code">HDC3</span> Bethel, PA &nbsp; <span class="code">HSE1</span> Hagerstown, MD &nbsp; <span class="code">HGR5</span> Shippensburg, PA &nbsp; <span class="code">AVP1</span> Hazleton, PA &nbsp; <span class="code">AVP8</span> Pittston, PA &nbsp; <span class="code">RMN3</span> Fredericksburg, VA &nbsp; <span class="code">WBW2</span> Olyphant, PA</p>
+  </div>
+  <div class="card"><h4 style="margin-top:0">Other shippers / hubs</h4>
+    <p><span class="code">KBWI</span> Baltimore BWI area, MD &nbsp; <span class="code">MTN1 / MTN6</span> Maersk terminals (Wilmington DE, Sparrows Point MD) &nbsp; <span class="code">KRB5</span> North East, MD &nbsp; <span class="code">TEN1</span> Reading, PA &nbsp; <span class="code">DBA7</span> Williamsport, MD</p>
+  </div>
+  <div class="quote"><span class="lbl">Using real data on a call</span>"Look — I don't just want to tell you about it, let me show you. Here's an actual week from May. 19 loads ran, average around three a day, every one inside our regional triangle. Mileage ranged from 78 to 194 — no marathon hauls, no 800-mile nights. Same customers, same lanes, repeating all week. This is what your week looks like, not a sales pitch."</div>
+  <div class="quote"><span class="lbl">How to describe a typical day</span>"Picture a tight triangle — Harrisburg, Baltimore, Carlisle, Hagerstown, Chambersburg. Three or four loads a day, mostly drop and hook, lighter weights, you stay busy. You're not stuck driving 10 different states. You're not stuck with one shipper's bad rate either. We pick the best-paying loads inside that triangle every day."</div>
+</section>
+
+<section class="blk" id="pay-company" data-title="Pay — Company Driver" data-grp="The Pitch" data-n="04">
+  <div class="kick">Section 04</div>
+  <h2 class="title">Pay — Company Driver</h2>
+  <p class="lede">Percentage pay, not mileage. The math beats mileage on regional, but you have to be able to walk a driver through the numbers without flinching.</p>
+  <div class="grid g2">
+    <div class="stat"><div class="big">25%</div><div class="cap">First 90 days</div></div>
+    <div class="stat"><div class="big">30%</div><div class="cap">After 90 days</div></div>
+    <div class="stat"><div class="big">$1,000+</div><div class="cap">Daily gross target</div></div>
+    <div class="stat"><div class="big">$7,000+</div><div class="cap">Weekly gross target</div></div>
+  </div>
+  <h3>The pay math vs. mileage</h3>
+  <div class="card">
+    <p><b>Industry average mileage pay:</b> ~$0.65 per mile</p>
+    <p><b>Our regional loads:</b> often $3.00 per mile or higher</p>
+    <p><b>25% of $3.00 per mile = $0.75 per mile equivalent.</b> That's $0.10 above the industry mileage average — and you're still in the first 90 days.</p>
+    <p><b>At 30% after 90 days = $0.90 per mile equivalent</b> on a $3/mile load.</p>
+  </div>
+  <div class="quote"><span class="lbl">Selling the percentage</span>"Mileage pay is great when you're running long haul because the miles add up. Regional is different — fewer miles, higher rate per mile. When you take 25% of a $3-per-mile load, that's 75 cents per mile in your pocket. Industry average mileage pay is around 65 cents. So you're already 10 cents above the national average, before you even hit the 90-day mark when it bumps to 30%."</div>
+  <h3>The 90-day bump</h3>
+  <p>The reason for the 90-day window: by then the driver knows the operation, the rail yards, the Amazon facilities, the lanes. He's faster, he produces more — and when he produces more, he earns more. That's the deal.</p>
+  <h3>Amazon peak season</h3>
+  <p>During Amazon sales periods (Prime Day, holiday push, etc.) the rates rise. Some of our drivers cross <b>$3,000 a week take-home</b> in those weeks. Don't promise this as the norm — use it as upside.</p>
+  <div class="callout why"><span class="ct">Pro tip</span><p>Don't quote $3K as the standard week. Quote it as "what's possible during peak, when the market is strong." Drivers respect ranges. They distrust single-number promises.</p></div>
+</section>
+
+<section class="blk" id="pay-oo" data-title="Pay — Owner Operator" data-grp="The Pitch" data-n="05">
+  <div class="kick">Section 05</div>
+  <h2 class="title">Pay — Owner Operator</h2>
+  <p class="lede">For O/Os we run dispatch service, not employment. The pitch is different — we're a partner who knows how to squeeze more out of Amazon, and we work around the driver's preferences.</p>
+  <h3>Dispatch fee — tiered by weekly gross</h3>
+  <div class="twrap"><table>
+    <thead><tr><th>Weekly gross</th><th>Dispatch fee</th><th>The logic</th></tr></thead>
+    <tbody>
+      <tr><td>Under $5,000</td><td><b>11%</b></td><td>Lighter weeks, lighter fee.</td></tr>
+      <tr><td>$5,000 – $8,000</td><td><b>13%</b></td><td>Standard tier — where most weeks land.</td></tr>
+      <tr><td>Over $8,000</td><td><b>15%</b></td><td>Fee scales with dispatch work — more loads booked, more shipper coordination, more rate negotiation on our end.</td></tr>
+    </tbody>
+  </table></div>
+  <div class="callout why"><span class="ct">If they push back</span><p>Some O/Os will ask why the fee goes <em>up</em> on big weeks instead of down. Answer: "More volume means more work on our side — every load is a phone call, a rate negotiation, a problem solved. The 15% on an $8K+ week reflects the dispatch work that made it happen. Even at 15%, you're netting north of $7,200 before truck expenses — and we're 24/7, so we're catching the overnight high-rate loads other dispatch services sleep through."</p></div>
+  <h3>Other charges</h3>
+  <div class="twrap"><table>
+    <thead><tr><th>Item</th><th>Cost</th><th>How it's billed</th></tr></thead>
+    <tbody>
+      <tr><td>Insurance</td><td>$2,100 / month</td><td>$700 each in weeks 1, 2, and 3 of the month. $0 in week 4 (and week 5 if the month has one).</td></tr>
+      <tr><td>ELD</td><td>$50 / week</td><td>Charged weekly. Separate from the fuel card — no bundled fee.</td></tr>
+      <tr><td>Fuel card</td><td>Provided</td><td>Fuel expenses deducted from gross in weekly settlement.</td></tr>
+    </tbody>
+  </table></div>
+  <h3>What we bring to the table</h3>
+  <ul class="clean">
+    <li><b>24/7 dispatch.</b> Best loads often post overnight and on weekends — we're awake to grab them.</li>
+    <li><b>Amazon expertise.</b> We know the lanes, the facilities, the timing, the rate patterns.</li>
+    <li><b>No forced home time.</b> O/Os are independent — we work around your schedule, not ours.</li>
+  </ul>
+  <div class="quote"><span class="lbl">The O/O pitch line</span>"We're not going to tell you how to run your business. The way you work is the way we work. We just know how to squeeze more out of Amazon, and we bring that to the table. You stay independent — we make you more money."</div>
+  <div class="callout why"><span class="ct">Signature phrase</span><p>"Your way of working is our way of working." Steal this line — it's the single biggest reason O/Os pick a dispatch service, and most services don't say it out loud.</p></div>
+</section>
+
+<section class="blk" id="home-time" data-title="Home Time" data-grp="The Pitch" data-n="06">
+  <div class="kick">Section 06</div>
+  <h2 class="title">Home Time</h2>
+  <p class="lede">Home time policy is geography-based. Be upfront about it — drivers respect honest rules more than vague promises.</p>
+  <div class="twrap"><table>
+    <thead><tr><th>Driver home location</th><th>Home time policy</th></tr></thead>
+    <tbody>
+      <tr><td><b>In-region</b><br><span style="color:var(--ink-mute);font-size:13px">MD, PA, NJ, VA, DE</span></td><td><b>Standard: 2 weeks driving before first home time.</b> Then a long weekend home, then back out for 2 weeks. Plus a courtesy: if a load happens to end near home during the 2-week stretch (e.g. Aberdeen MD with last drop in Baltimore), driver can go home overnight, shower, sleep, come back in the morning. That courtesy does <b>not</b> reset the 2-week rotation — it's just a perk of running regional.</td></tr>
+      <tr><td><b>Out of region, truckable</b></td><td>3 weeks out, then 1 week off.</td></tr>
+      <tr><td><b>FL / TX / NM</b><br><span style="color:var(--ink-mute);font-size:13px">Truck doesn't go that far</span></td><td>Flight tickets provided. 4–5 weeks out before flying home (covers the cost of the ticket).</td></tr>
+      <tr><td><b>Owner Operator</b></td><td>No forced policy. You set your own home time.</td></tr>
+    </tbody>
+  </table></div>
+  <div class="callout why"><span class="ct">Pro tip</span><p>The 2-week rotation isn't the same as "no home time for two weeks straight." Lead with the overnight-courtesy example so drivers feel the in-region perk: "Live in Aberdeen? If your last drop during the 2-week stretch is Baltimore, head home, sleep in your own bed, see your family for breakfast, hit the road by 8am. You still finish the 2-week rotation, but you get the overnights along the way. That's what in-region really means."</p></div>
+  <div class="callout"><span class="ct">Push toward 3 weeks when you can</span><p>2 weeks is the standard. Our top earners run <b>2 to 3 weeks out</b> and take a long weekend home — the math favors the longer stretch heavily. See <a href="#memorability">Steering toward 2–3 week rotations</a> in the Memorability &amp; Sales section for the honest way to surface this on every call.</p></div>
+</section>
+
+<section class="blk" id="equipment" data-title="Equipment" data-grp="The Pitch" data-n="07">
+  <div class="kick">Section 07</div>
+  <h2 class="title">Equipment</h2>
+  <p class="lede">The truck is the driver's second home. Treat the equipment pitch like a house tour, not a spec sheet.</p>
+  <div class="grid g2">
+    <div class="card"><h5>The trucks</h5><ul class="clean"><li>Freightliner, automatic</li><li>Model years 2019 – 2024</li><li>Well-maintained across the fleet</li></ul></div>
+    <div class="card"><h5>What's in the cab</h5><ul class="clean"><li>Fridge</li><li>Inverter</li><li>Everything a driver wants for 3–4 weeks on the road</li></ul></div>
+  </div>
+  <div class="quote"><span class="lbl">The "second home" line</span>"You're coming out for three or four weeks at a time — that truck is your second home, and we make sure it feels like one. Freightliner automatic, 2019 to 2024 model year, fridge, inverter, fully kitted out. And I'll send you pictures of the actual truck before you even step on the lot. You'll know exactly what you're getting."</div>
+  <div class="callout why"><span class="ct">Big move</span><p>Offer to send photos of the actual truck before he commits. It costs nothing and signals confidence. Most companies hide the truck until orientation. Be the company that doesn't.</p></div>
+</section>
+
+<section class="blk" id="requirements" data-title="Driver Requirements" data-grp="The Pitch" data-n="08">
+  <div class="kick">Section 08</div>
+  <h2 class="title">Driver Requirements</h2>
+  <p class="lede">Short, clear, and honest about why.</p>
+  <div class="grid g2">
+    <div class="card"><h5>What we need from a driver</h5><ul class="clean"><li><b>Minimum 2 years CDL driving experience.</b></li><li><b>No endorsements required.</b></li><li><b>Physical capability for repeated drop-and-hook work.</b> Three to four hooks a day means cranking landing gear up and down. We look for drivers in the strength sweet spot.</li></ul></div>
+    <div class="card"><h5>Documents to collect</h5><ul class="clean"><li><b>CDL</b></li><li><b>Medical card</b></li></ul><p class="sub" style="margin-top:8px">That's all we need to start the process. Amazon runs their own verification after that. If we end up referring the driver to a partner carrier instead, our in-house safety team will run a background check and may request additional documents at that point.</p></div>
+  </div>
+  <div class="quote"><span class="lbl">How to phrase the experience &amp; fitness ask</span>"We want at least two years behind the wheel and no endorsements needed. The one thing I want to be straight about: it's three to four drop-and-hooks a day, which means real physical work on the landing gear. We want you comfortable doing it for the full week. That's the only reason we ask about that side of things."</div>
+</section>
+
+<section class="blk" id="objections" data-title="Objection Handling" data-grp="Handling" data-n="09">
+  <div class="kick">Section 09</div>
+  <h2 class="title">Objection Handling</h2>
+  <p class="lede">Every objection is a question in disguise. Don't argue — answer the real question underneath. Tap any objection to open the response.</p>
+
+  <div class="acc"><div class="q"><span class="cv">▾</span> "The percentage is too low."</div><div class="bd">
+    <h4>The move</h4><p>Ask "compared to what?" before defending. Half the time the driver is comparing to a number a buddy told him or a number he invented. Once you know the comparison, you can speak to it.</p>
+    <div class="quote"><span class="lbl">Script</span>"Compared to what offer? I want to make sure we're looking at the same thing. Because here's the math: you're getting 25% before any of your expenses — and as a company driver, that means no truck payment, no insurance, no maintenance coming out of your pocket. 25% of a $3-per-mile load is $0.75 per mile equivalent. Industry mileage average is around $0.65. After 90 days you're at 30%, which is $0.90 per mile equivalent on the same load. So let's compare it to your other offer side by side."</div>
+  </div></div>
+
+  <div class="acc"><div class="q"><span class="cv">▾</span> "I want mileage pay, not percentage."</div><div class="bd">
+    <h4>The move</h4><p>If he insists on mileage after the math, refer him out. You earn on the placement and he remembers you for being honest. But first, get him to do the math himself.</p>
+    <div class="quote"><span class="lbl">Script</span>"Mileage pay makes total sense for long haul — you drive more miles, you make more. Regional is different. Tell you what: pull up your last good week of loads, total the gross, multiply by 25%, then divide by your miles for the week. If that number isn't higher than your current per-mile rate, you tell me and I'll send you to a mileage-pay carrier I trust. If it is higher, we keep talking. Deal?"</div>
+    <div class="callout why"><span class="ct">Why it works</span><p>Letting the driver do the math himself is stronger than you doing it for him. People believe their own arithmetic.</p></div>
+  </div></div>
+
+  <div class="acc"><div class="q"><span class="cv">▾</span> "Your loads aren't dedicated — I want dedicated."</div><div class="bd">
+    <div class="quote"><span class="lbl">Script</span>"I'll be straight with you — we're not dedicated, we're regional. And before you write that off, hear me out. Dedicated sounds good because it's the same lane every day, but here's what dedicated drivers don't talk about: when the shipper has a slow week, they sit. When the rate drops, they're stuck with it. When the lane gets boring, they're stuck with it. What we run is a tight regional triangle — Harrisburg, Baltimore, Carlisle, Hagerstown, Chambersburg — and we're picking the best-paying loads inside that triangle every day. Same general area, different loads, better money. If after this you still want true dedicated, no hard feelings — tell me what lane and I'll see if I know somebody running it."</div>
+  </div></div>
+
+  <div class="acc"><div class="q"><span class="cv">▾</span> "I want to be home every night."</div><div class="bd">
+    <h4>The move</h4><p>Don't fight it. Surface the underlying need first — most "every night" is really "I want to see my family." Then offer the regional rotation as a possible answer.</p>
+    <div class="quote"><span class="lbl">Script (company driver)</span>"Honestly, if home every night is the priority, this isn't the right fit and I'm not going to try to talk you into something that's going to blow up your home life. But before you go — what's driving the every-night need? If it's family time, our regional rotation might give you more quality time than a local job that runs you 14 hours a day. Standard is two weeks out, then home for a long weekend — but if a load happens to drop you near home during the stretch, you can grab an overnight. So you're not actually gone the whole two weeks. Worth talking about?"</div>
+    <div class="quote"><span class="lbl">Script (owner operator)</span>"For O/Os we don't enforce home time. You're independent — you set the schedule. We just bring the loads and you decide when and where you run. So yes, that can work."</div>
+  </div></div>
+
+  <div class="acc"><div class="q"><span class="cv">▾</span> "I've never run rail yards / I've never worked with Amazon."</div><div class="bd">
+    <div class="quote"><span class="lbl">Script</span>"That's a fair question, and most drivers I talk to haven't. Here's the honest truth: rail yards look intimidating from the outside, but the actual work is the easiest part of trucking. Check in, hook the chassis, paperwork, leave. No shipper yelling at you, no live-load timer running. By week two you'll be doing it faster than guys who've been there five years. Amazon's even simpler — palletized, fast. Want me to walk you through what your first day looks like?"</div>
+  </div></div>
+
+  <div class="acc"><div class="q"><span class="cv">▾</span> "I've been burned by recruiters before. I don't trust this."</div><div class="bd">
+    <h4>The move</h4><p>Don't defend. Validate, then prove it through what you <em>do</em>, not what you say.</p>
+    <div class="quote"><span class="lbl">Script</span>"You should be skeptical. I would be. Most drivers I talk to have been promised one thing and handed something different — and that's exactly why I don't pitch the way most recruiters do. Here's how you can test me: I'm going to tell you the annoying parts of this job, not just the good parts. I'm going to give you exact numbers, not vague top-pay promises. And if at the end of this call you decide we're not the right fit, I'm going to ask what you actually want and either point you somewhere I know is solid, or tell you honestly that I don't have a good referral for it. I'd rather lose you on day one than have you quit on day thirty."</div>
+  </div></div>
+
+  <div class="acc"><div class="q"><span class="cv">▾</span> "My buddy makes more at his company."</div><div class="bd">
+    <div class="quote"><span class="lbl">Script</span>"That's possible — pay varies by lane, season, and how the driver runs. Tell me what he's making and how — mileage or percentage, what lanes, how many hours a week, what expenses come out. Half the time when we run those numbers side by side, the gap closes or flips. The other half, he genuinely has a better deal — and if that's the case, I'll tell you and not waste your time."</div>
+  </div></div>
+
+  <div class="acc"><div class="q"><span class="cv">▾</span> "My wife / family doesn't want me on the road that long."</div><div class="bd">
+    <div class="quote"><span class="lbl">Script</span>"That's the most important question in this whole conversation, and I respect you for bringing it up. If home time is the deal-breaker, this isn't the right fit and I'm not going to try to talk you into something that's going to blow up your marriage. But before we close the door — have you talked to her about how the regional rotation actually works? Standard is two weeks out, then a long weekend home. And during those two weeks, if a load drops you near home, you can grab an overnight without it counting against the rotation. So you're not actually gone two weeks straight. Talk it through with her, run the numbers together, call me back if it changes the picture."</div>
+  </div></div>
+
+  <div class="acc"><div class="q"><span class="cv">▾</span> "What about detention, layover, and breakdown pay?"</div><div class="bd">
+    <h4>The truth — we don't pay these separately</h4><p>Detention pay, layover pay, and breakdown pay are all <b>$0</b>. Do not dodge this. The honest answer is the strongest answer.</p>
+    <div class="quote"><span class="lbl">Script</span>"I'm going to be completely upfront. We don't have separate detention pay, layover pay, or breakdown pay. The reason is we're a percentage-pay shop — your 25%, or 30% after 90 days, of each load already covers the time you put in. Way to think about it: if a load pays $1,500 and you're at 25%, you're making $375 on it whether it takes you six hours or fourteen. Some drivers prefer that because they're in control — push harder, make more. Other drivers want guaranteed downtime pay, and that's a totally different model. If guaranteed sit-pay is the dealbreaker, tell me now and I'll point you to a carrier that has it. I'd rather tell you the truth today than have you find out later and feel misled."</div>
+    <div class="callout why"><span class="ct">Why this works</span><p>Owning the "no" builds more trust than dodging would. The driver who walks away over this wasn't going to last anyway.</p></div>
+  </div></div>
+
+  <div class="acc"><div class="q"><span class="cv">▾</span> "How fast can I start? What does orientation look like?"</div><div class="bd">
+    <h4>The good news — there's no classroom orientation</h4><p>When he asks this, he's ready. The flow is short and the answer is a selling point: no week of unpaid classroom time.</p>
+    <div class="step"><div class="num">1</div><div class="bd"><b>Application + documents.</b> Driver sends CDL and medical card. We approve the application on our end.</div></div>
+    <div class="step"><div class="num">2</div><div class="bd"><b>Amazon verification.</b> We submit through Amazon's system — Amazon runs their own checks. This is the longest step and the bottleneck.</div></div>
+    <div class="step"><div class="num">3</div><div class="bd"><b>Flight booked.</b> Once Amazon approves, we book the driver a flight into New Jersey.</div></div>
+    <div class="step"><div class="num">4</div><div class="bd"><b>Truck pickup.</b> Driver picks up the truck at one of our local shops in NJ.</div></div>
+    <div class="step"><div class="num">5</div><div class="bd"><b>First dispatch.</b> Driver is rolling on day one.</div></div>
+    <div class="quote"><span class="lbl">Script</span>"Honestly, we don't run a traditional week-long orientation — that's actually one of the things our drivers like. Send me your CDL and medical card, I approve your application on my end, and then we submit to Amazon for their verification. Amazon's process is the bottleneck — that's where most of the wait sits, and it's out of our hands. Once they verify you, we book your flight into New Jersey, you pick up your truck at one of our local shops, and you're rolling. No classroom, no sitting around unpaid."</div>
+  </div></div>
+
+  <div class="acc"><div class="q"><span class="cv">▾</span> "What documents do you need from me?"</div><div class="bd">
+    <div class="quote"><span class="lbl">Script</span>"To get the ball rolling on our side: CDL and medical card. That's what I need from you today. Amazon handles their own verification after that. If we end up referring you to a partner carrier instead, our in-house safety team will run a background check, and we may need a few additional documents at that point — but for now, CDL and medical card gets us started."</div>
+  </div></div>
+</section>
+
+<section class="blk" id="red-flags" data-title="Red Flags to Watch" data-grp="Handling">
+  <div class="kick">Section</div>
+  <h2 class="title">Red Flags to Watch</h2>
+  <p class="lede">Bad hires cost the company more than slow hires. When you see two or three red flags in the same conversation, escalate before moving forward.</p>
+  <h3>Red flags in the application</h3>
+  <div class="callout dont"><span class="ct">Frequent job changes</span><p>More than three jobs in 12 months. Chronic pattern usually means the driver creates the problem.</p></div>
+  <div class="callout dont"><span class="ct">Vague answers about why they left the last gig</span><p>"It didn't work out" or "personal reasons" without elaboration. If they keep dodging, the truth is probably worse.</p></div>
+  <div class="callout dont"><span class="ct">Recent accidents, DUIs, or HOS violations</span><p>Anything in the last 12 months. Verify with PSP and MVR before going further.</p></div>
+  <div class="callout dont"><span class="ct">Reluctance to provide MVR, PSP, or work history</span><p>Honest drivers don't push back. Hesitation here is almost always hiding something.</p></div>
+  <div class="callout dont"><span class="ct">Expired CDL or medical card</span><p>Could be honest oversight. If they don't know the renewal date, that's another flag.</p></div>
+  <div class="callout dont"><span class="ct">Conflicting addresses, multiple phone numbers</span><p>Inconsistencies are worth questioning.</p></div>
+  <h3>Red flags during the call</h3>
+  <div class="callout dont"><span class="ct">"I'll take anything, just give me a chance"</span><p>Desperation is not enthusiasm. A driver who'll take anything will leave for anything too.</p></div>
+  <div class="callout dont"><span class="ct">Asking about advance pay or cash advances before discussing work</span><p>Order of questions tells you what the driver is actually focused on.</p></div>
+  <div class="callout dont"><span class="ct">Pressure to start without paperwork</span><p>"Just put me in a truck, I'll send documents later" is a hard no. Anything they're skipping is usually the disqualifier.</p></div>
+  <div class="callout dont"><span class="ct">Aggressive or hostile behavior</span><p>If they can't be civil on a sales call, imagine them at a rail yard at 3am with a chassis problem.</p></div>
+  <div class="callout dont"><span class="ct">Story doesn't match the application</span><p>If the phone story contradicts the application, pause. Honest people don't have memory gaps about their own work history.</p></div>
+  <div class="callout dont"><span class="ct">Concerns about drug testing</span><p>"How long after I quit can I pass?" Hard pass. We don't gamble on 80,000 lbs.</p></div>
+  <div class="callout dont"><span class="ct">Asks about bringing a non-driver passenger</span><p>This usually masks housing, custody, or relationship problems.</p></div>
+  <h3>Yellow flags (worth a conversation, not a no)</h3>
+  <div class="card"><ul class="clean">
+    <li>Long employment gap with a reasonable explanation — medical, family caregiving.</li>
+    <li>One DUI more than five years ago — depends on context.</li>
+    <li>Older driver returning to trucking — fine if years and physical fit.</li>
+    <li>"I'm new to Amazon intermodal" — most drivers are.</li>
+  </ul></div>
+  <div class="callout dont"><span class="ct">When to escalate</span><p>If you see two or more red flags on a single call, pause politely and check with the owner before moving forward. The cost of replacing a bad driver is always higher than waiting for a good one.</p></div>
+</section>
+
+<section class="blk" id="not-to-say" data-title="Things Not to Say" data-grp="Handling" data-n="11">
+  <div class="kick">Section 11</div>
+  <h2 class="title">Things Not to Say</h2>
+  <p class="lede">Common new-recruiter mistakes that kill trust on the call.</p>
+  <div class="callout dont"><span class="ct">Don't</span><p>"We pay top-of-the-market." Vague claims read as marketing. Use actual numbers.</p></div>
+  <div class="callout dont"><span class="ct">Don't</span><p>"Trust me on this one." Drivers have heard this from every recruiter who lied. Show the math instead.</p></div>
+  <div class="callout dont"><span class="ct">Don't</span><p>"Let me put you on hold real quick." If you don't know an answer, say "I'll find out and call you back in 15 minutes" — then do it.</p></div>
+  <div class="callout dont"><span class="ct">Don't</span><p>Talk over the driver. If he's talking, you're listening. Period.</p></div>
+  <div class="callout dont"><span class="ct">Don't</span><p>Dodge the detention/breakdown/orientation pay question. Quote the number — even if it's zero.</p></div>
+  <div class="callout dont"><span class="ct">Don't</span><p>Promise peak-season numbers ($3K/week) as the standard. Frame as upside.</p></div>
+  <div class="callout dont"><span class="ct">Don't</span><p>Push when he says no. Get his preferences, refer him out, earn on the referral, keep the relationship alive.</p></div>
+</section>
+
+<section class="blk" id="memorability" data-title="Memorability &amp; Sales Skills" data-grp="Handling" data-n="10">
+  <div class="kick">Section 10</div>
+  <h2 class="title">Memorability &amp; Sales Skills</h2>
+  <p class="lede">A driver who doesn't sign with you today is still looking again in 3–12 months. The recruiter he calls back is the one who left a mark.</p>
+  <h3>Already baked into how we work</h3>
+  <div class="step"><div class="num">1</div><div class="bd"><b>The "dispatch" opener</b> separates you from 90% of the recruiters he's talked to today.</div></div>
+  <div class="step"><div class="num">2</div><div class="bd"><b>The referral-out play</b> when he isn't a fit. No driver hangs up empty-handed.</div></div>
+  <div class="step"><div class="num">3</div><div class="bd"><b>Honest math</b> ($0.75 vs $0.65) instead of vague claims.</div></div>
+  <div class="step"><div class="num">4</div><div class="bd"><b>Upfront disclosure</b> on the annoying parts of the job.</div></div>
+  <h3>Layer these on deliberately</h3>
+  <h4>Slow down. Use silence.</h4>
+  <p>New recruiters race through their pitch. Pause after key points. Let the driver fill the silence — that's where you learn what actually matters to him.</p>
+  <h4>Use the driver's name — strategically, not constantly</h4>
+  <p>Once at the open. Once when you're answering something important. Once at the close.</p>
+  <h4>Ask the question nobody else asks</h4>
+  <div class="quote"><span class="lbl">Better questions</span>"What's the one thing your last company got wrong that you don't want repeated?"</div>
+  <div class="quote">"If we talked again in six months and you were thrilled with where you ended up — what would have happened?"</div>
+
+  <h4 id="steer-rotation">Steering toward 2–3 week rotations (the right way)</h4>
+  <p>Our standard rotation is <b>2 weeks driving, then home time</b>, but our top earners stretch that to 3 weeks before coming home. The math heavily favors the longer stretch — every truck restart kills half a day on each end and you miss the best Tuesday-Wednesday load stacks. The goal isn't to trick a driver into committing to longer stretches. The goal is to <b>anchor the 2-week baseline early</b> and <b>surface the 3-week upside</b> so the driver can choose with the math in front of him.</p>
+  <div class="card"><h4 style="margin-top:0">Six techniques to surface the longer rotation organically</h4>
+    <ol class="clean">
+      <li><b>Anchor with the rotation, not the weekend.</b> Open with "our standard is two weeks driving, then a long weekend home." This frames the two-week stretch as the baseline.</li>
+      <li><b>Ask about goals, not preferences.</b> "What are you trying to accomplish in the next six months?" If he says "pay off my truck" — the 2- or 3-week rotation gets him there faster.</li>
+      <li><b>Let the math do the work.</b> "Drivers running two-week rotations clear about [$X] a month. Drivers stretching to three weeks clear about [$Y]. You pick."</li>
+      <li><b>Use the peak-season frame.</b> "Heading into Prime Day. Drivers crushing the peak are the ones doing 2 to 3 at a time."</li>
+      <li><b>Use the first-90-days frame.</b> "Most new drivers stay out 2 to 3 weeks for the first 90 days while the routes click."</li>
+      <li><b>Lean on the equipment.</b> "The truck is your second home — fridge, inverter, fully kitted. Two weeks goes by quick when the cab is comfortable."</li>
+    </ol>
+  </div>
+  <div class="quote"><span class="lbl">Sample script — natural framing</span>"Quick thing on home time — our standard is two weeks driving, then a long weekend home, then back out. Most of our top earners actually stretch that to three weeks. The math: every time you come home you lose half a day on the front end and half a day on the back end, plus you miss the best Tuesday-Wednesday load stacks. Drivers doing three weeks clear noticeably more than drivers doing two. What does your home situation look like?"</div>
+  <div class="callout dont"><span class="ct">When not to push this</span><p>Some drivers genuinely need home more often. Watch for: young kids at home (under 2), spouse with health issues, recently divorced, single parent, unprompted family stress. If those signals appear, support weekly home — the cost of a quit-in-60-days driver is always higher than a few extra home days.</p></div>
+
+  <h4>Take notes on the personal stuff</h4>
+  <p>His daughter's graduation. His truck payment ending in November. Write it down. Next call: "How's your wife recovering?"</p>
+  <h4>Plant the referral seed every call</h4>
+  <div class="quote"><span class="lbl">Referral ask</span>"Even if this isn't the right fit, if you know any drivers running regional out of the Northeast, send them my way and I'll treat them right."</div>
+  <h4>Give him value even when there's no deal</h4>
+  <p>"Based on what you're looking for, I'd check out XYZ — tell them I sent you." Advisors get called back. Recruiters get blocked.</p>
+  <h4>The 30-day no-pitch check-in</h4>
+  <p>Text him a month later: "Hey, it's [name] from dispatch — just checking in, how's the new gig treating you?" 95% of recruiters skip this. It's the highest-ROI move in the industry.</p>
+  <h4>Have a signature sign-off</h4>
+  <p>Something that's yours — "drive safe, stay paid," "talk soon, brother." Repetition + distinctiveness = memorability.</p>
+  <div class="grid g2">
+    <div class="card"><h5>For the truck</h5><p style="font-family:var(--serif);font-style:italic;margin:0">"Your second home."</p></div>
+    <div class="card"><h5>For owner operators</h5><p style="font-family:var(--serif);font-style:italic;margin:0">"The way you work is the way we work."</p></div>
+  </div>
+</section>
+
+<section class="blk" id="peak-season" data-title="Peak Season Playbook" data-grp="Timing">
+  <div class="kick">Section</div>
+  <h2 class="title">Peak Season Playbook</h2>
+  <p class="lede">Amazon's calendar drives our business. Knowing when the rates spike, when the volume slows, and what to do in each window separates okay recruiters from great ones.</p>
+  <div class="card"><h5>January – February <span class="tag opt">Slow</span></h5><p style="margin:6px 0 0">Post-holiday slowdown. Volume drops, rates soften. <b>Focus on retention</b> — call your active drivers to thank them, check in. Reactivate cold leads. Deep-train new recruiters. Build the referral pipeline for spring.</p></div>
+  <div class="card"><h5>March – April <span class="tag std">Building</span></h5><p style="margin:6px 0 0">Spring uptick. Volume picks back up, hiring competition starts. <b>Push for new hires</b> ahead of summer. Drivers who join now are ready for Prime Day peak.</p></div>
+  <div class="card"><h5>May – June <span class="tag std">Prep</span></h5><p style="margin:6px 0 0">Prime Day prep season. Amazon ramps inventory. <b>Frame conversations around the upcoming peak</b> — "if you start now, you'll be running peak rates by July."</p></div>
+  <div class="card"><h5>July (Prime Day) <span class="tag avail">Peak</span></h5><p style="margin:6px 0 0">Biggest mid-year window. Rates spike, hours pile up. <b>This is the $3K-week moment.</b> Push existing drivers hard. New applicants — close fast.</p></div>
+  <div class="card"><h5>August – September <span class="tag std">Steady</span></h5><p style="margin:6px 0 0">Back-to-school + tax-free weekends keep volume up. Cool-down from July but still busy. <b>Recover and resupply</b> — onboard the drivers who applied in June but didn't start in time.</p></div>
+  <div class="card"><h5>October <span class="tag avail">Ramping</span></h5><p style="margin:6px 0 0">Halloween push + early holiday inventory positioning. <b>Lock in drivers</b> for the November/December run. Anyone who isn't ready by mid-October will miss the biggest weeks.</p></div>
+  <div class="card" style="border-left:4px solid var(--red)"><h5>November (Black Friday / Cyber Monday) <span class="tag" style="background:var(--red-soft);color:var(--red)">Mega Peak</span></h5><p style="margin:6px 0 0">The biggest weeks of the year. Rates often hit ceiling. <b>All hands on deck</b>: every existing driver maxed out, every new applicant fast-tracked. This is where reputations are made.</p></div>
+  <div class="card" style="border-left:4px solid var(--red)"><h5>December (through ~22nd) <span class="tag" style="background:var(--red-soft);color:var(--red)">Mega Peak</span></h5><p style="margin:6px 0 0">Christmas push. Same intensity as November through about the 22nd, then it tapers fast. <b>Keep drivers happy with strong dispatch</b> — peak season is also when drivers shop around. Bad service in December costs you in January.</p></div>
+  <div class="card"><h5>Dec 24 – Dec 31 <span class="tag opt">Slow</span></h5><p style="margin:6px 0 0">Holiday week slowdown. Some loads still move but volume drops. <b>Send personal holiday messages</b> to every active driver. Costs nothing, drives loyalty into January.</p></div>
+  <h3>Scripts keyed to peak windows</h3>
+  <div class="quote"><span class="lbl">Spring framing (Mar–June)</span>"If you start in the next few weeks, you'll be fully onboarded and running by Prime Day. Last year drivers who hit that window were the ones crossing $3K weeks. The runway matters — apply now, you ride the peak. Apply in July, you miss it."</div>
+  <div class="quote"><span class="lbl">Peak urgency (during Prime Day, BFCM)</span>"I'm not going to oversell this — but right now is the busiest week we've had in months. Rates are up, loads are stacking. If you've got your paperwork ready, I can have you in the truck this week and earning peak money. If you can't move that fast, no hard feelings, but the rates won't be this high in a month."</div>
+  <div class="quote"><span class="lbl">Slow-season retention call</span>"Hey [name], it's [your name] — not calling for anything in particular, just wanted to check in. How's the truck running? How's home? Anything you need from us? Slow time of year for everyone — wanted to make sure you're set up for when it picks back up."</div>
+  <div class="callout why"><span class="ct">The big idea</span><p>Peak season is for closing. Slow season is for building. Most recruiters only call when they need a body in a seat — the great ones are calling year-round, which is why they always have a pipeline when the peak hits.</p></div>
+</section>
+
+<section class="blk" id="checklist" data-title="In-Call Checklist" data-grp="Live-Call Tools">
+  <div class="kick">Live call tool</div>
+  <h2 class="title">In-Call Checklist</h2>
+  <p class="lede">Tick boxes as you cover each point during a live call — don't hang up until everything important has been said. The <span class="kw">amber phrases</span> are signature keywords; say them out loud, word-for-word, every time.</p>
+  <button class="btn" id="chkReset" style="margin:4px 0 10px">↺ Reset checklist</button>
+  <div id="checklist">
+    <div class="chk-grp"><div class="hd">Opening (first 30 seconds)</div>
+      <label class="chk"><input type="checkbox"><span class="lb">Opened with <span class="kw">"This is dispatch"</span> — not "I'm a recruiter"</span></label>
+      <label class="chk"><input type="checkbox"><span class="lb">Confirmed: regional Amazon intermodal — is it up your alley?</span></label>
+      <label class="chk"><input type="checkbox"><span class="lb">If they say NO → switch to <a href="#pref-form">Driver Preferences Form</a> and refer out</span></label>
+    </div>
+    <div class="chk-grp"><div class="hd">The operation</div>
+      <label class="chk"><input type="checkbox"><span class="lb">Said: rail yards, <b>NOT</b> ports</span></label>
+      <label class="chk"><input type="checkbox"><span class="lb">Said: containers go to Amazon facilities (or Amazon third-party)</span></label>
+      <label class="chk"><input type="checkbox"><span class="lb">Said: mostly power-only hook &amp; drop</span></label>
+      <label class="chk"><input type="checkbox"><span class="lb">Said: live loads exist but Amazon is palletized (~2 hrs max)</span></label>
+      <label class="chk"><input type="checkbox"><span class="lb">Named the triangle: Harrisburg / Baltimore / Carlisle / Hagerstown / Chambersburg</span></label>
+      <label class="chk"><input type="checkbox"><span class="lb">Said: 3–4 loads per day, lighter weights</span></label>
+      <label class="chk"><input type="checkbox"><span class="lb">Said: CT and MA are <span class="kw">optional — driver's choice</span></span></label>
+    </div>
+    <div class="chk-grp"><div class="hd">Pay — company driver</div>
+      <label class="chk"><input type="checkbox"><span class="lb">Stated: 25% to start, 30% after 90 days</span></label>
+      <label class="chk"><input type="checkbox"><span class="lb">Walked the math: 25% × $3/mi = $0.75/mi vs $0.65 industry average</span></label>
+      <label class="chk"><input type="checkbox"><span class="lb">Stated target: $1,000/day, $7,000/week minimum gross</span></label>
+      <label class="chk"><input type="checkbox"><span class="lb">Mentioned peak-season upside ($3K+/week) — framed as <b>upside, not norm</b></span></label>
+    </div>
+    <div class="chk-grp"><div class="hd">Pay — owner operator (if applicable)</div>
+      <label class="chk"><input type="checkbox"><span class="lb">Tiered dispatch fee: 11% under $5K / 13% $5K–$8K / 15% over $8K</span></label>
+      <label class="chk"><input type="checkbox"><span class="lb">Insurance: $2,100/month, broken down by week ($700 in weeks 1–3)</span></label>
+      <label class="chk"><input type="checkbox"><span class="lb">ELD weekly fee + fuel card explained</span></label>
+      <label class="chk"><input type="checkbox"><span class="lb">24/7 dispatch — first to see the good loads</span></label>
+      <label class="chk"><input type="checkbox"><span class="lb">Used keyword: <span class="kw">your way of working is our way of working</span></span></label>
+      <label class="chk"><input type="checkbox"><span class="lb">Confirmed: no forced home time for O/O</span></label>
+    </div>
+    <div class="chk-grp"><div class="hd">Home time</div>
+      <label class="chk"><input type="checkbox"><span class="lb">Matched home-time policy to the driver's home location</span></label>
+      <label class="chk"><input type="checkbox"><span class="lb">If in-region: explained <b>2 weeks driving before first home time</b>, plus overnight-near-home courtesy during the stretch</span></label>
+      <label class="chk"><input type="checkbox"><span class="lb">If far (FL/TX/NM): flight tickets, 4–5 weeks before flying home</span></label>
+      <label class="chk"><input type="checkbox"><span class="lb">Pushed toward <b>3-week rotation</b> when the driver's situation allows — used the math, let the driver choose</span></label>
+      <label class="chk"><input type="checkbox"><span class="lb">Scanned for family-stress red flags (young kids, marriage strain) — backed off the longer-rotation push if any showed up</span></label>
+    </div>
+    <div class="chk-grp"><div class="hd">Equipment</div>
+      <label class="chk"><input type="checkbox"><span class="lb">Mentioned: Freightliner automatic, 2019–2024, well maintained</span></label>
+      <label class="chk"><input type="checkbox"><span class="lb">Listed cab amenities (fridge, inverter, etc.)</span></label>
+      <label class="chk"><input type="checkbox"><span class="lb">Used keyword: <span class="kw">your second home</span></span></label>
+      <label class="chk"><input type="checkbox"><span class="lb">Offered to send photos of the actual truck before they start</span></label>
+    </div>
+    <div class="chk-grp"><div class="hd">Driver requirements</div>
+      <label class="chk"><input type="checkbox"><span class="lb">Confirmed: 2+ years CDL driving experience</span></label>
+      <label class="chk"><input type="checkbox"><span class="lb">Mentioned: no endorsements required</span></label>
+      <label class="chk"><input type="checkbox"><span class="lb">Honest framing of physical demands (3–4 hooks/day)</span></label>
+    </div>
+    <div class="chk-grp"><div class="hd">Sales moves — every call</div>
+      <label class="chk"><input type="checkbox"><span class="lb">Slowed down — let silence work after key points</span></label>
+      <label class="chk"><input type="checkbox"><span class="lb">Used the driver's name (open, key point, close)</span></label>
+      <label class="chk"><input type="checkbox"><span class="lb">Asked the question nobody else asks ("What did your last company get wrong?")</span></label>
+      <label class="chk"><input type="checkbox"><span class="lb">Took notes on personal details (family, truck payment, etc.) for next call</span></label>
+      <label class="chk"><input type="checkbox"><span class="lb">Planted the referral seed before hanging up</span></label>
+      <label class="chk"><input type="checkbox"><span class="lb">Used a signature sign-off</span></label>
+    </div>
+    <div class="chk-grp"><div class="hd">Close</div>
+      <label class="chk"><input type="checkbox"><span class="lb">If <b>interested</b>: collected CDL + medical card; explained Amazon verification is the bottleneck; flight to NJ + truck pickup once approved</span></label>
+      <label class="chk"><input type="checkbox"><span class="lb">Sold the "no traditional orientation" angle — they're rolling, not sitting in a classroom unpaid</span></label>
+      <label class="chk"><input type="checkbox"><span class="lb">If <b>not a fit</b>: opened the <a href="#pref-form">Driver Preferences Form</a> and captured preferences for referral</span></label>
+      <label class="chk"><input type="checkbox"><span class="lb">If <b>on the fence</b>: scheduled a 30-day no-pitch follow-up</span></label>
+    </div>
+  </div>
+  <div class="callout why"><span class="ct">Tip</span><p>Some recruiters keep a paper copy of this checklist next to the phone and tick by hand. Either way works — the point is to not leave a call having forgotten the math, the keywords, or the referral ask.</p></div>
+</section>
+
+<section class="blk" id="templates" data-title="Voicemail &amp; Text Templates" data-grp="Live-Call Tools">
+  <div class="kick">Live call tool</div>
+  <h2 class="title">Voicemail &amp; Text Templates</h2>
+  <p class="lede">Most outbound calls go to voicemail. Many drivers prefer text over phone. These templates cover the contact attempts that don't become live calls.</p>
+  <div class="callout"><span class="ct">Rule</span><p>Same tone as a live call — calm, useful, no pressure. Never leave a voicemail that sounds like a pitch.</p></div>
+  <h3>Voicemail templates</h3>
+  <div class="card"><h5>First-touch voicemail (outbound)</h5><p class="sub">When: You're calling on an application. Keep it under 20 seconds.</p><div class="quote" style="margin:0">"Hey [first name], this is [your name] over at dispatch — I'm following up on the application we got from you. No rush, just wanted to put a face on the name. Give me a ring back when you have a minute, my number is [your number]. Drive safe."</div></div>
+  <div class="card"><h5>Second voicemail (3–5 days later, if no callback)</h5><p class="sub">When: First voicemail got no response. Softer angle.</p><div class="quote" style="margin:0">"Hey [first name], [your name] from dispatch again. Just want to make sure you got my last message — and to let you know if this isn't the right time, no worries at all. If you're still looking, shoot me a text and we'll find a time. [Your number]."</div></div>
+  <div class="callout dont"><span class="ct">Do not</span><p>Leave a third unsolicited voicemail. After two, switch to text only.</p></div>
+  <h3>Text message templates</h3>
+  <div class="card"><h5>First-touch text (alternative to voicemail)</h5><div class="quote" style="margin:0">"Hey [first name] — this is [your name] over at dispatch. Got your application. When's a good time to chat for 5 minutes about what we run? Regional Amazon intermodal, MD/PA area. No pressure."</div></div>
+  <div class="card"><h5>No-answer follow-up text (same day or next day)</h5><div class="quote" style="margin:0">"Hey [first name] — [your name] from dispatch. Tried you a minute ago, left a voicemail. When you have a minute, text me back and we'll set a time. No rush."</div></div>
+  <div class="card"><h5>"Still looking?" check-in (one week later)</h5><div class="quote" style="margin:0">"[First name] — [your name] from dispatch. Are you still looking for a regional gig? If yes, let me know and I'll work around your schedule. If no, all good — just send me a 'no thanks' so I'm not bothering you."</div></div>
+  <div class="card"><h5>30-day no-pitch check-in</h5><p class="sub">When: Driver said no or took a different gig. 30 days later. No ask.</p><div class="quote" style="margin:0">"Hey [first name], it's [your name] from dispatch — just checking in. How's the new gig treating you?"</div></div>
+  <div class="card"><h5>Truck photo intro (after Amazon verifies)</h5><div class="quote" style="margin:0">"Good news [first name] — Amazon cleared you. Here's your truck. Freightliner automatic, [year], fully equipped. I'll book your flight tomorrow. Anything you want me to grab and put in the cab before you get here? Drive safe."</div></div>
+  <div class="card"><h5>Referral thank-you text</h5><div class="quote" style="margin:0">"[Referrer first name] — [your name] from dispatch. Your buddy [referred driver first name] just reached out. Appreciate you sending him my way. I'll take care of him like I take care of you."</div></div>
+</section>
+
+<section class="blk" id="pref-form" data-title="Driver Preferences Form" data-grp="Live-Call Tools">
+  <div class="kick">Live call tool</div>
+  <h2 class="title">Driver Preferences Form</h2>
+  <p class="lede">When a driver isn't a fit for us, capture what they're looking for so we can shop them to a partner company. Fill it out during the call, hit <b>Generate summary</b>, and send the result to your contact at the partner carrier.</p>
+  <div class="callout"><span class="ct">Middle-ground rule</span><p>What the driver asks for isn't always what they'll get. Capture both the wish list <b>and</b> the deal-breakers, so partner recruiters know exactly where there's room to negotiate.</p></div>
+  <div class="card form">
+    <div class="grid g2">
+      <div><label>Driver name</label><input id="f_name" placeholder="First &amp; last"></div>
+      <div><label>Phone</label><input id="f_phone" placeholder="(xxx) xxx-xxxx"></div>
+    </div>
+    <div class="grid g2">
+      <div><label>Home base (city, state)</label><input id="f_home" placeholder="e.g. Lancaster, PA"></div>
+      <div><label>Years CDL experience</label><input id="f_exp" placeholder="e.g. 6"></div>
+    </div>
+    <div class="grid g2">
+      <div><label>Driver type</label><select id="f_type"><option>Company driver</option><option>Owner operator</option><option>Not sure yet</option></select></div>
+      <div><label>Pay model wanted</label><select id="f_pay"><option>No preference</option><option>Mileage (cpm)</option><option>Percentage</option><option>Flat / salary</option></select></div>
+    </div>
+    <div class="grid g2">
+      <div><label>Home time needed</label><select id="f_hometime"><option>No preference</option><option>Home daily</option><option>Weekends home</option><option>1–2 weeks out OK</option><option>3+ weeks out OK</option></select></div>
+      <div><label>Lanes / region wanted</label><input id="f_lanes" placeholder="e.g. Southeast, dedicated"></div>
+    </div>
+    <label>Freight type wanted</label><input id="f_freight" placeholder="e.g. dry van, reefer, dedicated, flatbed">
+    <label>Deal-breakers (why we weren't a fit)</label><textarea id="f_deal" placeholder="e.g. needs guaranteed detention pay; wants dedicated lane; home every night"></textarea>
+    <label>Endorsements / notes</label><textarea id="f_notes" placeholder="Hazmat? Tanker? Accidents/DUIs? Anything a partner should know."></textarea>
+    <div style="margin-top:14px;display:flex;gap:10px;flex-wrap:wrap">
+      <button class="btn" id="genBtn" style="background:var(--accent);color:#fff;border-color:var(--accent)">Generate summary</button>
+      <button class="btn" id="copyBtn">Copy</button>
+      <button class="btn" id="clrBtn">Clear</button>
+    </div>
+    <div class="out" id="f_out">Fill in the fields above, then Generate summary.</div>
+  </div>
+</section>
+
+<section class="blk" id="simulator" data-title="Objection Simulator" data-grp="Training">
+  <div class="kick">Training</div>
+  <h2 class="title">Objection Simulator</h2>
+  <p class="lede">Reading scripts isn't the same as making the choice yourself. Pick an answer for each scenario, then see how it plays out.</p>
+  <div id="sim"></div>
+  <div class="callout why"><span class="ct">How to use</span><p>Run through once before your first calls. Run through again after a week of real conversations — you'll see different things the second time.</p></div>
+</section>
+
+<section class="blk" id="sample-call" data-title="Sample Call — Start to Finish" data-grp="Training">
+  <div class="kick">Training</div>
+  <h2 class="title">Sample Call — Start to Finish</h2>
+  <p class="lede">A realistic anonymized inbound call. The margin notes explain what's happening psychologically at the key turns.</p>
+  <p><b>Setup:</b> A driver named "Marcus" has called after seeing a job posting. 6 years CDL, currently runs OTR dry van out of Pennsylvania, unhappy with home time, burned out on the recruiter pitch.</p>
+  <div class="tx">
+    <div class="row r"><div class="who">Recruiter</div><div class="say">This is dispatch — how can I help you?<div class="note">Opening with "dispatch" instead of "recruiter" lowers his defenses.</div></div></div>
+    <div class="row d"><div class="who">Marcus</div><div class="say">Hey — uh, yeah, I'm calling about the job posting. Regional Amazon thing?</div></div>
+    <div class="row r"><div class="who">Recruiter</div><div class="say">Yeah, that's us. Appreciate you reaching out. Before I go through everything, one quick confirmation — we mainly run regional Amazon intermodal, MD and PA area. Is that something you're up to?<div class="note">Qualifies him in 10 seconds.</div></div></div>
+    <div class="row d"><div class="who">Marcus</div><div class="say">Yeah, I'm interested. I'm sick of OTR honestly. Tell me about it.</div></div>
+    <div class="row r"><div class="who">Recruiter</div><div class="say">All right. Before I do — what's making you sick of OTR? I want to make sure I'm answering the right questions.<div class="note">The question nobody else asks. Buys massive credibility.</div></div></div>
+    <div class="row d"><div class="who">Marcus</div><div class="say">Honestly, just the time away. My wife and I had a kid last year. Plus the pay isn't what they said it was. My buddy says he's clearing more than me on regional.</div></div>
+    <div class="row r"><div class="who">Recruiter</div><div class="say">Got it. Two real things — home time and pay. Let me walk through both. Where do you live?<div class="note">Doesn't argue. Doesn't immediately pitch. Names the two things, then gathers info.</div></div></div>
+    <div class="row d"><div class="who">Marcus</div><div class="say">Lancaster, PA.</div></div>
+    <div class="row r"><div class="who">Recruiter</div><div class="say">Perfect. So home time — Lancaster's right in our region. Standard rotation is two weeks out, then a long weekend home, then back out. Most of our top earners stretch that to three weeks because the math favors it. But here's the in-region perk: if a load happens to drop you near Lancaster during the two-week stretch, you can run home, sleep in your own bed, see your kid for breakfast, hit the road in the morning. That doesn't reset the rotation — it's just a courtesy.<div class="note">Anchors with two weeks as baseline and three weeks as upside. Layers the overnight-courtesy on top.</div></div></div>
+    <div class="row d"><div class="who">Marcus</div><div class="say">Two weeks at a time? That's still a long stretch.</div></div>
+    <div class="row r"><div class="who">Recruiter</div><div class="say">It is. Here's what most drivers don't realize until they try it — the two-week rhythm actually clears more than weekly home time, because every time you reset the truck you lose half a day on each end and miss the best Tuesday-Wednesday load stacks. Plus the overnights when loads drop near home break it up. Now — pay. What's your buddy clearing?<div class="note">Addresses the pushback honestly. Then moves the call forward.</div></div></div>
+    <div class="row d"><div class="who">Marcus</div><div class="say">He says like $1,800 to $2,200 a week take-home.</div></div>
+    <div class="row r"><div class="who">Recruiter</div><div class="say">Okay. We do percentage pay, not mileage. 25% to start, 30% after 90 days. Average regional load pays around three bucks a mile. 25% of three dollars is 75 cents per mile in your pocket. Industry average mileage pay is around 65 cents — so you're already 10 cents above the average on day one, and you don't even have the 90-day bump yet.<div class="note">Specific numbers. Concrete and memorable.</div></div></div>
+    <div class="row d"><div class="who">Marcus</div><div class="say">Hmm. But I'd rather just have mileage pay so I know what I'm getting.</div></div>
+    <div class="row r"><div class="who">Recruiter</div><div class="say">I get it. Tell you what — pull up your last good week. Total the gross. Multiply by 25%. Divide by your miles. If that number is higher than your current per-mile rate, we should keep talking. If lower, I'll send you to a mileage-pay carrier I trust. Deal?<div class="note">Doesn't fight. Hands the math back. Offers the referral-out path.</div></div></div>
+    <div class="row d"><div class="who">Marcus</div><div class="say">All right, that's fair. What about detention pay?</div></div>
+    <div class="row r"><div class="who">Recruiter</div><div class="say">Going to be straight with you — we don't have separate detention pay. Same with layover or breakdown. The percentage already builds in the time. When a load pays $1,500 and you're getting 25%, you're making $375 on it whether it takes six hours or twelve. If guaranteed detention is a dealbreaker, tell me now and I'll point you to a carrier that has it.<div class="note">Doesn't dodge. Owns the no. Names the tradeoff.</div></div></div>
+    <div class="row d"><div class="who">Marcus</div><div class="say">Huh. Most recruiters dodge that. I appreciate you saying it.</div></div>
+    <div class="row r"><div class="who">Recruiter</div><div class="say">Means a lot. So with all that said — interested in moving forward? What I'd need is your CDL and medical card. From there I run it through Amazon for their verification. Once they clear you, we book your flight to NJ, you pick up your truck, and you're rolling. No classroom orientation.<div class="note">Honest close. Frames "no orientation" as a selling point.</div></div></div>
+    <div class="row d"><div class="who">Marcus</div><div class="say">No orientation? That's actually huge. Yeah, send me whatever you need.</div></div>
+    <div class="row r"><div class="who">Recruiter</div><div class="say">I'll text you right after we hang up. Text me back the CDL and medical card today if you can.<div class="note">Specific next step, specific time.</div></div></div>
+    <div class="row r"><div class="who">Recruiter</div><div class="say">One last thing, Marcus. If you know any other drivers running regional out of PA or MD who are tired of OTR, send them my way. I'll treat them right.<div class="note">The referral seed. Plants it before hanging up.</div></div></div>
+  </div>
+  <h3>What this call did right</h3>
+  <ul class="clean">
+    <li>Qualified in the first 30 seconds.</li>
+    <li>Asked the "what made you call" question instead of launching into pitch.</li>
+    <li>Used the driver's location specifically (Lancaster, PA).</li>
+    <li>Painted a picture instead of quoting policy.</li>
+    <li>Walked the pay math and offered to let the driver do the math himself.</li>
+    <li>Owned the "no" on detention pay.</li>
+    <li>Named the Amazon bottleneck proactively.</li>
+    <li>Planted the referral seed at the close.</li>
+  </ul>
+</section>
+
+<section class="blk" id="quick-ref" data-title="Quick Reference Card" data-grp="Reference" data-n="12">
+  <div class="kick">Section 12</div>
+  <h2 class="title">Quick Reference Card</h2>
+  <p class="lede">Every confirmed number and policy in one place. Print this page, keep it next to the phone.</p>
+  <h3>Operation</h3>
+  <div class="twrap"><table>
+    <tbody>
+      <tr><td style="width:34%"><b>Freight</b></td><td>Regional Amazon intermodal — rail yards → Amazon facilities</td></tr>
+      <tr><td><b>Load type</b></td><td>Mostly drop &amp; hook; some live loads (palletized, ~2 hr max)</td></tr>
+      <tr><td><b>Core lanes</b></td><td>MD, Baltimore, PA, NJ, VA</td></tr>
+      <tr><td><b>Extended</b></td><td>NC, Atlanta (available); CT, MA (optional — driver's choice)</td></tr>
+      <tr><td><b>Volume</b></td><td>3–4 loads per day</td></tr>
+    </tbody>
+  </table></div>
+  <h3>Pay — company driver</h3>
+  <div class="twrap"><table>
+    <tbody>
+      <tr><td style="width:34%"><b>Starting %</b></td><td>25%</td></tr>
+      <tr><td><b>After 90 days</b></td><td>30%</td></tr>
+      <tr><td><b>Daily target</b></td><td>$1,000+ gross</td></tr>
+      <tr><td><b>Weekly target</b></td><td>$7,000+ gross</td></tr>
+      <tr><td><b>Peak upside</b></td><td>$3,000+/week possible</td></tr>
+      <tr><td><b>Detention / Layover / Breakdown</b></td><td>$0</td></tr>
+    </tbody>
+  </table></div>
+  <h3>Pay — owner operator</h3>
+  <div class="twrap"><table>
+    <tbody>
+      <tr><td style="width:34%"><b>Dispatch fee</b></td><td>11% under $5K · 13% $5K–$8K · 15% over $8K</td></tr>
+      <tr><td><b>Insurance</b></td><td>$2,100/month ($700 weeks 1–3, $0 weeks 4–5)</td></tr>
+      <tr><td><b>ELD</b></td><td>$50/week (separate from fuel card)</td></tr>
+      <tr><td><b>Fuel card</b></td><td>Provided; expenses deducted at settlement</td></tr>
+      <tr><td><b>Home time</b></td><td>No forced policy</td></tr>
+    </tbody>
+  </table></div>
+  <h3>Home time</h3>
+  <div class="twrap"><table>
+    <tbody>
+      <tr><td style="width:34%"><b>In-region (MD, PA, NJ, VA, DE)</b></td><td>2 weeks driving → long weekend home → back out. Push toward 3 weeks for top earners. Overnight near home is a courtesy that doesn't reset the rotation.</td></tr>
+      <tr><td><b>Out of region, truckable</b></td><td>3 weeks out, 1 week home</td></tr>
+      <tr><td><b>FL, TX, NM</b></td><td>Flight tickets; 4–5 weeks out</td></tr>
+      <tr><td><b>O/O</b></td><td>No forced policy</td></tr>
+    </tbody>
+  </table></div>
+  <h3>Equipment &amp; onboarding</h3>
+  <div class="twrap"><table>
+    <tbody>
+      <tr><td style="width:34%"><b>Trucks</b></td><td>Freightliner automatic, 2019–2024, fully equipped</td></tr>
+      <tr><td><b>Experience</b></td><td>2+ years CDL, no endorsements</td></tr>
+      <tr><td><b>Documents</b></td><td>CDL, medical card</td></tr>
+      <tr><td><b>Verification</b></td><td>Owner approval → Amazon (bottleneck)</td></tr>
+      <tr><td><b>Orientation</b></td><td>None — flight to NJ → truck pickup → first dispatch</td></tr>
+    </tbody>
+  </table></div>
+  <h3>Signature keywords</h3>
+  <div class="grid g2">
+    <div class="card"><h5>The truck</h5><p style="font-family:var(--serif);font-style:italic;margin:0">"Your second home."</p></div>
+    <div class="card"><h5>Owner operator pitch</h5><p style="font-family:var(--serif);font-style:italic;margin:0">"The way you work is the way we work."</p></div>
+    <div class="card"><h5>Opener</h5><p style="font-family:var(--serif);font-style:italic;margin:0">"This is dispatch."</p></div>
+    <div class="card"><h5>Optional lanes</h5><p style="font-family:var(--serif);font-style:italic;margin:0">"CT and MA are optional — driver's choice."</p></div>
+  </div>
+</section>
+
+<section class="blk glos" id="glossary" data-title="Industry Glossary" data-grp="Reference">
+  <div class="kick">Reference</div>
+  <h2 class="title">Industry Glossary</h2>
+  <p class="lede">Trucking has its own language. If a driver throws a term at you and you go silent, you lose credibility.</p>
+  <input id="glosSearch" class="btn" style="width:100%;max-width:360px;padding:9px 12px;margin-bottom:6px" placeholder="🔍 Filter terms…">
+  <div id="glosList">
+    <div class="card" data-term="bol bill of lading"><span class="code">BOL</span><br>Bill of Lading. The paperwork that travels with a load.</div>
+    <div class="card" data-term="bobtail"><span class="code">Bobtail</span><br>Driving the truck without any trailer attached.</div>
+    <div class="card" data-term="broker"><span class="code">Broker</span><br>Middleman who matches loads to carriers but doesn't own trucks.</div>
+    <div class="card" data-term="bfcm black friday cyber monday"><span class="code">BFCM</span><br>Black Friday / Cyber Monday. One of the two biggest peak windows.</div>
+    <div class="card" data-term="cdl commercial driver license"><span class="code">CDL</span><br>Commercial Driver's License. Class A required for tractor-trailer.</div>
+    <div class="card" data-term="chassis"><span class="code">Chassis</span><br>The wheeled frame underneath a shipping container.</div>
+    <div class="card" data-term="consignee"><span class="code">Consignee</span><br>The receiver of a load. Usually an Amazon facility for us.</div>
+    <div class="card" data-term="deadhead"><span class="code">Deadhead</span><br>Driving with an empty trailer between loads.</div>
+    <div class="card" data-term="detention"><span class="code">Detention</span><br>Time spent waiting at a shipper or consignee after the appointment. We don't pay separately.</div>
+    <div class="card" data-term="dot department transportation"><span class="code">DOT</span><br>Department of Transportation. The federal regulator.</div>
+    <div class="card" data-term="dot physical medical"><span class="code">DOT physical</span><br>The medical exam every CDL driver must pass. Usually good for 2 years.</div>
+    <div class="card" data-term="drop and hook"><span class="code">Drop and hook</span><br>Pick up a pre-loaded trailer instead of waiting for a live load. Most of our work.</div>
+    <div class="card" data-term="dry van"><span class="code">Dry van</span><br>Standard enclosed trailer, no temperature control.</div>
+    <div class="card" data-term="eld electronic logging device"><span class="code">ELD</span><br>Electronic Logging Device. Federally required. $50/week for O/Os.</div>
+    <div class="card" data-term="fmcsa"><span class="code">FMCSA</span><br>Federal Motor Carrier Safety Administration.</div>
+    <div class="card" data-term="ftl ltl full less than truckload"><span class="code">FTL / LTL</span><br>Full Truckload / Less Than Truckload. We run FTL.</div>
+    <div class="card" data-term="hazmat"><span class="code">Hazmat</span><br>Hazardous materials. Requires H endorsement. We don't require it.</div>
+    <div class="card" data-term="hos hours of service"><span class="code">HOS</span><br>Hours of Service. Federal rules: 11 hours driving, 14-hour workday, 70 hours per 8 days.</div>
+    <div class="card" data-term="intermodal"><span class="code">Intermodal</span><br>Freight that moves on more than one mode of transport. Rail + truck.</div>
+    <div class="card" data-term="layover"><span class="code">Layover</span><br>Overnight stay waiting on the next load. We don't pay separately.</div>
+    <div class="card" data-term="live load"><span class="code">Live load</span><br>Trailer is loaded while you wait. Amazon is palletized so live loads max ~2 hours.</div>
+    <div class="card" data-term="mvr motor vehicle record"><span class="code">MVR</span><br>Motor Vehicle Record. State DMV record showing tickets and license status.</div>
+    <div class="card" data-term="otr over the road"><span class="code">OTR</span><br>Over the Road. Long-haul, away for weeks. We are not OTR — we're regional.</div>
+    <div class="card" data-term="owner operator oo"><span class="code">Owner Operator / O/O</span><br>A driver who owns their own truck.</div>
+    <div class="card" data-term="power only"><span class="code">Power only</span><br>Driver provides just the tractor; shipper provides the trailer/chassis.</div>
+    <div class="card" data-term="psp pre-employment screening"><span class="code">PSP</span><br>Pre-Employment Screening Program. Federal database of crash and inspection history.</div>
+    <div class="card" data-term="rate con confirmation"><span class="code">Rate con</span><br>Rate Confirmation. Document confirming the agreed pay for a load.</div>
+    <div class="card" data-term="reefer refrigerated"><span class="code">Reefer</span><br>Refrigerated trailer. We don't run reefer.</div>
+    <div class="card" data-term="settlement"><span class="code">Settlement</span><br>Weekly pay statement showing gross, fees, and net.</div>
+    <div class="card" data-term="sleeper"><span class="code">Sleeper</span><br>Cab with a bunk for OTR. Our trucks are sleepers.</div>
+    <div class="card" data-term="tractor"><span class="code">Tractor</span><br>The truck itself (without trailer).</div>
+    <div class="card" data-term="w2 1099"><span class="code">W2 / 1099</span><br>W2 = company driver. 1099 = owner operator (no withholding).</div>
+    <div class="card" data-term="yard rail yard"><span class="code">Yard / Rail yard</span><br>The intermodal terminal where rail and truck meet. NSRR and CSXT are the two big operators in our region.</div>
+  </div>
+  <div class="callout why"><span class="ct">If you don't know a term</span><p>It's better to ask the driver than to fake it. "Honest answer — I'm not sure what you mean by that. Can you walk me through it?" Drivers respect that more than a bluff.</p></div>
+</section>
+
+    </div>
+    <div class="foot">
+      © 2026 <b>CMJ Fleet</b> · Recruiter Playbook · Internal training use.
+      &nbsp;·&nbsp; <a href="https://t.me/adam_cooper" target="_blank" rel="noopener">✈ @adam_cooper</a>
+    </div>
+  </div>
+</div>
+<script>
+(function(){
+  var LS = {
+    get:function(k,d){try{var v=localStorage.getItem(k);return v==null?d:JSON.parse(v);}catch(e){return d;}},
+    set:function(k,v){try{localStorage.setItem(k,JSON.stringify(v));}catch(e){}}
+  };
+
+  /* ---- Build sidebar nav ---- */
+  var secs = [].slice.call(document.querySelectorAll('section.blk'));
+  var nav = document.getElementById('nav'), curGrp='';
+  secs.forEach(function(s){
+    var grp=s.getAttribute('data-grp')||'';
+    if(grp!==curGrp){var g=document.createElement('div');g.className='grp';g.textContent=grp;nav.appendChild(g);curGrp=grp;}
+    var a=document.createElement('a');a.href='#'+s.id;
+    var n=s.getAttribute('data-n');
+    a.innerHTML=(n?'<span class="n">'+n+'</span>':'<span class="n"></span>')+(s.getAttribute('data-title')||s.id);
+    a.setAttribute('data-for',s.id);
+    nav.appendChild(a);
+  });
+  var navLinks=[].slice.call(nav.querySelectorAll('a'));
+
+  /* ---- Scrollspy ---- */
+  var spy=function(){
+    var y=window.scrollY+140, cur=secs[0];
+    secs.forEach(function(s){ if(s.offsetTop<=y) cur=s; });
+    navLinks.forEach(function(a){a.classList.toggle('on', a.getAttribute('data-for')===cur.id);});
+  };
+  window.addEventListener('scroll',spy,{passive:true}); spy();
+
+  /* ---- Mobile menu ---- */
+  var side=document.getElementById('side'), scrim=document.getElementById('scrim');
+  function closeSide(){side.classList.remove('open');scrim.classList.remove('on');}
+  document.getElementById('menuBtn').onclick=function(){side.classList.toggle('open');scrim.classList.toggle('on');};
+  scrim.onclick=closeSide;
+  navLinks.forEach(function(a){a.addEventListener('click',closeSide);});
+
+  /* ---- Dark mode ---- */
+  var darkBtn=document.getElementById('darkBtn');
+  function applyTheme(t){document.documentElement.setAttribute('data-theme',t);darkBtn.textContent=t==='dark'?'☀️ Light':'🌙 Dark';LS.set('rp_theme',t);}
+  applyTheme(LS.get('rp_theme','light'));
+  darkBtn.onclick=function(){applyTheme(document.documentElement.getAttribute('data-theme')==='dark'?'light':'dark');};
+
+  /* ---- Checklist ---- */
+  var boxes=[].slice.call(document.querySelectorAll('#checklist input[type=checkbox]'));
+  var saved=LS.get('rp_chk',{});
+  var prog=document.getElementById('prog');
+  boxes.forEach(function(b,i){ b.checked=!!saved[i]; });
+  function updProg(){
+    var done=boxes.filter(function(b){return b.checked;}).length;
+    prog.textContent=done+' / '+boxes.length+' checked';
+  }
+  boxes.forEach(function(b,i){ b.addEventListener('change',function(){var s=LS.get('rp_chk',{});s[i]=b.checked;LS.set('rp_chk',s);updProg();}); });
+  updProg();
+  document.getElementById('chkReset').onclick=function(){boxes.forEach(function(b){b.checked=false;});LS.set('rp_chk',{});updProg();};
+
+  /* ---- Accordions ---- */
+  [].slice.call(document.querySelectorAll('.acc')).forEach(function(ac){
+    ac.querySelector('.q').addEventListener('click',function(){ac.classList.toggle('open');});
+  });
+
+  /* ---- Glossary filter ---- */
+  var gs=document.getElementById('glosSearch');
+  if(gs){ gs.addEventListener('input',function(){
+    var q=gs.value.toLowerCase().trim();
+    [].slice.call(document.querySelectorAll('#glosList .card')).forEach(function(c){
+      var t=(c.getAttribute('data-term')+' '+c.textContent).toLowerCase();
+      c.style.display=(!q||t.indexOf(q)>-1)?'':'none';
+    });
+  }); }
+
+  /* ---- Driver Preferences Form ---- */
+  var F=function(id){var e=document.getElementById(id);return e?e.value.trim():'';};
+  function genSummary(){
+    var L=[];
+    L.push('DRIVER REFERRAL — CMJ Dispatch');
+    L.push('----------------------------------');
+    L.push('Name: '+(F('f_name')||'—'));
+    L.push('Phone: '+(F('f_phone')||'—'));
+    L.push('Home base: '+(F('f_home')||'—'));
+    L.push('CDL experience: '+(F('f_exp')||'—')+' yrs');
+    L.push('Driver type: '+F('f_type'));
+    L.push('');
+    L.push('WANTS');
+    L.push('  Pay model: '+F('f_pay'));
+    L.push('  Home time: '+F('f_hometime'));
+    L.push('  Lanes/region: '+(F('f_lanes')||'—'));
+    L.push('  Freight type: '+(F('f_freight')||'—'));
+    L.push('');
+    L.push('DEAL-BREAKERS (why not a fit for us): '+(F('f_deal')||'—'));
+    L.push('NOTES / endorsements: '+(F('f_notes')||'—'));
+    return L.join('\n');
+  }
+  var out=document.getElementById('f_out');
+  if(document.getElementById('genBtn')){
+    document.getElementById('genBtn').onclick=function(){out.textContent=genSummary();};
+    document.getElementById('copyBtn').onclick=function(){
+      var t=out.textContent;
+      if(navigator.clipboard){navigator.clipboard.writeText(t);}
+      var b=document.getElementById('copyBtn');var o=b.textContent;b.textContent='✓ Copied';setTimeout(function(){b.textContent=o;},1400);
+    };
+    document.getElementById('clrBtn').onclick=function(){
+      ['f_name','f_phone','f_home','f_exp','f_lanes','f_freight','f_deal','f_notes'].forEach(function(id){document.getElementById(id).value='';});
+      out.textContent='Fill in the fields above, then Generate summary.';
+    };
+  }
+
+  /* ---- Objection Simulator ---- */
+  var SIM=[
+    {scn:"Look — your percentage is too low. I make more on mileage at my current gig.",opts:[
+      {ok:1,t:"Compared to what offer? Let's look at the actual numbers side by side so I'm not guessing.",v:["Best move.","You don't argue against a vague claim. Ask for specifics first."]},
+      {ok:0,t:"Let me show you the math: 25% of a $3/mile load is $0.75 per mile, above the $0.65 industry average.",v:["Premature.","Right math, wrong timing. Ask 'compared to what?' first."]},
+      {ok:0,t:"Everyone says that. Trust me, regional percentage pay always beats mileage.",v:["Don't.","'Trust me' is what every recruiter who lied to him said."]}
+    ]},
+    {scn:"I've been burned by recruiters before. I don't believe a word any of you say.",opts:[
+      {ok:1,t:"You should be skeptical. Here's how you can test me — I'll tell you the annoying parts, give you exact numbers, and if we're not a fit I'll refer you out.",v:["Best move.","Validate the skepticism, then offer concrete proof points he can verify in real time."]},
+      {ok:0,t:"I get that — but I'm different. We're really honest here, I promise.",v:["Don't.","Saying 'I'm different' is exactly what recruiters who lied said."]},
+      {ok:0,t:"Look man, every recruiter says they're different. Just hear me out.",v:["Don't.","Asking for the benefit of the doubt. Show, don't ask."]}
+    ]},
+    {scn:"I want to be home every single night. I'm done with overnight runs.",opts:[
+      {ok:1,t:"Honestly, if home every night is the deal, this isn't the right fit. What's driving the every-night need? Sometimes the answer behind that is something we can solve.",v:["Best move.","Don't fight it. Acknowledge mismatch, then surface the underlying need."]},
+      {ok:0,t:"Our two-week rotation is almost like being home every night because of the overnight courtesies.",v:["Misleading.","Two weeks out isn't 'like every night.' Drivers know the difference."]},
+      {ok:0,t:"Yeah we can do that — our regional schedule is super flexible.",v:["Don't.","This is a lie. He'll find out."]}
+    ]},
+    {scn:"My buddy at [Other Carrier] makes $2,400 a week. That beats anything you're offering.",opts:[
+      {ok:1,t:"Could be. Tell me what he's making and how — mileage or percentage, what lanes, what hours. Half the time the gap closes or flips when we run the side-by-side.",v:["Best move.","Gather info instead of arguing. If his deal is better, you say so and earn trust."]},
+      {ok:0,t:"He probably isn't telling you the whole story — most drivers exaggerate.",v:["Don't.","Calling his buddy a liar ends the call."]},
+      {ok:0,t:"That's impossible on the lanes he's running. Numbers don't add up.",v:["Don't.","You don't know his lanes. Reckless claim."]}
+    ]},
+    {scn:"What about detention pay? When I sit at a shipper for 6 hours, do I get paid?",opts:[
+      {ok:1,t:"Going to be straight: we don't have separate detention pay. Same with layover and breakdown. The percentage covers it. If guaranteed sit-pay is a dealbreaker, I'll refer you out.",v:["Best move.","Own the no. Name the tradeoff. Offer the referral exit."]},
+      {ok:0,t:"It depends — we handle delays case by case so it kind of evens out.",v:["Don't.","This is a dodge. Drivers smell a dodge instantly."]},
+      {ok:0,t:"Yeah, after two hours we pay you for the wait time.",v:["Don't.","This is a lie that gets caught on his second sit-and-wait."]}
+    ]},
+    {scn:"I don't want regional with different shippers every day — I want dedicated lanes.",opts:[
+      {ok:1,t:"We're not dedicated, we're regional. Dedicated drivers sit when their shipper slows down. We pick the best-paying loads inside a tight triangle — Harrisburg, Baltimore, Carlisle, Chambersburg. Same area, different loads, better money.",v:["Best move.","Honest reframe. Name the regional model, name what dedicated drivers don't say."]},
+      {ok:0,t:"Dedicated is basically what we run — same triangle, different shippers.",v:["Misleading.","Dedicated has a specific meaning. This will get caught the first week."]},
+      {ok:0,t:"Tell me what lane you want — I can probably get you dedicated.",v:["Don't.","Overpromising."]}
+    ]},
+    {scn:"I've never run a rail yard or Amazon facility before. That makes me nervous.",opts:[
+      {ok:1,t:"Most drivers haven't. Rail yards look intimidating but they're the easiest work — check in, hook the chassis, paperwork, leave. By week two you'll be faster than five-year veterans. Want me to walk you through what your first day looks like?",v:["Best move.","Validate, demystify, end with a forward-moving offer."]},
+      {ok:0,t:"Don't worry about it — we'll train you on the job. It's nothing.",v:["Dismissive.","Brushing off his concern undermines trust."]},
+      {ok:0,t:"Amazon and rail yards are tougher than what you've done before — but most figure it out.",v:["Don't.","Alarming AND false."]}
+    ]},
+    {scn:"Look, just put me in a truck. I'll send you my CDL and medical card after my first week.",opts:[
+      {ok:1,t:"Can't do that. We can't put anyone in a truck without CDL and medical card verified first. Send me both today, I'll have you in the verification pipeline by tomorrow. Federal rule.",v:["Best move.","Firm but warm. Names the federal reason. The pressure to skip docs is itself a red flag."]},
+      {ok:0,t:"Sure, I'll make an exception — just get me the docs in your first week.",v:["Hard no — red flag.","Federal regulations require verification first. Skipping is a major dealbreaker."]},
+      {ok:0,t:"For the CDL we'd need it now, but the medical card we can be flexible on.",v:["Don't.","Both are required."]}
+    ]},
+    {scn:"Can my wife ride along with me in the truck for the first month or two?",opts:[
+      {ok:1,t:"That's not a standard request — tell me more about what's going on. Is there something at home that's prompting it?",v:["Best move.","This request usually masks something deeper — housing, relationships. Probe gently."]},
+      {ok:0,t:"Sure, we have a passenger policy you can sign up for.",v:["Don't.","We don't have a casual passenger policy, and this skips a yellow flag."]},
+      {ok:0,t:"No, that's against policy.",v:["Too blunt.","Loses the chance to find out what's going on."]}
+    ]},
+    {scn:"If everything checks out, how fast can I be in a truck and earning?",opts:[
+      {ok:1,t:"You're ready. Send CDL and medical card today. I approve on our end, push it to Amazon — that's the bottleneck. Once they verify, we book your flight, you pick up the truck, you're rolling. Couple of weeks if everything goes smooth.",v:["Best move.","Names steps, names bottleneck, gives realistic timeframe."]},
+      {ok:0,t:"If you really push, I can probably get you behind the wheel this week.",v:["Don't.","Overpromising. Amazon's verification is the rate-limit."]},
+      {ok:0,t:"Depends on a lot of factors — let me come back to you.",v:["Don't.","Vague when he's asking a closeable question."]}
+    ]},
+    {scn:"Heads up — I had a DUI about five years ago. It's off my record now. Is that going to be a problem?",opts:[
+      {ok:1,t:"Honest answer — depends. Tell me more, and I'll be straight with you after we run MVR and PSP. Clean since? That helps. Either way I'll get back to you within a day or two.",v:["Best move.","Acknowledges sensitivity without dismissing. Names process honestly. Promises a real answer."]},
+      {ok:0,t:"DUI is an automatic disqualifier. Sorry.",v:["Don't.","Not always automatic, especially at five years with a clean record since."]},
+      {ok:0,t:"No problem at all — we hire DUI drivers all the time.",v:["Don't.","Premature reassurance, probably not accurate."]}
+    ]}
+  ];
+  var simWrap=document.getElementById('sim');
+  if(simWrap){
+    SIM.forEach(function(sc,i){
+      var order=sc.opts.map(function(_,j){return j;});
+      for(var k=order.length-1;k>0;k--){var r=Math.floor(Math.random()*(k+1));var tmp=order[k];order[k]=order[r];order[r]=tmp;}
+      var box=document.createElement('div');box.className='sim';
+      var h='<div style="font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-mute);font-weight:600;margin-bottom:6px">Scenario '+(i+1)+'</div>';
+      h+='<div class="scn">'+sc.scn+'</div>';
+      order.forEach(function(j){
+        var o=sc.opts[j];
+        h+='<div class="opt '+(o.ok?'good':'bad')+'" data-ok="'+o.ok+'">'+(o.ok?'':'')+o.t+
+           '<div class="verdict"><span class="vb">'+(o.ok?'✓ ':'✗ ')+o.v[0]+'</span> '+o.v[1]+'</div></div>';
+      });
+      box.innerHTML=h;
+      simWrap.appendChild(box);
+      [].slice.call(box.querySelectorAll('.opt')).forEach(function(opt){
+        opt.addEventListener('click',function(){
+          [].slice.call(box.querySelectorAll('.opt')).forEach(function(o){o.classList.add('reveal');});
+        });
+      });
+    });
+  }
+})();
+</script>
+</body>
+</html>
