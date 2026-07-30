@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>CMJ Driver Onboarding &amp; Dispatch SOP — Company Drivers</title>
-<meta name="description" content="CMJ company-driver onboarding standard operating procedure: pre-screening, MVR & flight-booking gates, equipment pickup and activation — a sequential compliance checklist.">
+<title>CMJ Owner-Operator Onboarding &amp; Dispatch SOP</title>
+<meta name="description" content="CMJ owner-operator onboarding standard operating procedure: lease-on vetting, title & registration validation, equipment credentials and hardware setup — a sequential compliance checklist.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
@@ -149,11 +149,12 @@ a:hover{text-decoration:underline}
   <aside class="side" id="side">
     <div class="brand">
       <div class="logo">CMJ <b>Onboarding</b></div>
-      <div class="sub">Company Driver SOP · SOP-FLT-0042</div>
+      <div class="sub">Owner-Operator SOP · SOP-FLT-OO-0043</div>
     </div>
     <nav class="nav" id="nav"></nav>
     <div class="sideprog"><div class="pct" id="pctBig">0%</div><div class="bar"><i id="barFill"></i></div><div class="lab" id="pctLab">0 of 0 steps signed off</div></div>
-    <a class="back" href="/recruiting">← Recruiter Playbook</a>
+    <a class="back" href="/onboarding">← Company Driver SOP</a>
+    <a class="back" href="/recruiting" style="margin-top:8px">← Recruiter Playbook</a>
     <a class="back" href="/" style="margin-top:8px">← Heavy-Duty Masterclass</a>
   </aside>
   <div class="scrim" id="scrim"></div>
@@ -161,7 +162,7 @@ a:hover{text-decoration:underline}
   <div class="main">
     <div class="topbar">
       <button class="btn menu-btn" id="menuBtn" aria-label="Menu">☰</button>
-      <span class="ttl">Driver Onboarding SOP</span>
+      <span class="ttl">Owner-Operator Onboarding SOP</span>
       <span class="spacer"></span>
       <span class="prog" id="prog"></span>
       <button class="btn" id="printBtn">🖨 Print</button>
@@ -170,15 +171,15 @@ a:hover{text-decoration:underline}
     <div class="wrap" id="content">
 
       <div class="soptabs">
-        <a href="/onboarding" class="on">Company Driver</a>
-        <a href="/onboarding-oo">Owner Operator</a>
+        <a href="/onboarding">Company Driver</a>
+        <a href="/onboarding-oo" class="on">Owner Operator</a>
       </div>
 
       <div class="dochdr">
-        <h1>Driver Onboarding &amp; Dispatch SOP</h1>
-        <div class="subttl">Comprehensive operational checklist: pre-screening, verification, logistics &amp; equipment readiness — company drivers.</div>
+        <h1>Owner-Operator Onboarding &amp; Dispatch SOP</h1>
+        <div class="subttl">Standard operating procedure: lease-on vetting, equipment credentials &amp; hardware setup — owner-operators.</div>
         <div class="meta">
-          <div><b>Document ID:</b> SOP-FLT-0042</div>
+          <div><b>Document ID:</b> SOP-FLT-OO-0043</div>
           <div><b>Effective date:</b> July 2026</div>
           <div><b>Department:</b> Safety, Compliance &amp; Fleet Ops</div>
           <div><b>Target audience:</b> Recruiters, Safety Officers, Dispatchers</div>
@@ -186,7 +187,7 @@ a:hover{text-decoration:underline}
       </div>
 
       <section class="blk" id="overview" data-title="Overview &amp; Mandate" data-grp="Start">
-        <div class="callout warn"><span class="ct">Operational compliance mandate</span><p>All steps in this standard operating procedure must be completed <b>sequentially</b>. No driver is permitted to receive travel booking, handle equipment, or dispatch on a load without full sign-off on required pre-screening, equipment readiness, and compliance checks.</p></div>
+        <div class="callout warn"><span class="ct">Owner-operator compliance mandate</span><p>All vetting criteria, title / registration validations, and equipment inspections must be executed <b>sequentially</b> before pulling MVR, sending ELD hardware, or dispatching on loads.</p></div>
         <p class="lede">Tick each item as it's signed off — your progress saves automatically on this device. The badges mark how blocking each step is.</p>
         <div class="legend">
           <span class="badge stop">Hard gate / stopper</span>
@@ -199,52 +200,55 @@ a:hover{text-decoration:underline}
 
       <div class="part">Part I · Pre-Onboarding Checklist</div>
 
-      <section class="blk phase" id="phase-11" data-title="Phase 1.1 — Screening &amp; Fraud" data-grp="Part I · Pre-Onboarding">
-        <div class="hd"><span class="tag">Phase 1.1</span><h3>Initial Screening &amp; Fraud Prevention</h3><div class="note">Prior to running MVR — before spending resources on background checks.</div></div>
+      <section class="blk phase" id="phase-11" data-title="Phase 1.1 — Screening &amp; Qualification" data-grp="Part I · Pre-Onboarding">
+        <div class="hd"><span class="tag">Phase 1.1</span><h3>Initial Screening, Fraud &amp; Equipment Qualification</h3><div class="note">Prior to running MVR — before processing background checks.</div></div>
         <div class="items">
-          <label class="chk"><input type="checkbox"><div class="lb"><div class="it-top"><b>Spam / Blacklist Check</b> <span class="badge stop">Critical stopper</span></div><div class="it-det">Cross-check the applicant against internal spam databases, known fraud lists, and double-brokering / identity-theft alert networks before spending resources on background checks.</div></div></label>
-          <label class="chk"><input type="checkbox"><div class="lb"><div class="it-top"><b>Amazon Portal Ready Check</b> <span class="badge req">Required</span></div><div class="it-det">Verify Amazon Relay / Carrier account status. Confirm the driver is good to add and request an active portal screenshot proving readiness.</div></div></label>
-          <label class="chk"><input type="checkbox"><div class="lb"><div class="it-top"><b>Pay &amp; Escrow Terms Agreement</b> <span class="badge stop">Mandatory agree</span></div><div class="it-det">Present pay rate, escrow terms, settlement schedule, and deductions. Driver <b>must explicitly agree</b> to the payment rate and escrow agreement prior to moving forward with onboarding.</div></div></label>
-          <label class="chk"><input type="checkbox"><div class="lb"><div class="it-top"><b>Driver License Collection</b> <span class="badge doc">Documentation</span></div><div class="it-det">Collect legibly scanned front and back copies of the current Commercial Driver License (CDL) and any previous CDLs held in the last 3 years.</div></div></label>
-          <label class="chk"><input type="checkbox"><div class="lb"><div class="it-top"><b>Medical Card Validity</b> <span class="badge req">Compliance mandate</span></div><div class="it-det">Inspect the DOT Medical Examiner's Certificate. Verify it is non-expired, valid, and fully registered with the state licensing agency (SDLA).</div></div></label>
-          <label class="chk"><input type="checkbox"><div class="lb"><div class="it-top"><b>Medical Card Expiry / Age Audit</b> <span class="badge req">Audit required</span></div><div class="it-det">Confirm the medical card is not too old / near expiration (must have at least 30–60 days remaining validity before requiring re-examination).</div></div></label>
-          <label class="chk"><input type="checkbox"><div class="lb"><div class="it-top"><b>Violations &amp; Accident Audit</b> <span class="badge req">Risk evaluation</span></div><div class="it-det">Inquire explicitly regarding prior 3-year traffic violations or preventable accidents. If the driver reports any, obtain a detailed written statement of events.</div></div></label>
-          <label class="chk"><input type="checkbox"><div class="lb"><div class="it-top"><b>Prior Carrier Verification</b> <span class="badge doc">Background check</span></div><div class="it-det">Collect USDOT and MC numbers of the driver's previous employers for safety-performance history and FMCSA Drug &amp; Alcohol Clearinghouse inquiries.</div></div></label>
+          <label class="chk"><input type="checkbox"><div class="lb"><div class="it-top"><b>1. Spam / Blacklist Check</b> <span class="badge stop">Critical stopper</span></div><div class="it-det">Cross-check the OO against internal spam databases, known fraud lists, and double-brokering alert networks before processing background checks.</div></div></label>
+          <label class="chk"><input type="checkbox"><div class="lb"><div class="it-top"><b>2. Mileage Threshold Audit</b> <span class="badge stop">Hard limit &lt;1M mi</span></div><div class="it-det">Verify the truck odometer reading is <b>under 1,000,000 miles</b>. Vehicles exceeding 1M miles are not eligible for lease-on.</div></div></label>
+          <label class="chk"><input type="checkbox"><div class="lb"><div class="it-top"><b>3. Terms &amp; Rate Agreement</b> <span class="badge stop">Mandatory agree</span></div><div class="it-det">Ensure the driver explicitly agrees in writing to <b>payment rates, insurance deductions, ELD program costs, and IFTA processing terms</b>.</div></div></label>
+          <label class="chk"><input type="checkbox"><div class="lb"><div class="it-top"><b>4. Truck Title Verification</b> <span class="badge doc">Documentation</span></div><div class="it-det">Collect front &amp; back scan of the truck title proving legal ownership or lienholder credentials.</div></div></label>
+          <label class="chk"><input type="checkbox"><div class="lb"><div class="it-top"><b>5. Annual Inspection Report</b> <span class="badge req">Compliance mandate</span></div><div class="it-det">Verify a current DOT Annual Vehicle Inspection report (valid within the last 12 months) covering the tractor setup.</div></div></label>
+          <label class="chk"><input type="checkbox"><div class="lb"><div class="it-top"><b>6. Amazon Portal Verification</b> <span class="badge req">Required</span></div><div class="it-det">Verify Amazon Relay / Carrier portal status. Obtain a screenshot proving the OO is cleared to be added to the carrier account without restrictions.</div></div></label>
+          <label class="chk"><input type="checkbox"><div class="lb"><div class="it-top"><b>7. Driver Age Qualification</b> <span class="badge req">Insurance limit ≤60</span></div><div class="it-det">Confirm the OO is <b>60 years old or younger</b> to meet primary insurance underwriter requirements.</div></div></label>
+          <label class="chk"><input type="checkbox"><div class="lb"><div class="it-top"><b>8. CDL &amp; Medical Card Audit</b> <span class="badge req">Compliance mandate</span></div><div class="it-det">Collect a valid CDL (front / back) &amp; non-expired DOT Medical Certificate. Verify SDLA registration and at least 30+ days remaining validity.</div></div></label>
+          <label class="chk"><input type="checkbox"><div class="lb"><div class="it-top"><b>9. 4-Side Truck &amp; Tire Photos</b> <span class="badge req">Inspection audit</span></div><div class="it-det">Collect clear photos of the truck from all 4 sides (front, rear, left, right), explicitly showing tire tread and overall physical condition.</div></div></label>
+          <label class="chk"><input type="checkbox"><div class="lb"><div class="it-top"><b>10. Registration &amp; Cab Card Update</b> <span class="badge stop">Registration gate</span></div><div class="it-det">Verify the OO has an updated cab card / registration listing <b>our company name as Registrant</b> (while the OO remains Owner).</div></div></label>
+          <label class="chk"><input type="checkbox"><div class="lb"><div class="it-top"><b>11. Violations &amp; Prior Carrier Check</b> <span class="badge doc">Background check</span></div><div class="it-det">Audit 3-year violation / accident history and obtain previous carrier USDOT / MC numbers for FMCSA Clearinghouse &amp; safety verification.</div></div></label>
         </div>
       </section>
 
-      <section class="blk phase g2" id="phase-12" data-title="Phase 1.2 — Pre-Travel Gates" data-grp="Part I · Pre-Onboarding">
-        <div class="hd"><span class="tag">Phase 1.2</span><h3>Pre-Travel &amp; Flight-Booking Gatekeeper</h3><div class="note">Before booking any flight / transportation. Each hard gate must clear first.</div></div>
+      <div class="part">Part II · Onboarding &amp; Equipment Dispatch</div>
+
+      <section class="blk phase g2" id="phase-21" data-title="Phase 2.1 — Decals &amp; Hardware" data-grp="Part II · Equipment Dispatch">
+        <div class="hd"><span class="tag">Phase 2.1</span><h3>Decals, Hardware &amp; Safety Kit Provisioning</h3><div class="note">Responsible unit shown per step.</div></div>
         <div class="items">
-          <label class="chk"><input type="checkbox"><div class="lb"><div class="it-top"><b>1. MVR Official Completion</b> <span class="badge stop">Hard gate</span></div><div class="it-det">Official Motor Vehicle Record (MVR) pulled, analyzed, and approved by Safety. Clean record or within acceptable company insurance threshold.</div></div></label>
-          <label class="chk"><input type="checkbox"><div class="lb"><div class="it-top"><b>2. Amazon Account Status</b> <span class="badge stop">Hard gate</span></div><div class="it-det">Re-confirm Amazon portal status remains active, good, and cleared for immediate driver assignment without restrictions.</div></div></label>
-          <label class="chk"><input type="checkbox"><div class="lb"><div class="it-top"><b>3. Payment &amp; Escrow Confirmation</b> <span class="badge req">Confirmed</span></div><div class="it-det">Re-confirm payment structure, escrow terms, and direct-deposit details have been fully explained and signed off by the driver.</div></div></label>
-          <label class="chk"><input type="checkbox"><div class="lb"><div class="it-top"><b>4. Active Medical Certificate</b> <span class="badge stop">Hard gate</span></div><div class="it-det">Final confirmation that the driver's DOT Medical Card is active, valid, and not expired on the day of travel.</div></div></label>
-          <label class="chk"><input type="checkbox"><div class="lb"><div class="it-top"><b>5. Intermodal Credentials</b> <span class="badge doc">Access enabled</span></div><div class="it-det">Verify the driver is successfully added to the UIIA portal and account access is opened on ShipCSX / Rail portals for intermodal loads.</div></div></label>
-          <label class="chk"><input type="checkbox"><div class="lb"><div class="it-top"><b>6. Truck Preparation &amp; Photos Audit</b> <span class="badge stop">Hard gate</span></div><div class="it-det"><b>Before booking flight tickets or assigning a truck:</b> obtain and review full truck pictures. Ensure the vehicle is thoroughly cleaned / detailed if required, company stickers are applied, and the ELD tablet &amp; hardware are fully ready and functional.</div></div></label>
-          <label class="chk"><input type="checkbox"><div class="lb"><div class="it-top"><b>7. Onboarding Links Sent</b> <span class="badge ok">Dispatch ready</span></div><div class="it-det">Dispatch travel tickets, orientation links, app login credentials, and digital paperwork packets directly to the driver's smartphone.</div></div></label>
+          <label class="chk"><input type="checkbox"><div class="lb"><div class="it-top"><b>1. Company Decals Printing</b> <span class="badge doc">Fleet Ops</span></div><div class="it-det">Print and issue official company USDOT / MC door decals and unit numbers according to fleet specifications.</div></div></label>
+          <label class="chk"><input type="checkbox"><div class="lb"><div class="it-top"><b>2. ELD Device &amp; Fuel Card Dispatch</b> <span class="badge req">Logistics</span></div><div class="it-det">Ship the dedicated ELD hardware tablet / cable and active company fuel card (EFS / Comdata) directly to the OO address via tracked courier.</div></div></label>
+          <label class="chk"><input type="checkbox"><div class="lb"><div class="it-top"><b>3. Decal Placement Photo Verification</b> <span class="badge stop">Safety Compliance</span></div><div class="it-det">Require the OO to submit clear photos of the truck showing newly affixed company decals on both doors before clearing equipment.</div></div></label>
+          <label class="chk"><input type="checkbox"><div class="lb"><div class="it-top"><b>4. Emergency Equipment Photo Audit</b> <span class="badge stop">DOT Safety Gate</span></div><div class="it-det">Collect clear photos verifying required safety gear inside the tractor: <b>fire extinguisher, paper logbook, and warning triangles</b>.</div></div></label>
+          <label class="chk"><input type="checkbox"><div class="lb"><div class="it-top"><b>5. Intermodal Portal Credentials</b> <span class="badge doc">Access enabled</span></div><div class="it-det">Add the OO tractor / driver credentials to UIIA, ShipCSX, and rail portals for intermodal access.</div></div></label>
         </div>
       </section>
 
-      <div class="part">Part II · Before First Load</div>
-      <p class="lede">Equipment pickup &amp; activation — completed once the driver physically picks up the truck.</p>
+      <div class="part">Part III · Before First Load</div>
+      <p class="lede">Final clearance — system integrations and the ownership handover that lets the OO roll.</p>
 
-      <section class="blk phase g3" id="phase-21" data-title="Phase 2.1 — Truck Handover" data-grp="Part II · Before First Load">
-        <div class="hd"><span class="tag">Phase 2.1</span><h3>Truck Handover &amp; Fleet Setup</h3><div class="note">Once the driver picks up the truck. Responsible unit shown per step.</div></div>
+      <section class="blk phase g3" id="phase-31" data-title="Phase 3.1 — Final Clearance" data-grp="Part III · Final Clearance">
+        <div class="hd"><span class="tag">Phase 3.1</span><h3>System Integrations &amp; Group Ownership Transfer</h3><div class="note">Each gate must clear before first dispatch.</div></div>
         <div class="items">
-          <label class="chk"><input type="checkbox"><div class="lb"><div class="it-top"><b>Official Safety Hire Execution</b> <span class="badge stop">Safety Dept</span></div><div class="it-det">Notify the Safety Department immediately upon physical truck inspection / pickup to officially activate driver status in the FMCSA portal &amp; internal HR.</div></div></label>
-          <label class="chk"><input type="checkbox"><div class="lb"><div class="it-top"><b>Fuel Card Activation</b> <span class="badge doc">Fleet Ops</span></div><div class="it-det">Issue and activate the driver fuel card (EFS / Comdata). Set appropriate daily limits, PIN, and unit-number assignments.</div></div></label>
-          <label class="chk"><input type="checkbox"><div class="lb"><div class="it-top"><b>ELD Group Onboarding</b> <span class="badge req">Dispatch / Safety</span></div><div class="it-det">Add the driver to the ELD software system (Samsara / Motive). Assign vehicle unit, login IDs, and add the driver to the primary ELD communications group.</div></div></label>
-          <label class="chk"><input type="checkbox"><div class="lb"><div class="it-top"><b>Accounting Group Integration</b> <span class="badge doc">Accounting</span></div><div class="it-det">Add the driver to the dedicated Accounting &amp; Settlement group channel. Verify payroll details and contact permissions.</div></div></label>
-          <label class="chk"><input type="checkbox"><div class="lb"><div class="it-top"><b>Group Ownership Handover</b> <span class="badge doc">System Admin</span></div><div class="it-det">Transfer ownership / management privileges of communication channels (ELD &amp; Accounting) to the designated ops and payroll managers.</div></div></label>
+          <label class="chk"><input type="checkbox"><div class="lb"><div class="it-top"><b>1. Official Safety Hire Execution</b> <span class="badge stop">Safety Dept</span></div><div class="it-det">Notify the Safety Department to officially activate OO status in the FMCSA portal &amp; internal HR system.</div></div></label>
+          <label class="chk"><input type="checkbox"><div class="lb"><div class="it-top"><b>2. Active ELD System Verification</b> <span class="badge stop">Hard gate</span></div><div class="it-det">Verify the ELD device is installed, connected to the ECM, powered on, assigned to the driver in Samsara / Motive, and transmitting location.</div></div></label>
+          <label class="chk"><input type="checkbox"><div class="lb"><div class="it-top"><b>3. Fuel Card Limit &amp; PIN Check</b> <span class="badge doc">Fleet Ops</span></div><div class="it-det">Confirm the fuel card is activated with proper daily limits, correct driver PIN assigned, and unit number matched.</div></div></label>
+          <label class="chk"><input type="checkbox"><div class="lb"><div class="it-top"><b>4. Open Accounting Group</b> <span class="badge doc">Accounting</span></div><div class="it-det">Create a dedicated Accounting &amp; Settlement channel for the OO to manage statements, IFTA reports, escrow, and deductions.</div></div></label>
+          <label class="chk"><input type="checkbox"><div class="lb"><div class="it-top"><b>5. Group Ownership Handover</b> <span class="badge ok">Last step · System Admin</span></div><div class="it-det"><b>Final step:</b> transfer administrative ownership and privileges of all operational communication channels (ELD &amp; Accounting) to the designated ops and payroll managers.</div></div></label>
         </div>
       </section>
 
-      <div class="callout why"><span class="ct">Driver rolling</span><p>Once every box above is signed off, the driver is fully hired, equipped, credentialed, and cleared for first dispatch. Keep the completed checklist on file for the driver's compliance record.</p></div>
+      <div class="callout why"><span class="ct">Owner-operator rolling</span><p>Once every box above is signed off, the owner-operator is fully vetted, credentialed under your authority, equipped, and cleared for first dispatch. Keep the completed checklist on file for the OO's compliance record.</p></div>
 
     </div>
     <div class="foot">
-      © 2026 <b>CMJ Fleet</b> · Fleet Operations Safety &amp; Compliance Standard Operating Procedure · SOP-FLT-0042
+      © 2026 <b>CMJ Fleet</b> · Fleet Operations Safety &amp; Compliance Standard Operating Procedure (OO) · SOP-FLT-OO-0043
       &nbsp;·&nbsp; <a href="https://t.me/adam_cooper" target="_blank" rel="noopener">✈ @adam_cooper</a>
     </div>
   </div>
@@ -271,7 +275,7 @@ a:hover{text-decoration:underline}
   document.getElementById('menuBtn').onclick=function(){side.classList.toggle('open');scrim.classList.toggle('on');};
   scrim.onclick=closeSide; links.forEach(function(a){a.addEventListener('click',closeSide);});
 
-  /* theme */
+  /* theme (shared with company SOP) */
   var darkBtn=document.getElementById('darkBtn');
   function applyTheme(t){document.documentElement.setAttribute('data-theme',t);darkBtn.textContent=t==='dark'?'☀️ Light':'🌙 Dark';LS.set('sop_theme',t);}
   applyTheme(LS.get('sop_theme','light'));
@@ -280,9 +284,9 @@ a:hover{text-decoration:underline}
   /* print */
   document.getElementById('printBtn').onclick=function(){window.print();};
 
-  /* checklist + progress */
+  /* checklist + progress (own key) */
   var boxes=[].slice.call(document.querySelectorAll('.chk input[type=checkbox]'));
-  var saved=LS.get('sop_chk',{});
+  var saved=LS.get('sop_oo_chk',{});
   boxes.forEach(function(b,i){b.checked=!!saved[i];});
   var prog=document.getElementById('prog'),pctBig=document.getElementById('pctBig'),barFill=document.getElementById('barFill'),pctLab=document.getElementById('pctLab');
   function upd(){
@@ -293,9 +297,9 @@ a:hover{text-decoration:underline}
     barFill.style.width=pct+'%';
     pctLab.textContent=done+' of '+tot+' steps signed off';
   }
-  boxes.forEach(function(b,i){b.addEventListener('change',function(){var s=LS.get('sop_chk',{});s[i]=b.checked;LS.set('sop_chk',s);upd();});});
+  boxes.forEach(function(b,i){b.addEventListener('change',function(){var s=LS.get('sop_oo_chk',{});s[i]=b.checked;LS.set('sop_oo_chk',s);upd();});});
   upd();
-  document.getElementById('resetBtn').onclick=function(){if(!confirm('Clear all sign-offs on this device?'))return;boxes.forEach(function(b){b.checked=false;});LS.set('sop_chk',{});upd();};
+  document.getElementById('resetBtn').onclick=function(){if(!confirm('Clear all sign-offs on this device?'))return;boxes.forEach(function(b){b.checked=false;});LS.set('sop_oo_chk',{});upd();};
 })();
 </script>
 </body>
