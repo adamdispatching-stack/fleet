@@ -198,7 +198,15 @@ ul.dash li:before{content:"—";position:absolute;left:0;color:var(--accent)}
 .leasedoc p{margin:8px 0}
 .leasedoc .sig{display:flex;justify-content:space-between;margin-top:34px;gap:24px}
 .leasedoc .sig .col{flex:1;min-width:0}
-.leasedoc .sigline{border-top:1px solid #141414;margin-top:34px;padding-top:4px;font-size:10.5px}
+.leasedoc .sigimg{height:40px;display:flex;align-items:flex-end;overflow:hidden}
+.leasedoc .sigimg img{max-height:40px;max-width:100%}
+.leasedoc .sigline{border-top:1px solid #141414;margin-top:2px;padding-top:4px;font-size:10.5px}
+.sigpad{border:1.5px dashed var(--line);border-radius:10px;background:var(--card);touch-action:none;width:100%;height:118px;display:block;cursor:crosshair;margin-top:4px}
+.sigpad:hover{border-color:var(--accent)}
+.sigpad-row{display:flex;justify-content:space-between;align-items:center;margin-top:5px}
+.sigpad-hint{font-size:11px;color:var(--ink-mute)}
+.link-btn{background:none;border:0;color:var(--accent);font-size:12px;cursor:pointer;padding:2px 4px;font-family:var(--sans)}
+.link-btn:hover{text-decoration:underline}
 @media(max-width:760px){.leasewrap{grid-template-columns:1fr}.unit{grid-template-columns:1fr 1fr}}
 
 .glos .code{margin-bottom:4px;display:inline-block}
@@ -775,6 +783,14 @@ ul.dash li:before{content:"—";position:absolute;left:0;color:var(--accent)}
       </div>
       <label>Carrier's authorized agent (signs for carrier)</label><input id="l_agent" value="DAMION WHITE">
 
+      <h4>Sign on the page</h4>
+      <label>Carrier's authorized agent — sign below</label>
+      <canvas id="l_sig_agent" class="sigpad" aria-label="Carrier agent signature pad"></canvas>
+      <div class="sigpad-row"><span class="sigpad-hint">✍ Draw with your mouse or finger</span><button type="button" class="link-btn" id="l_sig_agent_clr">Clear signature</button></div>
+      <label style="margin-top:12px">Independent contractor — sign below</label>
+      <canvas id="l_sig_owner" class="sigpad" aria-label="Contractor signature pad"></canvas>
+      <div class="sigpad-row"><span class="sigpad-hint">✍ Draw with your mouse or finger</span><button type="button" class="link-btn" id="l_sig_owner_clr">Clear signature</button></div>
+
       <details style="margin-top:14px"><summary style="cursor:pointer;font-size:12.5px;font-weight:600;color:var(--ink-soft)">Carrier letterhead (pre-filled — tap to edit)</summary>
         <div class="grid g2" style="margin-top:10px">
           <div><label>Carrier name</label><input id="l_carrier" value="AMEYA INVESTMENTS LLC"></div>
@@ -1186,6 +1202,7 @@ ul.dash li:before{content:"—";position:absolute;left:0;color:var(--accent)}
 (function(){
   var $=function(id){return document.getElementById(id);};
   if(!$('l_units')) return;
+  var agentPad=null, ownerPad=null;
   (function(){var d=new Date();var p=function(n){return (n<10?'0':'')+n;};$('l_date').value=d.getFullYear()+'-'+p(d.getMonth()+1)+'-'+p(d.getDate());})();
   var units=$('l_units');
   function addUnit(y,m,v){
@@ -1234,12 +1251,44 @@ ul.dash li:before{content:"—";position:absolute;left:0;color:var(--accent)}
     if(d.units.length)d.units.forEach(function(u,i){h+='<p>'+(i+1)+'. '+esc((u.y+' '+u.m).trim())+' &nbsp;VIN# '+esc(u.v)+'</p>';});
     else h+='<p>1. ____________________ &nbsp;VIN# ____________________</p>';
     h+='<p>This agreement is valid for the period of '+esc(d.term)+' and can be terminated by either party after '+esc(d.notice)+' of written notice.</p>';
-    h+='<div class="sig"><div class="col"><div>'+esc(d.carrier)+'</div><div>'+esc(d.agent)+'</div><div class="sigline">Signature of Carrier’s authorized agent</div></div>'+
-       '<div class="col"><div>'+esc(d.owner)+'</div><div>&nbsp;</div><div class="sigline">Signature of Independent contractor</div></div></div>';
+    var aImg=(agentPad&&!agentPad.isEmpty())?'<img src="'+agentPad.dataURL()+'">':'';
+    var oImg=(ownerPad&&!ownerPad.isEmpty())?'<img src="'+ownerPad.dataURL()+'">':'';
+    h+='<div class="sig"><div class="col"><div>'+esc(d.carrier)+'</div><div>'+esc(d.agent)+'</div><div class="sigimg">'+aImg+'</div><div class="sigline">Signature of Carrier’s authorized agent</div></div>'+
+       '<div class="col"><div>'+esc(d.owner)+'</div><div>&nbsp;</div><div class="sigimg">'+oImg+'</div><div class="sigline">Signature of Independent contractor</div></div></div>';
     $('l_prev').innerHTML=h;
   }
   ['l_owner','l_date','l_addr','l_term','l_notice','l_agent','l_carrier','l_caddr','l_ccity','l_mc','l_dot'].forEach(function(id){var e=$(id);if(e)e.addEventListener('input',render);});
   render();
+
+  /* signature pads */
+  function makePad(canvas,onChange){
+    var ctx=canvas.getContext('2d'),dirty=false,drawing=false,last=null;
+    function style(){ctx.lineWidth=2.2;ctx.lineCap='round';ctx.lineJoin='round';ctx.strokeStyle='#12245a';}
+    function fit(){
+      var r=canvas.getBoundingClientRect(); if(r.width<2)return;
+      var dpr=window.devicePixelRatio||1,nw=Math.round(r.width*dpr),nh=Math.round(r.height*dpr);
+      if(canvas.width===nw&&canvas.height===nh)return;
+      var prev=dirty?canvas.toDataURL():null;
+      canvas.width=nw;canvas.height=nh;ctx.setTransform(dpr,0,0,dpr,0,0);style();
+      if(prev){var im=new Image();im.onload=function(){ctx.drawImage(im,0,0,r.width,r.height);};im.src=prev;}
+    }
+    if('ResizeObserver'in window){try{new ResizeObserver(fit).observe(canvas);}catch(e){}}
+    window.addEventListener('resize',fit);
+    function pos(e){var r=canvas.getBoundingClientRect();return {x:e.clientX-r.left,y:e.clientY-r.top};}
+    canvas.addEventListener('pointerdown',function(e){fit();drawing=true;dirty=true;last=pos(e);try{canvas.setPointerCapture(e.pointerId);}catch(_){}e.preventDefault();});
+    canvas.addEventListener('pointermove',function(e){if(!drawing)return;var p=pos(e);ctx.beginPath();ctx.moveTo(last.x,last.y);ctx.lineTo(p.x,p.y);ctx.stroke();last=p;e.preventDefault();});
+    function end(){if(drawing){drawing=false;onChange&&onChange();}}
+    canvas.addEventListener('pointerup',end);canvas.addEventListener('pointercancel',end);
+    style();
+    return {clear:function(){ctx.save();ctx.setTransform(1,0,0,1,0,0);ctx.clearRect(0,0,canvas.width,canvas.height);ctx.restore();dirty=false;onChange&&onChange();},
+      isEmpty:function(){return !dirty;},dataURL:function(){return canvas.toDataURL('image/png');},dims:function(){return {w:canvas.width,h:canvas.height};},fit:fit};
+  }
+  agentPad=makePad($('l_sig_agent'),render);
+  ownerPad=makePad($('l_sig_owner'),render);
+  $('l_sig_agent_clr').onclick=function(){agentPad.clear();};
+  $('l_sig_owner_clr').onclick=function(){ownerPad.clear();};
+  var leaseNav=document.querySelector('#nav a[data-for="lease"]');
+  if(leaseNav)leaseNav.addEventListener('click',function(){setTimeout(function(){agentPad.fit();ownerPad.fit();},70);});
 
   $('l_gen').onclick=function(){
     if(!window.jspdf||!window.jspdf.jsPDF){$('l_msg').style.color='var(--red)';$('l_msg').textContent='PDF engine still loading — give it a second and try again.';return;}
@@ -1267,6 +1316,8 @@ ul.dash li:before{content:"—";position:absolute;left:0;color:var(--accent)}
     doc.text(d.agent,lx,sy+15);
     var ly=sy+66;
     doc.setLineWidth(.7); doc.line(lx,ly,lx+205,ly); doc.line(rx,ly,rx+205,ly);
+    function placeSig(pad,x){ if(!pad||pad.isEmpty())return; try{var dm=pad.dims(),ratio=dm.h/dm.w,w=190,hh=w*ratio;if(hh>50){hh=50;w=hh/ratio;}if(w>205){w=205;hh=w*ratio;}doc.addImage(pad.dataURL(),'PNG',x,ly-hh-1,w,hh);}catch(e){} }
+    placeSig(agentPad,lx); placeSig(ownerPad,rx);
     doc.setFontSize(9);
     doc.text('Signature of Carrier’s authorized agent',lx,ly+14);
     doc.text('Signature of Independent contractor',rx,ly+14);
@@ -1277,6 +1328,7 @@ ul.dash li:before{content:"—";position:absolute;left:0;color:var(--accent)}
   $('l_clear').onclick=function(){
     ['l_owner','l_addr'].forEach(function(id){$(id).value='';});
     [].slice.call(units.querySelectorAll('.unit')).forEach(function(r,i){if(i>0)r.remove();else r.querySelectorAll('input').forEach(function(x){x.value='';});});
+    if(agentPad)agentPad.clear(); if(ownerPad)ownerPad.clear();
     $('l_msg').textContent=''; render();
   };
 })();
