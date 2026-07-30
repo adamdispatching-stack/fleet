@@ -177,16 +177,20 @@ a{color:var(--accent);text-decoration:none}a:hover{text-decoration:underline}
 
   /* code-maintained starter shops — always merged in if the address isn't already saved */
   var SEED=[
-    {name:'Samsara Install Shop',cat:'ELD / Samsara Install',addr:'527 Grier Ave, Elizabeth, NJ 07202, United States',phone:'',notes:'We send trucks here to install Samsara devices.',visits:0},
+    {name:'Route 1 Auto Sound',cat:'ELD / Samsara Install',addr:'527 Grier Ave, Elizabeth, NJ 07202, United States',phone:'908-558-1500',notes:'Car audio / accessories store — this is where we send trucks to install Samsara devices.',visits:0},
     {name:'Freightliner Western Star of Hagerstown (Transteck)',cat:'Dealership',addr:'16777 Halfway Blvd, Hagerstown, MD 21740, United States',phone:'301-582-2111',notes:'Freightliner / Western Star dealer. What we usually get done here: PM oil & filter service (oil, oil + fuel filters, chassis lube), DOT inspections & stickers, and warranty / major repairs — engine-cooling belts, air-brake components, driveline output seals, air compressor, and headlight / electrical work. Hours: Mon–Fri 7a–11:30p, Sat–Sun 7a–5:30p. After-hours 1-800-FTL-HELP.',visits:0},
-    {name:'Alignment &amp; Deer-Guard Shop (Rahway)',cat:'Repairs / Mechanical',addr:'1161 Woodbridge Rd, Rahway, NJ 07065, United States',phone:'',notes:'We do alignments here, and fix the deer guard sometimes.',visits:0}
+    {name:'F & S Tire',cat:'Repairs / Mechanical',addr:'1161 Woodbridge Rd, Rahway, NJ 07065, United States',phone:'732-382-8900',notes:'Used tire shop in Simoes Plaza. We do alignments here, and fix the deer guard sometimes.',visits:0}
   ];
 
   var shops=LS.get(KEY,null);
   if(!shops){ shops=SEED.map(seed); LS.set(KEY,shops); }
-  else { // merge any new seed entries by address
-    var addrs={}; shops.forEach(function(s){addrs[norm(s.addr)]=1;});
-    SEED.forEach(function(s){ if(!addrs[norm(s.addr)]) shops.push(seed(s)); });
+  else { // keep code-maintained (seed) entries in sync by address; preserve visit counts + any shops added on this device
+    var byAddr={}; shops.forEach(function(s){byAddr[norm(s.addr)]=s;});
+    SEED.forEach(function(sd){
+      var ex=byAddr[norm(sd.addr)];
+      if(ex){ ex.name=sd.name; ex.cat=sd.cat; ex.phone=sd.phone; ex.notes=sd.notes; }
+      else { var n=seed(sd); shops.push(n); byAddr[norm(sd.addr)]=n; }
+    });
     LS.set(KEY,shops);
   }
   function seed(s){return {id:'s'+Math.floor(Math.random()*1e9)+Date.now(),name:s.name||'',cat:s.cat||'Other',addr:s.addr||'',phone:s.phone||'',notes:s.notes||'',visits:s.visits||0,ts:Date.now()};}
