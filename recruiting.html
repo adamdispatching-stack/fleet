@@ -207,6 +207,24 @@ ul.dash li:before{content:"—";position:absolute;left:0;color:var(--accent)}
 .sigpad-hint{font-size:11px;color:var(--ink-mute)}
 .link-btn{background:none;border:0;color:var(--accent);font-size:12px;cursor:pointer;padding:2px 4px;font-family:var(--sans)}
 .link-btn:hover{text-decoration:underline}
+/* compact lease layout */
+#lease h2.title{font-size:25px;margin-bottom:7px}
+#lease .kick{margin-bottom:6px}
+#lease .lede{font-size:13.5px;margin-bottom:2px}
+#lease .leasewrap{gap:16px}
+#lease .card.form{padding:14px 16px}
+#lease .form label{font-size:11px;font-weight:600;color:var(--ink-mute);margin:9px 0 3px}
+#lease .form input,#lease .form select,#lease .form textarea{padding:6px 9px;font-size:12.5px;border-radius:8px}
+#lease .form h4{font-size:12px;margin:14px 0 3px;letter-spacing:.05em}
+#lease .unit{gap:7px;margin-bottom:7px}
+#lease .sigpad{height:88px}
+#lease .sigpad-hint{font-size:10px}
+#lease .btn{padding:6px 11px;font-size:12px}
+#lease .leasedoc{padding:22px 26px;font-size:10.5px;line-height:1.42;max-height:460px}
+#lease .leasedoc .ttl{margin:11px 0}
+#lease .leasedoc h4{font-size:12px}
+#lease .leasedoc p{margin:6px 0}
+#lease .leasedoc .sigimg{height:34px}
 @media(max-width:760px){.leasewrap{grid-template-columns:1fr}.unit{grid-template-columns:1fr 1fr}}
 
 .glos .code{margin-bottom:4px;display:inline-block}
@@ -767,7 +785,7 @@ ul.dash li:before{content:"—";position:absolute;left:0;color:var(--accent)}
     <div class="card form">
       <h4 style="margin-top:0">Owner / contractor</h4>
       <div class="grid g2">
-        <div><label>Equipment owner — full name</label><input id="l_owner" placeholder="e.g. SAMPSON TYMEN R"></div>
+        <div><label>Owner — full name</label><input id="l_owner" placeholder="e.g. SAMPSON TYMEN R"></div>
         <div><label>Agreement date</label><input id="l_date" type="date"></div>
       </div>
       <label>Owner address</label><input id="l_addr" placeholder="e.g. 1255 MAGIE AVE STE 255 UNION, NJ 07083">
@@ -781,7 +799,7 @@ ul.dash li:before{content:"—";position:absolute;left:0;color:var(--accent)}
         <div><label>Agreement term</label><input id="l_term" value="five years"></div>
         <div><label>Notice to terminate</label><input id="l_notice" value="fifteen days"></div>
       </div>
-      <label>Carrier's authorized agent (signs for carrier)</label><input id="l_agent" value="DAMION WHITE">
+      <label>Carrier's agent (signs for carrier)</label><input id="l_agent" value="DAMION WHITE">
 
       <h4>Sign on the page</h4>
       <label>Carrier's authorized agent — sign below</label>
