@@ -865,12 +865,15 @@ ul.dash li:before{content:"—";position:absolute;left:0;color:var(--accent)}
       <label>Carrier's agent (signs for carrier)</label><input id="l_agent" value="DAMION WHITE">
 
       <h4>Sign on the page</h4>
-      <label>Carrier's authorized agent — sign below</label>
+      <label>Carrier's authorized agent — draw or upload a signature</label>
       <canvas id="l_sig_agent" class="sigpad" aria-label="Carrier agent signature pad"></canvas>
-      <div class="sigpad-row"><span class="sigpad-hint">✍ Draw with your mouse or finger</span><button type="button" class="link-btn" id="l_sig_agent_clr">Clear signature</button></div>
-      <label style="margin-top:12px">Independent contractor — sign below</label>
+      <div class="sigpad-row"><span class="sigpad-hint">✍ Draw here, or</span><span style="margin-left:auto;display:flex;gap:14px"><button type="button" class="link-btn" id="l_sig_agent_up">⬆ Upload image</button><button type="button" class="link-btn" id="l_sig_agent_clr">Clear</button></span></div>
+      <input type="file" id="l_sig_agent_file" accept="image/*" style="display:none">
+      <div id="l_sig_agent_saved" style="font-size:11px;color:var(--green);margin-top:3px"></div>
+      <label style="margin-top:12px">Independent contractor — draw or upload a signature</label>
       <canvas id="l_sig_owner" class="sigpad" aria-label="Contractor signature pad"></canvas>
-      <div class="sigpad-row"><span class="sigpad-hint">✍ Draw with your mouse or finger</span><button type="button" class="link-btn" id="l_sig_owner_clr">Clear signature</button></div>
+      <div class="sigpad-row"><span class="sigpad-hint">✍ Draw here, or</span><span style="margin-left:auto;display:flex;gap:14px"><button type="button" class="link-btn" id="l_sig_owner_up">⬆ Upload image</button><button type="button" class="link-btn" id="l_sig_owner_clr">Clear</button></span></div>
+      <input type="file" id="l_sig_owner_file" accept="image/*" style="display:none">
 
       <details style="margin-top:14px"><summary style="cursor:pointer;font-size:12.5px;font-weight:600;color:var(--ink-soft)">Carrier letterhead (pre-filled — tap to edit)</summary>
         <div class="grid g2" style="margin-top:10px">
@@ -1343,15 +1346,31 @@ ul.dash li:before{content:"—";position:absolute;left:0;color:var(--accent)}
 
   /* signature pads */
   function makePad(canvas,onChange){
-    var ctx=canvas.getContext('2d'),dirty=false,drawing=false,last=null;
+    var ctx=canvas.getContext('2d'),dirty=false,drawing=false,last=null,pending=null;
     function style(){ctx.lineWidth=2.2;ctx.lineCap='round';ctx.lineJoin='round';ctx.strokeStyle='#12245a';}
+    function drawFit(url){
+      var img=new Image();
+      img.onload=function(){
+        var r=canvas.getBoundingClientRect(); if(r.width<2){pending=url;return;}
+        var oc=document.createElement('canvas'); oc.width=img.width; oc.height=img.height;
+        var octx=oc.getContext('2d'); octx.drawImage(img,0,0);
+        try{ var d=octx.getImageData(0,0,oc.width,oc.height),a=d.data; for(var i=0;i<a.length;i+=4){ if(a[i]>228&&a[i+1]>228&&a[i+2]>228) a[i+3]=0; } octx.putImageData(d,0,0); }catch(e){}
+        var s=Math.min(r.width/oc.width,r.height/oc.height);
+        var w=oc.width*s,h=oc.height*s,x=(r.width-w)/2,y=(r.height-h)/2;
+        ctx.clearRect(0,0,r.width,r.height); ctx.drawImage(oc,x,y,w,h);
+        dirty=true; onChange&&onChange();
+      };
+      img.src=url;
+    }
     function fit(){
       var r=canvas.getBoundingClientRect(); if(r.width<2)return;
       var dpr=window.devicePixelRatio||1,nw=Math.round(r.width*dpr),nh=Math.round(r.height*dpr);
-      if(canvas.width===nw&&canvas.height===nh)return;
-      var prev=dirty?canvas.toDataURL():null;
-      canvas.width=nw;canvas.height=nh;ctx.setTransform(dpr,0,0,dpr,0,0);style();
-      if(prev){var im=new Image();im.onload=function(){ctx.drawImage(im,0,0,r.width,r.height);};im.src=prev;}
+      if(canvas.width!==nw||canvas.height!==nh){
+        var prev=dirty?canvas.toDataURL():null;
+        canvas.width=nw;canvas.height=nh;ctx.setTransform(dpr,0,0,dpr,0,0);style();
+        if(prev){var im=new Image();im.onload=function(){ctx.drawImage(im,0,0,r.width,r.height);};im.src=prev;}
+      }
+      if(pending){var u=pending;pending=null;drawFit(u);}
     }
     if('ResizeObserver'in window){try{new ResizeObserver(fit).observe(canvas);}catch(e){}}
     window.addEventListener('resize',fit);
@@ -1361,13 +1380,24 @@ ul.dash li:before{content:"—";position:absolute;left:0;color:var(--accent)}
     function end(){if(drawing){drawing=false;onChange&&onChange();}}
     canvas.addEventListener('pointerup',end);canvas.addEventListener('pointercancel',end);
     style();
-    return {clear:function(){ctx.save();ctx.setTransform(1,0,0,1,0,0);ctx.clearRect(0,0,canvas.width,canvas.height);ctx.restore();dirty=false;onChange&&onChange();},
-      isEmpty:function(){return !dirty;},dataURL:function(){return canvas.toDataURL('image/png');},dims:function(){return {w:canvas.width,h:canvas.height};},fit:fit};
+    return {clear:function(){ctx.save();ctx.setTransform(1,0,0,1,0,0);ctx.clearRect(0,0,canvas.width,canvas.height);ctx.restore();pending=null;dirty=false;onChange&&onChange();},
+      isEmpty:function(){return !dirty;},dataURL:function(){return canvas.toDataURL('image/png');},dims:function(){return {w:canvas.width,h:canvas.height};},fit:fit,
+      setImage:function(url){var r=canvas.getBoundingClientRect(); if(r.width<2){pending=url;return;} drawFit(url);}};
   }
-  agentPad=makePad($('l_sig_agent'),render);
+  var CARRIER_KEY='cmj_carrier_sig';
+  function updateSavedMsg(){var el=$('l_sig_agent_saved');if(!el)return;var has=false;try{has=!!localStorage.getItem(CARRIER_KEY);}catch(e){}el.textContent=has?'✓ Carrier signature saved on this device — reused next time':'';}
+  function saveCarrier(){try{if(!agentPad.isEmpty())localStorage.setItem(CARRIER_KEY,agentPad.dataURL());else localStorage.removeItem(CARRIER_KEY);}catch(e){}updateSavedMsg();}
+  agentPad=makePad($('l_sig_agent'),function(){saveCarrier();render();});
   ownerPad=makePad($('l_sig_owner'),render);
+  function bindUpload(btnId,fileId,pad){
+    $(btnId).onclick=function(){$(fileId).click();};
+    $(fileId).onchange=function(e){var f=e.target.files[0];if(!f)return;if(!/^image\//.test(f.type)){$('l_msg').style.color='var(--red)';$('l_msg').textContent='Please choose an image file (PNG or JPG).';return;}var rd=new FileReader();rd.onload=function(){pad.setImage(rd.result);};rd.readAsDataURL(f);e.target.value='';};
+  }
+  bindUpload('l_sig_agent_up','l_sig_agent_file',agentPad);
+  bindUpload('l_sig_owner_up','l_sig_owner_file',ownerPad);
   $('l_sig_agent_clr').onclick=function(){agentPad.clear();};
   $('l_sig_owner_clr').onclick=function(){ownerPad.clear();};
+  (function(){var s=null;try{s=localStorage.getItem(CARRIER_KEY);}catch(e){}if(s)agentPad.setImage(s);updateSavedMsg();})();
   var leaseNav=document.querySelector('#nav a[data-for="lease"]');
   if(leaseNav)leaseNav.addEventListener('click',function(){setTimeout(function(){agentPad.fit();ownerPad.fit();},70);});
 
@@ -1409,8 +1439,8 @@ ul.dash li:before{content:"—";position:absolute;left:0;color:var(--accent)}
   $('l_clear').onclick=function(){
     ['l_owner','l_addr'].forEach(function(id){$(id).value='';});
     [].slice.call(units.querySelectorAll('.unit')).forEach(function(r,i){if(i>0)r.remove();else r.querySelectorAll('input').forEach(function(x){x.value='';});});
-    if(agentPad)agentPad.clear(); if(ownerPad)ownerPad.clear();
-    $('l_msg').textContent=''; render();
+    if(ownerPad)ownerPad.clear();
+    $('l_msg').style.color='var(--ink-mute)';$('l_msg').textContent='Cleared. Carrier signature kept for the next lease.'; render();
   };
 })();
 </script>
