@@ -138,6 +138,10 @@ details.card2 .bd{padding:0 0 14px}
 .actionbar .sp{flex:1}
 .actionbar .msg{font-size:12.5px;color:var(--green)}
 
+body.embed .appbar{display:none}
+body.embed .page{padding-top:12px;padding-bottom:80px}
+body.embed .h1{font-size:26px}
+body.embed .previewwrap{top:14px}
 @media(max-width:940px){
   .builder{grid-template-columns:1fr}
   .previewwrap{position:static}
@@ -601,6 +605,7 @@ details.card2 .bd{padding:0 0 14px}
 <script>
 /* ---- UI enhancements: theme, template prev/next, zoom, stepper ---- */
 (function(){
+  try{if(new URLSearchParams(location.search).has('embed'))document.body.classList.add('embed');}catch(e){}
   var LS={g:function(k,d){try{var v=localStorage.getItem(k);return v==null?d:v;}catch(e){return d;}},s:function(k,v){try{localStorage.setItem(k,v);}catch(e){}}};
   var darkBtn=document.getElementById('darkBtn');
   function theme(t){document.documentElement.setAttribute('data-theme',t);darkBtn.textContent=t==='dark'?'☀️ Light':'🌙 Dark';LS.s('cmj_lease_theme',t);}

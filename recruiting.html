@@ -231,6 +231,7 @@ ul.dash li:before{content:"—";position:absolute;left:0;color:var(--accent)}
 .foot{border-top:1px solid var(--line);margin-top:50px;padding:26px 0;color:var(--ink-mute);font-size:13px;text-align:center}
 .foot a{color:var(--accent)}
 
+@media(min-width:900px){#lease .lease-embed{position:relative;left:50%;transform:translateX(-50%);width:calc(100vw - 264px - 40px);max-width:1280px}}
 @media(max-width:860px){
   .side{position:fixed;left:0;top:0;z-index:60;transform:translateX(-100%);transition:.25s;box-shadow:0 0 40px rgba(0,0,0,.4)}
   .side.open{transform:none}
@@ -841,13 +842,8 @@ ul.dash li:before{content:"—";position:absolute;left:0;color:var(--accent)}
 </section>
 
 <section class="blk" id="lease" data-title="Lease Agreement" data-grp="Documents">
-  <div class="kick">Document generator</div>
-  <h2 class="title">Lease Agreement</h2>
-  <p class="lede">The lease builder now has its own full-screen page — choose from 15 template styles (different wording &amp; layout, same legal content), fill in the details, sign on the page (draw or upload), and download a ready-to-sign PDF.</p>
-  <div class="card" style="text-align:center;padding:28px">
-    <p style="margin:0 0 16px;color:var(--ink-mute)">Open the redesigned Lease Builder to create and download a lease.</p>
-    <a class="btn" href="/lease" style="background:var(--accent);color:#fff;border-color:var(--accent);padding:12px 24px;font-size:15px;display:inline-flex">📄 Open the Lease Builder &rarr;</a>
-  </div>
+  <div style="display:flex;justify-content:flex-end;margin-bottom:8px"><a href="/lease" target="_blank" rel="noopener" style="color:var(--accent);font-size:13px">Open full-screen &#8599;</a></div>
+  <div class="lease-embed"><iframe id="leaseFrame" src="/lease?embed=1" title="Lease builder" style="width:100%;height:calc(100vh - 130px);min-height:680px;border:1px solid var(--line);border-radius:16px;background:var(--card);display:block"></iframe></div>
 </section>
 
 <section class="blk" id="simulator" data-title="Objection Simulator" data-grp="Training">
