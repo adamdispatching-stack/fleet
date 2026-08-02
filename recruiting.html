@@ -1371,7 +1371,7 @@ ul.dash li:before{content:"—";position:absolute;left:0;color:var(--accent)}
         'Insurance by Carrier. During the term, Carrier will furnish Owner with Primary Liability and Motor Truck Cargo coverage on the covered vehicle(s) of not less than $1,000,000.',
         'Owner Insurance & Cargo Claims. Owner will maintain active Non-Trucking Liability. Carrier will be liable for and pay all cargo claims, including delay, shortage, non-delivery, and lost or contaminated loads arising from loads carried by Owner’s drivers, employees, and agents.'
       ];}},
-    {id:'type',name:'6 · Typewriter (monospace)',font:'courier',pfont:"'JetBrains Mono',ui-monospace,monospace",size:10.5,gap:14,align:'center',title:'LEASE AGREEMENT',decor:'underline',equip:'EQUIPMENT:',numbered:false,sig:'sidebyside',
+    {id:'type',name:'6 · Typewriter (monospace)',font:'courier',pfont:"'JetBrains Mono',ui-monospace,monospace",size:10.5,gap:14,align:'center',title:'TRACTOR LEASE AGREEMENT',decor:'underline',equip:'EQUIPMENT:',numbered:false,sig:'sidebyside',
       idfn:function(d){var a=[];if(d.mc)a.push('MC#: '+d.mc);if(d.dot)a.push('DOT#: '+d.dot);return a;},
       term:function(d){return 'TERM: '+d.term+'. Either party may terminate with '+d.notice+' written notice.';},
       paras:function(d){var C=d.carrier,O=d.owner;return [
@@ -1381,6 +1381,105 @@ ul.dash li:before{content:"—";position:absolute;left:0;color:var(--accent)}
         C+' schedules hours of operation and controls how the work is done, provided it meets DOT guidelines and regulations.',
         'For the term, '+C+' furnishes '+O+' Primary Liability and Motor Truck Cargo on the covered vehicle(s), not less than $1,000,000.',
         O+' carries active Non-Trucking Liability. '+C+' is liable for and pays all cargo claims — delay, shortage, non-delivery, lost or contaminated loads — arising from loads carried by '+O+"'s drivers, employees, and agents."
+      ];}},
+    {id:'mc',name:'7 · Statement (serif, centered)',font:'times',pfont:"'Fraunces',Georgia,serif",size:11,gap:15,align:'center',title:'MOTOR CARRIER EQUIPMENT LEASE',decor:'plain',equip:'EQUIPMENT LEASED:',numbered:false,sig:'sidebyside',
+      idfn:function(d){var a=[];if(d.mc)a.push('Motor Carrier No. '+d.mc);if(d.dot)a.push('US DOT No. '+d.dot);return a;},
+      term:function(d){return 'This lease remains in force for '+d.term+' and either party may end it on '+d.notice+' written notice.';},
+      paras:function(d){var C=d.carrier,O=d.owner;return [
+        'Made this '+d.date+', this lease is by and between '+C+' (the "Carrier") and '+O+' (the "Equipment Owner"), of '+d.addr+'.',
+        'The Equipment Owner places its unit(s) under lease to the Carrier for the hauling of loads on the Carrier’s behalf.',
+        'The Carrier is authorized to conduct these services throughout the continental United States. Once the Carrier accepts a shipping order, the Carrier bears full legal and financial responsibility for completing it.',
+        'Scheduling of hours of operation and control over the means and manner of the work rest solely with the Carrier, so long as all activity remains in compliance with DOT guidelines and regulations.',
+        'The Carrier will maintain, for the Equipment Owner, Primary Liability and Motor Truck Cargo coverage on the leased vehicle(s) throughout the term, in an amount not less than $1,000,000.',
+        'The Equipment Owner will keep active Non-Trucking Liability coverage. The Carrier accepts responsibility for, and will pay, all cargo claims — including delay, shortage, non-delivery, and lost or contaminated loads — arising in connection with loads hauled by the Equipment Owner’s drivers, employees, and agents.'
+      ];}},
+    {id:'compact',name:'8 · Compact (sans, left)',font:'helvetica',pfont:"'Inter',Arial,sans-serif",size:10.5,gap:14,align:'left',title:'Owner-Operator Lease Agreement',decor:'ruleLeft',equip:'Leased Unit(s)',numbered:false,sig:'stacked',
+      idfn:function(d){var a=[];if(d.mc)a.push('MC '+d.mc);if(d.dot)a.push('DOT '+d.dot);return a.length?[a.join('  |  ')]:[];},
+      term:function(d){return 'Term: '+d.term+'. Either side can cancel with '+d.notice+' written notice.';},
+      paras:function(d){var C=d.carrier,O=d.owner;return [
+        'Dated '+d.date+', between '+C+' ("Carrier") and '+O+' ("Owner"), '+d.addr+'.',
+        'Owner puts its truck(s) under lease to Carrier to move loads for Carrier.',
+        'Carrier may operate anywhere in the lower 48. After Carrier accepts a shipping order, Carrier is fully responsible — legally and financially — for finishing it.',
+        'Carrier decides the hours and how the work is done, provided it stays within DOT rules.',
+        'For the term, Carrier carries Primary Liability and Motor Truck Cargo on the leased vehicle(s) — no less than $1,000,000.',
+        'Owner maintains active Non-Trucking Liability. Carrier covers and pays every cargo claim — delay, shortage, non-delivery, lost or contaminated freight — connected to loads run by Owner’s drivers, employees, and agents.'
+      ];}},
+    {id:'recitals',name:'9 · Recitals “Whereas” (serif)',font:'times',pfont:"'Fraunces',Georgia,serif",size:11,gap:15,align:'center',title:'LEASE AND OPERATING AGREEMENT',decor:'rule',equip:'SCHEDULE A — EQUIPMENT:',numbered:false,sig:'sidebyside',
+      idfn:function(d){var a=[];if(d.dot)a.push('USDOT '+d.dot);if(d.mc)a.push('MC '+d.mc);return a.length?[a.join('      ')]:[];},
+      term:function(d){return 'This Agreement shall continue for '+d.term+' and may be terminated by either party upon '+d.notice+' written notice.';},
+      paras:function(d){var C=d.carrier,O=d.owner;return [
+        'This Lease and Operating Agreement is entered on '+d.date+' between '+C+' ("Carrier") and '+O+' ("Owner"), located at '+d.addr+'. WHEREAS the Owner wishes to lease equipment to the Carrier and the Carrier wishes to accept it, the parties agree as follows.',
+        'The Owner leases its unit(s) to the Carrier for the purpose of transporting loads for the Carrier.',
+        'The Carrier may perform the services under this Agreement at any location within the continental United States. Upon accepting a shipping order, the Carrier is legally and financially bound to complete it.',
+        'The Carrier alone shall set the hours of operation and control the means by which the work is accomplished, provided such operations satisfy DOT guidelines and regulations.',
+        'The Carrier shall furnish the Owner, throughout the term, with Primary Liability and Motor Truck Cargo insurance on the covered vehicle(s) in an amount not less than $1,000,000.',
+        'The Owner shall maintain active Non-Trucking Liability. The Carrier shall be liable for and shall pay all cargo claims, including but not limited to delay, shortage, non-delivery, and loss or contamination, arising out of or in connection with loads carried by the Owner’s drivers, employees, and agents.'
+      ];}},
+    {id:'memo',name:'10 · Memo (monospace, left)',font:'courier',pfont:"'JetBrains Mono',ui-monospace,monospace",size:10.5,gap:14,align:'left',title:'EQUIPMENT LEASE',decor:'plain',equip:'EQUIPMENT LIST:',numbered:false,sig:'sidebyside',
+      idfn:function(d){var a=[];if(d.mc)a.push('MC#: '+d.mc);if(d.dot)a.push('DOT#: '+d.dot);return a;},
+      term:function(d){return 'TERM '+d.term+'. TERMINATION BY EITHER PARTY ON '+d.notice+' WRITTEN NOTICE.';},
+      paras:function(d){var C=d.carrier,O=d.owner;return [
+        'DATE: '+d.date+'. PARTIES: '+C+' (CARRIER) and '+O+' (OWNER), '+d.addr+'.',
+        'OWNER leases unit(s) to CARRIER to haul CARRIER loads.',
+        'CARRIER may operate throughout the continental U.S. On accepting a shipping order, CARRIER is legally and financially liable to complete it.',
+        'CARRIER sets hours and controls how work is done, within DOT guidelines and regulations.',
+        'CARRIER provides OWNER Primary Liability and Motor Truck Cargo on leased vehicle(s) for the term, not less than $1,000,000.',
+        'OWNER maintains active Non-Trucking Liability. CARRIER is liable for and pays all cargo claims (delay, shortage, non-delivery, lost/contaminated loads) from loads run by OWNER drivers, employees, and agents.'
+      ];}},
+    {id:'numsans',name:'11 · Numbered (sans, left)',font:'helvetica',pfont:"'Inter',Arial,sans-serif",size:11,gap:15,align:'left',title:'VEHICLE LEASE AGREEMENT',decor:'plain',equip:'Equipment:',numbered:true,sig:'sidebyside',
+      idfn:function(d){var a=[];if(d.dot)a.push('USDOT: '+d.dot);if(d.mc)a.push('MC: '+d.mc);return a.length?[a.join('     ')]:[];},
+      term:function(d){return 'Term. This lease runs '+d.term+'; either party may end it with '+d.notice+' written notice.';},
+      paras:function(d){var C=d.carrier,O=d.owner;return [
+        'Parties & Date. This vehicle lease is made '+d.date+' between '+C+' ("Carrier") and '+O+' ("Owner"), located at '+d.addr+'.',
+        'Equipment Lease. Owner leases its vehicle(s) to Carrier to transport loads for Carrier.',
+        'Where Work Is Performed. Carrier may operate anywhere in the continental United States. Once Carrier accepts a shipping order, Carrier is legally and financially liable to complete it.',
+        'Operations & Control. Carrier sets the hours of operation and controls the manner of work, as long as it complies with DOT guidelines and regulations.',
+        'Carrier Insurance. During the term, Carrier furnishes Owner Primary Liability and Motor Truck Cargo on the covered vehicle(s), not less than $1,000,000.',
+        'Owner Insurance & Claims. Owner maintains active Non-Trucking Liability. Carrier is liable for and pays all cargo claims — delay, shortage, non-delivery, and lost or contaminated loads — arising from loads carried by Owner’s drivers, employees, and agents.'
+      ];}},
+    {id:'boxed',name:'12 · Boxed title (serif)',font:'times',pfont:"'Fraunces',Georgia,serif",size:11,gap:15,align:'center',title:'LEASE OF EQUIPMENT AGREEMENT',decor:'box',equip:'DESCRIPTION OF EQUIPMENT:',numbered:false,sig:'sidebyside',
+      idfn:function(d){var a=[];if(d.mc)a.push('MC No. '+d.mc);if(d.dot)a.push('DOT No. '+d.dot);return a.length?[a.join('     ')]:[];},
+      term:function(d){return 'This Agreement is effective for '+d.term+' and may be canceled by either party on '+d.notice+' written notice.';},
+      paras:function(d){var C=d.carrier,O=d.owner;return [
+        'This Lease of Equipment Agreement is made and entered into on '+d.date+' by '+C+' ("Carrier") and '+O+' ("Owner"), whose address is '+d.addr+'.',
+        'Owner agrees to lease its equipment to Carrier so that Carrier may transport loads.',
+        'Carrier may render the services described herein anywhere within the continental United States. When Carrier accepts a shipping order, Carrier is legally and financially obligated to complete it.',
+        'Carrier retains sole discretion over hours of operation and over the means and manner by which the work is carried out, provided that operations conform to DOT guidelines and regulations.',
+        'For the term of this Agreement, Carrier will provide Owner with Primary Liability and Motor Truck Cargo coverage on the covered vehicle(s) in an amount not less than $1,000,000.',
+        'Owner will maintain active Non-Trucking Liability. Carrier will be liable for, and will pay, all cargo claims — including without limitation delay, shortage, non-delivery, and lost or contaminated loads — arising from or related to loads carried by Owner’s drivers, employees, and agents.'
+      ];}},
+    {id:'plainleft',name:'13 · Plain letter (serif, left)',font:'times',pfont:"'Fraunces',Georgia,serif",size:11,gap:15,align:'left',title:'Truck Lease Agreement',decor:'plain',equip:'Truck(s) Leased:',numbered:false,sig:'stacked',
+      idfn:function(d){var a=[];if(d.mc)a.push('MC# '+d.mc);if(d.dot)a.push('DOT# '+d.dot);return a.length?[a.join('   ·   ')]:[];},
+      term:function(d){return 'This lease lasts '+d.term+'. Either party can end it by giving '+d.notice+' written notice.';},
+      paras:function(d){var C=d.carrier,O=d.owner;return [
+        'On '+d.date+', '+C+' ("Carrier") and '+O+' ("Owner") of '+d.addr+' agree to the following lease.',
+        'The Owner rents its truck(s) to the Carrier to carry loads for the Carrier.',
+        'The Carrier may work anywhere in the continental United States. Once the Carrier takes a shipping order, the Carrier must complete it and is legally and financially responsible for doing so.',
+        'The Carrier decides the hours of operation and how the job is done, as long as it follows DOT guidelines and regulations.',
+        'While this lease is in effect, the Carrier gives the Owner Primary Liability and Motor Truck Cargo insurance on the covered truck(s), at least $1,000,000.',
+        'The Owner keeps active Non-Trucking Liability. The Carrier is responsible for and pays every cargo claim — delay, shortage, non-delivery, and lost or contaminated loads — that comes from loads carried by the Owner’s drivers, employees, and agents.'
+      ];}},
+    {id:'centersans',name:'14 · Centered (sans, underline)',font:'helvetica',pfont:"'Inter',Arial,sans-serif",size:11,gap:15,align:'center',title:'CARRIER–OWNER LEASE AGREEMENT',decor:'underline',equip:'Covered Equipment',numbered:false,sig:'stacked',
+      idfn:function(d){var a=[];if(d.dot)a.push('USDOT '+d.dot);if(d.mc)a.push('MC '+d.mc);return a.length?[a.join('  /  ')]:[];},
+      term:function(d){return 'The term is '+d.term+', and either party may terminate with '+d.notice+' written notice.';},
+      paras:function(d){var C=d.carrier,O=d.owner;return [
+        'This agreement, dated '+d.date+', is between '+C+' ("Carrier") and '+O+' ("Owner"), located at '+d.addr+'.',
+        'The Owner leases its equipment to the Carrier to transport the Carrier’s loads.',
+        'The Carrier can perform these services anywhere in the continental United States. After accepting a shipping order, the Carrier is legally and financially responsible for completing it.',
+        'The Carrier controls the hours of operation and the way the work is performed, provided it meets DOT guidelines and regulations.',
+        'Throughout the term, the Carrier provides the Owner with Primary Liability and Motor Truck Cargo coverage on the covered vehicle(s) of at least $1,000,000.',
+        'The Owner maintains active Non-Trucking Liability. The Carrier is liable for and pays all cargo claims, including delay, shortage, non-delivery, and lost or contaminated loads arising from loads carried by the Owner’s drivers, employees, and agents.'
+      ];}},
+    {id:'sections',name:'15 · Section headers (serif, left)',font:'times',pfont:"'Fraunces',Georgia,serif",size:11,gap:15,align:'left',title:'INDEPENDENT CONTRACTOR AGREEMENT — EQUIPMENT LEASE',decor:'ruleLeft',equip:'Section 8 — Equipment:',numbered:false,sig:'sidebyside',
+      idfn:function(d){var a=[];if(d.dot||d.mc)a.push('Carrier: '+(d.dot?'USDOT '+d.dot:'')+(d.dot&&d.mc?', ':'')+(d.mc?'MC '+d.mc:''));return a;},
+      term:function(d){return 'Section 7 — Term & Termination. This lease runs '+d.term+' and may be ended by either party on '+d.notice+' written notice.';},
+      paras:function(d){var C=d.carrier,O=d.owner;return [
+        'Section 1 — Parties. This Independent Contractor Agreement for equipment lease is made on '+d.date+' between '+C+' ("Carrier") and '+O+' ("Owner"), located at '+d.addr+'.',
+        'Section 2 — Lease. Owner leases its unit(s) to Carrier for transporting loads on Carrier’s behalf.',
+        'Section 3 — Service Area. Carrier may operate anywhere within the continental United States. Once Carrier accepts a shipping order, Carrier is legally and financially liable to complete it.',
+        'Section 4 — Direction of Work. Carrier is solely responsible for scheduling hours of operation and controlling the means by which the work is performed, provided operations comply with DOT guidelines and regulations.',
+        'Section 5 — Insurance by Carrier. For the term, Carrier furnishes Owner Primary Liability and Motor Truck Cargo on the covered vehicle(s), not less than $1,000,000.',
+        'Section 6 — Owner Coverage & Cargo. Owner maintains active Non-Trucking Liability. Carrier is liable for and pays all cargo claims, including delay, shortage, non-delivery, and lost or contaminated loads arising from loads carried by Owner’s drivers, employees, and agents.'
       ];}}
   ];
   function getTpl(){var v=$('l_tpl')?$('l_tpl').value:'classic';for(var i=0;i<TPLS.length;i++)if(TPLS[i].id===v)return TPLS[i];return TPLS[0];}
