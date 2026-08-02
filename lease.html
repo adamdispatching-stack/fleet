@@ -1,0 +1,632 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CMJ · Create Lease Agreement</title>
+<meta name="description" content="Create a ready-to-sign truck lease agreement — pick a template, fill in the details, sign, and download a PDF.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#1b1d22; --ink-soft:#3d4149; --ink-mute:#6b7078;
+  --paper:#f4f3ef; --card:#ffffff; --line:#e5e1d8; --line-soft:#eeeae1;
+  --accent:#b4530a; --accent-deep:#8a3d05; --accent-soft:#fdf0e3;
+  --navy:#152238; --navy-soft:#1e2f4a;
+  --steel:#24405e; --steel-soft:#e8eef5;
+  --green:#2f6b46; --green-soft:#e7f2ea;
+  --red:#9e2b25; --red-soft:#faeae8;
+  --gold:#8a6d1f; --gold-soft:#f7f0da;
+  --mono:'JetBrains Mono',ui-monospace,monospace;
+  --serif:'Fraunces',Georgia,serif;
+  --sans:'Inter',-apple-system,'Segoe UI',sans-serif;
+}
+[data-theme="dark"]{--ink:#e8eaee;--ink-soft:#c3c8d1;--ink-mute:#8b93a0;--paper:#12151b;--card:#1b1f27;--line:#2b313c;--line-soft:#232833;--accent:#d97a2e;--accent-deep:#e0954e;--accent-soft:#33281c;--navy:#0f1622;--navy-soft:#182336;--steel:#8fb3d9;--steel-soft:#1d2735;--green:#7fc79a;--green-soft:#1c2b22;--red:#e08a84;--red-soft:#33211f;--gold:#d9bc6a;--gold-soft:#2e2817}
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:15px;line-height:1.55;-webkit-font-smoothing:antialiased}
+h1,h2,h3,h4{font-family:var(--serif);margin:0;line-height:1.15;font-optical-sizing:auto}
+a{color:var(--accent);text-decoration:none}a:hover{text-decoration:underline}
+button{font-family:var(--sans)}
+
+/* app bar */
+.appbar{position:sticky;top:0;z-index:40;display:flex;align-items:center;gap:14px;padding:12px 26px;background:var(--card);border-bottom:1px solid var(--line)}
+.brand{display:flex;align-items:center;gap:10px}
+.brand .shield{width:30px;height:30px;flex:0 0 30px}
+.brand .name{font-family:var(--serif);font-weight:600;font-size:18px;letter-spacing:-.01em}
+.crumb{color:var(--ink-mute);font-size:13.5px}
+.crumb b{color:var(--ink);font-weight:600}
+.appbar .sp{flex:1}
+.chip{display:inline-flex;align-items:center;gap:6px;font-size:12.5px;color:var(--green);background:var(--green-soft);border-radius:20px;padding:5px 12px;font-weight:600}
+.icbtn{border:1px solid var(--line);background:var(--card);color:var(--ink-soft);border-radius:9px;padding:7px 11px;font-size:13px;cursor:pointer}
+.icbtn:hover{border-color:var(--accent);color:var(--accent)}
+
+.page{max-width:1280px;margin:0 auto;padding:24px 26px 120px}
+.h1{font-size:32px;font-weight:600;letter-spacing:-.02em}
+.sub{color:var(--ink-mute);font-size:15px;margin-top:5px}
+
+/* stepper */
+.steps{display:flex;align-items:center;gap:0;margin:22px 0 8px;max-width:620px}
+.step{display:flex;align-items:center;gap:11px;cursor:pointer}
+.step .num{width:30px;height:30px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:14px;background:var(--card);border:1.5px solid var(--line);color:var(--ink-mute)}
+.step.on .num{background:var(--navy);border-color:var(--navy);color:#fff}
+.step .lab{font-size:13.5px;font-weight:600;color:var(--ink)}
+.step .lab small{display:block;font-weight:400;font-size:11.5px;color:var(--ink-mute)}
+.step.on .lab{color:var(--ink)}
+.stepline{flex:1;height:2px;background:var(--line);margin:0 14px;min-width:26px}
+
+/* builder grid */
+.builder{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.05fr);gap:22px;margin-top:14px;align-items:start}
+.panel{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:20px 22px;box-shadow:0 1px 2px rgba(0,0,0,.03)}
+
+/* template selector */
+.tplhd{display:flex;align-items:center;gap:7px;font-size:12px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:var(--ink-mute);margin-bottom:9px}
+.tplsel{display:flex;align-items:stretch;gap:8px}
+.tplsel .nav{border:1px solid var(--line);background:var(--card);border-radius:10px;width:40px;font-size:16px;color:var(--ink-soft);cursor:pointer}
+.tplsel .nav:hover:not(:disabled){border-color:var(--accent);color:var(--accent)}
+.tplsel .nav:disabled{opacity:.35;cursor:default}
+.tplbox{flex:1;position:relative;border:1.5px solid var(--navy);border-radius:11px;background:var(--navy);color:#fff;padding:9px 14px;display:flex;flex-direction:column;justify-content:center;min-height:52px}
+.tplbox .desc{font-weight:600;font-size:14.5px}
+.tplbox .count{font-size:11.5px;color:#aebfd6}
+.tplbox select{position:absolute;inset:0;width:100%;height:100%;opacity:0;cursor:pointer;font-size:16px}
+
+/* sections */
+.sechd{display:flex;align-items:center;gap:10px;margin:22px 0 12px}
+.sechd .ic{width:30px;height:30px;border-radius:9px;background:var(--accent-soft);color:var(--accent-deep);display:flex;align-items:center;justify-content:center;flex:0 0 30px}
+.sechd h3{font-size:17px;font-weight:600}
+.sechd:first-of-type{margin-top:20px}
+
+label.fld{display:block;font-size:12px;font-weight:600;color:var(--ink-mute);margin:11px 0 4px}
+input,select.plain,textarea{width:100%;padding:9px 12px;border:1px solid var(--line);border-radius:10px;background:var(--card);color:var(--ink);font-size:14px;font-family:var(--sans)}
+input:focus,textarea:focus,select.plain:focus{outline:none;border-color:var(--accent);box-shadow:0 0 0 3px var(--accent-soft)}
+.g2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+textarea{min-height:52px;resize:vertical}
+
+/* equipment units */
+#l_units{counter-reset:unit}
+.unit{counter-increment:unit;position:relative;border:1px solid var(--line);border-radius:13px;padding:14px 14px 13px;margin:10px 0;display:grid;grid-template-columns:0.8fr 1fr 1.3fr;gap:10px;align-items:end;background:color-mix(in srgb,var(--paper) 35%,var(--card))}
+.unit::before{content:"Unit " counter(unit);grid-column:1/-1;font-weight:600;font-size:13.5px;color:var(--ink);margin-bottom:2px}
+.unit label{display:block;font-size:11px;font-weight:600;color:var(--ink-mute);margin:0 0 4px}
+.unit .rm{position:absolute;top:12px;right:12px;border:1px solid var(--line);background:var(--card);color:var(--red);border-radius:8px;width:30px;height:30px;cursor:pointer;font-size:14px;line-height:1;display:flex;align-items:center;justify-content:center}
+.unit .rm:hover{border-color:var(--red);background:var(--red-soft)}
+.btn{border:1px solid var(--line);background:var(--card);color:var(--ink-soft);border-radius:10px;padding:9px 14px;font-size:13.5px;cursor:pointer;display:inline-flex;align-items:center;gap:7px;font-weight:600}
+.btn:hover{border-color:var(--accent);color:var(--accent)}
+.btn.pri{background:var(--navy);color:#fff;border-color:var(--navy)}
+.btn.pri:hover{background:var(--navy-soft);color:#fff;filter:none}
+.btn.wide{width:100%;justify-content:center;border-style:dashed}
+
+details.card2{margin-top:14px;border:1px solid var(--line);border-radius:11px;padding:0 14px}
+details.card2>summary{cursor:pointer;font-size:13px;font-weight:600;color:var(--ink-soft);padding:12px 0;list-style:none}
+details.card2>summary::-webkit-details-marker{display:none}
+details.card2>summary:before{content:"▸ ";color:var(--accent)}
+details.card2[open]>summary:before{content:"▾ "}
+details.card2 .bd{padding:0 0 14px}
+
+/* signatures */
+.sigpad{border:1.5px dashed var(--line);border-radius:11px;background:var(--card);touch-action:none;width:100%;height:104px;display:block;cursor:crosshair;margin-top:4px}
+.sigpad:hover{border-color:var(--accent)}
+.sigpad-row{display:flex;justify-content:space-between;align-items:center;margin-top:5px}
+.sigpad-hint{font-size:11px;color:var(--ink-mute)}
+.link-btn{background:none;border:0;color:var(--accent);font-size:12px;cursor:pointer;padding:2px 4px;font-family:var(--sans)}
+.link-btn:hover{text-decoration:underline}
+
+/* preview */
+.previewwrap{position:sticky;top:78px}
+.pvhd{display:flex;align-items:center;gap:10px;background:var(--card);border:1px solid var(--line);border-bottom:0;border-radius:14px 14px 0 0;padding:13px 18px}
+.pvhd h3{font-size:16px;font-weight:600}
+.pvhd .sp{flex:1}
+.zoom{display:inline-flex;align-items:center;gap:2px;border:1px solid var(--line);border-radius:9px;overflow:hidden}
+.zoom button{border:0;background:var(--card);color:var(--ink-soft);width:32px;height:30px;cursor:pointer;font-size:15px}
+.zoom button:hover{background:var(--paper);color:var(--accent)}
+.zoom .zl{font-size:12.5px;color:var(--ink-mute);padding:0 8px;min-width:46px;text-align:center;font-variant-numeric:tabular-nums}
+.pvbody{background:var(--paper);border:1px solid var(--line);border-radius:0 0 14px 14px;padding:26px;max-height:calc(100vh - 210px);overflow:auto;display:flex;justify-content:center}
+.leasedoc{width:100%;max-width:620px;background:#fff;color:#141414;border-radius:6px;padding:34px 40px;font-family:'Fraunces',Georgia,serif;font-size:11.5px;line-height:1.45;box-shadow:0 8px 30px rgba(20,30,60,.13);transform-origin:top center}
+[data-theme="dark"] .leasedoc{background:#f5f2ea;color:#141414}
+.leasedoc .ttl{text-align:center;text-decoration:underline;font-weight:600;margin:13px 0;letter-spacing:.02em}
+.leasedoc p{margin:7px 0}
+.leasedoc .sig{display:flex;justify-content:space-between;margin-top:32px;gap:26px}
+.leasedoc .sig .col{flex:1;min-width:0}
+.leasedoc .sigimg{height:36px;display:flex;align-items:flex-end;overflow:hidden}
+.leasedoc .sigimg img{max-height:36px;max-width:100%}
+.leasedoc .sigline{border-top:1px solid #141414;margin-top:2px;padding-top:4px;font-size:10px}
+
+/* action bar */
+.actionbar{position:sticky;bottom:0;z-index:30;display:flex;align-items:center;gap:14px;margin-top:22px;padding:14px 26px;background:color-mix(in srgb,var(--card) 92%,transparent);backdrop-filter:blur(8px);border:1px solid var(--line);border-radius:14px}
+.actionbar .status{display:flex;align-items:center;gap:8px;font-size:13.5px;color:var(--ink-soft)}
+.actionbar .status .dot{width:9px;height:9px;border-radius:50%;background:var(--green)}
+.actionbar .sp{flex:1}
+.actionbar .msg{font-size:12.5px;color:var(--green)}
+
+@media(max-width:940px){
+  .builder{grid-template-columns:1fr}
+  .previewwrap{position:static}
+  .steps{max-width:100%;overflow-x:auto}
+  .g2{grid-template-columns:1fr}
+  .unit{grid-template-columns:1fr 1fr}
+}
+</style>
+</head>
+<body>
+<div class="appbar">
+  <div class="brand">
+    <svg class="shield" viewBox="0 0 40 40" fill="none"><path d="M20 3l14 5v10c0 9-6 15-14 19C12 33 6 27 6 18V8l14-5z" fill="#152238" stroke="#b4530a" stroke-width="1.5"/><path d="M14 20l4 4 8-9" stroke="#e6b667" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    <span class="name">CMJ <span style="color:var(--accent)">Lease</span></span>
+  </div>
+  <span class="crumb">Documents&nbsp; /&nbsp; <b>Lease Agreement</b></span>
+  <span class="sp"></span>
+  <span class="chip" id="savedChip">● Ready</span>
+  <button class="icbtn" id="darkBtn">🌙 Dark</button>
+  <a class="icbtn" href="/recruiting">← Playbook</a>
+</div>
+
+<div class="page">
+  <h1 class="h1">Create lease agreement</h1>
+  <div class="sub">Complete the details below, review your document, and generate a ready-to-sign PDF.</div>
+
+  <div class="steps">
+    <div class="step on" data-step="1"><div class="num">1</div><div class="lab">Details<small>Enter information</small></div></div>
+    <div class="stepline"></div>
+    <div class="step" data-step="2"><div class="num">2</div><div class="lab">Review<small>Verify document</small></div></div>
+    <div class="stepline"></div>
+    <div class="step" data-step="3"><div class="num">3</div><div class="lab">Download<small>Get your PDF</small></div></div>
+  </div>
+
+  <div class="builder">
+    <!-- LEFT: FORM -->
+    <div class="panel">
+      <div class="tplhd">Template style <span title="Each style has different wording &amp; layout — same legal content. Rotate them across companies." style="cursor:help;color:var(--accent)">ⓘ</span></div>
+      <div class="tplsel">
+        <button class="nav" id="tpl_prev" aria-label="Previous style">◀</button>
+        <div class="tplbox"><div class="desc" id="tpl_desc">Classic</div><div class="count" id="tpl_count">Style 1 of 15</div><select id="l_tpl" aria-label="Template style"></select></div>
+        <button class="nav" id="tpl_next" aria-label="Next style">▶</button>
+      </div>
+
+      <div class="sechd"><span class="ic">👤</span><h3>Owner details</h3></div>
+      <div class="g2">
+        <div><label class="fld">Owner full name</label><input id="l_owner" placeholder="e.g. SAMPSON TYMEN R"></div>
+        <div><label class="fld">Agreement date</label><input id="l_date" type="date"></div>
+      </div>
+      <label class="fld">Owner address</label><input id="l_addr" placeholder="e.g. 1255 MAGIE AVE STE 255 UNION, NJ 07083">
+
+      <div class="sechd"><span class="ic">🚚</span><h3>Equipment</h3></div>
+      <div id="l_units"></div>
+      <button class="btn wide" id="l_add" type="button">＋ Add equipment</button>
+
+      <div class="sechd"><span class="ic">✍️</span><h3>Terms &amp; signatures</h3></div>
+      <div class="g2">
+        <div><label class="fld">Agreement term</label><input id="l_term" value="five years"></div>
+        <div><label class="fld">Notice to terminate</label><input id="l_notice" value="fifteen days"></div>
+      </div>
+      <label class="fld">Carrier's authorized agent (signs for carrier)</label><input id="l_agent" value="DAMION WHITE">
+
+      <label class="fld" style="margin-top:14px">Carrier's agent — draw or upload a signature</label>
+      <canvas id="l_sig_agent" class="sigpad" aria-label="Carrier agent signature pad"></canvas>
+      <div class="sigpad-row"><span class="sigpad-hint">✍ Draw here, or</span><span style="display:flex;gap:14px"><button type="button" class="link-btn" id="l_sig_agent_up">⬆ Upload image</button><button type="button" class="link-btn" id="l_sig_agent_clr">Clear</button></span></div>
+      <input type="file" id="l_sig_agent_file" accept="image/*" style="display:none">
+      <div id="l_sig_agent_saved" style="font-size:11px;color:var(--green);margin-top:3px"></div>
+
+      <label class="fld" style="margin-top:12px">Independent contractor — draw or upload a signature</label>
+      <canvas id="l_sig_owner" class="sigpad" aria-label="Contractor signature pad"></canvas>
+      <div class="sigpad-row"><span class="sigpad-hint">✍ Draw here, or</span><span style="display:flex;gap:14px"><button type="button" class="link-btn" id="l_sig_owner_up">⬆ Upload image</button><button type="button" class="link-btn" id="l_sig_owner_clr">Clear</button></span></div>
+      <input type="file" id="l_sig_owner_file" accept="image/*" style="display:none">
+
+      <details class="card2"><summary>Carrier letterhead (pre-filled — tap to edit)</summary><div class="bd">
+        <div class="g2">
+          <div><label class="fld">Carrier name</label><input id="l_carrier" value="AMEYA INVESTMENTS LLC"></div>
+          <div><label class="fld">Carrier street</label><input id="l_caddr" value="1098 OAKLAND DR"></div>
+          <div><label class="fld">City, State ZIP</label><input id="l_ccity" value="ATLANTA, GA 30310"></div>
+          <div><label class="fld">MC #</label><input id="l_mc" value="1587938"></div>
+        </div>
+        <label class="fld">DOT #</label><input id="l_dot" value="4141377">
+      </div></details>
+    </div>
+
+    <!-- RIGHT: PREVIEW -->
+    <div class="previewwrap">
+      <div class="pvhd">
+        <h3>Document preview</h3><span class="sp"></span>
+        <div class="zoom"><button id="zout" aria-label="Zoom out">−</button><span class="zl" id="zlabel">100%</span><button id="zin" aria-label="Zoom in">+</button></div>
+      </div>
+      <div class="pvbody"><div class="leasedoc" id="l_prev"></div></div>
+    </div>
+  </div>
+
+  <div class="actionbar">
+    <span class="status"><span class="dot"></span> Ready to sign</span>
+    <span class="msg" id="l_msg"></span>
+    <span class="sp"></span>
+    <button class="btn" id="l_clear" type="button">Clear</button>
+    <button class="btn pri" id="l_gen">⬇ Generate PDF</button>
+  </div>
+</div>
+
+<script src="jspdf.umd.min.js"></script>
+<script>
+/* ---- Lease Agreement generator ---- */
+(function(){
+  var $=function(id){return document.getElementById(id);};
+  if(!$('l_units')) return;
+  var agentPad=null, ownerPad=null;
+  (function(){var d=new Date();var p=function(n){return (n<10?'0':'')+n;};$('l_date').value=d.getFullYear()+'-'+p(d.getMonth()+1)+'-'+p(d.getDate());})();
+  var units=$('l_units');
+  function addUnit(y,m,v){
+    var row=document.createElement('div');row.className='unit';
+    row.innerHTML='<div><label>Year</label><input class="u-year" placeholder="2015"></div>'+
+      '<div><label>Make / model</label><input class="u-make" placeholder="Freightliner"></div>'+
+      '<div><label>VIN #</label><input class="u-vin" placeholder="3AKJGEDVXFDGR2069"></div>'+
+      '<button class="rm" type="button" title="Remove unit">✕</button>';
+    units.appendChild(row);
+    if(y)row.querySelector('.u-year').value=y; if(m)row.querySelector('.u-make').value=m; if(v)row.querySelector('.u-vin').value=v;
+    row.querySelector('.rm').onclick=function(){row.remove();render();};
+    row.querySelectorAll('input').forEach(function(i){i.addEventListener('input',render);});
+    render();
+  }
+  $('l_add').onclick=function(){addUnit();};
+  function val(id){var e=$(id);return e?e.value.trim():'';}
+  function fmtDate(iso){if(!iso)return '__/__/____';var p=iso.split('-');return p[1]+'/'+p[2]+'/'+p[0];}
+  function data(){
+    var us=[];[].slice.call(units.querySelectorAll('.unit')).forEach(function(r){
+      var y=r.querySelector('.u-year').value.trim(),m=r.querySelector('.u-make').value.trim(),v=r.querySelector('.u-vin').value.trim();
+      if(y||m||v)us.push({y:y,m:m,v:v});
+    });
+    return {owner:val('l_owner')||'____________________',date:fmtDate(val('l_date')),addr:val('l_addr')||'____________________',
+      term:val('l_term')||'five years',notice:val('l_notice')||'fifteen days',agent:val('l_agent')||'____________________',
+      carrier:val('l_carrier')||'CARRIER',caddr:val('l_caddr'),ccity:val('l_ccity'),mc:val('l_mc'),dot:val('l_dot'),units:us};
+  }
+  var TPLS=[
+    {id:'classic',name:'1 · Classic (serif, centered)',font:'times',pfont:"'Fraunces',Georgia,serif",size:11,gap:15,align:'center',title:'LEASE AGREEMENT',decor:'underline',equip:'EQUIPMENT INFORMATION:',numbered:false,sig:'sidebyside',
+      idfn:function(d){var a=[];if(d.mc)a.push('MC#: '+d.mc);if(d.dot)a.push('DOT#: '+d.dot);return a;},
+      term:function(d){return 'This agreement is valid for the period of '+d.term+' and can be terminated by either party after '+d.notice+' of written notice.';},
+      paras:function(d){var C=d.carrier,O=d.owner;return [
+        'This agreement is made on '+d.date+' by and between '+C+' (CARRIER) and '+O+' (EQUIPMENT OWNER) located at '+d.addr+'.',
+        O+' agrees to lease its units to '+C+' for the purpose of transporting loads for '+C+'.',
+        C+' will perform the services required by this agreement at any place or location within the continental United States. Once a shipping order is given and accepted by '+C+', it is legally and financially liable to complete; said contract is completed.',
+        C+' will be solely scheduling its hours of operation and controlling the means by which the work is accomplished, provided it meets DOT guidelines and regulations.',
+        C+' agrees to furnish '+O+' with Primary Liability and Motor Truck Cargo on the vehicles covered by this agreement during the term of the Agreement in the amount of not less than $1,000,000.',
+        O+' agrees to carry active Non-Trucking Liability. '+C+" will be liable for, and shall pay, all cargo claims including but not limited to delay, shortages, undelivered, and claims relating to lost or contaminated loads arising out of or in connection with the loads carried by "+O+"'s drivers, employees, and agents."
+      ];}},
+    {id:'formal',name:'2 · Formal “Agreement” (serif)',font:'times',pfont:"'Fraunces',Georgia,serif",size:11,gap:15,align:'center',title:'EQUIPMENT LEASE AGREEMENT',decor:'rule',equip:'LEASED EQUIPMENT:',numbered:false,sig:'sidebyside',
+      idfn:function(d){var a=[];if(d.dot)a.push('USDOT No. '+d.dot);if(d.mc)a.push('MC No. '+d.mc);return a.length?[a.join('      ')]:[];},
+      term:function(d){return 'This Agreement shall remain in effect for '+d.term+' and may be terminated by either party upon '+d.notice+' written notice.';},
+      paras:function(d){var C=d.carrier,O=d.owner;return [
+        'This Equipment Lease Agreement (the "Agreement") is entered into as of '+d.date+' by and between '+C+', a motor carrier ("Carrier"), and '+O+' ("Equipment Owner"), whose address is '+d.addr+'.',
+        'The Equipment Owner hereby agrees to lease its unit(s) to the Carrier for the purpose of transporting freight on the Carrier’s behalf.',
+        'The Carrier may perform the services contemplated herein at any location within the continental United States. Upon acceptance of any shipping order, the Carrier assumes full legal and financial responsibility for completing that order.',
+        'The Carrier shall have sole authority to schedule hours of operation and to direct the means and manner by which the work is performed, provided that all operations comply with applicable DOT rules and regulations.',
+        'For the duration of this Agreement, the Carrier shall provide the Equipment Owner with Primary Liability and Motor Truck Cargo coverage on the covered vehicle(s) in an amount of no less than $1,000,000.',
+        'The Equipment Owner shall maintain active Non-Trucking Liability coverage. The Carrier shall be responsible for, and shall pay, all cargo claims — including without limitation delay, shortage, non-delivery, and loss or contamination — arising from or connected with loads hauled by the Equipment Owner’s drivers, employees, or agents.'
+      ];}},
+    {id:'modern',name:'3 · Modern (sans-serif, left)',font:'helvetica',pfont:"'Inter',Arial,sans-serif",size:10.5,gap:14,align:'left',title:'Lease Agreement',decor:'ruleLeft',equip:'Equipment',numbered:false,sig:'stacked',
+      idfn:function(d){var a=[];if(d.dot)a.push('USDOT '+d.dot);if(d.mc)a.push('MC '+d.mc);return a.length?[a.join('  ·  ')]:[];},
+      term:function(d){return 'This agreement lasts '+d.term+'. Either party can end it with '+d.notice+' written notice.';},
+      paras:function(d){var C=d.carrier,O=d.owner;return [
+        'Effective '+d.date+', this agreement is between '+C+' ("Carrier") and '+O+' ("Owner"), located at '+d.addr+'.',
+        'The Owner leases its truck(s) to the Carrier to haul loads for the Carrier.',
+        'The Carrier can run these services anywhere in the continental U.S. Once the Carrier accepts a shipping order, the Carrier is legally and financially responsible for completing it.',
+        'The Carrier sets the hours of operation and controls how the work gets done, as long as everything follows DOT rules and regulations.',
+        'During the term, the Carrier provides the Owner with Primary Liability and Motor Truck Cargo insurance on the covered vehicle(s) — at least $1,000,000.',
+        'The Owner keeps active Non-Trucking Liability insurance. The Carrier is responsible for and pays all cargo claims, including delay, shortages, non-delivery, and lost or contaminated loads tied to loads carried by the Owner’s drivers, employees, or agents.'
+      ];}},
+    {id:'letter',name:'4 · Business letter (sans, left)',font:'helvetica',pfont:"'Inter',Arial,sans-serif",size:11,gap:15,align:'left',title:'TRUCK LEASE AGREEMENT',decor:'plain',equip:'UNIT(S) COVERED:',numbered:false,sig:'sidebyside',
+      idfn:function(d){var a=[];if(d.mc)a.push('MC# '+d.mc);if(d.dot)a.push('DOT# '+d.dot);return a.length?[a.join('     ')]:[];},
+      term:function(d){return 'The term of this lease is '+d.term+'; either party may cancel with '+d.notice+' written notice.';},
+      paras:function(d){var C=d.carrier,O=d.owner;return [
+        'This lease is made '+d.date+' between '+C+' ("Carrier") and '+O+' ("Owner") of '+d.addr+'.',
+        'Owner agrees to lease its equipment to Carrier for the transportation of loads on Carrier’s behalf.',
+        'Carrier will perform the required services at any place within the continental United States. When a shipping order is issued and accepted by Carrier, Carrier becomes legally and financially liable to complete that order.',
+        'Carrier alone will schedule the hours of operation and control the manner in which the work is carried out, so long as it meets DOT guidelines and regulations.',
+        'Throughout the term, Carrier will furnish Owner with Primary Liability and Motor Truck Cargo insurance on the covered vehicle(s) in an amount not less than $1,000,000.',
+        'Owner will carry active Non-Trucking Liability. Carrier will be liable for and pay all cargo claims, including but not limited to delay, shortage, non-delivery, and claims for lost or contaminated loads arising out of or connected to loads carried by Owner’s drivers, employees, and agents.'
+      ];}},
+    {id:'articles',name:'5 · Numbered articles (serif)',font:'times',pfont:"'Fraunces',Georgia,serif",size:11,gap:15,align:'center',title:'INDEPENDENT CONTRACTOR EQUIPMENT LEASE',decor:'box',equip:'Equipment Covered',numbered:true,sig:'sidebyside',
+      idfn:function(d){var a=[];if(d.dot)a.push('Carrier USDOT: '+d.dot);if(d.mc)a.push('MC: '+d.mc);return a.length?[a.join('     ')]:[];},
+      term:function(d){return 'Term & Termination. This lease runs for '+d.term+' and may be ended by either party on '+d.notice+' written notice.';},
+      paras:function(d){var C=d.carrier,O=d.owner;return [
+        'Parties. This Independent Contractor Equipment Lease is made on '+d.date+' between '+C+' ("Carrier") and '+O+' ("Owner"), located at '+d.addr+'.',
+        'Lease of Equipment. Owner leases its unit(s) to Carrier for the purpose of transporting loads for Carrier.',
+        'Scope of Service. Carrier may perform services anywhere within the continental United States. Once Carrier accepts a shipping order, Carrier is legally and financially liable to complete it.',
+        'Control of Work. Carrier is solely responsible for scheduling hours of operation and directing the means by which the work is accomplished, provided operations comply with DOT guidelines and regulations.',
+        'Insurance by Carrier. During the term, Carrier will furnish Owner with Primary Liability and Motor Truck Cargo coverage on the covered vehicle(s) of not less than $1,000,000.',
+        'Owner Insurance & Cargo Claims. Owner will maintain active Non-Trucking Liability. Carrier will be liable for and pay all cargo claims, including delay, shortage, non-delivery, and lost or contaminated loads arising from loads carried by Owner’s drivers, employees, and agents.'
+      ];}},
+    {id:'type',name:'6 · Typewriter (monospace)',font:'courier',pfont:"'JetBrains Mono',ui-monospace,monospace",size:10.5,gap:14,align:'center',title:'TRACTOR LEASE AGREEMENT',decor:'underline',equip:'EQUIPMENT:',numbered:false,sig:'sidebyside',
+      idfn:function(d){var a=[];if(d.mc)a.push('MC#: '+d.mc);if(d.dot)a.push('DOT#: '+d.dot);return a;},
+      term:function(d){return 'TERM: '+d.term+'. Either party may terminate with '+d.notice+' written notice.';},
+      paras:function(d){var C=d.carrier,O=d.owner;return [
+        'This lease is made on '+d.date+' between '+C+' (CARRIER) and '+O+' (EQUIPMENT OWNER), '+d.addr+'.',
+        O+' leases its unit(s) to '+C+' to transport loads for '+C+'.',
+        C+' performs services at any location in the continental U.S. Once '+C+' accepts a shipping order, '+C+' is legally and financially liable to complete it.',
+        C+' schedules hours of operation and controls how the work is done, provided it meets DOT guidelines and regulations.',
+        'For the term, '+C+' furnishes '+O+' Primary Liability and Motor Truck Cargo on the covered vehicle(s), not less than $1,000,000.',
+        O+' carries active Non-Trucking Liability. '+C+' is liable for and pays all cargo claims — delay, shortage, non-delivery, lost or contaminated loads — arising from loads carried by '+O+"'s drivers, employees, and agents."
+      ];}},
+    {id:'mc',name:'7 · Statement (serif, centered)',font:'times',pfont:"'Fraunces',Georgia,serif",size:11,gap:15,align:'center',title:'MOTOR CARRIER EQUIPMENT LEASE',decor:'plain',equip:'EQUIPMENT LEASED:',numbered:false,sig:'sidebyside',
+      idfn:function(d){var a=[];if(d.mc)a.push('Motor Carrier No. '+d.mc);if(d.dot)a.push('US DOT No. '+d.dot);return a;},
+      term:function(d){return 'This lease remains in force for '+d.term+' and either party may end it on '+d.notice+' written notice.';},
+      paras:function(d){var C=d.carrier,O=d.owner;return [
+        'Made this '+d.date+', this lease is by and between '+C+' (the "Carrier") and '+O+' (the "Equipment Owner"), of '+d.addr+'.',
+        'The Equipment Owner places its unit(s) under lease to the Carrier for the hauling of loads on the Carrier’s behalf.',
+        'The Carrier is authorized to conduct these services throughout the continental United States. Once the Carrier accepts a shipping order, the Carrier bears full legal and financial responsibility for completing it.',
+        'Scheduling of hours of operation and control over the means and manner of the work rest solely with the Carrier, so long as all activity remains in compliance with DOT guidelines and regulations.',
+        'The Carrier will maintain, for the Equipment Owner, Primary Liability and Motor Truck Cargo coverage on the leased vehicle(s) throughout the term, in an amount not less than $1,000,000.',
+        'The Equipment Owner will keep active Non-Trucking Liability coverage. The Carrier accepts responsibility for, and will pay, all cargo claims — including delay, shortage, non-delivery, and lost or contaminated loads — arising in connection with loads hauled by the Equipment Owner’s drivers, employees, and agents.'
+      ];}},
+    {id:'compact',name:'8 · Compact (sans, left)',font:'helvetica',pfont:"'Inter',Arial,sans-serif",size:10.5,gap:14,align:'left',title:'Owner-Operator Lease Agreement',decor:'ruleLeft',equip:'Leased Unit(s)',numbered:false,sig:'stacked',
+      idfn:function(d){var a=[];if(d.mc)a.push('MC '+d.mc);if(d.dot)a.push('DOT '+d.dot);return a.length?[a.join('  |  ')]:[];},
+      term:function(d){return 'Term: '+d.term+'. Either side can cancel with '+d.notice+' written notice.';},
+      paras:function(d){var C=d.carrier,O=d.owner;return [
+        'Dated '+d.date+', between '+C+' ("Carrier") and '+O+' ("Owner"), '+d.addr+'.',
+        'Owner puts its truck(s) under lease to Carrier to move loads for Carrier.',
+        'Carrier may operate anywhere in the lower 48. After Carrier accepts a shipping order, Carrier is fully responsible — legally and financially — for finishing it.',
+        'Carrier decides the hours and how the work is done, provided it stays within DOT rules.',
+        'For the term, Carrier carries Primary Liability and Motor Truck Cargo on the leased vehicle(s) — no less than $1,000,000.',
+        'Owner maintains active Non-Trucking Liability. Carrier covers and pays every cargo claim — delay, shortage, non-delivery, lost or contaminated freight — connected to loads run by Owner’s drivers, employees, and agents.'
+      ];}},
+    {id:'recitals',name:'9 · Recitals “Whereas” (serif)',font:'times',pfont:"'Fraunces',Georgia,serif",size:11,gap:15,align:'center',title:'LEASE AND OPERATING AGREEMENT',decor:'rule',equip:'SCHEDULE A — EQUIPMENT:',numbered:false,sig:'sidebyside',
+      idfn:function(d){var a=[];if(d.dot)a.push('USDOT '+d.dot);if(d.mc)a.push('MC '+d.mc);return a.length?[a.join('      ')]:[];},
+      term:function(d){return 'This Agreement shall continue for '+d.term+' and may be terminated by either party upon '+d.notice+' written notice.';},
+      paras:function(d){var C=d.carrier,O=d.owner;return [
+        'This Lease and Operating Agreement is entered on '+d.date+' between '+C+' ("Carrier") and '+O+' ("Owner"), located at '+d.addr+'. WHEREAS the Owner wishes to lease equipment to the Carrier and the Carrier wishes to accept it, the parties agree as follows.',
+        'The Owner leases its unit(s) to the Carrier for the purpose of transporting loads for the Carrier.',
+        'The Carrier may perform the services under this Agreement at any location within the continental United States. Upon accepting a shipping order, the Carrier is legally and financially bound to complete it.',
+        'The Carrier alone shall set the hours of operation and control the means by which the work is accomplished, provided such operations satisfy DOT guidelines and regulations.',
+        'The Carrier shall furnish the Owner, throughout the term, with Primary Liability and Motor Truck Cargo insurance on the covered vehicle(s) in an amount not less than $1,000,000.',
+        'The Owner shall maintain active Non-Trucking Liability. The Carrier shall be liable for and shall pay all cargo claims, including but not limited to delay, shortage, non-delivery, and loss or contamination, arising out of or in connection with loads carried by the Owner’s drivers, employees, and agents.'
+      ];}},
+    {id:'memo',name:'10 · Memo (monospace, left)',font:'courier',pfont:"'JetBrains Mono',ui-monospace,monospace",size:10.5,gap:14,align:'left',title:'EQUIPMENT LEASE',decor:'plain',equip:'EQUIPMENT LIST:',numbered:false,sig:'sidebyside',
+      idfn:function(d){var a=[];if(d.mc)a.push('MC#: '+d.mc);if(d.dot)a.push('DOT#: '+d.dot);return a;},
+      term:function(d){return 'TERM '+d.term+'. TERMINATION BY EITHER PARTY ON '+d.notice+' WRITTEN NOTICE.';},
+      paras:function(d){var C=d.carrier,O=d.owner;return [
+        'DATE: '+d.date+'. PARTIES: '+C+' (CARRIER) and '+O+' (OWNER), '+d.addr+'.',
+        'OWNER leases unit(s) to CARRIER to haul CARRIER loads.',
+        'CARRIER may operate throughout the continental U.S. On accepting a shipping order, CARRIER is legally and financially liable to complete it.',
+        'CARRIER sets hours and controls how work is done, within DOT guidelines and regulations.',
+        'CARRIER provides OWNER Primary Liability and Motor Truck Cargo on leased vehicle(s) for the term, not less than $1,000,000.',
+        'OWNER maintains active Non-Trucking Liability. CARRIER is liable for and pays all cargo claims (delay, shortage, non-delivery, lost/contaminated loads) from loads run by OWNER drivers, employees, and agents.'
+      ];}},
+    {id:'numsans',name:'11 · Numbered (sans, left)',font:'helvetica',pfont:"'Inter',Arial,sans-serif",size:11,gap:15,align:'left',title:'VEHICLE LEASE AGREEMENT',decor:'plain',equip:'Equipment:',numbered:true,sig:'sidebyside',
+      idfn:function(d){var a=[];if(d.dot)a.push('USDOT: '+d.dot);if(d.mc)a.push('MC: '+d.mc);return a.length?[a.join('     ')]:[];},
+      term:function(d){return 'Term. This lease runs '+d.term+'; either party may end it with '+d.notice+' written notice.';},
+      paras:function(d){var C=d.carrier,O=d.owner;return [
+        'Parties & Date. This vehicle lease is made '+d.date+' between '+C+' ("Carrier") and '+O+' ("Owner"), located at '+d.addr+'.',
+        'Equipment Lease. Owner leases its vehicle(s) to Carrier to transport loads for Carrier.',
+        'Where Work Is Performed. Carrier may operate anywhere in the continental United States. Once Carrier accepts a shipping order, Carrier is legally and financially liable to complete it.',
+        'Operations & Control. Carrier sets the hours of operation and controls the manner of work, as long as it complies with DOT guidelines and regulations.',
+        'Carrier Insurance. During the term, Carrier furnishes Owner Primary Liability and Motor Truck Cargo on the covered vehicle(s), not less than $1,000,000.',
+        'Owner Insurance & Claims. Owner maintains active Non-Trucking Liability. Carrier is liable for and pays all cargo claims — delay, shortage, non-delivery, and lost or contaminated loads — arising from loads carried by Owner’s drivers, employees, and agents.'
+      ];}},
+    {id:'boxed',name:'12 · Boxed title (serif)',font:'times',pfont:"'Fraunces',Georgia,serif",size:11,gap:15,align:'center',title:'LEASE OF EQUIPMENT AGREEMENT',decor:'box',equip:'DESCRIPTION OF EQUIPMENT:',numbered:false,sig:'sidebyside',
+      idfn:function(d){var a=[];if(d.mc)a.push('MC No. '+d.mc);if(d.dot)a.push('DOT No. '+d.dot);return a.length?[a.join('     ')]:[];},
+      term:function(d){return 'This Agreement is effective for '+d.term+' and may be canceled by either party on '+d.notice+' written notice.';},
+      paras:function(d){var C=d.carrier,O=d.owner;return [
+        'This Lease of Equipment Agreement is made and entered into on '+d.date+' by '+C+' ("Carrier") and '+O+' ("Owner"), whose address is '+d.addr+'.',
+        'Owner agrees to lease its equipment to Carrier so that Carrier may transport loads.',
+        'Carrier may render the services described herein anywhere within the continental United States. When Carrier accepts a shipping order, Carrier is legally and financially obligated to complete it.',
+        'Carrier retains sole discretion over hours of operation and over the means and manner by which the work is carried out, provided that operations conform to DOT guidelines and regulations.',
+        'For the term of this Agreement, Carrier will provide Owner with Primary Liability and Motor Truck Cargo coverage on the covered vehicle(s) in an amount not less than $1,000,000.',
+        'Owner will maintain active Non-Trucking Liability. Carrier will be liable for, and will pay, all cargo claims — including without limitation delay, shortage, non-delivery, and lost or contaminated loads — arising from or related to loads carried by Owner’s drivers, employees, and agents.'
+      ];}},
+    {id:'plainleft',name:'13 · Plain letter (serif, left)',font:'times',pfont:"'Fraunces',Georgia,serif",size:11,gap:15,align:'left',title:'Truck Lease Agreement',decor:'plain',equip:'Truck(s) Leased:',numbered:false,sig:'stacked',
+      idfn:function(d){var a=[];if(d.mc)a.push('MC# '+d.mc);if(d.dot)a.push('DOT# '+d.dot);return a.length?[a.join('   ·   ')]:[];},
+      term:function(d){return 'This lease lasts '+d.term+'. Either party can end it by giving '+d.notice+' written notice.';},
+      paras:function(d){var C=d.carrier,O=d.owner;return [
+        'On '+d.date+', '+C+' ("Carrier") and '+O+' ("Owner") of '+d.addr+' agree to the following lease.',
+        'The Owner rents its truck(s) to the Carrier to carry loads for the Carrier.',
+        'The Carrier may work anywhere in the continental United States. Once the Carrier takes a shipping order, the Carrier must complete it and is legally and financially responsible for doing so.',
+        'The Carrier decides the hours of operation and how the job is done, as long as it follows DOT guidelines and regulations.',
+        'While this lease is in effect, the Carrier gives the Owner Primary Liability and Motor Truck Cargo insurance on the covered truck(s), at least $1,000,000.',
+        'The Owner keeps active Non-Trucking Liability. The Carrier is responsible for and pays every cargo claim — delay, shortage, non-delivery, and lost or contaminated loads — that comes from loads carried by the Owner’s drivers, employees, and agents.'
+      ];}},
+    {id:'centersans',name:'14 · Centered (sans, underline)',font:'helvetica',pfont:"'Inter',Arial,sans-serif",size:11,gap:15,align:'center',title:'CARRIER–OWNER LEASE AGREEMENT',decor:'underline',equip:'Covered Equipment',numbered:false,sig:'stacked',
+      idfn:function(d){var a=[];if(d.dot)a.push('USDOT '+d.dot);if(d.mc)a.push('MC '+d.mc);return a.length?[a.join('  /  ')]:[];},
+      term:function(d){return 'The term is '+d.term+', and either party may terminate with '+d.notice+' written notice.';},
+      paras:function(d){var C=d.carrier,O=d.owner;return [
+        'This agreement, dated '+d.date+', is between '+C+' ("Carrier") and '+O+' ("Owner"), located at '+d.addr+'.',
+        'The Owner leases its equipment to the Carrier to transport the Carrier’s loads.',
+        'The Carrier can perform these services anywhere in the continental United States. After accepting a shipping order, the Carrier is legally and financially responsible for completing it.',
+        'The Carrier controls the hours of operation and the way the work is performed, provided it meets DOT guidelines and regulations.',
+        'Throughout the term, the Carrier provides the Owner with Primary Liability and Motor Truck Cargo coverage on the covered vehicle(s) of at least $1,000,000.',
+        'The Owner maintains active Non-Trucking Liability. The Carrier is liable for and pays all cargo claims, including delay, shortage, non-delivery, and lost or contaminated loads arising from loads carried by the Owner’s drivers, employees, and agents.'
+      ];}},
+    {id:'sections',name:'15 · Section headers (serif, left)',font:'times',pfont:"'Fraunces',Georgia,serif",size:11,gap:15,align:'left',title:'INDEPENDENT CONTRACTOR AGREEMENT — EQUIPMENT LEASE',decor:'ruleLeft',equip:'Section 8 — Equipment:',numbered:false,sig:'sidebyside',
+      idfn:function(d){var a=[];if(d.dot||d.mc)a.push('Carrier: '+(d.dot?'USDOT '+d.dot:'')+(d.dot&&d.mc?', ':'')+(d.mc?'MC '+d.mc:''));return a;},
+      term:function(d){return 'Section 7 — Term & Termination. This lease runs '+d.term+' and may be ended by either party on '+d.notice+' written notice.';},
+      paras:function(d){var C=d.carrier,O=d.owner;return [
+        'Section 1 — Parties. This Independent Contractor Agreement for equipment lease is made on '+d.date+' between '+C+' ("Carrier") and '+O+' ("Owner"), located at '+d.addr+'.',
+        'Section 2 — Lease. Owner leases its unit(s) to Carrier for transporting loads on Carrier’s behalf.',
+        'Section 3 — Service Area. Carrier may operate anywhere within the continental United States. Once Carrier accepts a shipping order, Carrier is legally and financially liable to complete it.',
+        'Section 4 — Direction of Work. Carrier is solely responsible for scheduling hours of operation and controlling the means by which the work is performed, provided operations comply with DOT guidelines and regulations.',
+        'Section 5 — Insurance by Carrier. For the term, Carrier furnishes Owner Primary Liability and Motor Truck Cargo on the covered vehicle(s), not less than $1,000,000.',
+        'Section 6 — Owner Coverage & Cargo. Owner maintains active Non-Trucking Liability. Carrier is liable for and pays all cargo claims, including delay, shortage, non-delivery, and lost or contaminated loads arising from loads carried by Owner’s drivers, employees, and agents.'
+      ];}}
+  ];
+  function getTpl(){var v=$('l_tpl')?$('l_tpl').value:'classic';for(var i=0;i<TPLS.length;i++)if(TPLS[i].id===v)return TPLS[i];return TPLS[0];}
+  function esc(s){return (s+'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');}
+  function render(){
+    var d=data(),t=getTpl(),prev=$('l_prev');
+    prev.style.fontFamily=t.pfont;
+    var al=t.align==='center'?'center':'left';
+    var deco=(t.decor==='underline'||t.decor==='box')?'underline':'none';
+    var box=t.decor==='box'?'border:1px solid #141414;display:inline-block;padding:2px 12px;':'';
+    var h='<div style="text-align:'+al+'">';
+    h+='<div style="font-weight:600">'+esc(d.carrier)+'</div>';
+    if(d.caddr)h+='<div>'+esc(d.caddr)+'</div>';
+    if(d.ccity)h+='<div>'+esc(d.ccity)+'</div>';
+    h+='<div class="ttl" style="text-align:'+al+';text-decoration:'+deco+';'+box+'">'+esc(t.title)+'</div>';
+    if(t.decor==='rule')h+='<hr style="border:0;border-top:1px solid #141414;margin:4px 0">';
+    if(t.decor==='ruleLeft')h+='<div style="height:2px;width:110px;background:var(--accent);margin:2px 0 6px"></div>';
+    h+='</div>';
+    t.idfn(d).forEach(function(l){h+='<p style="margin:3px 0">'+esc(l)+'</p>';});
+    t.paras(d).forEach(function(p,i){h+='<p>'+(t.numbered?'<b>'+(i+1)+'.</b> ':'')+esc(p)+'</p>';});
+    h+='<p><b>'+esc(t.equip)+'</b></p>';
+    if(d.units.length)d.units.forEach(function(u,i){h+='<p>'+(i+1)+'. '+esc((u.y+' '+u.m).trim())+' &nbsp;VIN# '+esc(u.v)+'</p>';});
+    else h+='<p>1. ____________________ &nbsp;VIN# ____________________</p>';
+    h+='<p>'+esc(t.term(d))+'</p>';
+    var aImg=(agentPad&&!agentPad.isEmpty())?'<img src="'+agentPad.dataURL()+'">':'';
+    var oImg=(ownerPad&&!ownerPad.isEmpty())?'<img src="'+ownerPad.dataURL()+'">':'';
+    if(t.sig==='stacked'){
+      h+='<div style="margin-top:26px"><div>'+esc(d.carrier)+'</div><div>'+esc(d.agent)+'</div><div class="sigimg">'+aImg+'</div><div class="sigline">Signature of Carrier’s authorized agent</div></div>';
+      h+='<div style="margin-top:22px"><div>'+esc(d.owner)+'</div><div class="sigimg">'+oImg+'</div><div class="sigline">Signature of Independent contractor</div></div>';
+    }else{
+      h+='<div class="sig"><div class="col"><div>'+esc(d.carrier)+'</div><div>'+esc(d.agent)+'</div><div class="sigimg">'+aImg+'</div><div class="sigline">Signature of Carrier’s authorized agent</div></div>'+
+         '<div class="col"><div>'+esc(d.owner)+'</div><div>&nbsp;</div><div class="sigimg">'+oImg+'</div><div class="sigline">Signature of Independent contractor</div></div></div>';
+    }
+    prev.innerHTML=h;
+  }
+  ['l_owner','l_date','l_addr','l_term','l_notice','l_agent','l_carrier','l_caddr','l_ccity','l_mc','l_dot'].forEach(function(id){var e=$(id);if(e)e.addEventListener('input',render);});
+  (function(){var s=$('l_tpl');if(!s)return;TPLS.forEach(function(t){var o=document.createElement('option');o.value=t.id;o.textContent=t.name;s.appendChild(o);});var sv=null;try{sv=localStorage.getItem('cmj_lease_tpl');}catch(e){}if(sv){for(var i=0;i<TPLS.length;i++){if(TPLS[i].id===sv){s.value=sv;break;}}}s.addEventListener('change',function(){try{localStorage.setItem('cmj_lease_tpl',s.value);}catch(e){}render();});})();
+  addUnit();
+  render();
+
+  /* signature pads */
+  function makePad(canvas,onChange){
+    var ctx=canvas.getContext('2d'),dirty=false,drawing=false,last=null,pending=null;
+    function style(){ctx.lineWidth=2.2;ctx.lineCap='round';ctx.lineJoin='round';ctx.strokeStyle='#12245a';}
+    function drawFit(url){
+      var img=new Image();
+      img.onload=function(){
+        var r=canvas.getBoundingClientRect(); if(r.width<2){pending=url;return;}
+        var oc=document.createElement('canvas'); oc.width=img.width; oc.height=img.height;
+        var octx=oc.getContext('2d'); octx.drawImage(img,0,0);
+        try{ var d=octx.getImageData(0,0,oc.width,oc.height),a=d.data; for(var i=0;i<a.length;i+=4){ if(a[i]>228&&a[i+1]>228&&a[i+2]>228) a[i+3]=0; } octx.putImageData(d,0,0); }catch(e){}
+        var s=Math.min(r.width/oc.width,r.height/oc.height);
+        var w=oc.width*s,h=oc.height*s,x=(r.width-w)/2,y=(r.height-h)/2;
+        ctx.clearRect(0,0,r.width,r.height); ctx.drawImage(oc,x,y,w,h);
+        dirty=true; onChange&&onChange();
+      };
+      img.src=url;
+    }
+    function fit(){
+      var r=canvas.getBoundingClientRect(); if(r.width<2)return;
+      var dpr=window.devicePixelRatio||1,nw=Math.round(r.width*dpr),nh=Math.round(r.height*dpr);
+      if(canvas.width!==nw||canvas.height!==nh){
+        var prev=dirty?canvas.toDataURL():null;
+        canvas.width=nw;canvas.height=nh;ctx.setTransform(dpr,0,0,dpr,0,0);style();
+        if(prev){var im=new Image();im.onload=function(){ctx.drawImage(im,0,0,r.width,r.height);};im.src=prev;}
+      }
+      if(pending){var u=pending;pending=null;drawFit(u);}
+    }
+    if('ResizeObserver'in window){try{new ResizeObserver(fit).observe(canvas);}catch(e){}}
+    window.addEventListener('resize',fit);
+    function pos(e){var r=canvas.getBoundingClientRect();return {x:e.clientX-r.left,y:e.clientY-r.top};}
+    canvas.addEventListener('pointerdown',function(e){fit();drawing=true;dirty=true;last=pos(e);try{canvas.setPointerCapture(e.pointerId);}catch(_){}e.preventDefault();});
+    canvas.addEventListener('pointermove',function(e){if(!drawing)return;var p=pos(e);ctx.beginPath();ctx.moveTo(last.x,last.y);ctx.lineTo(p.x,p.y);ctx.stroke();last=p;e.preventDefault();});
+    function end(){if(drawing){drawing=false;onChange&&onChange();}}
+    canvas.addEventListener('pointerup',end);canvas.addEventListener('pointercancel',end);
+    style();
+    return {clear:function(){ctx.save();ctx.setTransform(1,0,0,1,0,0);ctx.clearRect(0,0,canvas.width,canvas.height);ctx.restore();pending=null;dirty=false;onChange&&onChange();},
+      isEmpty:function(){return !dirty;},dataURL:function(){return canvas.toDataURL('image/png');},dims:function(){return {w:canvas.width,h:canvas.height};},fit:fit,
+      setImage:function(url){var r=canvas.getBoundingClientRect(); if(r.width<2){pending=url;return;} drawFit(url);}};
+  }
+  var CARRIER_KEY='cmj_carrier_sig';
+  function updateSavedMsg(){var el=$('l_sig_agent_saved');if(!el)return;var has=false;try{has=!!localStorage.getItem(CARRIER_KEY);}catch(e){}el.textContent=has?'✓ Carrier signature saved on this device — reused next time':'';}
+  function saveCarrier(){try{if(!agentPad.isEmpty())localStorage.setItem(CARRIER_KEY,agentPad.dataURL());else localStorage.removeItem(CARRIER_KEY);}catch(e){}updateSavedMsg();}
+  agentPad=makePad($('l_sig_agent'),function(){saveCarrier();render();});
+  ownerPad=makePad($('l_sig_owner'),render);
+  function bindUpload(btnId,fileId,pad){
+    $(btnId).onclick=function(){$(fileId).click();};
+    $(fileId).onchange=function(e){var f=e.target.files[0];if(!f)return;if(!/^image\//.test(f.type)){$('l_msg').style.color='var(--red)';$('l_msg').textContent='Please choose an image file (PNG or JPG).';return;}var rd=new FileReader();rd.onload=function(){pad.setImage(rd.result);};rd.readAsDataURL(f);e.target.value='';};
+  }
+  bindUpload('l_sig_agent_up','l_sig_agent_file',agentPad);
+  bindUpload('l_sig_owner_up','l_sig_owner_file',ownerPad);
+  $('l_sig_agent_clr').onclick=function(){agentPad.clear();};
+  $('l_sig_owner_clr').onclick=function(){ownerPad.clear();};
+  (function(){var s=null;try{s=localStorage.getItem(CARRIER_KEY);}catch(e){}if(s)agentPad.setImage(s);updateSavedMsg();})();
+  var leaseNav=document.querySelector('#nav a[data-for="lease"]');
+  if(leaseNav)leaseNav.addEventListener('click',function(){setTimeout(function(){agentPad.fit();ownerPad.fit();},70);});
+
+  $('l_gen').onclick=function(){
+    if(!window.jspdf||!window.jspdf.jsPDF){$('l_msg').style.color='var(--red)';$('l_msg').textContent='PDF engine still loading — give it a second and try again.';return;}
+    var d=data(),t=getTpl();
+    var doc=new window.jspdf.jsPDF({unit:'pt',format:'letter'});
+    var Wp=612,M=64,TW=Wp-2*M,cx=Wp/2,y=72,FS=t.size,LH=Math.round(t.size*1.36);
+    doc.setDrawColor(20,20,20);
+    function br(g){y+=(g||t.gap);if(y>752){doc.addPage();y=72;}}
+    function hdr(txt,sz,bold){doc.setFont(t.font,bold?'bold':'normal');doc.setFontSize(sz);if(t.align==='center')doc.text(txt,cx,y,{align:'center'});else doc.text(txt,M,y);br(sz+3);}
+    function para(txt){doc.setFont(t.font,'normal');doc.setFontSize(FS);var ls=doc.splitTextToSize(txt,TW);ls.forEach(function(l){if(y>752){doc.addPage();y=72;}doc.text(l,M,y);y+=LH;});br(6);}
+    hdr(d.carrier,FS+2.5,true); if(d.caddr)hdr(d.caddr,FS+0.5,false); if(d.ccity)hdr(d.ccity,FS+0.5,false);
+    br(t.align==='center'?10:8);
+    doc.setFont(t.font,'bold');doc.setFontSize(FS+2);
+    var ctr=t.align==='center';
+    doc.text(t.title,ctr?cx:M,y,ctr?{align:'center'}:undefined);
+    var tw=doc.getTextWidth(t.title);
+    if(t.decor==='underline'){var u0=ctr?cx-tw/2:M,u1=ctr?cx+tw/2:M+tw;doc.setLineWidth(.7);doc.line(u0,y+2.5,u1,y+2.5);}
+    if(t.decor==='box'){var bx=ctr?cx-tw/2-8:M-8;doc.setLineWidth(.7);doc.rect(bx,y-FS-1,tw+16,FS+9);}
+    br(FS+7);
+    if(t.decor==='rule'){doc.setLineWidth(.6);doc.line(M,y-8,Wp-M,y-8);br(4);}
+    if(t.decor==='ruleLeft'){doc.setLineWidth(1.4);doc.setDrawColor(180,83,10);doc.line(M,y-10,M+110,y-10);doc.setDrawColor(20,20,20);br(4);}
+    doc.setFont(t.font,'normal');doc.setFontSize(FS);
+    t.idfn(d).forEach(function(l){doc.text(l,M,y);br(FS+1);});
+    br(10);
+    t.paras(d).forEach(function(p,i){para((t.numbered?(i+1)+'. ':'')+p);});
+    br(2);doc.setFont(t.font,'bold');doc.setFontSize(FS);doc.text(t.equip,M,y);br(FS+2);
+    doc.setFont(t.font,'normal');
+    if(d.units.length)d.units.forEach(function(u,i){doc.text((i+1)+'. '+((u.y+' '+u.m).trim())+'  VIN# '+u.v,M,y);br(FS+2);});
+    else{doc.text('1. ____________________  VIN# ____________________',M,y);br(FS+2);}
+    br(10);
+    para(t.term(d));
+    br(34);
+    if(y>620){doc.addPage();y=110;}
+    function place(pad,x,ly){if(!pad||pad.isEmpty())return;try{var dm=pad.dims(),ra=dm.h/dm.w,w=190,hh=w*ra;if(hh>50){hh=50;w=hh/ra;}if(w>205){w=205;hh=w*ra;}doc.addImage(pad.dataURL(),'PNG',x,ly-hh-1,w,hh);}catch(e){}}
+    if(t.sig==='stacked'){
+      doc.setFont(t.font,'normal');doc.setFontSize(FS);
+      doc.text(d.carrier,M,y);doc.text(d.agent,M,y+15);
+      var ly1=y+66;place(agentPad,M,ly1);doc.setLineWidth(.7);doc.line(M,ly1,M+230,ly1);
+      doc.setFontSize(9);doc.text('Signature of Carrier’s authorized agent',M,ly1+14);
+      y=ly1+52;if(y>700){doc.addPage();y=100;}
+      doc.setFontSize(FS);doc.text(d.owner,M,y);
+      var ly2=y+56;place(ownerPad,M,ly2);doc.setLineWidth(.7);doc.line(M,ly2,M+230,ly2);
+      doc.setFontSize(9);doc.text('Signature of Independent contractor',M,ly2+14);
+    }else{
+      var lx=M,rx=cx+18,sy=y;
+      doc.setFont(t.font,'normal');doc.setFontSize(FS);
+      doc.text(d.carrier,lx,sy);doc.text(d.owner,rx,sy);doc.text(d.agent,lx,sy+15);
+      var ly=sy+66;place(agentPad,lx,ly);place(ownerPad,rx,ly);
+      doc.setLineWidth(.7);doc.line(lx,ly,lx+205,ly);doc.line(rx,ly,rx+205,ly);
+      doc.setFontSize(9);doc.text('Signature of Carrier’s authorized agent',lx,ly+14);doc.text('Signature of Independent contractor',rx,ly+14);
+    }
+    var name=(d.owner||'Owner').replace(/[^A-Za-z0-9 ]/g,'').trim()||'Owner';
+    doc.save('Lease Agreement - '+name+'.pdf');
+    $('l_msg').style.color='var(--green)';$('l_msg').textContent='Generated "Lease Agreement - '+name+'.pdf" — '+t.name.replace(/^[0-9]+ · /,'')+' style.';
+  };
+  $('l_clear').onclick=function(){
+    ['l_owner','l_addr'].forEach(function(id){$(id).value='';});
+    [].slice.call(units.querySelectorAll('.unit')).forEach(function(r,i){if(i>0)r.remove();else r.querySelectorAll('input').forEach(function(x){x.value='';});});
+    if(ownerPad)ownerPad.clear();
+    $('l_msg').style.color='var(--ink-mute)';$('l_msg').textContent='Cleared. Carrier signature kept for the next lease.'; render();
+  };
+})();
+</script>
+<script>
+/* ---- UI enhancements: theme, template prev/next, zoom, stepper ---- */
+(function(){
+  var LS={g:function(k,d){try{var v=localStorage.getItem(k);return v==null?d:v;}catch(e){return d;}},s:function(k,v){try{localStorage.setItem(k,v);}catch(e){}}};
+  var darkBtn=document.getElementById('darkBtn');
+  function theme(t){document.documentElement.setAttribute('data-theme',t);darkBtn.textContent=t==='dark'?'☀️ Light':'🌙 Dark';LS.s('cmj_lease_theme',t);}
+  theme(LS.g('cmj_lease_theme','light'));
+  darkBtn.onclick=function(){theme(document.documentElement.getAttribute('data-theme')==='dark'?'light':'dark');};
+
+  var sel=document.getElementById('l_tpl');
+  if(sel){
+    var pv=document.getElementById('tpl_prev'),nx=document.getElementById('tpl_next'),desc=document.getElementById('tpl_desc'),cnt=document.getElementById('tpl_count');
+    function upd(){var i=sel.selectedIndex,n=sel.options.length;if(i<0)i=0;var txt=sel.options[i]?sel.options[i].textContent:'';desc.textContent=txt.replace(/^[0-9]+ · /,'');cnt.textContent='Style '+(i+1)+' of '+n;pv.disabled=i<=0;nx.disabled=i>=n-1;}
+    function go(d){var i=sel.selectedIndex+d,n=sel.options.length;if(i<0)i=0;if(i>n-1)i=n-1;sel.selectedIndex=i;sel.dispatchEvent(new Event('change'));upd();}
+    pv.onclick=function(){go(-1);};nx.onclick=function(){go(1);};
+    sel.addEventListener('change',upd);upd();
+  }
+
+  var prev=document.getElementById('l_prev'),z=100,zl=document.getElementById('zlabel');
+  function applyZoom(){prev.style.transform='scale('+(z/100)+')';zl.textContent=z+'%';}
+  document.getElementById('zin').onclick=function(){z=Math.min(160,z+10);applyZoom();};
+  document.getElementById('zout').onclick=function(){z=Math.max(50,z-10);applyZoom();};
+
+  var steps=[].slice.call(document.querySelectorAll('.step'));
+  function setStep(n){steps.forEach(function(s){s.classList.toggle('on',+s.getAttribute('data-step')<=n);});}
+  steps.forEach(function(s){s.onclick=function(){var n=+s.getAttribute('data-step');if(n===3){var g=document.getElementById('l_gen');if(g)g.click();}else if(n===2){document.querySelector('.previewwrap').scrollIntoView({behavior:'smooth',block:'start'});}setStep(n);};});
+
+  var gen=document.getElementById('l_gen');
+  if(gen)gen.addEventListener('click',function(){setStep(3);var c=document.getElementById('savedChip');if(c){c.textContent='✓ Generated';}});
+})();
+</script>
+</body>
+</html>

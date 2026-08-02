@@ -843,61 +843,10 @@ ul.dash li:before{content:"—";position:absolute;left:0;color:var(--accent)}
 <section class="blk" id="lease" data-title="Lease Agreement" data-grp="Documents">
   <div class="kick">Document generator</div>
   <h2 class="title">Lease Agreement</h2>
-  <p class="lede">Fill in the equipment-owner and truck details, check the live preview on the right, then download a ready-to-sign PDF. The carrier letterhead is pre-filled and editable.</p>
-  <div class="leasewrap">
-    <div class="card form">
-      <label style="margin-top:0">Template style — pick a look (same content, different wording &amp; layout)</label>
-      <select id="l_tpl"></select>
-      <h4>Owner / contractor</h4>
-      <div class="grid g2">
-        <div><label>Owner — full name</label><input id="l_owner" placeholder="e.g. SAMPSON TYMEN R"></div>
-        <div><label>Agreement date</label><input id="l_date" type="date"></div>
-      </div>
-      <label>Owner address</label><input id="l_addr" placeholder="e.g. 1255 MAGIE AVE STE 255 UNION, NJ 07083">
-
-      <h4>Equipment units</h4>
-      <div id="l_units"></div>
-      <button class="btn" id="l_add" type="button">+ Add another unit</button>
-
-      <h4>Terms &amp; signature</h4>
-      <div class="grid g2">
-        <div><label>Agreement term</label><input id="l_term" value="five years"></div>
-        <div><label>Notice to terminate</label><input id="l_notice" value="fifteen days"></div>
-      </div>
-      <label>Carrier's agent (signs for carrier)</label><input id="l_agent" value="DAMION WHITE">
-
-      <h4>Sign on the page</h4>
-      <label>Carrier's authorized agent — draw or upload a signature</label>
-      <canvas id="l_sig_agent" class="sigpad" aria-label="Carrier agent signature pad"></canvas>
-      <div class="sigpad-row"><span class="sigpad-hint">✍ Draw here, or</span><span style="margin-left:auto;display:flex;gap:14px"><button type="button" class="link-btn" id="l_sig_agent_up">⬆ Upload image</button><button type="button" class="link-btn" id="l_sig_agent_clr">Clear</button></span></div>
-      <input type="file" id="l_sig_agent_file" accept="image/*" style="display:none">
-      <div id="l_sig_agent_saved" style="font-size:11px;color:var(--green);margin-top:3px"></div>
-      <label style="margin-top:12px">Independent contractor — draw or upload a signature</label>
-      <canvas id="l_sig_owner" class="sigpad" aria-label="Contractor signature pad"></canvas>
-      <div class="sigpad-row"><span class="sigpad-hint">✍ Draw here, or</span><span style="margin-left:auto;display:flex;gap:14px"><button type="button" class="link-btn" id="l_sig_owner_up">⬆ Upload image</button><button type="button" class="link-btn" id="l_sig_owner_clr">Clear</button></span></div>
-      <input type="file" id="l_sig_owner_file" accept="image/*" style="display:none">
-
-      <details style="margin-top:14px"><summary style="cursor:pointer;font-size:12.5px;font-weight:600;color:var(--ink-soft)">Carrier letterhead (pre-filled — tap to edit)</summary>
-        <div class="grid g2" style="margin-top:10px">
-          <div><label>Carrier name</label><input id="l_carrier" value="AMEYA INVESTMENTS LLC"></div>
-          <div><label>Carrier street</label><input id="l_caddr" value="1098 OAKLAND DR"></div>
-          <div><label>City, State ZIP</label><input id="l_ccity" value="ATLANTA, GA 30310"></div>
-          <div><label>MC #</label><input id="l_mc" value="1587938"></div>
-          <div><label>DOT #</label><input id="l_dot" value="4141377"></div>
-        </div>
-      </details>
-
-      <div style="margin-top:16px;display:flex;gap:10px;flex-wrap:wrap">
-        <button class="btn" id="l_gen" style="background:var(--accent);color:#fff;border-color:var(--accent)">⬇ Generate PDF</button>
-        <button class="btn" id="l_clear" type="button">Clear</button>
-      </div>
-      <div id="l_msg" style="font-size:12px;color:var(--green);margin-top:9px;min-height:16px"></div>
-    </div>
-
-    <div>
-      <h4 style="margin:0 0 8px;font-size:13px;text-transform:uppercase;letter-spacing:.06em;color:var(--ink-soft)">Live preview</h4>
-      <div class="leasedoc" id="l_prev"></div>
-    </div>
+  <p class="lede">The lease builder now has its own full-screen page — choose from 15 template styles (different wording &amp; layout, same legal content), fill in the details, sign on the page (draw or upload), and download a ready-to-sign PDF.</p>
+  <div class="card" style="text-align:center;padding:28px">
+    <p style="margin:0 0 16px;color:var(--ink-mute)">Open the redesigned Lease Builder to create and download a lease.</p>
+    <a class="btn" href="/lease" style="background:var(--accent);color:#fff;border-color:var(--accent);padding:12px 24px;font-size:15px;display:inline-flex">📄 Open the Lease Builder &rarr;</a>
   </div>
 </section>
 
