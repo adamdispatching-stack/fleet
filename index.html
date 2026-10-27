@@ -4225,6 +4225,7 @@ h3{margin-top:60px}
   <a class="tg" href="/recruiting" style="background:var(--accent-soft);border-color:#f0d3b6;color:var(--accent-deep)">📋 Recruiter Playbook</a>
   <a class="tg" href="/onboarding" style="background:var(--accent-soft);border-color:#f0d3b6;color:var(--accent-deep)">✅ Onboarding SOP</a>
   <a class="tg" href="/shops" style="background:var(--accent-soft);border-color:#f0d3b6;color:var(--accent-deep)">🔧 Shops Directory</a>
+  <a class="tg" href="/model" style="background:var(--accent-soft);border-color:#f0d3b6;color:var(--accent-deep)">🚛 3D Truck Model</a>
   <a class="tg" href="https://t.me/adam_cooper" target="_blank" rel="noopener">✈ Reach us on Telegram — @adam_cooper</a>
   </div>
 </footer>
@@ -5500,6 +5501,7 @@ window.renderDash=function(){
    +'<div class="daction" onclick="go(\'troubleshoot\')"><span class="di">🔧</span><b>A truck is down</b><span>Jump straight to the Troubleshooter — pick a symptom, get a diagnosis.</span></div>'
    +'<div class="daction" onclick="go(\'quiz\')"><span class="di">✏️</span><b>Test yourself</b><span>'+(best!=null?'Your best: '+best+'%. Beat it.':'Take a quick 10-question quiz.')+'</span></div>'
    +'<div class="daction" onclick="go(\'start\')"><span class="di">📚</span><b>Browse the course</b><span>All '+total+' chapters, from shop safety to advanced diagnostics.</span></div>'
+   +'<div class="daction" onclick="location.href=\'/model\'"><span class="di">🚛</span><b>See it in 3D</b><span>Spin a full sleeper tractor — x-ray the body, open brake &amp; differential cutaways, click any part.</span></div>'
    +'</div>'
    +(nDone<total?'<div class="dsug"><span>📌</span><div><b>Suggested next:</b> '+nextName+' — the next chapter you haven\'t marked as learned.</div><button onclick="go(\''+nextId+'\')">Open →</button></div>':'<div class="dsug"><span>🎓</span><div><b>All chapters learned.</b> Pass the full exam at 85%+ to earn your certificate.</div><button onclick="go(\'quiz\')">Final exam →</button></div>');
   box.querySelectorAll('.count').forEach(el=>countUp(el,parseInt(el.dataset.to)));
